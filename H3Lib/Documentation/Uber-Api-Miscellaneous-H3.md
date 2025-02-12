@@ -5,7 +5,7 @@ These functions include descriptions of the H3 grid system.
 ## DegsToRads
 
 ```c#
-decimal Api.DegsToRads(decimal degrees)
+double Api.DegsToRads(double degrees)
 ```
 
 ### DegsToRads Summary
@@ -16,12 +16,12 @@ Converts degrees to radians.
 
 | Name | Type | Description |
 |------|------|-------------|
-|degrees|decimal|Degree to change to radians|
+|degrees|double|Degree to change to radians|
 
 ## RadsToDegs
 
 ```c#
-decimal Api.RadsToDegs(decimal radians)
+double Api.RadsToDegs(double radians)
 ```
 
 ### RadsToDegs Summary
@@ -32,12 +32,12 @@ Converts radians to degrees.
 
 | Name | Type | Description |
 |------|------|-------------|
-|radians|decimal|Radians to change to degrees|
+|radians|double|Radians to change to degrees|
 
 ## HexAreaKm2
 
 ```c#
-decimal Api.HexAreaKm2(int r)
+double Api.HexAreaKm2(int r)
 ```
 
 ### HexAreaKm2 Summary
@@ -53,7 +53,7 @@ Average hexagon area in square kilometers at the given resolution.
 ## HexAreaM2
 
 ```c#
-decimal Api.HexAreaM2(int r)
+double Api.HexAreaM2(int r)
 ```
 
 ### HexAreaM2 Summary
@@ -69,7 +69,7 @@ Average hexagon area in square meters at the given resolution.
 ## CellAreaKm2
 
 ```c#
-decimal Api.CellAreaKm2(H3Index h)
+double Api.CellAreaKm2(H3Index h)
 ```
 
 ### CellAreaKm2 Summary
@@ -85,7 +85,7 @@ Exact area of specific cell in square kilometers.
 ## CellAreaM2
 
 ```c#
-decimal Api.CellAreaM2(H3Index h)
+double Api.CellAreaM2(H3Index h)
 ```
 
 ### CellAreaM2 Summary
@@ -101,7 +101,7 @@ Exact area of specific cell in square meters.
 ## CellAreaRads2
 
 ```c#
-decimal Api.CellAreaRads2(H3Index h)
+double Api.CellAreaRads2(H3Index h)
 ```
 
 ### CellAreaRads2 Summary
@@ -117,7 +117,7 @@ Exact area of specific cell in square radians.
 ## EdgeLengthKm
 
 ```c#
-decimal Api.EdgeLengthKm(int r)
+double Api.EdgeLengthKm(int r)
 ```
 
 ### EdgeLengthKm Summary
@@ -133,7 +133,7 @@ Average hexagon edge length in kilometers at the given resolution.
 ## EdgeLengthM
 
 ```c#
-decimal Api.EdgeLengthM(int r)
+double Api.EdgeLengthM(int r)
 ```
 
 ### EdgeLengthM Summary
@@ -149,7 +149,7 @@ Average hexagon edge length in meters at the given resolution.
 ## ExactEdgeLengthKm
 
 ```c#
-decimal Api.ExactEdgeLengthKm(H3Index edge)
+double Api.ExactEdgeLengthKm(H3Index edge)
 ```
 
 ### ExactEdgeLengthKm Summary
@@ -165,7 +165,7 @@ Exact edge length of specific unidirectional edge in kilometers.
 ## ExactEdgeLengthM
 
 ```c#
-decimal Api.ExactEdgeLengthM(H3Index edge)
+double Api.ExactEdgeLengthM(H3Index edge)
 ```
 
 ### ExactEdgeLengthM Summary
@@ -181,7 +181,7 @@ Exact edge length of specific unidirectional edge in meters.
 ## ExactEdgeLengthRads
 
 ```c#
-decimal Api.ExactEdgeLengthRads(H3Index edge)
+double Api.ExactEdgeLengthRads(H3Index edge)
 ```
 
 ### ExactEdgeLengthRads Summary
@@ -266,7 +266,7 @@ Number of pentagon H3 indexes per resolution. This is always 12, but provided as
 ## PointDistKm
 
 ```c#
-decimal Api.PointDistKm(GeoCoord a, GeoCoord b)
+double Api.PointDistKm(GeoCoord a, GeoCoord b)
 ```
 
 ### PointDistKm Summary
@@ -283,7 +283,7 @@ Gives the "great circle" or "haversine" distance between pairs of GeoCoord point
 ## PointDistM
 
 ```c#
-decimal Api.PointDistM(GeoCoord a, GeoCoord b)
+double Api.PointDistM(GeoCoord a, GeoCoord b)
 ```
 
 ### PointDistM Summary
@@ -300,7 +300,7 @@ Gives the "great circle" or "haversine" distance between pairs of GeoCoord point
 ## PointDistRads
 
 ```c#
-decimal Api.PointDistRads(GeoCoord a, GeoCoord b)
+double Api.PointDistRads(GeoCoord a, GeoCoord b)
 ```
 
 ### PointDistRads Summary

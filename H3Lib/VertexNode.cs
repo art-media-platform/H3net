@@ -6,7 +6,7 @@ namespace H3Lib
     /// <summary>
     /// A single node in a vertex graph, part of a linked list
     /// </summary>
-    [DebuggerDisplay("From: {From} => To: {To}")]
+    [DebuggerDisplay("From: {Fro} => To: {To}")]
     public readonly struct VertexNode : IEquatable<VertexNode>
     {
         /// <summary>

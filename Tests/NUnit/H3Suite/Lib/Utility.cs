@@ -74,13 +74,13 @@ namespace TestSuite.Lib
             return resCells.Where(c => c.Value != 0).ToList();
         }
         
-        public static decimal mapSumAllCells_double(int res, Func<H3Index, decimal> callback)
+        public static double mapSumAllCells_double(int res, Func<H3Index, double> callback)
         {
             var cells = GetCellsAtRes(res);
 
             long N = res.NumHexagons();
 
-            decimal total = 0.0m;
+            double total = 0.0;
             for (int i = 0; i < N; i++)
             {
                 total += callback(cells[i]);

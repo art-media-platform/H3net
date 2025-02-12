@@ -7,14 +7,14 @@ where the results will be placed.
 
 Additionally, something I discovered is that Microsoft basically took a
 shortcut in their trigonometric functions that are still accurate to many
-decimal points, but not enough.  As such, this required a retool to use
-decimal data types and an external library to maintain that accuracy for
+double points, but not enough.  As such, this required a retool to use
+double data types and an external library to maintain that accuracy for
 trig operations.
 
-All your non-integer values, as such, will be in the decimal data type.
+All your non-integer values, as such, will be in the double data type.
 I'd recommend performing your H3 operations sequentially, then if you have
 need of the final result in another type, do your cast then.  Interim casts
-then recast back to decimal are not guaranteed to maintain correctness.
+then recast back to double are not guaranteed to maintain correctness.
 
 ## Contents
 [Indexing functions](Uber-Api-Indexing.md) - These functions are used for

@@ -84,7 +84,7 @@ namespace H3Lib.Extensions
             int i = h.I - h.K;
             int j = h.J - h.K;
 
-            return new Vec2d(i - 0.5m * j, j * Constants.H3.M_SQRT3_2);
+            return new Vec2d(i - 0.5 * j, j * Constants.H3.M_SQRT3_2);
         }
 
         /// <summary>
@@ -164,11 +164,11 @@ namespace H3Lib.Extensions
             int i = ijk.I - ijk.K;
             int j = ijk.J - ijk.K;
             
-            var dividendI = (decimal)(3 * i - j);
-            var newI = (int) Math.Round(dividendI / 7.0m, MidpointRounding.AwayFromZero);
+            var dividendI = (double)(3 * i - j);
+            var newI = (int) Math.Round(dividendI / 7.0, MidpointRounding.AwayFromZero);
             
-            var dividendJ = (decimal)(i + 2 * j);
-            var newJ = (int) Math.Round(dividendJ / 7.0m, MidpointRounding.AwayFromZero);
+            var dividendJ = (double)(i + 2 * j);
+            var newJ = (int) Math.Round(dividendJ / 7.0, MidpointRounding.AwayFromZero);
 
             return new CoordIjk(newI, newJ, 0).Normalized();
         }
@@ -259,7 +259,7 @@ namespace H3Lib.Extensions
         /// coordijk.c
         /// void _ijkRotate60ccw
         /// -->
-        internal static CoordIjk Rotate60CounterClockwise(this CoordIjk ijk)
+        internal static CoordIjk RotateCCW(this CoordIjk ijk)
         {
             // unit vector rotations
             var iVec = new CoordIjk(1, 1, 0) * ijk.I;
@@ -277,7 +277,7 @@ namespace H3Lib.Extensions
         /// coordijk.c
         /// void _ijkRotate60cw
         /// -->
-        internal static CoordIjk Rotate60Clockwise(this CoordIjk ijk)
+        internal static CoordIjk RotateCW(this CoordIjk ijk)
         {
             // unit vector rotations
             var iVec = new CoordIjk(1, 0, 1) * ijk.I;
@@ -499,7 +499,7 @@ namespace H3Lib.Extensions
                         Constants.LocalIJ.PENTAGON_ROTATIONS_REVERSE[(int)originLeadingDigit, (int)dir2];
                     for (var i = 0; i < pentagonRotations; i++)
                     {
-                        dir2 = dir2.Rotate60CounterClockwise();
+                        dir2 = dir2.RotateCCW();
                     }
 
                     // The pentagon rotations are being chosen so that dir is not the
@@ -527,7 +527,7 @@ namespace H3Lib.Extensions
                 // Now we can determine the relation between the origin and target base
                 // cell.
                 int baseCellRotations =
-                    Constants.BaseCells.BaseCellNeighbor60CounterClockwiseRotation[originBaseCell, (int) dir2];
+                    Constants.BaseCells.BaseCellNeighborCCW[originBaseCell, (int) dir2];
                 if (baseCellRotations < 0)
                 {
                     throw new Exception("assert(baseCellRotations >= 0)");
@@ -550,7 +550,7 @@ namespace H3Lib.Extensions
                     // based on the leading digit in the pentagon's coordinate system.
                     for (var i = 0; i < baseCellRotations; i++)
                     {
-                        outH3 = outH3.Rotate60CounterClockwise();
+                        outH3 = outH3.RotateCCW();
                     }
 
                     var indexLeadingDigit = outH3.LeadingNonZeroDigit;
@@ -566,7 +566,7 @@ namespace H3Lib.Extensions
 
                     for (int i = 0; i < pentagonRotations; i++)
                     {
-                        outH3 = outH3.RotatePent60CounterClockwise();
+                        outH3 = outH3.RotatePentCCW();
                     }
                 }
                 else
@@ -578,13 +578,13 @@ namespace H3Lib.Extensions
 
                     for (var i = 0; i < pentagonRotations; i++)
                     {
-                        outH3 = outH3.Rotate60CounterClockwise();
+                        outH3 = outH3.RotateCCW();
                     }
 
                     // Adjust for the different coordinate space in the two base cells.
                     for (var i = 0; i < baseCellRotations; i++)
                     {
-                        outH3 = outH3.Rotate60CounterClockwise();
+                        outH3 = outH3.RotateCCW();
                         
                     }
                 }
@@ -603,7 +603,7 @@ namespace H3Lib.Extensions
 
                 for (var i = 0; i < withinPentagonRotations; i++)
                 {
-                    outH3 = outH3.Rotate60CounterClockwise();
+                    outH3 = outH3.RotateCCW();
                 }
             }
 

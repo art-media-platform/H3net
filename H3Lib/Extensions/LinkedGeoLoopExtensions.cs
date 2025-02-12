@@ -27,8 +27,8 @@ namespace H3Lib.Extensions
             bool isTransmeridian = box.IsTransmeridian;
             var contains = false;
 
-            decimal targetLatitude = coord.Latitude;
-            decimal targetLongitude = coord.Longitude.NormalizeLongitude(isTransmeridian);
+            double targetLatitude = coord.Latitude;
+            double targetLongitude = coord.Longitude.NormalizeLongitude(isTransmeridian);
 
             var nodes = loop.Nodes;
             for (int idx = 0; idx < nodes.Count; idx++)
@@ -52,8 +52,8 @@ namespace H3Lib.Extensions
                     continue;
                 }
 
-                decimal aLng = a.Longitude.NormalizeLongitude(isTransmeridian);
-                decimal bLng = b.Longitude.NormalizeLongitude(isTransmeridian);
+                double aLng = a.Longitude.NormalizeLongitude(isTransmeridian);
+                double bLng = b.Longitude.NormalizeLongitude(isTransmeridian);
 
                 // Rays are cast in the longitudinal direction, in case a point
                 // exactly matches, to decide tiebreakers, bias westerly
@@ -68,8 +68,8 @@ namespace H3Lib.Extensions
                 // This is done by computing the percent above a the lat is,
                 // and traversing the same percent in the longitudinal direction
                 // of a to b
-                decimal ratio = (targetLatitude - a.Latitude ) / (b.Latitude  - a.Latitude);
-                decimal testLng =
+                double ratio = (targetLatitude - a.Latitude ) / (b.Latitude  - a.Latitude);
+                double testLng =
                     (aLng + (bLng - aLng) * ratio).NormalizeLongitude(isTransmeridian);
 
                 // Intersection of the ray
@@ -94,13 +94,13 @@ namespace H3Lib.Extensions
                 return new BBox();
             }
 
-            var box = new BBox(-decimal.MaxValue, decimal.MaxValue, -decimal.MaxValue, decimal.MaxValue);
-            decimal minPosLon = decimal.MaxValue;
-            decimal maxNegLon = -decimal.MaxValue;
+            var box = new BBox(-double.MaxValue, double.MaxValue, -double.MaxValue, double.MaxValue);
+            double minPosLon = double.MaxValue;
+            double maxNegLon = -double.MaxValue;
             bool isTransmeridian = false;
 
-            decimal lat;
-            decimal lon;
+            double lat;
+            double lon;
 
             var nodes = loop.Nodes;
             for (int idx = 0; idx < nodes.Count; idx++)
@@ -162,7 +162,7 @@ namespace H3Lib.Extensions
         /// <returns></returns>
         private static bool IsClockwiseNormalized(this LinkedGeoLoop loop, bool isTransmeridian)
         {
-            var sum = 0m;
+            double sum = 0;
 
             var nodes = loop.Nodes;
             for (var idx = 0; idx < nodes.Count; idx++)

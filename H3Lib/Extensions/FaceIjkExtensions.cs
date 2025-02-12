@@ -88,7 +88,7 @@ namespace H3Lib.Extensions
                             var origin = new CoordIjk(maxDim, 0, 0);
                             var tmp = ijk - origin;
                             // rotate to adjust for the missing sequence
-                            tmp = tmp.Rotate60Clockwise();
+                            tmp = tmp.RotateCW();
                             // translate the origin back to the center of the triangle
                             ijk = tmp + origin;
                         }
@@ -104,7 +104,7 @@ namespace H3Lib.Extensions
                 // rotate and translate for adjacent face
                 for (int i = 0; i < fijkOrient.Ccw60Rotations; i++)
                 {
-                    ijk = ijk.Rotate60CounterClockwise();
+                    ijk = ijk.RotateCCW();
                 }
 
                 var transVec = fijkOrient.Translate;
@@ -398,20 +398,20 @@ namespace H3Lib.Extensions
                 {
                     // check for a cw/ccw offset face; default is ccw
                     h = baseCell.IsClockwiseOffset(fijkBc.Face)
-                            ? h.Rotate60Clockwise()
-                            : h.Rotate60CounterClockwise();
+                            ? h.RotateCW()
+                            : h.RotateCCW();
                 }
 
                 for (var i = 0; i < numRots; i++)
                 {
-                    h = h.RotatePent60CounterClockwise();
+                    h = h.RotatePentCCW();
                 }
             }
             else
             {
                 for (int i = 0; i < numRots; i++)
                 {
-                    h = h.Rotate60CounterClockwise();
+                    h = h.RotateCCW();
                 }
             }
 
@@ -422,7 +422,7 @@ namespace H3Lib.Extensions
         /// Find base cell given FaceIJK.
         ///
         /// Given the face number and a resolution 0 ijk+ coordinate in that face's
-        /// face-centered ijk coordinate system, return the base cell located at that
+        /// face-centered ijk coordinate syste, return the base cell located at that
         /// coordinate.
         ///
         /// Valid ijk+ lookup coordinates are from (0, 0, 0) to (2, 2, 2).
@@ -442,7 +442,7 @@ namespace H3Lib.Extensions
         /// Find base cell given FaceIJK.
         ///
         /// Given the face number and a resolution 0 ijk+ coordinate in that face's
-        /// face-centered ijk coordinate system, return the number of 60' ccw rotations
+        /// face-centered ijk coordinate syste, return the number of 60' ccw rotations
         /// to rotate into the coordinate system of the base cell at that coordinates.
         ///
         /// Valid ijk+ lookup coordinates are from (0, 0, 0) to (2, 2, 2).
@@ -538,9 +538,9 @@ namespace H3Lib.Extensions
 
                     // find the appropriate icosahedron face edge vertexes
                     int maxDim = Constants.FaceIjk.MaxDimByCiiRes[adjRes];
-                    var v0 = new Vec2d(3.0m * maxDim, 0.0m);
-                    var v1 = new Vec2d(-1.5m * maxDim, 3.0m * Constants.H3.M_SQRT3_2 * maxDim);
-                    var v2 = new Vec2d(-1.5m * maxDim, -3.0m * Constants.H3.M_SQRT3_2 * maxDim);
+                    var v0 = new Vec2d(+3.0 * maxDim, 0.0);
+                    var v1 = new Vec2d(-1.5 * maxDim,  3.0 * Constants.H3.M_SQRT3_2 * maxDim);
+                    var v2 = new Vec2d(-1.5 * maxDim, -3.0 * Constants.H3.M_SQRT3_2 * maxDim);
 
                     int face2 = lastFace == centerIjk.Face
                                     ? fijk.Face
@@ -660,7 +660,7 @@ namespace H3Lib.Extensions
                     // rotate and translate for adjacent face
                     for (var i = 0; i < fijkOrient.Ccw60Rotations; i++)
                     {
-                        ijk = ijk.Rotate60CounterClockwise();
+                        ijk = ijk.RotateCCW();
                     }
 
                     var transVec = fijkOrient.Translate;
@@ -673,9 +673,9 @@ namespace H3Lib.Extensions
 
                     // find the appropriate icosahedron face edge vertexes
                     int maxDim = Constants.FaceIjk.MaxDimByCiiRes[adjRes];
-                    var v0 = new Vec2d(3.0m * maxDim, 0.0m);
-                    var v1 = new Vec2d(-1.5m * maxDim, 3.0m * Constants.H3.M_SQRT3_2 * maxDim);
-                    var v2 = new Vec2d(-1.5m * maxDim, -3.0m *Constants. H3.M_SQRT3_2 * maxDim);
+                    var v0 = new Vec2d(+3.0 * maxDim, 0.0);
+                    var v1 = new Vec2d(-1.5 * maxDim,  3.0 * Constants.H3.M_SQRT3_2 * maxDim);
+                    var v2 = new Vec2d(-1.5 * maxDim, -3.0 *Constants. H3.M_SQRT3_2 * maxDim);
 
                     Vec2d edge0;
                     Vec2d edge1;

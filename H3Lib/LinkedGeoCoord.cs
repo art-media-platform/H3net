@@ -16,11 +16,11 @@ namespace H3Lib
         /// <summary>
         /// Latitude of vertex
         /// </summary>
-        public decimal Latitude => _gc.Latitude;
+        public double Latitude => _gc.Latitude;
         /// <summary>
         /// longitude of vertex
         /// </summary>
-        public decimal Longitude => _gc.Longitude;
+        public double Longitude => _gc.Longitude;
 
         /// <summary>
         /// Return the actual vertex, read only

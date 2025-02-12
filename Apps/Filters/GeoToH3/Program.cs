@@ -30,7 +30,7 @@ namespace GeoToH3
         private static void ProcessParser(GeoToH3Parser target)
         {
 
-            var h3 = new GeoCoord(((decimal)target.Latitude).DegreesToRadians(), ((decimal)target.Longitude).DegreesToRadians())
+            var h3 = new GeoCoord(target.Latitude.DegreesToRadians(), target.Longitude.DegreesToRadians())
                .ToH3Index(target.Resolution);
 
             Console.WriteLine(h3.ToString());

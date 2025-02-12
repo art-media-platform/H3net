@@ -27,7 +27,7 @@ namespace H3Lib.Extensions
                 while (edge.HasValue)
                 {
                     loop.AddLinkedCoord(edge.Value.From);
-                    //loop.GeoCoordList.AddLast(edge.Value.From);
+                    //loop.GeoCoordList.AddLast(edge.Value.Fro);
                     var nextVertex = edge.Value.To;
                     graph.RemoveNode(edge.Value);
                     edge = graph.FindVertex(nextVertex);

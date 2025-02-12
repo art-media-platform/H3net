@@ -107,7 +107,7 @@ namespace TestSuite
 
                 for (int i = 0; i < 3; i++)
                 {
-                    invertedIjk = invertedIjk.Rotate60CounterClockwise();
+                    invertedIjk = invertedIjk.RotateCCW();
                 }
 
                 ijk += invertedIjk;

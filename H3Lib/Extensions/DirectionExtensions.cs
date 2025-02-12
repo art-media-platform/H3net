@@ -13,7 +13,7 @@ namespace H3Lib.Extensions
         /// coordijk.c
         /// Direction _rotate60ccw
         /// -->
-        internal static Direction Rotate60CounterClockwise(this Direction digit)
+        internal static Direction RotateCCW(this Direction digit)
         {
             switch (digit)
             {
@@ -35,7 +35,7 @@ namespace H3Lib.Extensions
         /// coordijk.c
         /// Direction _rotate60cw
         /// -->
-        internal static Direction Rotate60Clockwise(this Direction digit)
+        internal static Direction RotateCW(this Direction digit)
         {
             switch(digit)
             {

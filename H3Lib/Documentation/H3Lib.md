@@ -15,8 +15,8 @@
   - [CellAreaM2()](#M-H3Lib-Api-CellAreaM2-H3Lib-H3Index- 'H3Lib.Api.CellAreaM2(H3Lib.H3Index)')
   - [CellAreaRads2()](#M-H3Lib-Api-CellAreaRads2-H3Lib-H3Index- 'H3Lib.Api.CellAreaRads2(H3Lib.H3Index)')
   - [Compact()](#M-H3Lib-Api-Compact-System-Collections-Generic-List{H3Lib-H3Index},System-Collections-Generic-List{H3Lib-H3Index}@- 'H3Lib.Api.Compact(System.Collections.Generic.List{H3Lib.H3Index},System.Collections.Generic.List{H3Lib.H3Index}@)')
-  - [DegreesToRadians(degrees)](#M-H3Lib-Api-DegreesToRadians-System-Decimal- 'H3Lib.Api.DegreesToRadians(System.Decimal)')
-  - [DegsToRads()](#M-H3Lib-Api-DegsToRads-System-Decimal- 'H3Lib.Api.DegsToRads(System.Decimal)')
+  - [DegreesToRadians(degrees)](#M-H3Lib-Api-DegreesToRadians-System-double- 'H3Lib.Api.DegreesToRadians(System.double)')
+  - [DegsToRads()](#M-H3Lib-Api-DegsToRads-System-double- 'H3Lib.Api.DegsToRads(System.double)')
   - [DestroyLinkedPolygon(polygon)](#M-H3Lib-Api-DestroyLinkedPolygon-H3Lib-LinkedGeoPolygon- 'H3Lib.Api.DestroyLinkedPolygon(H3Lib.LinkedGeoPolygon)')
   - [EdgeLengthKm()](#M-H3Lib-Api-EdgeLengthKm-System-Int32- 'H3Lib.Api.EdgeLengthKm(System.Int32)')
   - [EdgeLengthM()](#M-H3Lib-Api-EdgeLengthM-System-Int32- 'H3Lib.Api.EdgeLengthM(System.Int32)')
@@ -71,14 +71,14 @@
   - [PointDistM()](#M-H3Lib-Api-PointDistM-H3Lib-GeoCoord,H3Lib-GeoCoord- 'H3Lib.Api.PointDistM(H3Lib.GeoCoord,H3Lib.GeoCoord)')
   - [PointDistRads(a,b)](#M-H3Lib-Api-PointDistRads-H3Lib-GeoCoord,H3Lib-GeoCoord- 'H3Lib.Api.PointDistRads(H3Lib.GeoCoord,H3Lib.GeoCoord)')
   - [PolyFill(polygon,r,outCells)](#M-H3Lib-Api-PolyFill-H3Lib-GeoPolygon,System-Int32,System-Collections-Generic-List{H3Lib-H3Index}@- 'H3Lib.Api.PolyFill(H3Lib.GeoPolygon,System.Int32,System.Collections.Generic.List{H3Lib.H3Index}@)')
-  - [RadiansToDegrees()](#M-H3Lib-Api-RadiansToDegrees-System-Decimal- 'H3Lib.Api.RadiansToDegrees(System.Decimal)')
-  - [RadsToDegs()](#M-H3Lib-Api-RadsToDegs-System-Decimal- 'H3Lib.Api.RadsToDegs(System.Decimal)')
+  - [RadiansToDegrees()](#M-H3Lib-Api-RadiansToDegrees-System-double- 'H3Lib.Api.RadiansToDegrees(System.double)')
+  - [RadsToDegs()](#M-H3Lib-Api-RadsToDegs-System-double- 'H3Lib.Api.RadsToDegs(System.double)')
   - [Res0IndexCount()](#M-H3Lib-Api-Res0IndexCount 'H3Lib.Api.Res0IndexCount')
-  - [SetGeoDegs()](#M-H3Lib-Api-SetGeoDegs-System-Decimal,System-Decimal- 'H3Lib.Api.SetGeoDegs(System.Decimal,System.Decimal)')
+  - [SetGeoDegs()](#M-H3Lib-Api-SetGeoDegs-System-double,System-double- 'H3Lib.Api.SetGeoDegs(System.double,System.double)')
   - [StringToH3()](#M-H3Lib-Api-StringToH3-System-String- 'H3Lib.Api.StringToH3(System.String)')
   - [Uncompact()](#M-H3Lib-Api-Uncompact-System-Collections-Generic-List{H3Lib-H3Index},System-Collections-Generic-List{H3Lib-H3Index}@,System-Int32- 'H3Lib.Api.Uncompact(System.Collections.Generic.List{H3Lib.H3Index},System.Collections.Generic.List{H3Lib.H3Index}@,System.Int32)')
 - [BBox](#T-H3Lib-BBox 'H3Lib.BBox')
-  - [#ctor()](#M-H3Lib-BBox-#ctor-System-Decimal,System-Decimal,System-Decimal,System-Decimal- 'H3Lib.BBox.#ctor(System.Decimal,System.Decimal,System.Decimal,System.Decimal)')
+  - [#ctor()](#M-H3Lib-BBox-#ctor-System-double,System-double,System-double,System-double- 'H3Lib.BBox.#ctor(System.double,System.double,System.double,System.double)')
   - [East](#F-H3Lib-BBox-East 'H3Lib.BBox.East')
   - [North](#F-H3Lib-BBox-North 'H3Lib.BBox.North')
   - [South](#F-H3Lib-BBox-South 'H3Lib.BBox.South')
@@ -93,11 +93,11 @@
   - [Center(box)](#M-H3Lib-Extensions-BBoxExtensions-Center-H3Lib-BBox- 'H3Lib.Extensions.BBoxExtensions.Center(H3Lib.BBox)')
   - [Contains(box,point)](#M-H3Lib-Extensions-BBoxExtensions-Contains-H3Lib-BBox,H3Lib-GeoCoord- 'H3Lib.Extensions.BBoxExtensions.Contains(H3Lib.BBox,H3Lib.GeoCoord)')
   - [HexEstimate(box,res)](#M-H3Lib-Extensions-BBoxExtensions-HexEstimate-H3Lib-BBox,System-Int32- 'H3Lib.Extensions.BBoxExtensions.HexEstimate(H3Lib.BBox,System.Int32)')
-  - [ReplaceEW(box,e,w)](#M-H3Lib-Extensions-BBoxExtensions-ReplaceEW-H3Lib-BBox,System-Decimal,System-Decimal- 'H3Lib.Extensions.BBoxExtensions.ReplaceEW(H3Lib.BBox,System.Decimal,System.Decimal)')
-  - [ReplaceEast(box,e)](#M-H3Lib-Extensions-BBoxExtensions-ReplaceEast-H3Lib-BBox,System-Decimal- 'H3Lib.Extensions.BBoxExtensions.ReplaceEast(H3Lib.BBox,System.Decimal)')
-  - [ReplaceNorth(box,n)](#M-H3Lib-Extensions-BBoxExtensions-ReplaceNorth-H3Lib-BBox,System-Decimal- 'H3Lib.Extensions.BBoxExtensions.ReplaceNorth(H3Lib.BBox,System.Decimal)')
-  - [ReplaceSouth(box,s)](#M-H3Lib-Extensions-BBoxExtensions-ReplaceSouth-H3Lib-BBox,System-Decimal- 'H3Lib.Extensions.BBoxExtensions.ReplaceSouth(H3Lib.BBox,System.Decimal)')
-  - [ReplaceWest(box,w)](#M-H3Lib-Extensions-BBoxExtensions-ReplaceWest-H3Lib-BBox,System-Decimal- 'H3Lib.Extensions.BBoxExtensions.ReplaceWest(H3Lib.BBox,System.Decimal)')
+  - [ReplaceEW(box,e,w)](#M-H3Lib-Extensions-BBoxExtensions-ReplaceEW-H3Lib-BBox,System-double,System-double- 'H3Lib.Extensions.BBoxExtensions.ReplaceEW(H3Lib.BBox,System.double,System.double)')
+  - [ReplaceEast(box,e)](#M-H3Lib-Extensions-BBoxExtensions-ReplaceEast-H3Lib-BBox,System-double- 'H3Lib.Extensions.BBoxExtensions.ReplaceEast(H3Lib.BBox,System.double)')
+  - [ReplaceNorth(box,n)](#M-H3Lib-Extensions-BBoxExtensions-ReplaceNorth-H3Lib-BBox,System-double- 'H3Lib.Extensions.BBoxExtensions.ReplaceNorth(H3Lib.BBox,System.double)')
+  - [ReplaceSouth(box,s)](#M-H3Lib-Extensions-BBoxExtensions-ReplaceSouth-H3Lib-BBox,System-double- 'H3Lib.Extensions.BBoxExtensions.ReplaceSouth(H3Lib.BBox,System.double)')
+  - [ReplaceWest(box,w)](#M-H3Lib-Extensions-BBoxExtensions-ReplaceWest-H3Lib-BBox,System-double- 'H3Lib.Extensions.BBoxExtensions.ReplaceWest(H3Lib.BBox,System.double)')
 - [BaseCellData](#T-H3Lib-BaseCellData 'H3Lib.BaseCellData')
   - [#ctor(face,faceI,faceJ,faceK,isPentagon,offset1,offset2)](#M-H3Lib-BaseCellData-#ctor-System-Int32,System-Int32,System-Int32,System-Int32,System-Int32,System-Int32,System-Int32- 'H3Lib.BaseCellData.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)')
   - [ClockwiseOffsetPentagon](#F-H3Lib-BaseCellData-ClockwiseOffsetPentagon 'H3Lib.BaseCellData.ClockwiseOffsetPentagon')
@@ -119,7 +119,7 @@
   - [op_Inequality()](#M-H3Lib-BaseCellRotation-op_Inequality-H3Lib-BaseCellRotation,H3Lib-BaseCellRotation- 'H3Lib.BaseCellRotation.op_Inequality(H3Lib.BaseCellRotation,H3Lib.BaseCellRotation)')
 - [BaseCells](#T-H3Lib-Constants-BaseCells 'H3Lib.Constants.BaseCells')
   - [BaseCellData](#F-H3Lib-Constants-BaseCells-BaseCellData 'H3Lib.Constants.BaseCells.BaseCellData')
-  - [BaseCellNeighbor60CounterClockwiseRotation](#F-H3Lib-Constants-BaseCells-BaseCellNeighbor60CounterClockwiseRotation 'H3Lib.Constants.BaseCells.BaseCellNeighbor60CounterClockwiseRotation')
+  - [BaseCellNeighborCCW](#F-H3Lib-Constants-BaseCells-BaseCellNeighborCCW 'H3Lib.Constants.BaseCells.BaseCellNeighborCCW')
   - [BaseCellNeighbors](#F-H3Lib-Constants-BaseCells-BaseCellNeighbors 'H3Lib.Constants.BaseCells.BaseCellNeighbors')
   - [FaceIjkBaseCells](#F-H3Lib-Constants-BaseCells-FaceIjkBaseCells 'H3Lib.Constants.BaseCells.FaceIjkBaseCells')
   - [InvalidRotations](#F-H3Lib-Constants-BaseCells-InvalidRotations 'H3Lib.Constants.BaseCells.InvalidRotations')
@@ -191,8 +191,8 @@
   - [LocalIjkToH3(origin,ijk)](#M-H3Lib-Extensions-CoordIjkExtensions-LocalIjkToH3-H3Lib-CoordIjk,H3Lib-H3Index- 'H3Lib.Extensions.CoordIjkExtensions.LocalIjkToH3(H3Lib.CoordIjk,H3Lib.H3Index)')
   - [Neighbor(ijk,digit)](#M-H3Lib-Extensions-CoordIjkExtensions-Neighbor-H3Lib-CoordIjk,H3Lib-Direction- 'H3Lib.Extensions.CoordIjkExtensions.Neighbor(H3Lib.CoordIjk,H3Lib.Direction)')
   - [Normalized(coord)](#M-H3Lib-Extensions-CoordIjkExtensions-Normalized-H3Lib-CoordIjk- 'H3Lib.Extensions.CoordIjkExtensions.Normalized(H3Lib.CoordIjk)')
-  - [Rotate60Clockwise(ijk)](#M-H3Lib-Extensions-CoordIjkExtensions-Rotate60Clockwise-H3Lib-CoordIjk- 'H3Lib.Extensions.CoordIjkExtensions.Rotate60Clockwise(H3Lib.CoordIjk)')
-  - [Rotate60CounterClockwise(ijk)](#M-H3Lib-Extensions-CoordIjkExtensions-Rotate60CounterClockwise-H3Lib-CoordIjk- 'H3Lib.Extensions.CoordIjkExtensions.Rotate60CounterClockwise(H3Lib.CoordIjk)')
+  - [RotateCW(ijk)](#M-H3Lib-Extensions-CoordIjkExtensions-RotateCW-H3Lib-CoordIjk- 'H3Lib.Extensions.CoordIjkExtensions.RotateCW(H3Lib.CoordIjk)')
+  - [RotateCCW(ijk)](#M-H3Lib-Extensions-CoordIjkExtensions-RotateCCW-H3Lib-CoordIjk- 'H3Lib.Extensions.CoordIjkExtensions.RotateCCW(H3Lib.CoordIjk)')
   - [SetI()](#M-H3Lib-Extensions-CoordIjkExtensions-SetI-H3Lib-CoordIjk,System-Int32- 'H3Lib.Extensions.CoordIjkExtensions.SetI(H3Lib.CoordIjk,System.Int32)')
   - [SetIJ()](#M-H3Lib-Extensions-CoordIjkExtensions-SetIJ-H3Lib-CoordIjk,System-Int32,System-Int32- 'H3Lib.Extensions.CoordIjkExtensions.SetIJ(H3Lib.CoordIjk,System.Int32,System.Int32)')
   - [SetIK()](#M-H3Lib-Extensions-CoordIjkExtensions-SetIK-H3Lib-CoordIjk,System-Int32,System-Int32- 'H3Lib.Extensions.CoordIjkExtensions.SetIK(H3Lib.CoordIjk,System.Int32,System.Int32)')
@@ -217,8 +217,8 @@
   - [K_AXES_DIGIT](#F-H3Lib-Direction-K_AXES_DIGIT 'H3Lib.Direction.K_AXES_DIGIT')
   - [NUM_DIGITS](#F-H3Lib-Direction-NUM_DIGITS 'H3Lib.Direction.NUM_DIGITS')
 - [DirectionExtensions](#T-H3Lib-Extensions-DirectionExtensions 'H3Lib.Extensions.DirectionExtensions')
-  - [Rotate60Clockwise(digit)](#M-H3Lib-Extensions-DirectionExtensions-Rotate60Clockwise-H3Lib-Direction- 'H3Lib.Extensions.DirectionExtensions.Rotate60Clockwise(H3Lib.Direction)')
-  - [Rotate60CounterClockwise(digit)](#M-H3Lib-Extensions-DirectionExtensions-Rotate60CounterClockwise-H3Lib-Direction- 'H3Lib.Extensions.DirectionExtensions.Rotate60CounterClockwise(H3Lib.Direction)')
+  - [RotateCW(digit)](#M-H3Lib-Extensions-DirectionExtensions-RotateCW-H3Lib-Direction- 'H3Lib.Extensions.DirectionExtensions.RotateCW(H3Lib.Direction)')
+  - [RotateCCW(digit)](#M-H3Lib-Extensions-DirectionExtensions-RotateCCW-H3Lib-Direction- 'H3Lib.Extensions.DirectionExtensions.RotateCCW(H3Lib.Direction)')
 - [FaceIjk](#T-H3Lib-Constants-FaceIjk 'H3Lib.Constants.FaceIjk')
 - [FaceIjk](#T-H3Lib-FaceIjk 'H3Lib.FaceIjk')
   - [#ctor()](#M-H3Lib-FaceIjk-#ctor-System-Int32,H3Lib-CoordIjk- 'H3Lib.FaceIjk.#ctor(System.Int32,H3Lib.CoordIjk)')
@@ -273,7 +273,7 @@
   - [Verts](#F-H3Lib-GeoBoundary-Verts 'H3Lib.GeoBoundary.Verts')
   - [ToString()](#M-H3Lib-GeoBoundary-ToString 'H3Lib.GeoBoundary.ToString')
 - [GeoCoord](#T-H3Lib-GeoCoord 'H3Lib.GeoCoord')
-  - [#ctor()](#M-H3Lib-GeoCoord-#ctor-System-Decimal,System-Decimal- 'H3Lib.GeoCoord.#ctor(System.Decimal,System.Decimal)')
+  - [#ctor()](#M-H3Lib-GeoCoord-#ctor-System-double,System-double- 'H3Lib.GeoCoord.#ctor(System.double,System.double)')
   - [#ctor()](#M-H3Lib-GeoCoord-#ctor-H3Lib-GeoCoord- 'H3Lib.GeoCoord.#ctor(H3Lib.GeoCoord)')
   - [Latitude](#F-H3Lib-GeoCoord-Latitude 'H3Lib.GeoCoord.Latitude')
   - [Longitude](#F-H3Lib-GeoCoord-Longitude 'H3Lib.GeoCoord.Longitude')
@@ -286,7 +286,7 @@
   - [HexAreaM2()](#M-H3Lib-GeoCoord-HexAreaM2-System-Int32- 'H3Lib.GeoCoord.HexAreaM2(System.Int32)')
   - [ToString()](#M-H3Lib-GeoCoord-ToString 'H3Lib.GeoCoord.ToString')
   - [TriangleArea(a,b,c)](#M-H3Lib-GeoCoord-TriangleArea-H3Lib-GeoCoord,H3Lib-GeoCoord,H3Lib-GeoCoord- 'H3Lib.GeoCoord.TriangleArea(H3Lib.GeoCoord,H3Lib.GeoCoord,H3Lib.GeoCoord)')
-  - [TriangleEdgeLengthToArea(a,b,c)](#M-H3Lib-GeoCoord-TriangleEdgeLengthToArea-System-Decimal,System-Decimal,System-Decimal- 'H3Lib.GeoCoord.TriangleEdgeLengthToArea(System.Decimal,System.Decimal,System.Decimal)')
+  - [TriangleEdgeLengthToArea(a,b,c)](#M-H3Lib-GeoCoord-TriangleEdgeLengthToArea-System-double,System-double,System-double- 'H3Lib.GeoCoord.TriangleEdgeLengthToArea(System.double,System.double,System.double)')
   - [op_Equality()](#M-H3Lib-GeoCoord-op_Equality-H3Lib-GeoCoord,H3Lib-GeoCoord- 'H3Lib.GeoCoord.op_Equality(H3Lib.GeoCoord,H3Lib.GeoCoord)')
   - [op_Inequality()](#M-H3Lib-GeoCoord-op_Inequality-H3Lib-GeoCoord,H3Lib-GeoCoord- 'H3Lib.GeoCoord.op_Inequality(H3Lib.GeoCoord,H3Lib.GeoCoord)')
 - [GeoCoordExtensions](#T-H3Lib-Extensions-GeoCoordExtensions 'H3Lib.Extensions.GeoCoordExtensions')
@@ -294,13 +294,13 @@
   - [DistanceToKm(a,b)](#M-H3Lib-Extensions-GeoCoordExtensions-DistanceToKm-H3Lib-GeoCoord,H3Lib-GeoCoord- 'H3Lib.Extensions.GeoCoordExtensions.DistanceToKm(H3Lib.GeoCoord,H3Lib.GeoCoord)')
   - [DistanceToM(a,b)](#M-H3Lib-Extensions-GeoCoordExtensions-DistanceToM-H3Lib-GeoCoord,H3Lib-GeoCoord- 'H3Lib.Extensions.GeoCoordExtensions.DistanceToM(H3Lib.GeoCoord,H3Lib.GeoCoord)')
   - [DistanceToRadians(a,b)](#M-H3Lib-Extensions-GeoCoordExtensions-DistanceToRadians-H3Lib-GeoCoord,H3Lib-GeoCoord- 'H3Lib.Extensions.GeoCoordExtensions.DistanceToRadians(H3Lib.GeoCoord,H3Lib.GeoCoord)')
-  - [GetAzimuthDistancePoint(p1,azimuth,distance)](#M-H3Lib-Extensions-GeoCoordExtensions-GetAzimuthDistancePoint-H3Lib-GeoCoord,System-Decimal,System-Decimal- 'H3Lib.Extensions.GeoCoordExtensions.GetAzimuthDistancePoint(H3Lib.GeoCoord,System.Decimal,System.Decimal)')
+  - [GetAzimuthDistancePoint(p1,azimuth,distance)](#M-H3Lib-Extensions-GeoCoordExtensions-GetAzimuthDistancePoint-H3Lib-GeoCoord,System-double,System-double- 'H3Lib.Extensions.GeoCoordExtensions.GetAzimuthDistancePoint(H3Lib.GeoCoord,System.double,System.double)')
   - [LineHexEstimate(origin,destination,res)](#M-H3Lib-Extensions-GeoCoordExtensions-LineHexEstimate-H3Lib-GeoCoord,H3Lib-GeoCoord,System-Int32- 'H3Lib.Extensions.GeoCoordExtensions.LineHexEstimate(H3Lib.GeoCoord,H3Lib.GeoCoord,System.Int32)')
-  - [SetDegrees(gc,latitude,longitude)](#M-H3Lib-Extensions-GeoCoordExtensions-SetDegrees-H3Lib-GeoCoord,System-Decimal,System-Decimal- 'H3Lib.Extensions.GeoCoordExtensions.SetDegrees(H3Lib.GeoCoord,System.Decimal,System.Decimal)')
-  - [SetGeoRads(gc,latitudeRadians,longitudeRadians)](#M-H3Lib-Extensions-GeoCoordExtensions-SetGeoRads-H3Lib-GeoCoord,System-Decimal,System-Decimal- 'H3Lib.Extensions.GeoCoordExtensions.SetGeoRads(H3Lib.GeoCoord,System.Decimal,System.Decimal)')
-  - [SetLatitude()](#M-H3Lib-Extensions-GeoCoordExtensions-SetLatitude-H3Lib-GeoCoord,System-Decimal- 'H3Lib.Extensions.GeoCoordExtensions.SetLatitude(H3Lib.GeoCoord,System.Decimal)')
-  - [SetLongitude()](#M-H3Lib-Extensions-GeoCoordExtensions-SetLongitude-H3Lib-GeoCoord,System-Decimal- 'H3Lib.Extensions.GeoCoordExtensions.SetLongitude(H3Lib.GeoCoord,System.Decimal)')
-  - [SetRadians(gc,latitude,longitude)](#M-H3Lib-Extensions-GeoCoordExtensions-SetRadians-H3Lib-GeoCoord,System-Decimal,System-Decimal- 'H3Lib.Extensions.GeoCoordExtensions.SetRadians(H3Lib.GeoCoord,System.Decimal,System.Decimal)')
+  - [SetDegrees(gc,latitude,longitude)](#M-H3Lib-Extensions-GeoCoordExtensions-SetDegrees-H3Lib-GeoCoord,System-double,System-double- 'H3Lib.Extensions.GeoCoordExtensions.SetDegrees(H3Lib.GeoCoord,System.double,System.double)')
+  - [SetGeoRads(gc,latitudeRadians,longitudeRadians)](#M-H3Lib-Extensions-GeoCoordExtensions-SetGeoRads-H3Lib-GeoCoord,System-double,System-double- 'H3Lib.Extensions.GeoCoordExtensions.SetGeoRads(H3Lib.GeoCoord,System.double,System.double)')
+  - [SetLatitude()](#M-H3Lib-Extensions-GeoCoordExtensions-SetLatitude-H3Lib-GeoCoord,System-double- 'H3Lib.Extensions.GeoCoordExtensions.SetLatitude(H3Lib.GeoCoord,System.double)')
+  - [SetLongitude()](#M-H3Lib-Extensions-GeoCoordExtensions-SetLongitude-H3Lib-GeoCoord,System-double- 'H3Lib.Extensions.GeoCoordExtensions.SetLongitude(H3Lib.GeoCoord,System.double)')
+  - [SetRadians(gc,latitude,longitude)](#M-H3Lib-Extensions-GeoCoordExtensions-SetRadians-H3Lib-GeoCoord,System-double,System-double- 'H3Lib.Extensions.GeoCoordExtensions.SetRadians(H3Lib.GeoCoord,System.double,System.double)')
   - [ToFaceIjk(g,res)](#M-H3Lib-Extensions-GeoCoordExtensions-ToFaceIjk-H3Lib-GeoCoord,System-Int32- 'H3Lib.Extensions.GeoCoordExtensions.ToFaceIjk(H3Lib.GeoCoord,System.Int32)')
   - [ToH3Index(g,res)](#M-H3Lib-Extensions-GeoCoordExtensions-ToH3Index-H3Lib-GeoCoord,System-Int32- 'H3Lib.Extensions.GeoCoordExtensions.ToH3Index(H3Lib.GeoCoord,System.Int32)')
   - [ToHex2d(g,res)](#M-H3Lib-Extensions-GeoCoordExtensions-ToHex2d-H3Lib-GeoCoord,System-Int32- 'H3Lib.Extensions.GeoCoordExtensions.ToHex2d(H3Lib.GeoCoord,System.Int32)')
@@ -433,10 +433,10 @@
   - [MaxUncompactSize(singleCell,res)](#M-H3Lib-Extensions-H3IndexExtensions-MaxUncompactSize-H3Lib-H3Index,System-Int32- 'H3Lib.Extensions.H3IndexExtensions.MaxUncompactSize(H3Lib.H3Index,System.Int32)')
   - [NeighborRotations(origin,dir,rotations)](#M-H3Lib-Extensions-H3IndexExtensions-NeighborRotations-H3Lib-H3Index,H3Lib-Direction,System-Int32- 'H3Lib.Extensions.H3IndexExtensions.NeighborRotations(H3Lib.H3Index,H3Lib.Direction,System.Int32)')
   - [OriginFromUniDirectionalEdge(edge)](#M-H3Lib-Extensions-H3IndexExtensions-OriginFromUniDirectionalEdge-H3Lib-H3Index- 'H3Lib.Extensions.H3IndexExtensions.OriginFromUniDirectionalEdge(H3Lib.H3Index)')
-  - [Rotate60Clockwise(h)](#M-H3Lib-Extensions-H3IndexExtensions-Rotate60Clockwise-H3Lib-H3Index- 'H3Lib.Extensions.H3IndexExtensions.Rotate60Clockwise(H3Lib.H3Index)')
-  - [Rotate60CounterClockwise(h)](#M-H3Lib-Extensions-H3IndexExtensions-Rotate60CounterClockwise-H3Lib-H3Index- 'H3Lib.Extensions.H3IndexExtensions.Rotate60CounterClockwise(H3Lib.H3Index)')
-  - [RotatePent60Clockwise(h)](#M-H3Lib-Extensions-H3IndexExtensions-RotatePent60Clockwise-H3Lib-H3Index- 'H3Lib.Extensions.H3IndexExtensions.RotatePent60Clockwise(H3Lib.H3Index)')
-  - [RotatePent60CounterClockwise(h)](#M-H3Lib-Extensions-H3IndexExtensions-RotatePent60CounterClockwise-H3Lib-H3Index- 'H3Lib.Extensions.H3IndexExtensions.RotatePent60CounterClockwise(H3Lib.H3Index)')
+  - [RotateCW(h)](#M-H3Lib-Extensions-H3IndexExtensions-RotateCW-H3Lib-H3Index- 'H3Lib.Extensions.H3IndexExtensions.RotateCW(H3Lib.H3Index)')
+  - [RotateCCW(h)](#M-H3Lib-Extensions-H3IndexExtensions-RotateCCW-H3Lib-H3Index- 'H3Lib.Extensions.H3IndexExtensions.RotateCCW(H3Lib.H3Index)')
+  - [RotatePentCW(h)](#M-H3Lib-Extensions-H3IndexExtensions-RotatePentCW-H3Lib-H3Index- 'H3Lib.Extensions.H3IndexExtensions.RotatePentCW(H3Lib.H3Index)')
+  - [RotatePentCCW(h)](#M-H3Lib-Extensions-H3IndexExtensions-RotatePentCCW-H3Lib-H3Index- 'H3Lib.Extensions.H3IndexExtensions.RotatePentCCW(H3Lib.H3Index)')
   - [SetBaseCell()](#M-H3Lib-Extensions-H3IndexExtensions-SetBaseCell-H3Lib-H3Index,System-Int32- 'H3Lib.Extensions.H3IndexExtensions.SetBaseCell(H3Lib.H3Index,System.Int32)')
   - [SetHighBit()](#M-H3Lib-Extensions-H3IndexExtensions-SetHighBit-H3Lib-H3Index,System-Int32- 'H3Lib.Extensions.H3IndexExtensions.SetHighBit(H3Lib.H3Index,System.Int32)')
   - [SetIndex(hp,res,baseCell,initDigit)](#M-H3Lib-Extensions-H3IndexExtensions-SetIndex-H3Lib-H3Index,System-Int32,System-Int32,H3Lib-Direction- 'H3Lib.Extensions.H3IndexExtensions.SetIndex(H3Lib.H3Index,System.Int32,System.Int32,H3Lib.Direction)')
@@ -460,24 +460,24 @@
   - [VertexRotations()](#M-H3Lib-Extensions-H3IndexExtensions-VertexRotations-H3Lib-H3Index- 'H3Lib.Extensions.H3IndexExtensions.VertexRotations(H3Lib.H3Index)')
 - [H3LibExtensions](#T-H3Lib-Extensions-H3LibExtensions 'H3Lib.Extensions.H3LibExtensions')
   - [Compact(h3Set)](#M-H3Lib-Extensions-H3LibExtensions-Compact-System-Collections-Generic-List{H3Lib-H3Index}- 'H3Lib.Extensions.H3LibExtensions.Compact(System.Collections.Generic.List{H3Lib.H3Index})')
-  - [ConstrainLatitude(latitude)](#M-H3Lib-Extensions-H3LibExtensions-ConstrainLatitude-System-Decimal- 'H3Lib.Extensions.H3LibExtensions.ConstrainLatitude(System.Decimal)')
+  - [ConstrainLatitude(latitude)](#M-H3Lib-Extensions-H3LibExtensions-ConstrainLatitude-System-double- 'H3Lib.Extensions.H3LibExtensions.ConstrainLatitude(System.double)')
   - [ConstrainLatitude()](#M-H3Lib-Extensions-H3LibExtensions-ConstrainLatitude-System-Int32- 'H3Lib.Extensions.H3LibExtensions.ConstrainLatitude(System.Int32)')
-  - [ConstrainLongitude(longitude)](#M-H3Lib-Extensions-H3LibExtensions-ConstrainLongitude-System-Decimal- 'H3Lib.Extensions.H3LibExtensions.ConstrainLongitude(System.Decimal)')
+  - [ConstrainLongitude(longitude)](#M-H3Lib-Extensions-H3LibExtensions-ConstrainLongitude-System-double- 'H3Lib.Extensions.H3LibExtensions.ConstrainLongitude(System.double)')
   - [ConstrainLongitude(longitude)](#M-H3Lib-Extensions-H3LibExtensions-ConstrainLongitude-System-Int32- 'H3Lib.Extensions.H3LibExtensions.ConstrainLongitude(System.Int32)')
-  - [ConstrainToPiAccuracy()](#M-H3Lib-Extensions-H3LibExtensions-ConstrainToPiAccuracy-System-Decimal- 'H3Lib.Extensions.H3LibExtensions.ConstrainToPiAccuracy(System.Decimal)')
-  - [DegreesToRadians(degrees)](#M-H3Lib-Extensions-H3LibExtensions-DegreesToRadians-System-Decimal- 'H3Lib.Extensions.H3LibExtensions.DegreesToRadians(System.Decimal)')
+  - [ConstrainAccuracy()](#M-H3Lib-Extensions-H3LibExtensions-ConstrainAccuracy-System-double- 'H3Lib.Extensions.H3LibExtensions.ConstrainAccuracy(System.double)')
+  - [DegreesToRadians(degrees)](#M-H3Lib-Extensions-H3LibExtensions-DegreesToRadians-System-double- 'H3Lib.Extensions.H3LibExtensions.DegreesToRadians(System.double)')
   - [DegreesToRadians(degrees)](#M-H3Lib-Extensions-H3LibExtensions-DegreesToRadians-System-Int32- 'H3Lib.Extensions.H3LibExtensions.DegreesToRadians(System.Int32)')
   - [FlexiCompact()](#M-H3Lib-Extensions-H3LibExtensions-FlexiCompact-System-Collections-Generic-List{H3Lib-H3Index}- 'H3Lib.Extensions.H3LibExtensions.FlexiCompact(System.Collections.Generic.List{H3Lib.H3Index})')
   - [GetPentagonIndexes(res)](#M-H3Lib-Extensions-H3LibExtensions-GetPentagonIndexes-System-Int32- 'H3Lib.Extensions.H3LibExtensions.GetPentagonIndexes(System.Int32)')
   - [IsResClassIii(res)](#M-H3Lib-Extensions-H3LibExtensions-IsResClassIii-System-Int32- 'H3Lib.Extensions.H3LibExtensions.IsResClassIii(System.Int32)')
   - [IsValidChildRes(parentRes,childRes)](#M-H3Lib-Extensions-H3LibExtensions-IsValidChildRes-System-Int32,System-Int32- 'H3Lib.Extensions.H3LibExtensions.IsValidChildRes(System.Int32,System.Int32)')
   - [MaxKringSize(k)](#M-H3Lib-Extensions-H3LibExtensions-MaxKringSize-System-Int32- 'H3Lib.Extensions.H3LibExtensions.MaxKringSize(System.Int32)')
-  - [NormalizeLongitude()](#M-H3Lib-Extensions-H3LibExtensions-NormalizeLongitude-System-Decimal,System-Boolean- 'H3Lib.Extensions.H3LibExtensions.NormalizeLongitude(System.Decimal,System.Boolean)')
-  - [NormalizeRadians(rads,limit)](#M-H3Lib-Extensions-H3LibExtensions-NormalizeRadians-System-Decimal,System-Decimal- 'H3Lib.Extensions.H3LibExtensions.NormalizeRadians(System.Decimal,System.Decimal)')
+  - [NormalizeLongitude()](#M-H3Lib-Extensions-H3LibExtensions-NormalizeLongitude-System-double,System-Boolean- 'H3Lib.Extensions.H3LibExtensions.NormalizeLongitude(System.double,System.Boolean)')
+  - [NormalizeRadians(rads,limit)](#M-H3Lib-Extensions-H3LibExtensions-NormalizeRadians-System-double,System-double- 'H3Lib.Extensions.H3LibExtensions.NormalizeRadians(System.double,System.double)')
   - [NumHexagons(res)](#M-H3Lib-Extensions-H3LibExtensions-NumHexagons-System-Int32- 'H3Lib.Extensions.H3LibExtensions.NumHexagons(System.Int32)')
   - [Power(baseValue,power)](#M-H3Lib-Extensions-H3LibExtensions-Power-System-Int64,System-Int64- 'H3Lib.Extensions.H3LibExtensions.Power(System.Int64,System.Int64)')
-  - [RadiansToDegrees(radians)](#M-H3Lib-Extensions-H3LibExtensions-RadiansToDegrees-System-Decimal- 'H3Lib.Extensions.H3LibExtensions.RadiansToDegrees(System.Decimal)')
-  - [Square(x)](#M-H3Lib-Extensions-H3LibExtensions-Square-System-Decimal- 'H3Lib.Extensions.H3LibExtensions.Square(System.Decimal)')
+  - [RadiansToDegrees(radians)](#M-H3Lib-Extensions-H3LibExtensions-RadiansToDegrees-System-double- 'H3Lib.Extensions.H3LibExtensions.RadiansToDegrees(System.double)')
+  - [Square(x)](#M-H3Lib-Extensions-H3LibExtensions-Square-System-double- 'H3Lib.Extensions.H3LibExtensions.Square(System.double)')
   - [ToH3Index(s)](#M-H3Lib-Extensions-H3LibExtensions-ToH3Index-System-String- 'H3Lib.Extensions.H3LibExtensions.ToH3Index(System.String)')
 - [H3Mode](#T-H3Lib-H3Mode 'H3Lib.H3Mode')
   - [Hexagon](#F-H3Lib-H3Mode-Hexagon 'H3Lib.H3Mode.Hexagon')
@@ -547,7 +547,7 @@
   - [BaseCell](#F-H3Lib-PentagonDirectionFace-BaseCell 'H3Lib.PentagonDirectionFace.BaseCell')
   - [Faces](#F-H3Lib-PentagonDirectionFace-Faces 'H3Lib.PentagonDirectionFace.Faces')
 - [Vec2d](#T-H3Lib-Vec2d 'H3Lib.Vec2d')
-  - [#ctor()](#M-H3Lib-Vec2d-#ctor-System-Decimal,System-Decimal- 'H3Lib.Vec2d.#ctor(System.Decimal,System.Decimal)')
+  - [#ctor()](#M-H3Lib-Vec2d-#ctor-System-double,System-double- 'H3Lib.Vec2d.#ctor(System.double,System.double)')
   - [X](#F-H3Lib-Vec2d-X 'H3Lib.Vec2d.X')
   - [Y](#F-H3Lib-Vec2d-Y 'H3Lib.Vec2d.Y')
   - [Magnitude](#P-H3Lib-Vec2d-Magnitude 'H3Lib.Vec2d.Magnitude')
@@ -562,7 +562,7 @@
   - [ToCoordIjk(v)](#M-H3Lib-Extensions-Vec2dExtensions-ToCoordIjk-H3Lib-Vec2d- 'H3Lib.Extensions.Vec2dExtensions.ToCoordIjk(H3Lib.Vec2d)')
   - [ToGeoCoord(v,face,res,substrate)](#M-H3Lib-Extensions-Vec2dExtensions-ToGeoCoord-H3Lib-Vec2d,System-Int32,System-Int32,System-Int32- 'H3Lib.Extensions.Vec2dExtensions.ToGeoCoord(H3Lib.Vec2d,System.Int32,System.Int32,System.Int32)')
 - [Vec3d](#T-H3Lib-Vec3d 'H3Lib.Vec3d')
-  - [#ctor()](#M-H3Lib-Vec3d-#ctor-System-Decimal,System-Decimal,System-Decimal- 'H3Lib.Vec3d.#ctor(System.Decimal,System.Decimal,System.Decimal)')
+  - [#ctor()](#M-H3Lib-Vec3d-#ctor-System-double,System-double,System-double- 'H3Lib.Vec3d.#ctor(System.double,System.double,System.double)')
   - [X](#F-H3Lib-Vec3d-X 'H3Lib.Vec3d.X')
   - [Y](#F-H3Lib-Vec3d-Y 'H3Lib.Vec3d.Y')
   - [Z](#F-H3Lib-Vec3d-Z 'H3Lib.Vec3d.Z')
@@ -574,9 +574,9 @@
   - [op_Inequality()](#M-H3Lib-Vec3d-op_Inequality-H3Lib-Vec3d,H3Lib-Vec3d- 'H3Lib.Vec3d.op_Inequality(H3Lib.Vec3d,H3Lib.Vec3d)')
 - [Vec3dExtensions](#T-H3Lib-Extensions-Vec3dExtensions 'H3Lib.Extensions.Vec3dExtensions')
   - [PointSquareDistance(v1,v2)](#M-H3Lib-Extensions-Vec3dExtensions-PointSquareDistance-H3Lib-Vec3d,H3Lib-Vec3d- 'H3Lib.Extensions.Vec3dExtensions.PointSquareDistance(H3Lib.Vec3d,H3Lib.Vec3d)')
-  - [SetX(v3,x)](#M-H3Lib-Extensions-Vec3dExtensions-SetX-H3Lib-Vec3d,System-Decimal- 'H3Lib.Extensions.Vec3dExtensions.SetX(H3Lib.Vec3d,System.Decimal)')
-  - [SetY(v3,y)](#M-H3Lib-Extensions-Vec3dExtensions-SetY-H3Lib-Vec3d,System-Decimal- 'H3Lib.Extensions.Vec3dExtensions.SetY(H3Lib.Vec3d,System.Decimal)')
-  - [SetZ(v3,z)](#M-H3Lib-Extensions-Vec3dExtensions-SetZ-H3Lib-Vec3d,System-Decimal- 'H3Lib.Extensions.Vec3dExtensions.SetZ(H3Lib.Vec3d,System.Decimal)')
+  - [SetX(v3,x)](#M-H3Lib-Extensions-Vec3dExtensions-SetX-H3Lib-Vec3d,System-double- 'H3Lib.Extensions.Vec3dExtensions.SetX(H3Lib.Vec3d,System.double)')
+  - [SetY(v3,y)](#M-H3Lib-Extensions-Vec3dExtensions-SetY-H3Lib-Vec3d,System-double- 'H3Lib.Extensions.Vec3dExtensions.SetY(H3Lib.Vec3d,System.double)')
+  - [SetZ(v3,z)](#M-H3Lib-Extensions-Vec3dExtensions-SetZ-H3Lib-Vec3d,System-double- 'H3Lib.Extensions.Vec3dExtensions.SetZ(H3Lib.Vec3d,System.double)')
 - [Vertex](#T-H3Lib-Constants-Vertex 'H3Lib.Constants.Vertex')
   - [DirectionToVertexNumHex](#F-H3Lib-Constants-Vertex-DirectionToVertexNumHex 'H3Lib.Constants.Vertex.DirectionToVertexNumHex')
   - [DirectionToVertexNumPent](#F-H3Lib-Constants-Vertex-DirectionToVertexNumPent 'H3Lib.Constants.Vertex.DirectionToVertexNumPent')
@@ -729,7 +729,7 @@ compacts the given set of hexagons as best as possible
 
 This method has no parameters.
 
-<a name='M-H3Lib-Api-DegreesToRadians-System-Decimal-'></a>
+<a name='M-H3Lib-Api-DegreesToRadians-System-double-'></a>
 ### DegreesToRadians(degrees) `method`
 
 ##### Summary
@@ -744,9 +744,9 @@ converts degrees to radians
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| degrees | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') |  |
+| degrees | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') |  |
 
-<a name='M-H3Lib-Api-DegsToRads-System-Decimal-'></a>
+<a name='M-H3Lib-Api-DegsToRads-System-double-'></a>
 ### DegsToRads() `method`
 
 ##### Summary
@@ -1395,7 +1395,7 @@ hexagons within the given geofence
 | r | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') |  |
 | outCells | [System.Collections.Generic.List{H3Lib.H3Index}@](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.List 'System.Collections.Generic.List{H3Lib.H3Index}@') |  |
 
-<a name='M-H3Lib-Api-RadiansToDegrees-System-Decimal-'></a>
+<a name='M-H3Lib-Api-RadiansToDegrees-System-double-'></a>
 ### RadiansToDegrees() `method`
 
 ##### Summary
@@ -1410,7 +1410,7 @@ converts radians to degrees
 
 This method has no parameters.
 
-<a name='M-H3Lib-Api-RadsToDegs-System-Decimal-'></a>
+<a name='M-H3Lib-Api-RadsToDegs-System-double-'></a>
 ### RadsToDegs() `method`
 
 ##### Summary
@@ -1432,7 +1432,7 @@ returns the number of resolution 0 cells (hexagons and pentagons)
 
 This method has no parameters.
 
-<a name='M-H3Lib-Api-SetGeoDegs-System-Decimal,System-Decimal-'></a>
+<a name='M-H3Lib-Api-SetGeoDegs-System-double,System-double-'></a>
 ### SetGeoDegs() `method`
 
 ##### Summary
@@ -1476,7 +1476,7 @@ H3Lib
 
 Geographic bounding box with coordinates defined in radians
 
-<a name='M-H3Lib-BBox-#ctor-System-Decimal,System-Decimal,System-Decimal,System-Decimal-'></a>
+<a name='M-H3Lib-BBox-#ctor-System-double,System-double,System-double,System-double-'></a>
 ### #ctor() `constructor`
 
 ##### Summary
@@ -1646,7 +1646,7 @@ estimated number of hexagons to fill the bounding box
 | box | [H3Lib.BBox](#T-H3Lib-BBox 'H3Lib.BBox') | bounding box to estimate the hexagon fill level |
 | res | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | resolution of the H3 hexagons to fill the bounding box |
 
-<a name='M-H3Lib-Extensions-BBoxExtensions-ReplaceEW-H3Lib-BBox,System-Decimal,System-Decimal-'></a>
+<a name='M-H3Lib-Extensions-BBoxExtensions-ReplaceEW-H3Lib-BBox,System-double,System-double-'></a>
 ### ReplaceEW(box,e,w) `method`
 
 ##### Summary
@@ -1664,10 +1664,10 @@ Returns a new BBox with replaced East/West values.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | box | [H3Lib.BBox](#T-H3Lib-BBox 'H3Lib.BBox') | box to replace |
-| e | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') | East value |
-| w | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') | West value |
+| e | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') | East value |
+| w | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') | West value |
 
-<a name='M-H3Lib-Extensions-BBoxExtensions-ReplaceEast-H3Lib-BBox,System-Decimal-'></a>
+<a name='M-H3Lib-Extensions-BBoxExtensions-ReplaceEast-H3Lib-BBox,System-double-'></a>
 ### ReplaceEast(box,e) `method`
 
 ##### Summary
@@ -1679,9 +1679,9 @@ Returns a new BBox with the new East value.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | box | [H3Lib.BBox](#T-H3Lib-BBox 'H3Lib.BBox') | box to replace |
-| e | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') | East Value |
+| e | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') | East Value |
 
-<a name='M-H3Lib-Extensions-BBoxExtensions-ReplaceNorth-H3Lib-BBox,System-Decimal-'></a>
+<a name='M-H3Lib-Extensions-BBoxExtensions-ReplaceNorth-H3Lib-BBox,System-double-'></a>
 ### ReplaceNorth(box,n) `method`
 
 ##### Summary
@@ -1693,9 +1693,9 @@ Returns a new BBox with the new North value.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | box | [H3Lib.BBox](#T-H3Lib-BBox 'H3Lib.BBox') | box to replace |
-| n | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') | North Value |
+| n | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') | North Value |
 
-<a name='M-H3Lib-Extensions-BBoxExtensions-ReplaceSouth-H3Lib-BBox,System-Decimal-'></a>
+<a name='M-H3Lib-Extensions-BBoxExtensions-ReplaceSouth-H3Lib-BBox,System-double-'></a>
 ### ReplaceSouth(box,s) `method`
 
 ##### Summary
@@ -1707,9 +1707,9 @@ Returns a new BBox with the new South value.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | box | [H3Lib.BBox](#T-H3Lib-BBox 'H3Lib.BBox') | box to replace |
-| s | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') | South Value |
+| s | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') | South Value |
 
-<a name='M-H3Lib-Extensions-BBoxExtensions-ReplaceWest-H3Lib-BBox,System-Decimal-'></a>
+<a name='M-H3Lib-Extensions-BBoxExtensions-ReplaceWest-H3Lib-BBox,System-double-'></a>
 ### ReplaceWest(box,w) `method`
 
 ##### Summary
@@ -1721,7 +1721,7 @@ Returns a new BBox with the new West value.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | box | [H3Lib.BBox](#T-H3Lib-BBox 'H3Lib.BBox') | box to replace |
-| w | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') | West Value |
+| w | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') | West Value |
 
 <a name='T-H3Lib-BaseCellData'></a>
 ## BaseCellData `type`
@@ -1957,8 +1957,8 @@ Resolution 0 base cell data table.
  is a pentagon, the two cw offset rotation adjacent faces are given (-1
  indicates that no cw offset rotation faces exist for this base cell).
 
-<a name='F-H3Lib-Constants-BaseCells-BaseCellNeighbor60CounterClockwiseRotation'></a>
-### BaseCellNeighbor60CounterClockwiseRotation `constants`
+<a name='F-H3Lib-Constants-BaseCells-BaseCellNeighborCCW'></a>
+### BaseCellNeighborCCW `constants`
 
 ##### Summary
 
@@ -1986,7 +1986,7 @@ Neighboring base cell ID in each IJK direction.
 Resolution 0 base cell lookup table for each face.
 
  Given the face number and a resolution 0 ijk+ coordinate in that face's
- face-centered ijk coordinate system, gives the base cell located at that
+ face-centered ijk coordinate syste, gives the base cell located at that
  coordinate and the number of 60 ccw rotations to rotate into that base
  cell's orientation.
 
@@ -2875,8 +2875,8 @@ values. Works in place.
 | ---- | ---- | ----------- |
 | coord | [H3Lib.CoordIjk](#T-H3Lib-CoordIjk 'H3Lib.CoordIjk') | The ijk coordinates to normalize. |
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-Rotate60Clockwise-H3Lib-CoordIjk-'></a>
-### Rotate60Clockwise(ijk) `method`
+<a name='M-H3Lib-Extensions-CoordIjkExtensions-RotateCW-H3Lib-CoordIjk-'></a>
+### RotateCW(ijk) `method`
 
 ##### Summary
 
@@ -2888,8 +2888,8 @@ Rotates ijk coordinates 60 degrees clockwise. Works in place.
 | ---- | ---- | ----------- |
 | ijk | [H3Lib.CoordIjk](#T-H3Lib-CoordIjk 'H3Lib.CoordIjk') | The ijk coordinates. |
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-Rotate60CounterClockwise-H3Lib-CoordIjk-'></a>
-### Rotate60CounterClockwise(ijk) `method`
+<a name='M-H3Lib-Extensions-CoordIjkExtensions-RotateCCW-H3Lib-CoordIjk-'></a>
+### RotateCCW(ijk) `method`
 
 ##### Summary
 
@@ -3149,8 +3149,8 @@ H3Lib.Extensions
 
 Operations for Direction enum type
 
-<a name='M-H3Lib-Extensions-DirectionExtensions-Rotate60Clockwise-H3Lib-Direction-'></a>
-### Rotate60Clockwise(digit) `method`
+<a name='M-H3Lib-Extensions-DirectionExtensions-RotateCW-H3Lib-Direction-'></a>
+### RotateCW(digit) `method`
 
 ##### Summary
 
@@ -3162,8 +3162,8 @@ Rotates indexing digit 60 degrees clockwise. Returns result.
 | ---- | ---- | ----------- |
 | digit | [H3Lib.Direction](#T-H3Lib-Direction 'H3Lib.Direction') | Indexing digit (between 1 and 6 inclusive) |
 
-<a name='M-H3Lib-Extensions-DirectionExtensions-Rotate60CounterClockwise-H3Lib-Direction-'></a>
-### Rotate60CounterClockwise(digit) `method`
+<a name='M-H3Lib-Extensions-DirectionExtensions-RotateCCW-H3Lib-Direction-'></a>
+### RotateCCW(digit) `method`
 
 ##### Summary
 
@@ -3222,7 +3222,7 @@ This constructor has no parameters.
 ##### Summary
 
 direction from the origin face to the destination face, relative to
-the origin face's coordinate system, or -1 if not adjacent.
+the origin face's coordinate syste, or -1 if not adjacent.
 
 <a name='F-H3Lib-Constants-FaceIjk-FaceAxesAzRadsCii'></a>
 ### FaceAxesAzRadsCii `constants`
@@ -3520,7 +3520,7 @@ A new instance with the correct values
 Find base cell given FaceIJK.
 
  Given the face number and a resolution 0 ijk+ coordinate in that face's
- face-centered ijk coordinate system, return the base cell located at that
+ face-centered ijk coordinate syste, return the base cell located at that
  coordinate.
 
  Valid ijk+ lookup coordinates are from (0, 0, 0) to (2, 2, 2).
@@ -3537,7 +3537,7 @@ This method has no parameters.
 Find base cell given FaceIJK.
 
  Given the face number and a resolution 0 ijk+ coordinate in that face's
- face-centered ijk coordinate system, return the number of 60' ccw rotations
+ face-centered ijk coordinate syste, return the number of 60' ccw rotations
  to rotate into the coordinate system of the base cell at that coordinates.
 
  Valid ijk+ lookup coordinates are from (0, 0, 0) to (2, 2, 2).
@@ -3800,7 +3800,7 @@ H3Lib
 
 Functions for working with lat/lon coordinates.
 
-<a name='M-H3Lib-GeoCoord-#ctor-System-Decimal,System-Decimal-'></a>
+<a name='M-H3Lib-GeoCoord-#ctor-System-double,System-double-'></a>
 ### #ctor() `constructor`
 
 ##### Summary
@@ -3947,7 +3947,7 @@ area of triangle on unit sphere, in radians^2
 | b | [H3Lib.GeoCoord](#T-H3Lib-GeoCoord 'H3Lib.GeoCoord') | vertex lat/lng in radians |
 | c | [H3Lib.GeoCoord](#T-H3Lib-GeoCoord 'H3Lib.GeoCoord') | vertex lat/lng in radians |
 
-<a name='M-H3Lib-GeoCoord-TriangleEdgeLengthToArea-System-Decimal,System-Decimal,System-Decimal-'></a>
+<a name='M-H3Lib-GeoCoord-TriangleEdgeLengthToArea-System-double,System-double,System-double-'></a>
 ### TriangleEdgeLengthToArea(a,b,c) `method`
 
 ##### Summary
@@ -3965,9 +3965,9 @@ area in radians^2 of triangle on unit sphere
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| a | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') | length of triangle side A in radians |
-| b | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') | length of triangle side B in radians |
-| c | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') | length of triangle side C in radians |
+| a | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') | length of triangle side A in radians |
+| b | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') | length of triangle side B in radians |
+| c | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') | length of triangle side C in radians |
 
 <a name='M-H3Lib-GeoCoord-op_Equality-H3Lib-GeoCoord,H3Lib-GeoCoord-'></a>
 ### op_Equality() `method`
@@ -4070,7 +4070,7 @@ the great circle distance in radians between a and b
 | a | [H3Lib.GeoCoord](#T-H3Lib-GeoCoord 'H3Lib.GeoCoord') | the first lat/lng pair (in radians) |
 | b | [H3Lib.GeoCoord](#T-H3Lib-GeoCoord 'H3Lib.GeoCoord') | the second lat/lng pair (in radians) |
 
-<a name='M-H3Lib-Extensions-GeoCoordExtensions-GetAzimuthDistancePoint-H3Lib-GeoCoord,System-Decimal,System-Decimal-'></a>
+<a name='M-H3Lib-Extensions-GeoCoordExtensions-GetAzimuthDistancePoint-H3Lib-GeoCoord,System-double,System-double-'></a>
 ### GetAzimuthDistancePoint(p1,azimuth,distance) `method`
 
 ##### Summary
@@ -4087,8 +4087,8 @@ The spherical coordinates at the desired azimuth and distance from p1.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | p1 | [H3Lib.GeoCoord](#T-H3Lib-GeoCoord 'H3Lib.GeoCoord') | The first spherical coordinates. |
-| azimuth | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') | The desired azimuth from p1. |
-| distance | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') | The desired distance from p1, must be non-negative. |
+| azimuth | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') | The desired azimuth from p1. |
+| distance | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') | The desired distance from p1, must be non-negative. |
 
 <a name='M-H3Lib-Extensions-GeoCoordExtensions-LineHexEstimate-H3Lib-GeoCoord,H3Lib-GeoCoord,System-Int32-'></a>
 ### LineHexEstimate(origin,destination,res) `method`
@@ -4110,22 +4110,22 @@ the estimated number of hexagons required to trace the line
 | destination | [H3Lib.GeoCoord](#T-H3Lib-GeoCoord 'H3Lib.GeoCoord') | the destination coordinates |
 | res | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | the resolution of the H3 hexagons to trace the line |
 
-<a name='M-H3Lib-Extensions-GeoCoordExtensions-SetDegrees-H3Lib-GeoCoord,System-Decimal,System-Decimal-'></a>
+<a name='M-H3Lib-Extensions-GeoCoordExtensions-SetDegrees-H3Lib-GeoCoord,System-double,System-double-'></a>
 ### SetDegrees(gc,latitude,longitude) `method`
 
 ##### Summary
 
-Set the components of spherical coordinates in decimal degrees.
+Set the components of spherical coordinates in double degrees.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | gc | [H3Lib.GeoCoord](#T-H3Lib-GeoCoord 'H3Lib.GeoCoord') | The spherical coordinates |
-| latitude | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') | The desired latitude in decimal degrees |
-| longitude | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') | The desired longitude in decimal degrees |
+| latitude | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') | The desired latitude in double degrees |
+| longitude | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') | The desired longitude in double degrees |
 
-<a name='M-H3Lib-Extensions-GeoCoordExtensions-SetGeoRads-H3Lib-GeoCoord,System-Decimal,System-Decimal-'></a>
+<a name='M-H3Lib-Extensions-GeoCoordExtensions-SetGeoRads-H3Lib-GeoCoord,System-double,System-double-'></a>
 ### SetGeoRads(gc,latitudeRadians,longitudeRadians) `method`
 
 ##### Summary
@@ -4137,10 +4137,10 @@ Set the components of spherical coordinates in radians.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | gc | [H3Lib.GeoCoord](#T-H3Lib-GeoCoord 'H3Lib.GeoCoord') | The spherical coordinates |
-| latitudeRadians | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') | The desired latitude in decimal radians |
-| longitudeRadians | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') | The desired longitude in decimal radians |
+| latitudeRadians | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') | The desired latitude in double radians |
+| longitudeRadians | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') | The desired longitude in double radians |
 
-<a name='M-H3Lib-Extensions-GeoCoordExtensions-SetLatitude-H3Lib-GeoCoord,System-Decimal-'></a>
+<a name='M-H3Lib-Extensions-GeoCoordExtensions-SetLatitude-H3Lib-GeoCoord,System-double-'></a>
 ### SetLatitude() `method`
 
 ##### Summary
@@ -4151,7 +4151,7 @@ Quick replacement for Latitude
 
 This method has no parameters.
 
-<a name='M-H3Lib-Extensions-GeoCoordExtensions-SetLongitude-H3Lib-GeoCoord,System-Decimal-'></a>
+<a name='M-H3Lib-Extensions-GeoCoordExtensions-SetLongitude-H3Lib-GeoCoord,System-double-'></a>
 ### SetLongitude() `method`
 
 ##### Summary
@@ -4162,7 +4162,7 @@ Quick replacement for Longitude
 
 This method has no parameters.
 
-<a name='M-H3Lib-Extensions-GeoCoordExtensions-SetRadians-H3Lib-GeoCoord,System-Decimal,System-Decimal-'></a>
+<a name='M-H3Lib-Extensions-GeoCoordExtensions-SetRadians-H3Lib-GeoCoord,System-double,System-double-'></a>
 ### SetRadians(gc,latitude,longitude) `method`
 
 ##### Summary
@@ -4174,8 +4174,8 @@ Set the components of spherical coordinates in radians.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | gc | [H3Lib.GeoCoord](#T-H3Lib-GeoCoord 'H3Lib.GeoCoord') | The spherical coordinates |
-| latitude | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') | The desired latitude in decimal radians |
-| longitude | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') | The desired longitude in decimal radians |
+| latitude | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') | The desired latitude in double radians |
+| longitude | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') | The desired longitude in double radians |
 
 <a name='M-H3Lib-Extensions-GeoCoordExtensions-ToFaceIjk-H3Lib-GeoCoord,System-Int32-'></a>
 ### ToFaceIjk(g,res) `method`
@@ -5820,8 +5820,8 @@ The origin H3 hexagon index, or H3_NULL on failure
 | ---- | ---- | ----------- |
 | edge | [H3Lib.H3Index](#T-H3Lib-H3Index 'H3Lib.H3Index') | The edge H3 index |
 
-<a name='M-H3Lib-Extensions-H3IndexExtensions-Rotate60Clockwise-H3Lib-H3Index-'></a>
-### Rotate60Clockwise(h) `method`
+<a name='M-H3Lib-Extensions-H3IndexExtensions-RotateCW-H3Lib-H3Index-'></a>
+### RotateCW(h) `method`
 
 ##### Summary
 
@@ -5833,8 +5833,8 @@ Rotate an H3Index 60 degrees clockwise.
 | ---- | ---- | ----------- |
 | h | [H3Lib.H3Index](#T-H3Lib-H3Index 'H3Lib.H3Index') | The H3Index. |
 
-<a name='M-H3Lib-Extensions-H3IndexExtensions-Rotate60CounterClockwise-H3Lib-H3Index-'></a>
-### Rotate60CounterClockwise(h) `method`
+<a name='M-H3Lib-Extensions-H3IndexExtensions-RotateCCW-H3Lib-H3Index-'></a>
+### RotateCCW(h) `method`
 
 ##### Summary
 
@@ -5846,8 +5846,8 @@ Rotate an H3Index 60 degrees counter-clockwise.
 | ---- | ---- | ----------- |
 | h | [H3Lib.H3Index](#T-H3Lib-H3Index 'H3Lib.H3Index') | The H3Index. |
 
-<a name='M-H3Lib-Extensions-H3IndexExtensions-RotatePent60Clockwise-H3Lib-H3Index-'></a>
-### RotatePent60Clockwise(h) `method`
+<a name='M-H3Lib-Extensions-H3IndexExtensions-RotatePentCW-H3Lib-H3Index-'></a>
+### RotatePentCW(h) `method`
 
 ##### Summary
 
@@ -5859,8 +5859,8 @@ Rotate an H3Index 60 degrees clockwise about a pentagonal center.
 | ---- | ---- | ----------- |
 | h | [H3Lib.H3Index](#T-H3Lib-H3Index 'H3Lib.H3Index') | The H3Index. |
 
-<a name='M-H3Lib-Extensions-H3IndexExtensions-RotatePent60CounterClockwise-H3Lib-H3Index-'></a>
-### RotatePent60CounterClockwise(h) `method`
+<a name='M-H3Lib-Extensions-H3IndexExtensions-RotatePentCCW-H3Lib-H3Index-'></a>
+### RotatePentCCW(h) `method`
 
 ##### Summary
 
@@ -6267,7 +6267,7 @@ Gonna do this a bit differently, allowing for varying
 resolutions in input data.  Also, this is a front for [FlexiCompact](#M-H3Lib-Extensions-H3LibExtensions-FlexiCompact-System-Collections-Generic-List{H3Lib-H3Index}- 'H3Lib.Extensions.H3LibExtensions.FlexiCompact(System.Collections.Generic.List{H3Lib.H3Index})')
 that tries to maintain the same restrictions the original H3 compact enforces.
 
-<a name='M-H3Lib-Extensions-H3LibExtensions-ConstrainLatitude-System-Decimal-'></a>
+<a name='M-H3Lib-Extensions-H3LibExtensions-ConstrainLatitude-System-double-'></a>
 ### ConstrainLatitude(latitude) `method`
 
 ##### Summary
@@ -6282,7 +6282,7 @@ The corrected lat value
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| latitude | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') | The original lat value |
+| latitude | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') | The original lat value |
 
 <a name='M-H3Lib-Extensions-H3LibExtensions-ConstrainLatitude-System-Int32-'></a>
 ### ConstrainLatitude() `method`
@@ -6295,7 +6295,7 @@ Constrain Latitude to +/- PI/2
 
 This method has no parameters.
 
-<a name='M-H3Lib-Extensions-H3LibExtensions-ConstrainLongitude-System-Decimal-'></a>
+<a name='M-H3Lib-Extensions-H3LibExtensions-ConstrainLongitude-System-double-'></a>
 ### ConstrainLongitude(longitude) `method`
 
 ##### Summary
@@ -6310,7 +6310,7 @@ The corrected lng value
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| longitude | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') | The origin lng value |
+| longitude | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') | The origin lng value |
 
 <a name='M-H3Lib-Extensions-H3LibExtensions-ConstrainLongitude-System-Int32-'></a>
 ### ConstrainLongitude(longitude) `method`
@@ -6329,8 +6329,8 @@ Constrain Longitude to +/- PI
 | ---- | ---- | ----------- |
 | longitude | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') |  |
 
-<a name='M-H3Lib-Extensions-H3LibExtensions-ConstrainToPiAccuracy-System-Decimal-'></a>
-### ConstrainToPiAccuracy() `method`
+<a name='M-H3Lib-Extensions-H3LibExtensions-ConstrainAccuracy-System-double-'></a>
+### ConstrainAccuracy() `method`
 
 ##### Summary
 
@@ -6340,12 +6340,12 @@ Constants only covers PI to a certain value.  Who am I to improve on that?
 
 This method has no parameters.
 
-<a name='M-H3Lib-Extensions-H3LibExtensions-DegreesToRadians-System-Decimal-'></a>
+<a name='M-H3Lib-Extensions-H3LibExtensions-DegreesToRadians-System-double-'></a>
 ### DegreesToRadians(degrees) `method`
 
 ##### Summary
 
-Convert from decimal degrees to radians.
+Convert from double degrees to radians.
 
 ##### Returns
 
@@ -6355,14 +6355,14 @@ The corresponding radians
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| degrees | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') | The decimal degrees |
+| degrees | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') | The double degrees |
 
 <a name='M-H3Lib-Extensions-H3LibExtensions-DegreesToRadians-System-Int32-'></a>
 ### DegreesToRadians(degrees) `method`
 
 ##### Summary
 
-Convert decimal degrees to radians
+Convert double degrees to radians
 
 ##### Returns
 
@@ -6445,7 +6445,7 @@ k. Formula source and proof: https://oeis.org/A003215
 | ---- | ---- | ----------- |
 | k | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | k value, k >= 0. |
 
-<a name='M-H3Lib-Extensions-H3LibExtensions-NormalizeLongitude-System-Decimal,System-Boolean-'></a>
+<a name='M-H3Lib-Extensions-H3LibExtensions-NormalizeLongitude-System-double,System-Boolean-'></a>
 ### NormalizeLongitude() `method`
 
 ##### Summary
@@ -6456,7 +6456,7 @@ Normalize longitude, dealing with transmeridian arcs
 
 This method has no parameters.
 
-<a name='M-H3Lib-Extensions-H3LibExtensions-NormalizeRadians-System-Decimal,System-Decimal-'></a>
+<a name='M-H3Lib-Extensions-H3LibExtensions-NormalizeRadians-System-double,System-double-'></a>
 ### NormalizeRadians(rads,limit) `method`
 
 ##### Summary
@@ -6471,8 +6471,8 @@ The normalized radians value
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| rads | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') | The input radians value |
-| limit | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') | Default value of 2pi. _Can_ be changed, probably shouldn't |
+| rads | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') | The input radians value |
+| limit | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') | Default value of 2pi. _Can_ be changed, probably shouldn't |
 
 ##### Remarks
 
@@ -6519,24 +6519,24 @@ the exponentiated value
 | baseValue | [System.Int64](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int64 'System.Int64') | the integer base (can be positive or negative) |
 | power | [System.Int64](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int64 'System.Int64') | the integer exponent (should be nonnegative) |
 
-<a name='M-H3Lib-Extensions-H3LibExtensions-RadiansToDegrees-System-Decimal-'></a>
+<a name='M-H3Lib-Extensions-H3LibExtensions-RadiansToDegrees-System-double-'></a>
 ### RadiansToDegrees(radians) `method`
 
 ##### Summary
 
-Convert from radians to decimal degrees.
+Convert from radians to double degrees.
 
 ##### Returns
 
-The corresponding decimal degrees
+The corresponding double degrees
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| radians | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') | The radians |
+| radians | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') | The radians |
 
-<a name='M-H3Lib-Extensions-H3LibExtensions-Square-System-Decimal-'></a>
+<a name='M-H3Lib-Extensions-H3LibExtensions-Square-System-double-'></a>
 ### Square(x) `method`
 
 ##### Summary
@@ -6551,7 +6551,7 @@ The square of the input number
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| x | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') | The input number |
+| x | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') | The input number |
 
 <a name='M-H3Lib-Extensions-H3LibExtensions-ToH3Index-System-String-'></a>
 ### ToH3Index(s) `method`
@@ -7311,7 +7311,7 @@ H3Lib
 
 2D floating point vector functions.
 
-<a name='M-H3Lib-Vec2d-#ctor-System-Decimal,System-Decimal-'></a>
+<a name='M-H3Lib-Vec2d-#ctor-System-double,System-double-'></a>
 ### #ctor() `constructor`
 
 ##### Summary
@@ -7492,7 +7492,7 @@ H3Lib
 
 3D floating point structure
 
-<a name='M-H3Lib-Vec3d-#ctor-System-Decimal,System-Decimal,System-Decimal-'></a>
+<a name='M-H3Lib-Vec3d-#ctor-System-double,System-double,System-double-'></a>
 ### #ctor() `constructor`
 
 ##### Summary
@@ -7630,7 +7630,7 @@ The square of the distance between the given points.
 | v1 | [H3Lib.Vec3d](#T-H3Lib-Vec3d 'H3Lib.Vec3d') | The first 3D coordinate. |
 | v2 | [H3Lib.Vec3d](#T-H3Lib-Vec3d 'H3Lib.Vec3d') | The second 3D coordinate. |
 
-<a name='M-H3Lib-Extensions-Vec3dExtensions-SetX-H3Lib-Vec3d,System-Decimal-'></a>
+<a name='M-H3Lib-Extensions-Vec3dExtensions-SetX-H3Lib-Vec3d,System-double-'></a>
 ### SetX(v3,x) `method`
 
 ##### Summary
@@ -7646,9 +7646,9 @@ Replace X value
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | v3 | [H3Lib.Vec3d](#T-H3Lib-Vec3d 'H3Lib.Vec3d') |  |
-| x | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') |  |
+| x | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') |  |
 
-<a name='M-H3Lib-Extensions-Vec3dExtensions-SetY-H3Lib-Vec3d,System-Decimal-'></a>
+<a name='M-H3Lib-Extensions-Vec3dExtensions-SetY-H3Lib-Vec3d,System-double-'></a>
 ### SetY(v3,y) `method`
 
 ##### Summary
@@ -7664,9 +7664,9 @@ Replace Y value
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | v3 | [H3Lib.Vec3d](#T-H3Lib-Vec3d 'H3Lib.Vec3d') |  |
-| y | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') |  |
+| y | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') |  |
 
-<a name='M-H3Lib-Extensions-Vec3dExtensions-SetZ-H3Lib-Vec3d,System-Decimal-'></a>
+<a name='M-H3Lib-Extensions-Vec3dExtensions-SetZ-H3Lib-Vec3d,System-double-'></a>
 ### SetZ(v3,z) `method`
 
 ##### Summary
@@ -7682,7 +7682,7 @@ Repalce Z value
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | v3 | [H3Lib.Vec3d](#T-H3Lib-Vec3d 'H3Lib.Vec3d') |  |
-| z | [System.Decimal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Decimal 'System.Decimal') |  |
+| z | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') |  |
 
 <a name='T-H3Lib-Constants-Vertex'></a>
 ## Vertex `type`

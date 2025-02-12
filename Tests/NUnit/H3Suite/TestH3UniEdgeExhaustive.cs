@@ -34,38 +34,32 @@ namespace TestSuite
         {
             var edges = h3.GetUniEdgesFromCell();
 
-            for (var i = 0; i < 6; i++)
-            {
+            for (var i = 0; i < 6; i++) {
+        
                 if (edges[i] == Constants.H3Index.H3_NULL)
                 {
                     continue;
                 }
 
                 var edgeBoundary = edges[i].UniEdgeToGeoBoundary();
-                var destination = edges[i].DestinationFromUniDirectionalEdge();
-                var revEdge = destination.UniDirectionalEdgeTo(h3);
+                var destination  = edges[i].DestinationFromUniDirectionalEdge();
+                var revEdge      = destination.UniDirectionalEdgeTo(h3);
 
                 var revEdgeBoundary = revEdge.UniEdgeToGeoBoundary();
 
                 Assert.AreEqual(edgeBoundary.NumVerts, revEdgeBoundary.NumVerts);
 
-                for (var j = 0; j < edgeBoundary.NumVerts; j++)
-                {
-                    Assert.IsTrue
-                        (
-                         Math.Abs(
-                         edgeBoundary.Verts[j].Latitude -
-                         revEdgeBoundary.Verts[revEdgeBoundary.NumVerts - 1 - j].Latitude
-                         ) < 0.000001m, $"{h3.Value} - {h3}"
-                        );
-                    Assert.IsTrue
-                    (
-                            Math.Abs
-                                (
-                                 edgeBoundary.Verts[j].Longitude -
-                                 revEdgeBoundary.Verts[revEdgeBoundary.NumVerts - 1 - j].Longitude
-                                ) <
-                            0.000001m
+                for (var j = 0; j < edgeBoundary.NumVerts; j++) {
+                
+                    Assert.IsTrue(
+                        Math.Abs(
+                            edgeBoundary.Verts[j].Latitude - revEdgeBoundary.Verts[revEdgeBoundary.NumVerts - 1 - j].Latitude
+                        ) < 0.000001, $"{h3.Value} - {h3}");
+                    
+                    Assert.IsTrue(
+                            Math.Abs(
+                                edgeBoundary.Verts[j].Longitude - revEdgeBoundary.Verts[revEdgeBoundary.NumVerts - 1 - j].Longitude
+                            ) < 0.000001
                         );
                 }
             }

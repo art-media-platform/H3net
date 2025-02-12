@@ -12,12 +12,12 @@ namespace TestSuite
     {
         public static GeoCoord[] sfVerts =
         {
-            new GeoCoord(0.659966917655m, -2.1364398519396m),
-            new GeoCoord(0.6595011102219m, -2.1359434279405m),
-            new GeoCoord(0.6583348114025m, -2.1354884206045m),
-            new GeoCoord(0.6581220034068m, -2.1382437718946m),
-            new GeoCoord(0.6594479998527m, -2.1384597563896m),
-            new GeoCoord(0.6599990002976m, -2.1376771158464m)
+            new GeoCoord(0.6599669176550, -2.1364398519396),
+            new GeoCoord(0.6595011102219, -2.1359434279405),
+            new GeoCoord(0.6583348114025, -2.1354884206045),
+            new GeoCoord(0.6581220034068, -2.1382437718946),
+            new GeoCoord(0.6594479998527, -2.1384597563896),
+            new GeoCoord(0.6599990002976, -2.1376771158464)
         };
 
         public static GeoFence sfGeofence =
@@ -27,9 +27,9 @@ namespace TestSuite
 
         public static GeoCoord[] holeVerts =
         {
-            new GeoCoord(0.6595072188743m, -2.1371053983433m),
-            new GeoCoord(0.6591482046471m, -2.1373141048153m),
-            new GeoCoord(0.6592295020837m, -2.1365222838402m)
+            new GeoCoord(0.6595072188743, -2.1371053983433),
+            new GeoCoord(0.6591482046471, -2.1373141048153),
+            new GeoCoord(0.6592295020837, -2.1365222838402)
         };
 
         public static GeoFence holeGeofence =
@@ -39,9 +39,9 @@ namespace TestSuite
 
         public static GeoCoord[] emptyVerts =
         {
-            new GeoCoord(0.659966917655m, -2.1364398519394m),
-            new GeoCoord(0.659966917655m, -2.1364398519395m),
-            new GeoCoord(0.659966917655m, -2.1364398519396m)
+            new GeoCoord(0.659966917655, -2.1364398519394),
+            new GeoCoord(0.659966917655, -2.1364398519395),
+            new GeoCoord(0.659966917655, -2.1364398519396)
         };
 
         public static GeoFence emptyGeofence =
@@ -56,7 +56,7 @@ namespace TestSuite
         {
             GeoBoundary boundary = h.ToGeoBoundary();
 
-            decimal minLon = Constants.H3.M_PI, maxLon = -Constants.H3.M_PI;
+            double minLon = Constants.H3.M_PI, maxLon = -Constants.H3.M_PI;
             for (int i = 0; i < boundary.NumVerts; i++)
             {
                 if (boundary.Verts[i].Longitude < minLon)
@@ -203,20 +203,20 @@ namespace TestSuite
         {
             var primeMeridianVerts = new[]
                                      {
-                                         new GeoCoord(0.01m, 0.01m),
-                                         new GeoCoord(0.01m, -0.01m),
-                                         new GeoCoord(-0.01m, -0.01m),
-                                         new GeoCoord(-0.01m, 0.01m)
+                                         new GeoCoord(0.01, 0.01),
+                                         new GeoCoord(0.01, -0.01),
+                                         new GeoCoord(-0.01, -0.01),
+                                         new GeoCoord(-0.01, 0.01)
                                      };
             var primeMeridianGeofence = new GeoFence {NumVerts = 4, Verts = primeMeridianVerts};
             var primeMeridianGeoPolygon = new GeoPolygon {GeoFence = primeMeridianGeofence, NumHoles = 0};
 
             var transMeridianVerts = new[]
                                      {
-                                         new GeoCoord(0.01m, -Constants.H3.M_PI + 0.01m),
-                                         new GeoCoord(0.01m, Constants.H3.M_PI - 0.01m),
-                                         new GeoCoord(-0.01m, Constants.H3.M_PI - 0.01m),
-                                         new GeoCoord(-0.01m, -Constants.H3.M_PI + 0.01m),
+                                         new GeoCoord(0.01, -Constants.H3.M_PI + 0.01),
+                                         new GeoCoord(0.01, Constants.H3.M_PI - 0.01),
+                                         new GeoCoord(-0.01, Constants.H3.M_PI - 0.01),
+                                         new GeoCoord(-0.01, -Constants.H3.M_PI + 0.01),
                                      };
 
             var transMeridianGeofence = new GeoFence {NumVerts = 4, Verts = transMeridianVerts};
@@ -224,10 +224,10 @@ namespace TestSuite
 
             var transMeridianHoleVerts = new[]
                                          {
-                                             new GeoCoord(0.005m, -Constants.H3.M_PI + 0.005m),
-                                             new GeoCoord(0.005m, Constants.H3.M_PI - 0.005m),
-                                             new GeoCoord(-0.005m, Constants.H3.M_PI - 0.005m),
-                                             new GeoCoord(-0.005m, -Constants.H3.M_PI + 0.005m),
+                                             new GeoCoord(0.005, -Constants.H3.M_PI + 0.005),
+                                             new GeoCoord(0.005, Constants.H3.M_PI - 0.005),
+                                             new GeoCoord(-0.005, Constants.H3.M_PI - 0.005),
+                                             new GeoCoord(-0.005, -Constants.H3.M_PI + 0.005),
                                          };
             var transMeridianHoleGeofence = new GeoFence {NumVerts = 4, Verts = transMeridianHoleVerts};
             var transMeridianHoleGeoPolygon = new GeoPolygon
@@ -277,12 +277,12 @@ namespace TestSuite
             // the bounds for transmeridian polygons
             var verts = new[]
                         {
-                            new GeoCoord(0.1m, -Constants.H3.M_PI + 0.00001m),
-                            new GeoCoord(0.1m, Constants.H3.M_PI - 0.00001m),
-                            new GeoCoord(0.05m, Constants.H3.M_PI - 0.2m),
-                            new GeoCoord(-0.1m, Constants.H3.M_PI - 0.00001m),
-                            new GeoCoord(-0.1m, -Constants.H3.M_PI + 0.00001m),
-                            new GeoCoord(-0.05m, -Constants.H3.M_PI + 0.2m),
+                            new GeoCoord(0.1, -Constants.H3.M_PI + 0.00001),
+                            new GeoCoord(0.1, Constants.H3.M_PI - 0.00001),
+                            new GeoCoord(0.05, Constants.H3.M_PI - 0.2),
+                            new GeoCoord(-0.1, Constants.H3.M_PI - 0.00001),
+                            new GeoCoord(-0.1, -Constants.H3.M_PI + 0.00001),
+                            new GeoCoord(-0.05, -Constants.H3.M_PI + 0.2),
                         };
 
             var geofence = new GeoFence {NumVerts = 6, Verts = verts};
@@ -300,7 +300,7 @@ namespace TestSuite
             var coord = pentagon.ToGeoCoord();
 
             // Length of half an edge of the polygon, in radians
-            decimal edgeLength2 = (0.001m).DegreesToRadians();
+            double edgeLength2 = (0.001).DegreesToRadians();
 
             var boundingTopRight = coord
                                   .SetLatitude(coord.Latitude + edgeLength2)

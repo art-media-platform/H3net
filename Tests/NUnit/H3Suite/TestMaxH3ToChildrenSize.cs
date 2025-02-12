@@ -7,7 +7,7 @@ namespace TestSuite
     [TestFixture]
     public class TestMaxH3ToChildrenSize
     {
-        private GeoCoord sf = new GeoCoord(0.659966917655m, 2 * 3.14159m - 2.1364398519396m);
+        private GeoCoord sf = new GeoCoord(0.659966917655, 2 * 3.14159 - 2.1364398519396);
 
         [Test]
         public void MaxH3ToChildrenSize()

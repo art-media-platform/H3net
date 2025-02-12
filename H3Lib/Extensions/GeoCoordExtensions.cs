@@ -1,5 +1,5 @@
 using System;
-using DecimalMath;
+
 
 namespace H3Lib.Extensions
 {
@@ -9,16 +9,16 @@ namespace H3Lib.Extensions
     public static class GeoCoordExtensions
     {
         /// <summary>
-        /// Set the components of spherical coordinates in decimal degrees.
+        /// Set the components of spherical coordinates in double degrees.
         /// </summary>
         /// <param name="gc">The spherical coordinates</param>
-        /// <param name="latitude">The desired latitude in decimal degrees</param>
-        /// <param name="longitude">The desired longitude in decimal degrees</param>
+        /// <param name="latitude">The desired latitude in double degrees</param>
+        /// <param name="longitude">The desired longitude in double degrees</param>
         /// <!--
         /// geoCoord.c
         /// void setGeoDegs
         /// -->
-        public static GeoCoord SetDegrees(this GeoCoord gc, decimal latitude, decimal longitude)
+        public static GeoCoord SetDegrees(this GeoCoord gc, double latitude, double longitude)
         {
             return gc.SetGeoRads(latitude.DegreesToRadians(), longitude.DegreesToRadians());
         }
@@ -27,9 +27,9 @@ namespace H3Lib.Extensions
         /// Set the components of spherical coordinates in radians.
         /// </summary>
         /// <param name="gc">The spherical coordinates</param>
-        /// <param name="latitude">The desired latitude in decimal radians</param>
-        /// <param name="longitude">The desired longitude in decimal radians</param>
-        public static GeoCoord SetRadians(this GeoCoord gc, decimal latitude, decimal longitude)
+        /// <param name="latitude">The desired latitude in double radians</param>
+        /// <param name="longitude">The desired longitude in double radians</param>
+        public static GeoCoord SetRadians(this GeoCoord gc, double latitude, double longitude)
         {
             return gc.SetGeoRads(latitude, longitude);
         }
@@ -38,13 +38,13 @@ namespace H3Lib.Extensions
         /// Set the components of spherical coordinates in radians.
         /// </summary>
         /// <param name="gc">The spherical coordinates</param>
-        /// <param name="latitudeRadians">The desired latitude in decimal radians</param>
-        /// <param name="longitudeRadians">The desired longitude in decimal radians</param>
+        /// <param name="latitudeRadians">The desired latitude in double radians</param>
+        /// <param name="longitudeRadians">The desired longitude in double radians</param>
         /// <!--
         /// geoCoord.c
         /// void _setGeoRads
         /// -->
-        private static GeoCoord SetGeoRads(this GeoCoord gc, decimal latitudeRadians, decimal longitudeRadians)
+        private static GeoCoord SetGeoRads(this GeoCoord gc, double latitudeRadians, double longitudeRadians)
         {
             gc =  new GeoCoord(latitudeRadians, longitudeRadians);
             return gc;
@@ -53,7 +53,7 @@ namespace H3Lib.Extensions
         /// <summary>
         /// Quick replacement for Latitude
         /// </summary>
-        public static GeoCoord SetLatitude(this GeoCoord gc, decimal latitude)
+        public static GeoCoord SetLatitude(this GeoCoord gc, double latitude)
         {
             return new GeoCoord(latitude, gc.Longitude);
         }
@@ -61,7 +61,7 @@ namespace H3Lib.Extensions
         /// <summary>
         /// Quick replacement for Longitude
         /// </summary>
-        public static GeoCoord SetLongitude(this GeoCoord gc, decimal longitude)
+        public static GeoCoord SetLongitude(this GeoCoord gc, double longitude)
         {
             return new GeoCoord(gc.Latitude, longitude);
         }
@@ -82,14 +82,13 @@ namespace H3Lib.Extensions
         /// geoCoord.c
         /// double H3_EXPORT(pointDistRads)
         /// -->
-        public static decimal DistanceToRadians(this GeoCoord a, GeoCoord b)
+        public static double DistanceToRadians(this GeoCoord a, GeoCoord b)
         {
-            decimal sinLat = DecimalEx.Sin((b.Latitude - a.Latitude) / 2.0m);
-            decimal sinLng = DecimalEx.Sin((b.Longitude - a.Longitude) / 2.0m);
-            decimal p = sinLat * sinLat + DecimalEx.Cos(a.Latitude) *
-                        DecimalEx.Cos(b.Latitude) * sinLng * sinLng;
+            double sinLat = Math.Sin((b.Latitude  - a.Latitude ) / 2.0);
+            double sinLng = Math.Sin((b.Longitude - a.Longitude) / 2.0);
+            double p = sinLat * sinLat + Math.Cos(a.Latitude) * Math.Cos(b.Latitude) * sinLng * sinLng;
 
-            return 2 * DecimalEx.ATan2(DecimalEx.Sqrt(p), DecimalEx.Sqrt(1 - p));
+            return 2 * Math.Atan2(Math.Sqrt(p), Math.Sqrt(1 - p));
         }
 
         /// <summary>
@@ -99,9 +98,9 @@ namespace H3Lib.Extensions
         /// <param name="b">the second lat/lng pair (in radians)</param>
         /// <!--
         /// geoCoord.c
-        /// double H3_EXPORT(pointDistKm)
+        /// double H3_EXPORT(pointDistK)
         /// -->
-        public static decimal DistanceToKm(this GeoCoord a, GeoCoord b)
+        public static double DistanceToKm(this GeoCoord a, GeoCoord b)
         {
             return a.DistanceToRadians(b) * Constants.H3.EARTH_RADIUS_KM;
         }
@@ -113,9 +112,9 @@ namespace H3Lib.Extensions
         /// <param name="b">the second lat/lng pair (in radians)</param>
         /// <!--
         /// geoCoord.c
-        /// double H3_EXPORT(pointDistM)
+        /// double H3_EXPORT(pointDist)
         /// -->
-        public static decimal DistanceToM(this GeoCoord a, GeoCoord b)
+        public static double DistanceToM(this GeoCoord a, GeoCoord b)
         {
             return a.DistanceToKm(b) * 1000;
         }
@@ -130,16 +129,14 @@ namespace H3Lib.Extensions
         /// geoCoord.c
         /// double _geoAzimuthRads
         /// -->
-        internal static decimal AzimuthRadiansTo(this GeoCoord p1, GeoCoord p2)
+        internal static double AzimuthRadiansTo(this GeoCoord p1, GeoCoord p2)
         {
-            return
-                DecimalEx.ATan2
-                    (
-                     DecimalEx.Cos(p2.Latitude) * DecimalEx.Sin(p2.Longitude - p1.Longitude),
-                     DecimalEx.Cos(p1.Latitude) * DecimalEx.Sin(p2.Latitude) -
-                     DecimalEx.Sin(p1.Latitude) * DecimalEx.Cos(p2.Latitude) *
-                     DecimalEx.Cos(p2.Longitude - p1.Longitude)
-                    );
+            return Math.Atan2(
+                Math.Cos(p2.Latitude) * Math.Sin(p2.Longitude - p1.Longitude),
+                Math.Cos(p1.Latitude) * Math.Sin(p2.Latitude) -
+                Math.Sin(p1.Latitude) * Math.Cos(p2.Latitude) *
+                Math.Cos(p2.Longitude - p1.Longitude)
+            );
         }
 
         /// <summary>
@@ -154,14 +151,14 @@ namespace H3Lib.Extensions
         /// geoCoord.c
         /// void _geoAzDistanceRads
         /// -->
-        internal static GeoCoord GetAzimuthDistancePoint(this GeoCoord p1, decimal azimuth, decimal distance)
+        internal static GeoCoord GetAzimuthDistancePoint(this GeoCoord p1, double azimuth, double distance)
         {
             if (distance < Constants.H3.EPSILON)
             {
                 return p1;
             }
 
-            azimuth = azimuth.NormalizeRadians().ConstrainToPiAccuracy();
+            azimuth = azimuth.NormalizeRadians().ConstrainAccuracy();
             var p2 = new GeoCoord();
 
             // check for due north/south azimuth
@@ -179,11 +176,11 @@ namespace H3Lib.Extensions
 
                 if (Math.Abs(p2.Latitude - Constants.H3.M_PI_2) < Constants.H3.EPSILON) // north pole
                 {
-                    p2 = new GeoCoord(Constants.H3.M_PI_2, 0.0m);
+                    p2 = new GeoCoord(Constants.H3.M_PI_2, 0.0);
                 }
                 else if (Math.Abs(p2.Latitude + Constants.H3.M_PI_2) < Constants.H3.EPSILON) // south pole
                 {
-                    p2 = new GeoCoord(-Constants.H3.M_PI_2, 0.0m);
+                    p2 = new GeoCoord(-Constants.H3.M_PI_2, 0.0);
                 }
                 else
                 {
@@ -192,58 +189,58 @@ namespace H3Lib.Extensions
             }
             else // Not due north or south
             {
-                decimal sinLatitude = DecimalEx.Sin(p1.Latitude) * DecimalEx.Cos(distance) +
-                                        DecimalEx.Cos(p1.Latitude) * DecimalEx.Sin(distance) * DecimalEx.Cos(azimuth);
-                sinLatitude = sinLatitude.ConstrainToPiAccuracy();
-                if (sinLatitude > 1.0m)
+                double sinLatitude = Math.Sin(p1.Latitude) * Math.Cos(distance) +
+                                        Math.Cos(p1.Latitude) * Math.Sin(distance) * Math.Cos(azimuth);
+                sinLatitude = sinLatitude.ConstrainAccuracy();
+                if (sinLatitude > 1.0)
                 {
-                    sinLatitude = 1.0m;
+                    sinLatitude = 1.0;
                 }
 
-                if (sinLatitude < -1.0m)
+                if (sinLatitude < -1.0)
                 {
-                    sinLatitude = 1.0m;
+                    sinLatitude = 1.0;
                 }
 
-                p2 = p2.SetLatitude(DecimalEx.ASin(sinLatitude).ConstrainToPiAccuracy());
+                p2 = p2.SetLatitude(Math.Asin(sinLatitude).ConstrainAccuracy());
 
                 if (Math.Abs(p2.Latitude - Constants.H3.M_PI_2) < Constants.H3.EPSILON) // north pole
                 {
-                    p2 = new GeoCoord(Constants.H3.M_PI_2, 0.0m);
+                    p2 = new GeoCoord(Constants.H3.M_PI_2, 0.0);
                 }
                 else if (Math.Abs(p2.Latitude + Constants.H3.M_PI_2) < Constants.H3.EPSILON) // south pole
                 {
-                    p2 = new GeoCoord(-Constants.H3.M_PI_2, 0.0m);
+                    p2 = new GeoCoord(-Constants.H3.M_PI_2, 0.0);
                 }
                 else
                 {
-                    decimal sinLongitude = DecimalEx.Sin(azimuth) * DecimalEx.Sin(distance) / DecimalEx.Cos(p2.Latitude);
-                    decimal cosLongitude = (DecimalEx.Cos(distance) - DecimalEx.Sin(p1.Latitude) * DecimalEx.Sin(p2.Latitude)) /
-                                          DecimalEx.Cos(p1.Latitude) / DecimalEx.Cos(p2.Latitude);
-                    if (sinLongitude > 1.0m)
+                    double sinLongitude = Math.Sin(azimuth) * Math.Sin(distance) / Math.Cos(p2.Latitude);
+                    double cosLongitude = (Math.Cos(distance) - Math.Sin(p1.Latitude) * Math.Sin(p2.Latitude)) /
+                                          Math.Cos(p1.Latitude) / Math.Cos(p2.Latitude);
+                    if (sinLongitude > 1.0)
                     {
-                        sinLongitude = 1.0m;
+                        sinLongitude = 1.0;
                     }
 
-                    if (sinLongitude < -1.0m)
+                    if (sinLongitude < -1.0)
                     {
-                        sinLongitude = -1.0m;
+                        sinLongitude = -1.0;
                     }
 
-                    if (cosLongitude > 1.0m)
+                    if (cosLongitude > 1.0)
                     {
-                        cosLongitude = 1.0m;
+                        cosLongitude = 1.0;
                     }
 
-                    if (cosLongitude < -1.0m)
+                    if (cosLongitude < -1.0)
                     {
-                        cosLongitude = -1.0m;
+                        cosLongitude = -1.0;
                     }
 
                     p2 = p2.SetLongitude
                         (
-                         (p1.Longitude + DecimalEx.ATan2(sinLongitude, cosLongitude))
-                        .ConstrainLongitude().ConstrainToPiAccuracy()
+                         (p1.Longitude + Math.Atan2(sinLongitude, cosLongitude))
+                        .ConstrainLongitude().ConstrainAccuracy()
                         );
                 }
             }
@@ -293,11 +290,11 @@ namespace H3Lib.Extensions
             var newFace = 0;
 
             // determine the icosahedron face
-            decimal sqd = v3d.PointSquareDistance(Constants.FaceIjk.FaceCenterPoint[0]);
+            double sqd = v3d.PointSquareDistance(Constants.FaceIjk.FaceCenterPoint[0]);
 
             for (var f = 1; f < Constants.H3.NUM_ICOSA_FACES; f++)
             {
-                decimal sqdT = v3d.PointSquareDistance(Constants.FaceIjk.FaceCenterPoint[f]);
+                double sqdT = v3d.PointSquareDistance(Constants.FaceIjk.FaceCenterPoint[f]);
                 if (!(sqdT < sqd))
                 {
                     continue;
@@ -307,14 +304,14 @@ namespace H3Lib.Extensions
             }
             
             // cos(r) = 1 - 2 * sin^2(r/2) = 1 - 2 * (sqd / 4) = 1 - sqd/2
-            decimal r = DecimalEx.ACos(1 - sqd / 2.0m);
+            double r = Math.Acos(1 - sqd / 2.0);
 
             if (r < Constants.H3.EPSILON)
             {
                 return (newFace, new Vec2d());
             }
             // now have face and r, now find CCW theta from CII i-axis
-            decimal theta =
+            double theta =
                 (
                     Constants.FaceIjk.FaceAxesAzRadsCii[newFace, 0] -
                     Constants.FaceIjk.FaceCenterGeo[newFace].AzimuthRadiansTo(g)
@@ -328,7 +325,7 @@ namespace H3Lib.Extensions
             }
 
             // perform gnomonic scaling of r
-            r = DecimalEx.Tan(r);
+            r = Math.Tan(r);
 
             // scale for current resolution length u
             r /= Constants.H3.RES0_U_GNOMONIC;
@@ -342,8 +339,8 @@ namespace H3Lib.Extensions
             return (newFace,
                     new Vec2d
                         (
-                         r * DecimalEx.Cos(theta),
-                         r * DecimalEx.Sin(theta)
+                         r * Math.Cos(theta),
+                         r * Math.Sin(theta)
                         ));
         }
 
@@ -357,12 +354,12 @@ namespace H3Lib.Extensions
         /// -->
         public static Vec3d ToVec3d(this GeoCoord geo)
         {
-            decimal r = DecimalEx.Cos(geo.Latitude);
+            double r = Math.Cos(geo.Latitude);
             return new Vec3d
                 (
-                 DecimalEx.Cos(geo.Longitude) * r,
-                 DecimalEx.Sin(geo.Longitude) * r,
-                 DecimalEx.Sin(geo.Latitude)
+                 Math.Cos(geo.Longitude) * r,
+                 Math.Sin(geo.Longitude) * r,
+                 Math.Sin(geo.Latitude)
                 );
         }
 
@@ -386,8 +383,8 @@ namespace H3Lib.Extensions
                 return Constants.H3Index.H3_INVALID_INDEX;
             }
 
-            // Decimals don't do infinities. Cross our fingers.
-            if (!(Math.Abs(g.Latitude) < decimal.MaxValue) || !(Math.Abs(g.Longitude) < decimal.MaxValue))
+            // doubles don't do infinities. Cross our fingers.
+            if (!(Math.Abs(g.Latitude) < double.MaxValue) || !(Math.Abs(g.Longitude) < double.MaxValue))
             {
                 return Constants.H3Index.H3_INVALID_INDEX;
             }
@@ -411,8 +408,8 @@ namespace H3Lib.Extensions
         {
             // Get the area of the pentagon as the maximally-distorted area possible
             var pentagons = res.GetPentagonIndexes();
-            decimal pentagonRadiusKm = pentagons[0].HexRadiusKm();
-            decimal dist = origin.DistanceToKm(destination);
+            double pentagonRadiusKm = pentagons[0].HexRadiusKm();
+            double dist = origin.DistanceToKm(destination);
 
             var estimate = (int) Math.Ceiling(dist / (2 * pentagonRadiusKm));
             if (estimate == 0)

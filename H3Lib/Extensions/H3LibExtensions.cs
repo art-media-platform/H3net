@@ -30,9 +30,9 @@ namespace H3Lib.Extensions
         /// geoCoord.c
         /// double _posAngleRads
         /// -->
-        internal static decimal NormalizeRadians(this decimal rads, decimal limit = Constants.H3.M_2PI)
+        internal static double NormalizeRadians(this double rads, double limit = Constants.H3.M_2PI)
         {
-            decimal tmp = rads < 0.0m
+            double tmp = rads < 0.0
                              ? rads + Constants.H3.M_2PI
                              : rads;
             if (rads >= Constants.H3.M_2PI)
@@ -52,7 +52,7 @@ namespace H3Lib.Extensions
         /// geoCoord.c
         /// double constrainLat
         /// -->
-        public static decimal ConstrainLatitude(this decimal latitude)
+        public static double ConstrainLatitude(this double latitude)
         {
             while (latitude > Constants.H3.M_PI_2)
             {
@@ -64,27 +64,13 @@ namespace H3Lib.Extensions
 
 
         /// <summary>
-        /// Constrain Latitude to +/- PI/2
-        /// </summary>
-        public static decimal ConstrainLatitude(this int latitude)
-        {
-            var newLatitude = (decimal) latitude;
-            while (newLatitude > Constants.H3.M_PI_2)
-            {
-                newLatitude -= Constants.H3.M_PI;
-            }
-
-            return newLatitude;
-        }
-
-        /// <summary>
         /// Constants only covers PI to a certain value.  Who am I to improve on that?
         /// </summary>
-        internal static decimal ConstrainToPiAccuracy(this decimal number)
+        internal static double ConstrainAccuracy(this double number)
         {
-            number *= 100000000000000000000m;
-            number = decimal.Truncate(number);
-            number /= 100000000000000000000m;
+            number *= 1e20d;
+            number = System.Math.Truncate(number);
+            number *= 1e-20d;
             return number;
         }
         
@@ -97,9 +83,9 @@ namespace H3Lib.Extensions
         /// geoCoord.c
         /// double constrainLng
         /// -->
-        public static decimal ConstrainLongitude(this decimal longitude)
+        public static double ConstrainLongitude(this double longitude)
         {
-            longitude = longitude.ConstrainToPiAccuracy();
+            longitude = longitude.ConstrainAccuracy();
             while (longitude > Constants.H3.M_PI)
             {
                 longitude -= 2 * Constants.H3.M_PI;
@@ -114,60 +100,39 @@ namespace H3Lib.Extensions
         }
 
         /// <summary>
-        /// Constrain Longitude to +/- PI
+        /// Convert from double degrees to radians.
         /// </summary>
-        /// <param name="longitude"></param>
-        /// <returns></returns>
-        public static decimal ConstrainLongitude(this int longitude)
-        {
-            var newLongitude = (decimal) longitude;
-            while (newLongitude > Constants.H3.M_PI)
-            {
-                newLongitude -= 2m * Constants.H3.M_PI;
-            }
-
-            while (newLongitude < -Constants.H3.M_PI)
-            {
-                newLongitude += 2m * Constants.H3.M_PI;
-            }
-
-            return newLongitude;
-        }
-
-        /// <summary>
-        /// Convert from decimal degrees to radians.
-        /// </summary>
-        /// <param name="degrees">The decimal degrees</param>
+        /// <param name="degrees">The double degrees</param>
         /// <returns>The corresponding radians</returns>
         /// <!--
         /// geoCoord.c
         /// double H3_EXPORT(degsToRads)
         /// -->
-        public static decimal DegreesToRadians(this decimal degrees)
+        public static double DegreesToRadians(this double degrees)
         {
             return degrees * Constants.H3.M_PI_180;
         }
 
         /// <summary>
-        /// Convert decimal degrees to radians
+        /// Convert double degrees to radians
         /// </summary>
         /// <param name="degrees"></param>
         /// <returns></returns>
-        public static decimal DegreesToRadians(this int degrees)
+        public static double DegreesToRadians(this int degrees)
         {
             return degrees * Constants.H3.M_PI_180;
         }
 
         /// <summary>
-        /// Convert from radians to decimal degrees.
+        /// Convert from radians to double degrees.
         /// </summary>
         /// <param name="radians">The radians</param>
-        /// <returns>The corresponding decimal degrees</returns>
+        /// <returns>The corresponding double degrees</returns>
         /// <!--
         /// geoCoord.c
         /// double H3_EXPORT(radsToDegs)
         /// -->
-        public static decimal RadiansToDegrees(this decimal radians)
+        public static double RadiansToDegrees(this double radians)
         {
             return radians * Constants.H3.M_180_PI;
         }
@@ -237,7 +202,7 @@ namespace H3Lib.Extensions
         /// vec3d.c
         /// double _square
         /// -->
-        internal static decimal Square(this decimal x)
+        internal static double Square(this double x)
         {
             return x * x;
         }
@@ -261,7 +226,7 @@ namespace H3Lib.Extensions
             {
                 return new H3Index(ul1);
             }
-            // If failed, try parsing as a decimal based number
+            // If failed, try parsing as a double based number
             return ulong.TryParse(s, out ulong ul2)
                        ? new H3Index(ul2)
                        : 0;
@@ -465,7 +430,7 @@ namespace H3Lib.Extensions
         /// polygonAlgos.h
         /// #define NORMALIZE_LON
         /// -->
-        public static decimal NormalizeLongitude(this decimal longitude, bool isTransmeridian)
+        public static double NormalizeLongitude(this double longitude, bool isTransmeridian)
         {
             return isTransmeridian && longitude < 0
                        ? longitude + Constants.H3.M_2PI

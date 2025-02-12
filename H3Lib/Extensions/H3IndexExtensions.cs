@@ -25,12 +25,12 @@ namespace H3Lib.Extensions
         /// geoCoord.c
         /// double H3_EXPORT(cellAreaRads2)
         /// -->
-        public static decimal CellAreaRadians2(this H3Index cell)
+        public static double CellAreaRadians2(this H3Index cell)
         {
             var c = cell.ToGeoCoord();
             var gb = cell.ToGeoBoundary();
 
-            var area = 0.0m;
+            var area = 0.0;
             for (var i = 0; i < gb.NumVerts; i++)
             {
                 int j = (i + 1) % gb.NumVerts;
@@ -48,7 +48,7 @@ namespace H3Lib.Extensions
         /// geoCoord.c
         /// double H3_EXPORT(cellAreaKm2)
         /// -->
-        public static decimal CellAreaKm2(this H3Index h)
+        public static double CellAreaKm2(this H3Index h)
         {
             return h.CellAreaRadians2() * 
                    Constants.H3.EARTH_RADIUS_KM *
@@ -63,7 +63,7 @@ namespace H3Lib.Extensions
         /// geoCoord.c
         /// double H3_EXPORT(cellAreaM2)
         /// -->
-        public static decimal CellAreaM2(this H3Index h)
+        public static double CellAreaM2(this H3Index h)
         {
             return h.CellAreaKm2() * 1000 * 1000;
         }
@@ -77,11 +77,11 @@ namespace H3Lib.Extensions
         /// geoCoord.c
         /// double H3_EXPORT(exactEdgeLengthRads)
         /// -->
-        public static decimal ExactEdgeLengthRads(this H3Index edge)
+        public static double ExactEdgeLengthRads(this H3Index edge)
         {
             var gb = edge.UniEdgeToGeoBoundary();
 
-            var length = 0.0m;
+            var length = 0.0;
             for (var i = 0; i < gb.NumVerts - 1; i++)
             {
                 length += gb.Verts[i].DistanceToRadians(gb.Verts[i + 1]);
@@ -95,9 +95,9 @@ namespace H3Lib.Extensions
         /// <param name="edge">H3 unidirectional edge</param>
         /// <!--
         /// geoCoord.c
-        /// double H3_EXPORT(exactEdgeLengthKm)
+        /// double H3_EXPORT(exactEdgeLengthK)
         /// -->
-        public static decimal ExactEdgeLengthKm(this H3Index edge)
+        public static double ExactEdgeLengthKm(this H3Index edge)
         {
             return edge.ExactEdgeLengthRads() * Constants.H3.EARTH_RADIUS_KM;
         }
@@ -108,9 +108,9 @@ namespace H3Lib.Extensions
         /// <param name="edge">H3 unidirectional edge</param>
         /// <!--
         /// geoCoord.c
-        /// double H3_EXPORT(exactEdgeLengthM)
+        /// double H3_EXPORT(exactEdgeLength)
         /// -->
-        public static decimal ExactEdgeLengthM(this H3Index edge)
+        public static double ExactEdgeLengthM(this H3Index edge)
         {
             return edge.ExactEdgeLengthKm() * 1000;
         }
@@ -181,17 +181,17 @@ namespace H3Lib.Extensions
             {
                 // Rotate index into the orientation of the origin base cell.
                 // cw because we are undoing the rotation into that base cell.
-                int baseCellRotations = Constants.BaseCells.BaseCellNeighbor60CounterClockwiseRotation[originBaseCell,(int)dir];
+                int baseCellRotations = Constants.BaseCells.BaseCellNeighborCCW[originBaseCell,(int)dir];
                 if (indexOnPent == 1)
                 {
                     for (int i = 0; i < baseCellRotations; i++)
                     {
-                        h3 = h3.RotatePent60Clockwise();
-                        revDir = revDir.Rotate60Clockwise();
+                        h3 = h3.RotatePentCW();
+                        revDir = revDir.RotateCW();
 
                         if (revDir == Direction.K_AXES_DIGIT)
                         {
-                            revDir = revDir.Rotate60Clockwise();
+                            revDir = revDir.RotateCW();
                         }
                     }
                 }
@@ -199,8 +199,8 @@ namespace H3Lib.Extensions
                 {
                     for (int i = 0; i < baseCellRotations; i++)
                     {
-                        h3 = h3.Rotate60Clockwise();
-                        revDir = revDir.Rotate60Clockwise();
+                        h3 = h3.RotateCW();
+                        revDir = revDir.RotateCW();
                     }
                 }
             }
@@ -264,7 +264,7 @@ namespace H3Lib.Extensions
 
                 for (var i = 0; i < pentagonRotations; i++)
                 {
-                    indexFijk = indexFijk.ReplaceCoord(indexFijk.Coord.Rotate60Clockwise());
+                    indexFijk = indexFijk.ReplaceCoord(indexFijk.Coord.RotateCW());
                 }
 
                 var offset = new CoordIjk().Neighbor(dir);
@@ -278,7 +278,7 @@ namespace H3Lib.Extensions
 
                 for (var i = 0; i < directionRotations; i++)
                 {
-                    offset = offset.Rotate60Clockwise();
+                    offset = offset.RotateCW();
                 }
 
                 // Perform necessary translation
@@ -309,7 +309,7 @@ namespace H3Lib.Extensions
 
                 for (var i = 0; i < withinPentagonRotations; i++)
                 {
-                    indexFijk = indexFijk.ReplaceCoord(indexFijk.Coord.Rotate60Clockwise());
+                    indexFijk = indexFijk.ReplaceCoord(indexFijk.Coord.RotateCW());
                 }
             }
         
@@ -324,14 +324,14 @@ namespace H3Lib.Extensions
         /// h3index.c
         /// H3Index _h3RotatePent60ccw
         /// -->
-        internal static H3Index RotatePent60CounterClockwise(this H3Index h)
+        internal static H3Index RotatePentCCW(this H3Index h)
         {
             // rotate in place; skips any leading 1 digits (k-axis)
             var foundFirstNonZeroDigit = 0;
             for (int r = 1, res = h.Resolution; r <= res; r++)
             {
                 // rotate this digit
-                h = h.SetIndexDigit(r, (ulong) h.GetIndexDigit(r).Rotate60CounterClockwise());
+                h = h.SetIndexDigit(r, (ulong) h.GetIndexDigit(r).RotateCCW());
 
                 // look for the first non-zero digit so we
                 // can adjust for deleted k-axes sequence
@@ -345,7 +345,7 @@ namespace H3Lib.Extensions
                 // adjust for deleted k-axes sequence
                 if (h.LeadingNonZeroDigit == Direction.K_AXES_DIGIT)
                 {
-                    h = h.Rotate60CounterClockwise();
+                    h = h.RotateCCW();
                 }
             }
             return h;
@@ -359,14 +359,14 @@ namespace H3Lib.Extensions
         /// h3Index.c
         /// H3Index _h3RotatePent60cw
         /// -->
-        internal static H3Index RotatePent60Clockwise(this H3Index h)
+        internal static H3Index RotatePentCW(this H3Index h)
         {
             // rotate in place; skips any leading 1 digits (k-axis)
             var foundFirstNonZeroDigit = false;
             for (int r = 1, res = h.Resolution; r <= res; r++)
             {
                 // rotate this digit
-                h=h.SetIndexDigit(r, (ulong) h.GetIndexDigit(r).Rotate60Clockwise());
+                h=h.SetIndexDigit(r, (ulong) h.GetIndexDigit(r).RotateCW());
 
                 // look for the first non-zero digit so we
                 // can adjust for deleted k-axes sequence
@@ -380,7 +380,7 @@ namespace H3Lib.Extensions
                 // adjust for deleted k-axes sequence
                 if (h.LeadingNonZeroDigit == Direction.K_AXES_DIGIT)
                 {
-                    h = h.Rotate60Clockwise();
+                    h = h.RotateCW();
                 }
             }
             return h;
@@ -394,12 +394,12 @@ namespace H3Lib.Extensions
         /// h3Index.c
         /// H3Index _h3Rotate60ccw(H3Index h)
         /// -->
-        internal static H3Index Rotate60CounterClockwise(this H3Index h)
+        internal static H3Index RotateCCW(this H3Index h)
         {
             for (int r = 1, res = h.Resolution; r <= res; r++)
             {
                 var oldDigit = h.GetIndexDigit(r);
-                h = h.SetIndexDigit(r, (ulong) oldDigit.Rotate60CounterClockwise());
+                h = h.SetIndexDigit(r, (ulong) oldDigit.RotateCCW());
             }
 
             return h;
@@ -413,12 +413,12 @@ namespace H3Lib.Extensions
         /// h3Index.c
         /// H3Index _h3Rotate60cw
         /// --> 
-        internal static H3Index Rotate60Clockwise(this H3Index h)
+        internal static H3Index RotateCW(this H3Index h)
         {
             for (int r = 1, res = h.Resolution; r <= res; r++)
             {
                 var oldDigit = h.GetIndexDigit(r);
-                h = h.SetIndexDigit(r, (ulong) oldDigit.Rotate60Clockwise());
+                h = h.SetIndexDigit(r, (ulong) oldDigit.RotateCW());
             }
             return h;
         }
@@ -829,7 +829,7 @@ namespace H3Lib.Extensions
             // to be adjusted (and some of sub-sequence 4 below)
             if (baseCell.IsBaseCellPentagon() && (int) h.LeadingNonZeroDigit == 5)
             {
-                h = h.Rotate60Clockwise();
+                h = h.RotateCW();
             }
 
             // start with the "home" face and ijk+ coordinates for the base cell of c
@@ -1693,7 +1693,7 @@ namespace H3Lib.Extensions
 
             for (int i = 0; i < outRotations; i++)
             {
-                dir = dir.Rotate60CounterClockwise();
+                dir = dir.RotateCCW();
             }
 
             int newRotations = 0;
@@ -1709,7 +1709,7 @@ namespace H3Lib.Extensions
                     outHex =
                         outHex.SetBaseCell(Constants.BaseCells.BaseCellNeighbors[oldBaseCell, (int) dir]);
                     newRotations =
-                        Constants.BaseCells.BaseCellNeighbor60CounterClockwiseRotation[oldBaseCell, (int) dir];
+                        Constants.BaseCells.BaseCellNeighborCCW[oldBaseCell, (int) dir];
                     
                     if(outHex.BaseCell == Constants.BaseCells.InvalidBaseCell)
                     {
@@ -1719,12 +1719,12 @@ namespace H3Lib.Extensions
                                                     Constants.BaseCells.BaseCellNeighbors[oldBaseCell, (int) Direction.IK_AXES_DIGIT]);
 
                         newRotations =
-                            Constants.BaseCells.BaseCellNeighbor60CounterClockwiseRotation
+                            Constants.BaseCells.BaseCellNeighborCCW
                                 [oldBaseCell, (int) Direction.IK_AXES_DIGIT];
 
                         // perform the adjustment for the k-subsequence we're skipping
                         // over.
-                        outHex=outHex.Rotate60CounterClockwise();
+                        outHex=outHex.RotateCCW();
                         outRotations++;
                     }
                     break;
@@ -1780,8 +1780,8 @@ namespace H3Lib.Extensions
                         // check for a cw/ccw offset face; default is ccw
                         outHex = newBaseCell.IsClockwiseOffset
                                      (Constants.BaseCells.BaseCellData[oldBaseCell].HomeFijk.Face)
-                                     ? outHex.Rotate60Clockwise()
-                                     : outHex.Rotate60CounterClockwise();
+                                     ? outHex.RotateCW()
+                                     : outHex.RotateCCW();
                         alreadyAdjustedKSubsequence = true;
                     }
                     else
@@ -1800,7 +1800,7 @@ namespace H3Lib.Extensions
                             // Rotate out of the deleted k subsequence
                             // We also need an additional change to the direction we're
                             // moving in
-                            outHex = outHex.Rotate60CounterClockwise();
+                            outHex = outHex.RotateCCW();
                             outRotations++;
                         }
                         else if (oldLeadingDigit == Direction.IK_AXES_DIGIT)
@@ -1808,7 +1808,7 @@ namespace H3Lib.Extensions
                             // Rotate out of the deleted k subsequence
                             // We also need an additional change to the direction we're
                             // moving in
-                            outHex = outHex.Rotate60Clockwise();
+                            outHex = outHex.RotateCW();
                             outRotations += 5;
                         }
                         else
@@ -1821,7 +1821,7 @@ namespace H3Lib.Extensions
 
                 for (var i = 0; i < newRotations; i++)
                 {
-                    outHex = outHex.RotatePent60CounterClockwise();  
+                    outHex = outHex.RotatePentCCW();  
                 } 
 
                 // Account for differing orientation of the base cells (this edge
@@ -1851,7 +1851,7 @@ namespace H3Lib.Extensions
             {
                 for (var i = 0; i < newRotations; i++)
                 {
-                    outHex = outHex.Rotate60CounterClockwise();
+                    outHex = outHex.RotateCCW();
                 }
             }
 
@@ -1891,7 +1891,7 @@ namespace H3Lib.Extensions
             // 1 Pentagon was encountered
             // 2 Pentagon distortion (deleted k subsequence) was encountered
             // Pentagon being encountered is not itself a problem; really the deleted
-            // k-subsequence is the problem, but for compatibility reasons we fail on
+            // k-subsequence is the proble, but for compatibility reasons we fail on
             // the pentagon.
 
             // k must be >= 0, so origin is always needed
@@ -2071,7 +2071,7 @@ namespace H3Lib.Extensions
         /// bbox.c
         /// double _hexRadiusKm
         /// -->
-        internal static decimal HexRadiusKm(this H3Index h3)
+        internal static double HexRadiusKm(this H3Index h3)
         {
             // There is probably a cheaper way to determine the radius of a
             // hexagon, but this way is conceptually simple
