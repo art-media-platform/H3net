@@ -2,7 +2,6 @@
 using System.Linq;
 using CommandLineParser.Arguments;
 using H3Lib;
-using H3Lib.Extensions;
 
 namespace HexRange
 {

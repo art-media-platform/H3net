@@ -7,7 +7,7 @@ namespace H3Lib
     /// 2D floating point vector functions.
     /// </summary>
     [DebuggerDisplay("X: {X} Y: {Y}")]
-    public readonly struct Vec2d:IEquatable<Vec2d>
+    public readonly struct Vec2D:IEquatable<Vec2D>
     {
         /// <summary>
         /// X coordinate
@@ -21,7 +21,7 @@ namespace H3Lib
         /// <summary>
         /// Constructor
         /// </summary>
-        public Vec2d(double x, double y) 
+        public Vec2D(double x, double y) 
         {
             X = x;
             Y = y;
@@ -58,15 +58,15 @@ namespace H3Lib
         /// vec2d.c
         /// _v2dIntersect
         /// -->
-        public static Vec2d FindIntersection(Vec2d p0,  Vec2d p1,  Vec2d p2, Vec2d p3)
+        public static Vec2D FindIntersection(Vec2D p0,  Vec2D p1,  Vec2D p2, Vec2D p3)
         {
-            var s1 = new Vec2d(p1.X - p0.X, p1.Y - p0.Y);
-            var s2 = new Vec2d(p3.X - p2.X, p3.Y - p2.Y);
+            var s1 = new Vec2D(p1.X - p0.X, p1.Y - p0.Y);
+            var s2 = new Vec2D(p3.X - p2.X, p3.Y - p2.Y);
 
             double t = (s2.X * (p0.Y - p2.Y) - s2.Y * (p0.X - p2.X)) /
                        (-s2.X * s1.Y + s1.X * s2.Y);
 
-            return new Vec2d
+            return new Vec2D
                 (
                  p0.X + (t * s1.X),
                  p0.Y + (t * s1.Y)
@@ -76,7 +76,7 @@ namespace H3Lib
         /// <summary>
         /// Equality test
         /// </summary>
-        public bool Equals(Vec2d other)
+        public bool Equals(Vec2D other)
         {
             return
                 Math.Abs(X - other.X) < Constants.H3.DBL_EPSILON &&
@@ -89,7 +89,7 @@ namespace H3Lib
         /// </summary>
         public override bool Equals(object obj)
         {
-            return obj is Vec2d other && Equals(other);
+            return obj is Vec2D other && Equals(other);
         }
 
         /// <summary>
@@ -104,7 +104,7 @@ namespace H3Lib
         /// <summary>
         /// Equality operator
         /// </summary>
-        public static bool operator ==(Vec2d left, Vec2d right)
+        public static bool operator ==(Vec2D left, Vec2D right)
         {
             return left.Equals(right);
         }
@@ -112,7 +112,7 @@ namespace H3Lib
         /// <summary>
         /// Inequality operator
         /// </summary>
-        public static bool operator !=(Vec2d left, Vec2d right)
+        public static bool operator !=(Vec2D left, Vec2D right)
         {
             return !left.Equals(right);
         }
@@ -122,7 +122,7 @@ namespace H3Lib
         /// </summary>
         public override string ToString()
         {
-            return $"Vec2d: X: {X} Y: {Y}";
+            return $"Vec2D: X: {X} Y: {Y}";
         }
     }
     

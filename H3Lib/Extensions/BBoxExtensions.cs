@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace H3Lib.Extensions
+namespace H3Lib
 {
     /// <summary>
     /// Extension methods for BBoxes

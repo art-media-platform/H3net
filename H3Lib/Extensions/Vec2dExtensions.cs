@@ -1,12 +1,12 @@
 using System;
 
 
-namespace H3Lib.Extensions
+namespace H3Lib
 {
     /// <summary>
-    /// Operations on Vec2d
+    /// Operations on Vec2D
     /// </summary>
-    public static class Vec2dExtensions
+    public static class Vec2DExtensions
     {
         /// <summary>
         /// Determine the containing hex in ijk+ coordinates for a 2D cartesian
@@ -17,9 +17,9 @@ namespace H3Lib.Extensions
         /// coordijk.c
         /// void _hex2dToCoordIJK
         /// -->
-        public static CoordIjk ToCoordIjk(this Vec2d v)
+        public static CoordIJK ToCoordIJK(this Vec2D v)
         {
-            var h = new CoordIjk();
+            var h = new CoordIJK();
 
             // quantize into the ij system and then normalize
             double a1 = Math.Abs(v.X);
@@ -113,7 +113,7 @@ namespace H3Lib.Extensions
         /// faceIjk.c
         /// void _hex2dToGeo
         /// -->
-        public static GeoCoord ToGeoCoord(this Vec2d v, int face, int res, int substrate)
+        public static GeoCoord ToGeoCoord(this Vec2D v, int face, int res, int substrate)
         {
             // calculate (r, theta) in hex2d
             double r = v.Magnitude;
@@ -121,7 +121,7 @@ namespace H3Lib.Extensions
 
             if (r < Constants.H3.EPSILON)
             {
-                return Constants.FaceIjk.FaceCenterGeo[face];
+                return Constants.FaceIJK.FaceCenterGeo[face];
             }
 
             double theta = Math.Atan2(v.Y, v.X);
@@ -129,7 +129,7 @@ namespace H3Lib.Extensions
             // scale for current resolution length u
             for (var i = 0; i < res; i++)
             {
-                r /= Constants.FaceIjk.MSqrt7;
+                r /= Constants.FaceIJK.MSqrt7;
             }
 
             // scale accordingly if this is a substrate grid
@@ -138,7 +138,7 @@ namespace H3Lib.Extensions
                 r /= 3.0;
                 if (res.IsResClassIii())
                 {
-                    r /= Constants.FaceIjk.MSqrt7;
+                    r /= Constants.FaceIJK.MSqrt7;
                 }
             }
 
@@ -155,10 +155,10 @@ namespace H3Lib.Extensions
             }
 
             // find theta as an azimuth
-            theta = (Constants.FaceIjk.FaceAxesAzRadsCii[face, 0] - theta).NormalizeRadians();
+            theta = (Constants.FaceIJK.FaceAxesAzRadsCii[face, 0] - theta).NormalizeRadians();
 
             // now find the point at (r,theta) from the face center
-            return Constants.FaceIjk.FaceCenterGeo[face]
+            return Constants.FaceIJK.FaceCenterGeo[face]
                             .GetAzimuthDistancePoint(theta, r);
         }
     }

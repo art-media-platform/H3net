@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace H3Lib.Extensions
+namespace H3Lib
 {
     /// <summary>
     /// Operations on LinkedGeoPolygon type

@@ -5,7 +5,6 @@ using System.Text;
 using AppsLib;
 using CommandLineParser.Arguments;
 using H3Lib;
-using H3Lib.Extensions;
 
 namespace H3ToGeoBoundary
 {

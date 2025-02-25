@@ -1,7 +1,7 @@
 using System;
 
 
-namespace H3Lib.Extensions
+namespace H3Lib
 {
     /// <summary>
     /// Operations for GeoCoord type
@@ -257,15 +257,15 @@ namespace H3Lib.Extensions
         /// <returns>The FaceIJK address of the containing cell at resolution res.</returns>
         /// <!--
         /// faceijk.c
-        /// void _geoToFaceIjk
+        /// void _geoToFaceIJK
         /// -->
-        public static FaceIjk ToFaceIjk(this GeoCoord g, int res)
+        public static FaceIJK ToFace(this GeoCoord g, int res)
         {
             // first convert to hex2d
-            (int newFace, var v) = g.ToHex2d(res);
-            var newCoord = v.ToCoordIjk();
+            (int newFace, var v) = g.ToHex2D(res);
+            var newCoord = v.ToCoordIJK();
            
-            return new FaceIjk(newFace, newCoord);
+            return new FaceIJK(newFace, newCoord);
         }
 
         /// <summary>
@@ -281,20 +281,20 @@ namespace H3Lib.Extensions
         /// </returns>
         /// <!--
         /// faceijk.c
-        /// void _geoToHex2d
+        /// void _geoToHex2D
         /// -->
-        public static (int, Vec2d) ToHex2d(this GeoCoord g, int res)
+        public static (int, Vec2D) ToHex2D(this GeoCoord g, int res)
         {
-            var v3d = g.ToVec3d();
+            var v3d = g.ToVec3D();
             
             var newFace = 0;
 
             // determine the icosahedron face
-            double sqd = v3d.PointSquareDistance(Constants.FaceIjk.FaceCenterPoint[0]);
+            double sqd = v3d.PointSquareDistance(Constants.FaceIJK.FaceCenterPoint[0]);
 
             for (var f = 1; f < Constants.H3.NUM_ICOSA_FACES; f++)
             {
-                double sqdT = v3d.PointSquareDistance(Constants.FaceIjk.FaceCenterPoint[f]);
+                double sqdT = v3d.PointSquareDistance(Constants.FaceIJK.FaceCenterPoint[f]);
                 if (!(sqdT < sqd))
                 {
                     continue;
@@ -308,13 +308,13 @@ namespace H3Lib.Extensions
 
             if (r < Constants.H3.EPSILON)
             {
-                return (newFace, new Vec2d());
+                return (newFace, new Vec2D());
             }
             // now have face and r, now find CCW theta from CII i-axis
             double theta =
                 (
-                    Constants.FaceIjk.FaceAxesAzRadsCii[newFace, 0] -
-                    Constants.FaceIjk.FaceCenterGeo[newFace].AzimuthRadiansTo(g)
+                    Constants.FaceIJK.FaceAxesAzRadsCii[newFace, 0] -
+                    Constants.FaceIJK.FaceCenterGeo[newFace].AzimuthRadiansTo(g)
                              .NormalizeRadians()
                 ).NormalizeRadians();
             
@@ -331,13 +331,13 @@ namespace H3Lib.Extensions
             r /= Constants.H3.RES0_U_GNOMONIC;
             for (var i = 0; i < res; i++)
             {
-                r *= Constants.FaceIjk.MSqrt7;
+                r *= Constants.FaceIJK.MSqrt7;
             }
             
             // we now have (r, theta) in hex2d with theta ccw from x-axes
             // convert to local x,y
             return (newFace,
-                    new Vec2d
+                    new Vec2D
                         (
                          r * Math.Cos(theta),
                          r * Math.Sin(theta)
@@ -350,12 +350,24 @@ namespace H3Lib.Extensions
         /// <param name="geo">The latitude and longitude of the point</param>
         /// <!--
         /// vec3d.c
-        /// void _geoToVec3d
+        /// void _geoToVec3D
         /// -->
-        public static Vec3d ToVec3d(this GeoCoord geo)
+        /// // INLINE
+        public static Vec3D ToVec3D(this GeoCoord geo, double scale)
+        {
+            double r = Math.Cos(geo.Latitude) * scale;
+            return new Vec3D
+                (
+                 Math.Cos(geo.Longitude) * r,
+                 Math.Sin(geo.Longitude) * r,
+                 Math.Sin(geo.Latitude) * scale
+                );
+        }
+        
+        public static Vec3D ToVec3D(this GeoCoord geo)
         {
             double r = Math.Cos(geo.Latitude);
-            return new Vec3d
+            return new Vec3D
                 (
                  Math.Cos(geo.Longitude) * r,
                  Math.Sin(geo.Longitude) * r,
@@ -380,16 +392,16 @@ namespace H3Lib.Extensions
         {
             if (res < 0 || res > Constants.H3.MAX_H3_RES)
             {
-                return Constants.H3Index.H3_INVALID_INDEX;
+                return Constants.H3_INVALID_INDEX;
             }
 
             // doubles don't do infinities. Cross our fingers.
             if (!(Math.Abs(g.Latitude) < double.MaxValue) || !(Math.Abs(g.Longitude) < double.MaxValue))
             {
-                return Constants.H3Index.H3_INVALID_INDEX;
+                return Constants.H3_INVALID_INDEX;
             }
                 
-            return g.ToFaceIjk(res).ToH3(res);
+            return g.ToFace(res).ToH3(res);
         }
 
         /// <summary>

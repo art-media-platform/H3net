@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace H3Lib.Extensions
+namespace H3Lib
 {
     /// <summary>
     /// Extension methods for BaseCells
@@ -63,11 +63,11 @@ namespace H3Lib.Extensions
         /// </summary>
         /// <!--
         /// baseCells.c
-        /// _baseCellToFaceIjk
+        /// _baseCellToFaceIJK
         /// -->
-        internal static FaceIjk ToFaceIjk(this int baseCell)
+        internal static FaceIJK ToFace(this int baseCell)
         {
-            return new FaceIjk(Constants.BaseCells.BaseCellData[baseCell].HomeFijk);
+            return new FaceIJK(Constants.BaseCells.BaseCellData[baseCell].HomeFijk);
         }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace H3Lib.Extensions
         /// baseCells.c
         /// int _baseCellToCCWrot60
         /// -->
-        internal static int ToCounterClockwiseRotate60(this int baseCell, int face)
+        internal static int ToCCWRotate(this int baseCell, int face)
         {
             if (face < 0 || face > Constants.H3.NUM_ICOSA_FACES)
             {
@@ -96,9 +96,9 @@ namespace H3Lib.Extensions
                 {
                     for (var k = 0; k < 3; k++)
                     {
-                        if (Constants.BaseCells.FaceIjkBaseCells[face,i,j,k].BaseCell == baseCell)
+                        if (Constants.BaseCells.FaceIJKBaseCells[face,i,j,k].BaseCell == baseCell)
                         {
-                            return Constants.BaseCells.FaceIjkBaseCells[face, i, j, k].CounterClockwiseRotate60;
+                            return Constants.BaseCells.FaceIJKBaseCells[face, i, j, k].CCWRotate;
                         }
                     }
                 }
@@ -140,7 +140,7 @@ namespace H3Lib.Extensions
             var results = new List<H3Index>();
             for (var bc = 0; bc < Constants.H3.NUM_BASE_CELLS; bc++)
             {
-                var baseCell = new H3Index(Constants.H3Index.H3_INIT).SetMode(H3Mode.Hexagon).SetBaseCell(bc);
+                var baseCell = new H3Index(Constants.H3_INIT).SetMode(H3Mode.Hexagon).SetBaseCell(bc);
                 results.Add(baseCell);
             }
 

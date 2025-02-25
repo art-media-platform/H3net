@@ -3,9 +3,8 @@ using System.Linq;
 using System.Text;
 using CommandLineParser.Arguments;
 using H3Lib;
-using H3Lib.Extensions;
 
-namespace LocalIjToH3
+namespace LocalIJToH3
 {
     class Program
     {
@@ -34,7 +33,7 @@ namespace LocalIjToH3
         {
             var origin = new H3Index(argParser.Origin);
 
-            var ij = new CoordIj(argParser.I, argParser.J);
+            var ij = new CoordIJ(argParser.I, argParser.J);
 
             var (status, cell) = ij.ToH3Experimental(origin);
 

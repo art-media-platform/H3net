@@ -337,12 +337,12 @@
             Line of h3 indexes connecting two indexes
             </summary>
         </member>
-        <member name="M:H3Lib.Api.ExperimentalH3ToLocalIj(H3Lib.H3Index,H3Lib.H3Index,H3Lib.CoordIj@)">
+        <member name="M:H3Lib.Api.ExperimentalH3ToLocalIJ(H3Lib.H3Index,H3Lib.H3Index,H3Lib.CoordIJ@)">
             <summary>
             Returns two dimensional coordinates for the given index
             </summary>
         </member>
-        <member name="M:H3Lib.Api.ExperimentalLocalIjToH3(H3Lib.H3Index,H3Lib.CoordIj,H3Lib.H3Index@)">
+        <member name="M:H3Lib.Api.ExperimentalLocalIJToH3(H3Lib.H3Index,H3Lib.CoordIJ,H3Lib.H3Index@)">
             <summary>
             Returns index for the given two dimensional coordinates
             </summary>
@@ -451,7 +451,7 @@
             base cell number
             </summary>
         </member>
-        <member name="F:H3Lib.BaseCellRotation.CounterClockwiseRotate60">
+        <member name="F:H3Lib.BaseCellRotation.CCWRotate">
             <summary>
             number of ccw 60 degree rotations relative to current face
             </summary>
@@ -799,7 +799,7 @@
              baseCellNeighbor60CCWRots
              -->
         </member>
-        <member name="F:H3Lib.Constants.BaseCells.FaceIjkBaseCells">
+        <member name="F:H3Lib.Constants.BaseCells.FaceIJKBaseCells">
              <summary>
              Resolution 0 base cell lookup table for each face.
             
@@ -811,7 +811,7 @@
              Valid lookup coordinates are from (0, 0, 0) to (2, 2, 2).
             
              This table can be accessed using the functions BaseCells._faceIjkToBaseCell
-             and BaseCells.ToBaseCellCounterClockwiseRotate60
+             and BaseCells.ToBaseCellCCWRotate
              </summary>
         </member>
         <member name="F:H3Lib.Constants.BaseCells.BaseCellData">
@@ -824,180 +824,180 @@
              indicates that no cw offset rotation faces exist for this base cell).
              </summary>
         </member>
-        <member name="F:H3Lib.Constants.CoordIjk.UnitVecs">
+        <member name="F:H3Lib.Constants.CoordIJK.UnitVecs">
             <summary>
             CoordIJK unit vectors corresponding to the 7 H3 digits.
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.FaceIjk.InvalidFace">
+        <member name="F:H3Lib.Constants.FaceIJK.InvalidFace">
             <summary>
             Invalid face index
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.FaceIjk.IJ">
+        <member name="F:H3Lib.Constants.FaceIJK.IJ">
             <summary>
             IJ quadrant faceNeighbors table direction
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.FaceIjk.KI">
+        <member name="F:H3Lib.Constants.FaceIJK.KI">
             <summary>
             KI quadrant faceNeighbors table direction
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.FaceIjk.JK">
+        <member name="F:H3Lib.Constants.FaceIJK.JK">
             <summary>
             JK quadrant faceNeighbors table direction
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.FaceIjk.MSqrt7">
+        <member name="F:H3Lib.Constants.FaceIJK.MSqrt7">
             <summary>
             Square root of 7
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.FaceIjk.FaceCenterGeo">
+        <member name="F:H3Lib.Constants.FaceIJK.FaceCenterGeo">
             <summary>
             icosahedron face centers in lat/lon radians
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.FaceIjk.FaceCenterPoint">
+        <member name="F:H3Lib.Constants.FaceIJK.FaceCenterPoint">
             <summary>
             icosahedron face centers in x/y/z on the unit sphere
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.FaceIjk.FaceAxesAzRadsCii">
+        <member name="F:H3Lib.Constants.FaceIJK.FaceAxesAzRadsCii">
             <summary>
             icosahedron face ijk axes as azimuth in radians from face center to
             vertex 0/1/2 respectively
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.FaceIjk.FaceNeighbors">
+        <member name="F:H3Lib.Constants.FaceIJK.FaceNeighbors">
             <summary>
             Definition of which faces neighbor each other.
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.FaceIjk.AdjacentFaceDir">
+        <member name="F:H3Lib.Constants.FaceIJK.AdjacentFaceDir">
             <summary>
             direction from the origin face to the destination face, relative to
             the origin face's coordinate syste, or -1 if not adjacent.
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.FaceIjk.MaxDimByCiiRes">
+        <member name="F:H3Lib.Constants.FaceIJK.MaxDimByCiiRes">
             <summary>
             overage distance table
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.FaceIjk.UnitScaleByCiiRes">
+        <member name="F:H3Lib.Constants.FaceIJK.UnitScaleByCiiRes">
             <summary>
             unit scale distance table
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.H3Index.H3_INVALID_INDEX">
+        <member name="F:H3Lib.Constants.H3_INVALID_INDEX">
             <summary>
             Invalid index used to indicate an error from geoToH3 and related functions.
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.H3Index.H3_NULL">
+        <member name="F:H3Lib.Constants.H3_NULL">
             <summary>
             Invalid index used to indicate an error from geoToH3 and related functions
             or missing data in arrays of h3 indices. Analogous to NaN in floating point.
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.H3Index.H3_NUM_BITS">
+        <member name="F:H3Lib.Constants.H3_NUM_BITS">
             <summary>
             The number of bits in an H3 index.
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.H3Index.H3_MAX_OFFSET">
+        <member name="F:H3Lib.Constants.H3_MAX_OFFSET">
             <summary>
             The bit offset of the max resolution digit in an H3 index.
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.H3Index.H3_MODE_OFFSET">
+        <member name="F:H3Lib.Constants.H3_MODE_OFFSET">
             <summary>
             The bit offset of the mode in an H3 index.
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.H3Index.H3_BC_OFFSET">
+        <member name="F:H3Lib.Constants.H3_BC_OFFSET">
             <summary>
             The bit offset of the base cell in an H3 index.
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.H3Index.H3_RES_OFFSET">
+        <member name="F:H3Lib.Constants.H3_RES_OFFSET">
             <summary>
             The bit offset of the resolution in an H3 index.
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.H3Index.H3_RESERVED_OFFSET">
+        <member name="F:H3Lib.Constants.H3_RESERVED_OFFSET">
             <summary>
             The bit offset of the reserved bits in an H3 index.
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.H3Index.H3_PER_DIGIT_OFFSET">
+        <member name="F:H3Lib.Constants.H3_PER_DIGIT_OFFSET">
             <summary>
             The number of bits in a single H3 resolution digit.
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.H3Index.H3_HIGH_BIT_MASK">
+        <member name="F:H3Lib.Constants.H3_HIGH_BIT_MASK">
             <summary>
             1 in the highest bit, 0's everywhere else.
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.H3Index.H3_HIGH_BIT_MASK_NEGATIVE">
+        <member name="F:H3Lib.Constants.H3_HIGH_BIT_MASK_NEGATIVE">
             <summary>
             0 in the highest bit, 1's everywhere else.
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.H3Index.H3_MODE_MASK">
+        <member name="F:H3Lib.Constants.H3_MODE_MASK">
             <summary>
             1's in the 4 mode bits, 0's everywhere else.
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.H3Index.H3_MODE_MASK_NEGATIVE">
+        <member name="F:H3Lib.Constants.H3_MODE_MASK_NEGATIVE">
             <summary>
             0's in the 4 mode bits, 1's everywhere else.
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.H3Index.H3_BC_MASK">
+        <member name="F:H3Lib.Constants.H3_BC_MASK">
             <summary>
             1's in the 7 base cell bits, 0's everywhere else.
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.H3Index.H3_BC_MASK_NEGATIVE">
+        <member name="F:H3Lib.Constants.H3_BC_MASK_NEGATIVE">
             <summary>
             0's in the 7 base cell bits, 1's everywhere else.
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.H3Index.H3_INIT">
+        <member name="F:H3Lib.Constants.H3_INIT">
             H3 index with mode 0, res 0, base cell 0, and 7 for all index digits.
             Typically used to initialize the creation of an H3 cell index, which
             expects all direction digits to be 7 beyond the cell's resolution.
         </member>
-        <member name="F:H3Lib.Constants.H3Index.H3_RES_MASK">
+        <member name="F:H3Lib.Constants.H3_RES_MASK">
             <summary>
             1's in the 4 resolution bits, 0's everywhere else.
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.H3Index.H3_RES_MASK_NEGATIVE">
+        <member name="F:H3Lib.Constants.H3_RES_MASK_NEGATIVE">
             <summary>
             0's in the 4 resolution bits, 1's everywhere else.
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.H3Index.H3_RESERVED_MASK">
+        <member name="F:H3Lib.Constants.H3_RESERVED_MASK">
             <summary>
             1's in the 3 reserved bits, 0's everywhere else.
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.H3Index.H3_RESERVED_MASK_NEGATIVE">
+        <member name="F:H3Lib.Constants.H3_RESERVED_MASK_NEGATIVE">
             <summary>
             0's in the 3 reserved bits, 1's everywhere else.
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.H3Index.H3_DIGIT_MASK">
+        <member name="F:H3Lib.Constants.H3_DIGIT_MASK">
             <summary>
             1's in the 3 bits of res 15 digit bits, 0's everywhere else.
             </summary>
         </member>
-        <member name="F:H3Lib.Constants.H3Index.H3_DIGIT_MASK_NEGATIVE">
+        <member name="F:H3Lib.Constants.H3_DIGIT_MASK_NEGATIVE">
             <summary>
             0's in the 7 base cell bits, 1's everywhere else.
             </summary>
@@ -1081,79 +1081,79 @@
             Note that we don't use directions 0 (center) or 1 (deleted K axis).
             </summary>
         </member>
-        <member name="T:H3Lib.CoordIj">
+        <member name="T:H3Lib.CoordIJ">
              <summary>
              IJ Hexagon coordinates.
             
              Each axis is spaced 120 degrees apart
              </summary>
         </member>
-        <member name="F:H3Lib.CoordIj.I">
+        <member name="F:H3Lib.CoordIJ.I">
             <summary>
             I Component
             </summary>
         </member>
-        <member name="F:H3Lib.CoordIj.J">
+        <member name="F:H3Lib.CoordIJ.J">
             <summary>
             J component
             </summary>
         </member>
-        <member name="M:H3Lib.CoordIj.#ctor(System.Int32,System.Int32)">
+        <member name="M:H3Lib.CoordIJ.#ctor(System.Int32,System.Int32)">
             <summary>
             Constructor
             </summary>
         </member>
-        <member name="M:H3Lib.CoordIj.#ctor(H3Lib.CoordIj)">
+        <member name="M:H3Lib.CoordIJ.#ctor(H3Lib.CoordIJ)">
             <summary>
             Constructor
             </summary>
         </member>
-        <member name="M:H3Lib.CoordIj.Equals(H3Lib.CoordIj)">
+        <member name="M:H3Lib.CoordIJ.Equals(H3Lib.CoordIJ)">
             <summary>
             Test for equality
             </summary>
         </member>
-        <member name="M:H3Lib.CoordIj.Equals(System.Object)">
+        <member name="M:H3Lib.CoordIJ.Equals(System.Object)">
             <summary>
             Test for equality on object that can be unboxed to CoordIJ
             </summary>
         </member>
-        <member name="M:H3Lib.CoordIj.GetHashCode">
+        <member name="M:H3Lib.CoordIJ.GetHashCode">
             <summary>
             Hashcode for identity
             </summary>
         </member>
-        <member name="M:H3Lib.CoordIj.op_Equality(H3Lib.CoordIj,H3Lib.CoordIj)">
+        <member name="M:H3Lib.CoordIJ.op_Equality(H3Lib.CoordIJ,H3Lib.CoordIJ)">
             <summary>
             Test for equality
             </summary>
         </member>
-        <member name="M:H3Lib.CoordIj.op_Inequality(H3Lib.CoordIj,H3Lib.CoordIj)">
+        <member name="M:H3Lib.CoordIJ.op_Inequality(H3Lib.CoordIJ,H3Lib.CoordIJ)">
             <summary>
             Test for inequality
             </summary>
         </member>
-        <member name="M:H3Lib.CoordIj.op_Addition(H3Lib.CoordIj,H3Lib.CoordIj)">
+        <member name="M:H3Lib.CoordIJ.op_Addition(H3Lib.CoordIJ,H3Lib.CoordIJ)">
             <summary>
             Addition operator
             </summary>
         </member>
-        <member name="M:H3Lib.CoordIj.op_Subtraction(H3Lib.CoordIj,H3Lib.CoordIj)">
+        <member name="M:H3Lib.CoordIJ.op_Subtraction(H3Lib.CoordIJ,H3Lib.CoordIJ)">
             <summary>
             Subtraction operator
             </summary>
         </member>
-        <member name="M:H3Lib.CoordIj.op_Multiply(H3Lib.CoordIj,System.Int32)">
+        <member name="M:H3Lib.CoordIJ.op_Multiply(H3Lib.CoordIJ,System.Int32)">
             <summary>
             Multiply operator for scaling
             </summary>
         </member>
-        <member name="T:H3Lib.CoordIjk">
+        <member name="T:H3Lib.CoordIJK">
              <summary>
              Header file for CoordIJK functions including conversion from lat/lon
              </summary>
              <remarks>
-             References two Vec2d cartesian coordinate systems:
+             References two Vec2D cartesian coordinate systems:
             
              1. gnomonic: face-centered polyhedral gnomonic projection space with
                 traditional scaling and x-axes aligned with the face Class II
@@ -1163,37 +1163,37 @@
                 resolution unit length and with x-axes aligned with the local i-axes
              </remarks>
         </member>
-        <member name="F:H3Lib.CoordIjk.I">
+        <member name="F:H3Lib.CoordIJK.I">
             <summary>
             I Coordinate
             </summary>
         </member>
-        <member name="F:H3Lib.CoordIjk.J">
+        <member name="F:H3Lib.CoordIJK.J">
             <summary>
             J Coordinate
             </summary>
         </member>
-        <member name="F:H3Lib.CoordIjk.K">
+        <member name="F:H3Lib.CoordIJK.K">
             <summary>
             K Coordinate
             </summary>
         </member>
-        <member name="M:H3Lib.CoordIjk.#ctor(System.Int32,System.Int32,System.Int32)">
+        <member name="M:H3Lib.CoordIJK.#ctor(System.Int32,System.Int32,System.Int32)">
             <summary>
             IJK hexagon coordinates
             </summary>
         </member>
-        <member name="M:H3Lib.CoordIjk.#ctor(H3Lib.CoordIjk)">
+        <member name="M:H3Lib.CoordIJK.#ctor(H3Lib.CoordIJK)">
             <summary>
             Constructor
             </summary>
         </member>
-        <member name="M:H3Lib.CoordIjk.ToString">
+        <member name="M:H3Lib.CoordIJK.ToString">
             <summary>
             Debug information
             </summary>
         </member>
-        <member name="M:H3Lib.CoordIjk.CubeRound(System.Double,System.Double,System.Double)">
+        <member name="M:H3Lib.CoordIJK.CubeRound(System.Double,System.Double,System.Double)">
             <summary>
             Given cube coords as doubles, round to valid integer coordinates. Algorithm
             from https://www.redblobgames.com/grids/hexagons/#rounding
@@ -1207,43 +1207,43 @@
             static void cubeRound
             -->
         </member>
-        <member name="M:H3Lib.CoordIjk.Equals(H3Lib.CoordIjk)">
+        <member name="M:H3Lib.CoordIJK.Equals(H3Lib.CoordIJK)">
             <summary>
             Equality test
             </summary>
         </member>
-        <member name="M:H3Lib.CoordIjk.Equals(System.Object)">
+        <member name="M:H3Lib.CoordIJK.Equals(System.Object)">
             <summary>
             Equality for unboxed object
             </summary>
         </member>
-        <member name="M:H3Lib.CoordIjk.GetHashCode">
+        <member name="M:H3Lib.CoordIJK.GetHashCode">
             <summary>
             Hashcode for identity
             </summary>
             <returns></returns>
         </member>
-        <member name="M:H3Lib.CoordIjk.op_Equality(H3Lib.CoordIjk,H3Lib.CoordIjk)">
+        <member name="M:H3Lib.CoordIJK.op_Equality(H3Lib.CoordIJK,H3Lib.CoordIJK)">
             <summary>
             Equality operator
             </summary>
         </member>
-        <member name="M:H3Lib.CoordIjk.op_Inequality(H3Lib.CoordIjk,H3Lib.CoordIjk)">
+        <member name="M:H3Lib.CoordIJK.op_Inequality(H3Lib.CoordIJK,H3Lib.CoordIJK)">
             <summary>
             Inequality operator
             </summary>
         </member>
-        <member name="M:H3Lib.CoordIjk.op_Addition(H3Lib.CoordIjk,H3Lib.CoordIjk)">
+        <member name="M:H3Lib.CoordIJK.op_Addition(H3Lib.CoordIJK,H3Lib.CoordIJK)">
             <summary>
             Addition operator
             </summary>
         </member>
-        <member name="M:H3Lib.CoordIjk.op_Subtraction(H3Lib.CoordIjk,H3Lib.CoordIjk)">
+        <member name="M:H3Lib.CoordIJK.op_Subtraction(H3Lib.CoordIJK,H3Lib.CoordIJK)">
             <summary>
             Subtraction operator
             </summary>
         </member>
-        <member name="M:H3Lib.CoordIjk.op_Multiply(H3Lib.CoordIjk,System.Int32)">
+        <member name="M:H3Lib.CoordIJK.op_Multiply(H3Lib.CoordIJK,System.Int32)">
             <summary>
             Multiply operator for scaling
             </summary>
@@ -1333,16 +1333,16 @@
             bool _isBaseCellPolarPentagon
             -->
         </member>
-        <member name="M:H3Lib.Extensions.BaseCellsExtensions.ToFaceIjk(System.Int32)">
+        <member name="M:H3Lib.Extensions.BaseCellsExtensions.ToFace(System.Int32)">
             <summary>
             Find the FaceIJK given a base cell.
             </summary>
             <!--
             baseCells.c
-            _baseCellToFaceIjk
+            _baseCellToFaceIJK
             -->
         </member>
-        <member name="M:H3Lib.Extensions.BaseCellsExtensions.ToCounterClockwiseRotate60(System.Int32,System.Int32)">
+        <member name="M:H3Lib.Extensions.BaseCellsExtensions.ToCCWRotate(System.Int32,System.Int32)">
             <summary>
             Given a base cell and the face it appears on, return
             the number of 60' ccw rotations for that base cell's
@@ -1560,23 +1560,23 @@
             static const LinkedGeoPolygon* findDeepestContainer
             -->
         </member>
-        <member name="T:H3Lib.Extensions.CoordIjExtensions">
+        <member name="T:H3Lib.Extensions.CoordIJExtensions">
             <summary>
-            Extension methods for working with CoordIj type
+            Extension methods for working with CoordIJ type
             </summary>
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjExtensions.ReplaceI(H3Lib.CoordIj,System.Int32)">
+        <member name="M:H3Lib.Extensions.CoordIJExtensions.ReplaceI(H3Lib.CoordIJ,System.Int32)">
             <summary>
             Replace I value
             </summary>
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjExtensions.ReplaceJ(H3Lib.CoordIj,System.Int32)">
+        <member name="M:H3Lib.Extensions.CoordIJExtensions.ReplaceJ(H3Lib.CoordIJ,System.Int32)">
             <summary>
             replace J value
             </summary>
             <returns></returns>
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjExtensions.ToIjk(H3Lib.CoordIj)">
+        <member name="M:H3Lib.Extensions.CoordIJExtensions.ToIjk(H3Lib.CoordIJ)">
             <summary>
             Transforms coordinates from the IJ coordinate system to the IJK+ coordinate system
             </summary>
@@ -1586,7 +1586,7 @@
             void ijToIjk
             </remarks>
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjExtensions.ToH3Experimental(H3Lib.CoordIj,H3Lib.H3Index)">
+        <member name="M:H3Lib.Extensions.CoordIJExtensions.ToH3Experimental(H3Lib.CoordIJ,H3Lib.H3Index)">
              <summary>
              Produces an index for ij coordinates anchored by an origin.
             
@@ -1608,65 +1608,65 @@
              </returns>
              <!--
              localij,c
-             int H3_EXPORT(experimentalLocalIjToH3)
+             int H3_EXPORT(experimentalLocalIJToH3)
              -->
         </member>
-        <member name="T:H3Lib.Extensions.CoordIjkExtensions">
+        <member name="T:H3Lib.Extensions.CoordIJKExtensions">
             <summary>
-            Extension methods for CoordIjk type
+            Extension methods for CoordIJK type
             </summary>
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjkExtensions.IsZero(H3Lib.CoordIjk)">
+        <member name="M:H3Lib.Extensions.CoordIJKExtensions.IsZero(H3Lib.CoordIJK)">
             <summary>
             Tests if all coordinates are zero
             </summary>
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjkExtensions.Sum(H3Lib.CoordIjk)">
+        <member name="M:H3Lib.Extensions.CoordIJKExtensions.Sum(H3Lib.CoordIJK)">
             <summary>
             Returns sum of all coordinates
             </summary>
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjkExtensions.SetI(H3Lib.CoordIjk,System.Int32)">
+        <member name="M:H3Lib.Extensions.CoordIJKExtensions.SetI(H3Lib.CoordIJK,System.Int32)">
             <summary>
             Change I coordinate value
             </summary>
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjkExtensions.SetJ(H3Lib.CoordIjk,System.Int32)">
+        <member name="M:H3Lib.Extensions.CoordIJKExtensions.SetJ(H3Lib.CoordIJK,System.Int32)">
             <summary>
             Change J coordinate value
             </summary>
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjkExtensions.SetK(H3Lib.CoordIjk,System.Int32)">
+        <member name="M:H3Lib.Extensions.CoordIJKExtensions.SetK(H3Lib.CoordIJK,System.Int32)">
             <summary>
             Change K coordinate value
             </summary>
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjkExtensions.SetIJ(H3Lib.CoordIjk,System.Int32,System.Int32)">
+        <member name="M:H3Lib.Extensions.CoordIJKExtensions.SetIJ(H3Lib.CoordIJK,System.Int32,System.Int32)">
             <summary>
             Change IJ coordinates value
             </summary>
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjkExtensions.SetIK(H3Lib.CoordIjk,System.Int32,System.Int32)">
+        <member name="M:H3Lib.Extensions.CoordIJKExtensions.SetIK(H3Lib.CoordIJK,System.Int32,System.Int32)">
             <summary>
             Change JK coordinates value
             </summary>
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjkExtensions.SetJK(H3Lib.CoordIjk,System.Int32,System.Int32)">
+        <member name="M:H3Lib.Extensions.CoordIJKExtensions.SetJK(H3Lib.CoordIJK,System.Int32,System.Int32)">
             <summary>
             Change JK coordinates value
             </summary>
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjkExtensions.ToHex2d(H3Lib.CoordIjk)">
+        <member name="M:H3Lib.Extensions.CoordIJKExtensions.ToHex2D(H3Lib.CoordIJK)">
             <summary>
             Find the center point in 2D cartesian coordinates of a hex.
             </summary>
             <param name="h">The ijk coordinates of the hex.</param>
             <!--
             coordijk,c
-            void _ijkToHex2d
+            void _ijkToHex2D
             -->
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjkExtensions.Normalized(H3Lib.CoordIjk)">
+        <member name="M:H3Lib.Extensions.CoordIJKExtensions.Normalized(H3Lib.CoordIJK)">
             <summary>
             Normalizes ijk coordinates by setting the components to the smallest possible
             values. Works in place.
@@ -1677,7 +1677,7 @@
             void _ijkNormalize
             -->
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjkExtensions.ToDirection(H3Lib.CoordIjk)">
+        <member name="M:H3Lib.Extensions.CoordIJKExtensions.ToDirection(H3Lib.CoordIJK)">
             <summary>
             Determines the H3 digit corresponding to a unit vector in ijk coordinates.
             </summary>
@@ -1691,7 +1691,7 @@
             Direction _unitIjkToDigit
             -->
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjkExtensions.UpAp7(H3Lib.CoordIjk)">
+        <member name="M:H3Lib.Extensions.CoordIJKExtensions.UpAp7(H3Lib.CoordIJK)">
             <summary>
             Find the normalized ijk coordinates of the indexing parent of a cell in a
             counter-clockwise aperture 7 grid. Works in place.
@@ -1702,7 +1702,7 @@
             void _upAp7
             -->
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjkExtensions.UpAp7R(H3Lib.CoordIjk)">
+        <member name="M:H3Lib.Extensions.CoordIJKExtensions.UpAp7R(H3Lib.CoordIJK)">
             <summary>
             Find the normalized ijk coordinates of the indexing parent of a cell in a
             clockwise aperture 7 grid. Works in place.
@@ -1713,7 +1713,7 @@
             void _upAp7r
             -->
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjkExtensions.DownAp7(H3Lib.CoordIjk)">
+        <member name="M:H3Lib.Extensions.CoordIJKExtensions.DownAp7(H3Lib.CoordIJK)">
             <summary>
             Find the normalized ijk coordinates of the hex centered on the indicated
             hex at the next finer aperture 7 counter-clockwise resolution. Works in
@@ -1725,7 +1725,7 @@
             void _downAp7
             -->
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjkExtensions.DownAp7R(H3Lib.CoordIjk)">
+        <member name="M:H3Lib.Extensions.CoordIJKExtensions.DownAp7R(H3Lib.CoordIJK)">
             <summary>
             Find the normalized ijk coordinates of the hex centered on the indicated
             hex at the next finer aperture 7 clockwise resolution. Works in place.
@@ -1736,7 +1736,7 @@
             void _downAp7r
             -->
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjkExtensions.Neighbor(H3Lib.CoordIjk,H3Lib.Direction)">
+        <member name="M:H3Lib.Extensions.CoordIJKExtensions.Neighbor(H3Lib.CoordIJK,H3Lib.Direction)">
             <summary>
             Find the normalized ijk coordinates of the hex in the specified digit
             direction from the specified ijk coordinates. Works in place.
@@ -1748,7 +1748,7 @@
             void _neighbor
             -->
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjkExtensions.RotateCCW(H3Lib.CoordIjk)">
+        <member name="M:H3Lib.Extensions.CoordIJKExtensions.RotateCCW(H3Lib.CoordIJK)">
             <summary>
             Rotates ijk coordinates 60 degrees counter-clockwise. Works in place.
             </summary>
@@ -1758,7 +1758,7 @@
             void _ijkRotate60ccw
             -->
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjkExtensions.RotateCW(H3Lib.CoordIjk)">
+        <member name="M:H3Lib.Extensions.CoordIJKExtensions.RotateCW(H3Lib.CoordIJK)">
             <summary>
             Rotates ijk coordinates 60 degrees clockwise. Works in place.
             </summary>
@@ -1768,7 +1768,7 @@
             void _ijkRotate60cw
             -->
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjkExtensions.DownAp3(H3Lib.CoordIjk)">
+        <member name="M:H3Lib.Extensions.CoordIJKExtensions.DownAp3(H3Lib.CoordIJK)">
             <summary>
             Find the normalized ijk coordinates of the hex centered on the indicated
             hex at the next finer aperture 3 counter-clockwise resolution. Works in
@@ -1780,7 +1780,7 @@
             void _downAp3
             -->
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjkExtensions.DownAp3R(H3Lib.CoordIjk)">
+        <member name="M:H3Lib.Extensions.CoordIJKExtensions.DownAp3R(H3Lib.CoordIJK)">
             <summary>
             Find the normalized ijk coordinates of the hex centered on the indicated
             hex at the next finer aperture 3 clockwise resolution. Works in place.
@@ -1791,7 +1791,7 @@
             void _downAp3r
             -->
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjkExtensions.DistanceTo(H3Lib.CoordIjk,H3Lib.CoordIjk)">
+        <member name="M:H3Lib.Extensions.CoordIJKExtensions.DistanceTo(H3Lib.CoordIJK,H3Lib.CoordIJK)">
             <summary>
             Finds the distance between the two coordinates. Returns result.
             </summary>
@@ -1802,7 +1802,7 @@
             int ijkDistance
             -->
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjkExtensions.ToIj(H3Lib.CoordIjk)">
+        <member name="M:H3Lib.Extensions.CoordIJKExtensions.ToIj(H3Lib.CoordIJK)">
             <summary>
             Transforms coordinates from the IJK+ coordinate system to the IJ coordinate system
             </summary>
@@ -1812,7 +1812,7 @@
             void ijkToIj
             -->
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjkExtensions.ToCube(H3Lib.CoordIjk)">
+        <member name="M:H3Lib.Extensions.CoordIJKExtensions.ToCube(H3Lib.CoordIJK)">
             <summary>
             Convert IJK coordinates to cube coordinates, in place
             </summary>
@@ -1822,7 +1822,7 @@
             void ijkToCube
             -->
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjkExtensions.FromCube(H3Lib.CoordIjk)">
+        <member name="M:H3Lib.Extensions.CoordIJKExtensions.FromCube(H3Lib.CoordIJK)">
             <summary>
             Convert cube coordinates to IJK coordinates, in place
             </summary>
@@ -1832,7 +1832,7 @@
             void cubeToIjk
             -->
         </member>
-        <member name="M:H3Lib.Extensions.CoordIjkExtensions.LocalIjkToH3(H3Lib.CoordIjk,H3Lib.H3Index)">
+        <member name="M:H3Lib.Extensions.CoordIJKExtensions.LocalIJKToH3(H3Lib.CoordIJK,H3Lib.H3Index)">
              <summary>
              Produces an index for ijk+ coordinates anchored by an origin.
             
@@ -1875,72 +1875,72 @@
             Direction _rotate60cw
             -->
         </member>
-        <member name="T:H3Lib.Extensions.FaceIjkExtensions">
+        <member name="T:H3Lib.Extensions.FaceIJKExtensions">
             <summary>
-            Operations for FaceIjk type
+            Operations for FaceIJK type
             </summary>
         </member>
-        <member name="M:H3Lib.Extensions.FaceIjkExtensions.ReplaceFace(H3Lib.FaceIjk,System.Int32)">
+        <member name="M:H3Lib.Extensions.FaceIJKExtensions.ReplaceFace(H3Lib.FaceIJK,System.Int32)">
             <summary>
             Quick replacement of Face value
             </summary>
-            <param name="fijk">FaceIjk to replace Face value of</param>
+            <param name="Fijk">FaceIJK to replace Face value of</param>
             <param name="face">new Face value to slot in</param>
             <returns>A new instance with the correct values</returns>
         </member>
-        <member name="M:H3Lib.Extensions.FaceIjkExtensions.ReplaceCoord(H3Lib.FaceIjk,H3Lib.CoordIjk)">
+        <member name="M:H3Lib.Extensions.FaceIJKExtensions.ReplaceCoord(H3Lib.FaceIJK,H3Lib.CoordIJK)">
             <summary>
             Quick replacement of Coord value
             </summary>
-            <param name="fijk">FaceIjk to replace Coord value of</param>
-            <param name="coord">New CoordIjk to slot in</param>
+            <param name="Fijk">FaceIJK to replace Coord value of</param>
+            <param name="coord">New CoordIJK to slot in</param>
             <returns>A new instance with the correct values</returns>
         </member>
-        <member name="M:H3Lib.Extensions.FaceIjkExtensions.AdjustOverageClassIi(H3Lib.FaceIjk,System.Int32,System.Int32,System.Int32)">
+        <member name="M:H3Lib.Extensions.FaceIJKExtensions.AdjustOverageClassIi(H3Lib.FaceIJK,System.Int32,System.Int32,System.Int32)">
             <summary>
             Adjusts a FaceIJK address in place so that the resulting cell address is
             relative to the correct icosahedral face.
             </summary>
-            <param name="fijk">The FaceIJK address of the cell.</param>
+            <param name="Fijk">The FaceIJK address of the cell.</param>
             <param name="res">The H3 resolution of the cell.</param>
             <param name="pentLeading4">Whether or not the cell is a pentagon with a leading figit 4</param>
             <param name="substrate">Whether or not the cell is in a substrate grid.</param>
             <returns>
             Tuple
             Item1: <see cref="T:H3Lib.Overage"/>
-            Item2: Adjusted <see cref="T:H3Lib.FaceIjk"/>
+            Item2: Adjusted <see cref="T:H3Lib.FaceIJK"/>
             </returns>
             <!--
             faceijk.c
             Overage _adjustOverageClassII
             -->
         </member>
-        <member name="M:H3Lib.Extensions.FaceIjkExtensions.AdjustPentOverage(H3Lib.FaceIjk,System.Int32)">
+        <member name="M:H3Lib.Extensions.FaceIJKExtensions.AdjustPentOverage(H3Lib.FaceIJK,System.Int32)">
             <summary>
             Adjusts a FaceIJK address for a pentagon vertex in a substrate grid in
             place so that the resulting cell address is relative to the correct
             icosahedral face.
             </summary>
-            <param name="fijk">The FaceIJK address of the cell.</param>
+            <param name="Fijk">The FaceIJK address of the cell.</param>
             <param name="res">The H3 resolution of the cell.</param>
             <!--
             faceIjk.c
             Overage _adjustPentVertOverage
             -->
         </member>
-        <member name="M:H3Lib.Extensions.FaceIjkExtensions.PentToVerts(H3Lib.FaceIjk,System.Int32,System.Collections.Generic.IList{H3Lib.FaceIjk})">
+        <member name="M:H3Lib.Extensions.FaceIJKExtensions.PentToVerts(H3Lib.FaceIJK,System.Int32,System.Collections.Generic.IList{H3Lib.FaceIJK})">
             <summary>
             Get the vertices of a pentagon cell as substrate FaceIJK addresses
             </summary>
-            <param name="fijk">The FaceIJK address of the cell.</param>
+            <param name="Fijk">The FaceIJK address of the cell.</param>
             <param name="res">
             The H3 resolution of the cell. This may be adjusted if
             necessary for the substrate grid resolution.
             </param>
-            <param name="fijkVerts">array for the vertices</param>
+            <param name="FijkVerts">array for the vertices</param>
             <returns>
             Tuple
-            Item1 Possibly modified fijk
+            Item1 Possibly modified Fijk
             Item2 Possibly modified res
             Item3 Array for vertices
             </returns>
@@ -1949,19 +1949,19 @@
             void _faceIjkPentToVerts
             -->
         </member>
-        <member name="M:H3Lib.Extensions.FaceIjkExtensions.ToVerts(H3Lib.FaceIjk,System.Int32,System.Collections.Generic.IList{H3Lib.FaceIjk})">
+        <member name="M:H3Lib.Extensions.FaceIJKExtensions.ToVerts(H3Lib.FaceIJK,System.Int32,System.Collections.Generic.IList{H3Lib.FaceIJK})">
             <summary>
             Get the vertices of a cell as substrate FaceIJK addresses
             </summary>
-            <param name="fijk">The FaceIJK address of the cell.</param>
+            <param name="Fijk">The FaceIJK address of the cell.</param>
             <param name="res">
             The H3 resolution of the cell. This may be adjusted if
             necessary for the substrate grid resolution.
             </param>
-            <param name="fijkVerts">array for the vertices</param>
+            <param name="FijkVerts">array for the vertices</param>
             <returns>
             Tuple
-            Item1 Possibly modified fijk
+            Item1 Possibly modified Fijk
             Item2 Possibly modified res
             Item3 Array for vertices
             </returns>
@@ -1970,11 +1970,11 @@
             void _faceIjkToVerts
             -->
         </member>
-        <member name="M:H3Lib.Extensions.FaceIjkExtensions.ToH3(H3Lib.FaceIjk,System.Int32)">
+        <member name="M:H3Lib.Extensions.FaceIJKExtensions.ToH3(H3Lib.FaceIJK,System.Int32)">
             <summary>
             Convert an FaceIJK address to the corresponding H3Index.
             </summary>
-            <param name="fijk">The FaceIJK address.</param>
+            <param name="Fijk">The FaceIJK address.</param>
             <param name="res">The cell resolution.</param>
             <returns>The encoded H3Index (or H3_NULL on failure).</returns>
             <!--
@@ -1982,7 +1982,7 @@
             H3Index _faceIjkToH3
             -->
         </member>
-        <member name="M:H3Lib.Extensions.FaceIjkExtensions.ToBaseCell(H3Lib.FaceIjk)">
+        <member name="M:H3Lib.Extensions.FaceIJKExtensions.ToBaseCell(H3Lib.FaceIJK)">
              <summary>
              Find base cell given FaceIJK.
             
@@ -1997,7 +1997,7 @@
              int _faceIjkToBaseCell
              -->
         </member>
-        <member name="M:H3Lib.Extensions.FaceIjkExtensions.ToBaseCellCounterClockwiseRotate60(H3Lib.FaceIjk)">
+        <member name="M:H3Lib.Extensions.FaceIJKExtensions.ToBaseCellCCWRotate(H3Lib.FaceIJK)">
              <summary>
              Find base cell given FaceIJK.
             
@@ -2012,7 +2012,7 @@
              int _faceIjkToBaseCellCCWrot60
              -->
         </member>
-        <member name="M:H3Lib.Extensions.FaceIjkExtensions.ToGeoCoord(H3Lib.FaceIjk,System.Int32)">
+        <member name="M:H3Lib.Extensions.FaceIJKExtensions.ToGeoCoord(H3Lib.FaceIJK,System.Int32)">
             <summary>
             Determines the center point in spherical coordinates of a cell given by
             a FaceIJK address at a specified resolution.
@@ -2024,7 +2024,7 @@
             void _faceIjkToGeo
             -->
         </member>
-        <member name="M:H3Lib.Extensions.FaceIjkExtensions.ToGeoBoundary(H3Lib.FaceIjk,System.Int32,System.Int32,System.Int32)">
+        <member name="M:H3Lib.Extensions.FaceIJKExtensions.ToGeoBoundary(H3Lib.FaceIJK,System.Int32,System.Int32,System.Int32)">
             <summary>
             Generates the cell boundary in spherical coordinates for a cell given by a
             FaceIJK address at a specified resolution.
@@ -2039,7 +2039,7 @@
             void _faceIjkToGeoBoundary
             -->
         </member>
-        <member name="M:H3Lib.Extensions.FaceIjkExtensions.PentToGeoBoundary(H3Lib.FaceIjk,System.Int32,System.Int32,System.Int32)">
+        <member name="M:H3Lib.Extensions.FaceIJKExtensions.PentToGeoBoundary(H3Lib.FaceIJK,System.Int32,System.Int32,System.Int32)">
             <summary>
             Generates the cell boundary in spherical coordinates for a pentagonal cell
             given by a FaceIJK address at a specified resolution.
@@ -2167,7 +2167,7 @@
             void _geoAzDistanceRads
             -->
         </member>
-        <member name="M:H3Lib.Extensions.GeoCoordExtensions.ToFaceIjk(H3Lib.GeoCoord,System.Int32)">
+        <member name="M:H3Lib.Extensions.GeoCoordExtensions.ToFace(H3Lib.GeoCoord,System.Int32)">
             <summary>
             Encodes a coordinate on the sphere to the FaceIJK address of the containing
             cell at the specified resolution.
@@ -2177,10 +2177,10 @@
             <returns>The FaceIJK address of the containing cell at resolution res.</returns>
             <!--
             faceijk.c
-            void _geoToFaceIjk
+            void _geoToFaceIJK
             -->
         </member>
-        <member name="M:H3Lib.Extensions.GeoCoordExtensions.ToHex2d(H3Lib.GeoCoord,System.Int32)">
+        <member name="M:H3Lib.Extensions.GeoCoordExtensions.ToHex2D(H3Lib.GeoCoord,System.Int32)">
             <summary>
             Encodes a coordinate on the sphere to the corresponding icosahedral face and
             containing 2D hex coordinates relative to that face center.
@@ -2194,17 +2194,17 @@
             </returns>
             <!--
             faceijk.c
-            void _geoToHex2d
+            void _geoToHex2D
             -->
         </member>
-        <member name="M:H3Lib.Extensions.GeoCoordExtensions.ToVec3d(H3Lib.GeoCoord)">
+        <member name="M:H3Lib.Extensions.GeoCoordExtensions.ToVec3D(H3Lib.GeoCoord)">
             <summary>
             Calculate the 3D coordinate on unit sphere from the latitude and longitude.
             </summary>
             <param name="geo">The latitude and longitude of the point</param>
             <!--
             vec3d.c
-            void _geoToVec3d
+            void _geoToVec3D
             -->
         </member>
         <member name="M:H3Lib.Extensions.GeoCoordExtensions.ToH3Index(H3Lib.GeoCoord,System.Int32)">
@@ -2464,7 +2464,7 @@
             double H3_EXPORT(exactEdgeLength)
             -->
         </member>
-        <member name="M:H3Lib.Extensions.H3IndexExtensions.ToLocalIjk(H3Lib.H3Index,H3Lib.H3Index)">
+        <member name="M:H3Lib.Extensions.H3IndexExtensions.ToLocalIJK(H3Lib.H3Index,H3Lib.H3Index)">
              <summary>
              Produces ijk+ coordinates for an index anchored by an origin.
             
@@ -2486,7 +2486,7 @@
              </returns>
              <!--
              localij.c
-             int h3ToLocalIjk
+             int h3ToLocalIJK
              -->
         </member>
         <member name="M:H3Lib.Extensions.H3IndexExtensions.RotatePentCCW(H3Lib.H3Index)">
@@ -2529,26 +2529,26 @@
             H3Index _h3Rotate60cw
             --> 
         </member>
-        <member name="M:H3Lib.Extensions.H3IndexExtensions.ToFaceIjkWithInitializedFijk(H3Lib.H3Index,H3Lib.FaceIjk)">
+        <member name="M:H3Lib.Extensions.H3IndexExtensions.ToFaceFromFace(H3Lib.H3Index,H3Lib.FaceIJK)">
             <summary>
-            Convert an H3Index to the FaceIjk address on a specified icosahedral face.
+            Convert an H3Index to the FaceIJK address on a specified icosahedral face.
             </summary>
             <param name="h"> The H3Index.</param>
-            <param name="fijk">
-            The FaceIjk address, initialized with the desired face
+            <param name="Fijk">
+            The FaceIJK address, initialized with the desired face
             and normalized base cell coordinates.
             </param>
             <returns>
             Tuple
             Item1: Returns 1 if the possibility of overage exists, otherwise 0.
-            Item2: Modified FaceIjk
+            Item2: Modified FaceIJK
             </returns>
             <!--
             h3Index.c
-            int _h3ToFaceIjkWithInitializedFijk
+            int _h3ToFaceFromFace
             -->
         </member>
-        <member name="M:H3Lib.Extensions.H3IndexExtensions.ToLocalIjExperimental(H3Lib.H3Index,H3Lib.H3Index)">
+        <member name="M:H3Lib.Extensions.H3IndexExtensions.ToLocalIJExperimental(H3Lib.H3Index,H3Lib.H3Index)">
              <summary>
              Produces ij coordinates for an index anchored by an origin.
             
@@ -2572,7 +2572,7 @@
              </returns>
              <!--
              localij.c
-             int H3_EXPORT(experimentalH3ToLocalIj)
+             int H3_EXPORT(experimentalH3ToLocalIJ)
              -->
         </member>
         <member name="M:H3Lib.Extensions.H3IndexExtensions.DistanceTo(H3Lib.H3Index,H3Lib.H3Index)">
@@ -2713,7 +2713,7 @@
             H3Index makeDirectChild
             -->
         </member>
-        <member name="M:H3Lib.Extensions.H3IndexExtensions.ToFaceIjk(H3Lib.H3Index)">
+        <member name="M:H3Lib.Extensions.H3IndexExtensions.ToFace(H3Lib.H3Index)">
             <summary>
             Convert an H3Index to a FaceIJK address.
             </summary>
@@ -2721,7 +2721,7 @@
             <returns>The corresponding FaceIJK address.</returns>
             <!--
             h3Index.cs
-            void _h3ToFaceIjk
+            void _h3ToFaceIJK
             -->
         </member>
         <member name="M:H3Lib.Extensions.H3IndexExtensions.GetFaces(H3Lib.H3Index)">
@@ -3168,7 +3168,7 @@
             However, it's only used once in
             void _geoAzDistanceRads(const GeoCoord *p1, double az, double distance, GeoCoord *p2)
             
-            It's used multiple times in faceijk.c, _geoToHex2d and _hex2dToGeo
+            It's used multiple times in faceijk.c, _geoToHex2D and _hex2dToGeo
             
             For now, let's isolate it and see if it needs to be folded in later.
             </remarks>
@@ -3465,12 +3465,12 @@
             static const LinkedGeoPolygon* findPolygonForHole
             -->
         </member>
-        <member name="T:H3Lib.Extensions.Vec2dExtensions">
+        <member name="T:H3Lib.Extensions.Vec2DExtensions">
             <summary>
-            Operations on Vec2d
+            Operations on Vec2D
             </summary>
         </member>
-        <member name="M:H3Lib.Extensions.Vec2dExtensions.ToCoordIjk(H3Lib.Vec2d)">
+        <member name="M:H3Lib.Extensions.Vec2DExtensions.ToCoordIJK(H3Lib.Vec2D)">
             <summary>
             Determine the containing hex in ijk+ coordinates for a 2D cartesian
             coordinate vector (from <a href="http://www.discreteglobalgrids.org/software/">DGGRID</a>).
@@ -3481,7 +3481,7 @@
             void _hex2dToCoordIJK
             -->
         </member>
-        <member name="M:H3Lib.Extensions.Vec2dExtensions.ToGeoCoord(H3Lib.Vec2d,System.Int32,System.Int32,System.Int32)">
+        <member name="M:H3Lib.Extensions.Vec2DExtensions.ToGeoCoord(H3Lib.Vec2D,System.Int32,System.Int32,System.Int32)">
             <summary>
             Determines the center point in spherical coordinates of a cell given by 2D
             hex coordinates on a particular icosahedral face.
@@ -3499,12 +3499,12 @@
             void _hex2dToGeo
             -->
         </member>
-        <member name="T:H3Lib.Extensions.Vec3dExtensions">
+        <member name="T:H3Lib.Extensions.Vec3DExtensions">
             <summary>
-            Operations on Vec3d
+            Operations on Vec3D
             </summary>
         </member>
-        <member name="M:H3Lib.Extensions.Vec3dExtensions.PointSquareDistance(H3Lib.Vec3d,H3Lib.Vec3d)">
+        <member name="M:H3Lib.Extensions.Vec3DExtensions.PointSquareDistance(H3Lib.Vec3D,H3Lib.Vec3D)">
             <summary>
             Calculate the square of the distance between two 3D coordinates.
             </summary>
@@ -3516,7 +3516,7 @@
             double _pointSquareDist
             -->
         </member>
-        <member name="M:H3Lib.Extensions.Vec3dExtensions.SetX(H3Lib.Vec3d,System.double)">
+        <member name="M:H3Lib.Extensions.Vec3DExtensions.SetX(H3Lib.Vec3D,System.double)">
             <summary>
             Replace X value
             </summary>
@@ -3524,7 +3524,7 @@
             <param name="x"></param>
             <returns></returns>
         </member>
-        <member name="M:H3Lib.Extensions.Vec3dExtensions.SetY(H3Lib.Vec3d,System.double)">
+        <member name="M:H3Lib.Extensions.Vec3DExtensions.SetY(H3Lib.Vec3D,System.double)">
             <summary>
             Replace Y value
             </summary>
@@ -3532,7 +3532,7 @@
             <param name="y"></param>
             <returns></returns>
         </member>
-        <member name="M:H3Lib.Extensions.Vec3dExtensions.SetZ(H3Lib.Vec3d,System.double)">
+        <member name="M:H3Lib.Extensions.Vec3DExtensions.SetZ(H3Lib.Vec3D,System.double)">
             <summary>
             Repalce Z value
             </summary>
@@ -3558,116 +3558,116 @@
             void _vertexGraphToLinkedGeo
             -->
         </member>
-        <member name="T:H3Lib.FaceIjk">
+        <member name="T:H3Lib.FaceIJK">
             <summary>
             Functions for working with icosahedral face-centered hex IJK
             coordinate systems.
             </summary>
         </member>
-        <member name="F:H3Lib.FaceIjk.Face">
+        <member name="F:H3Lib.FaceIJK.Face">
             <summary>
             face number
             </summary>
         </member>
-        <member name="F:H3Lib.FaceIjk.Coord">
+        <member name="F:H3Lib.FaceIJK.Coord">
             <summary>
             ijk coordinates on that face
             </summary>
         </member>
-        <member name="M:H3Lib.FaceIjk.#ctor(System.Int32,H3Lib.CoordIjk)">
+        <member name="M:H3Lib.FaceIJK.#ctor(System.Int32,H3Lib.CoordIJK)">
             <summary>
             constructor
             </summary>
         </member>
-        <member name="M:H3Lib.FaceIjk.#ctor(H3Lib.FaceIjk)">
+        <member name="M:H3Lib.FaceIJK.#ctor(H3Lib.FaceIJK)">
             <summary>
             constructor
             </summary>
         </member>
-        <member name="M:H3Lib.FaceIjk.ToString">
+        <member name="M:H3Lib.FaceIJK.ToString">
             <summary>
             Debug data in string
             </summary>
         </member>
-        <member name="M:H3Lib.FaceIjk.Equals(H3Lib.FaceIjk)">
+        <member name="M:H3Lib.FaceIJK.Equals(H3Lib.FaceIJK)">
             <summary>
             Equality test
             </summary>
         </member>
-        <member name="M:H3Lib.FaceIjk.Equals(System.Object)">
+        <member name="M:H3Lib.FaceIJK.Equals(System.Object)">
             <summary>
             Equality test on unboxed object
             </summary>
         </member>
-        <member name="M:H3Lib.FaceIjk.GetHashCode">
+        <member name="M:H3Lib.FaceIJK.GetHashCode">
             <summary>
             Hashcode for identity
             </summary>
         </member>
-        <member name="M:H3Lib.FaceIjk.op_Equality(H3Lib.FaceIjk,H3Lib.FaceIjk)">
+        <member name="M:H3Lib.FaceIJK.op_Equality(H3Lib.FaceIJK,H3Lib.FaceIJK)">
             <summary>
             Equality operator
             </summary>
         </member>
-        <member name="M:H3Lib.FaceIjk.op_Inequality(H3Lib.FaceIjk,H3Lib.FaceIjk)">
+        <member name="M:H3Lib.FaceIJK.op_Inequality(H3Lib.FaceIJK,H3Lib.FaceIJK)">
             <summary>
             Inequality operator
             </summary>
         </member>
-        <member name="T:H3Lib.FaceOrientIjk">
+        <member name="T:H3Lib.FaceOrientIJK">
             <summary>
             Information to transform into an adjacent face IJK system
             </summary>
         </member>
-        <member name="F:H3Lib.FaceOrientIjk.Face">
+        <member name="F:H3Lib.FaceOrientIJK.Face">
             <summary>
             face number
             </summary>
         </member>
-        <member name="F:H3Lib.FaceOrientIjk.Translate">
+        <member name="F:H3Lib.FaceOrientIJK.Translate">
             <summary>
             res 0 translation relative to primary face
             </summary>
         </member>
-        <member name="F:H3Lib.FaceOrientIjk.Ccw60Rotations">
+        <member name="F:H3Lib.FaceOrientIJK.Ccw60Rotations">
             <summary>
             number of 60 degree ccw rotations relative to primary
             </summary>
         </member>
-        <member name="M:H3Lib.FaceOrientIjk.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+        <member name="M:H3Lib.FaceOrientIJK.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
             Constructor
             </summary>
         </member>
-        <member name="M:H3Lib.FaceOrientIjk.#ctor(System.Int32,H3Lib.CoordIjk,System.Int32)">
+        <member name="M:H3Lib.FaceOrientIJK.#ctor(System.Int32,H3Lib.CoordIJK,System.Int32)">
             <summary>
             Constructor
             </summary>
         </member>
-        <member name="M:H3Lib.FaceOrientIjk.Equals(H3Lib.FaceOrientIjk)">
+        <member name="M:H3Lib.FaceOrientIJK.Equals(H3Lib.FaceOrientIJK)">
             <summary>
             Equality test
             </summary>
             <param name="other"></param>
             <returns></returns>
         </member>
-        <member name="M:H3Lib.FaceOrientIjk.Equals(System.Object)">
+        <member name="M:H3Lib.FaceOrientIJK.Equals(System.Object)">
             <summary>
             Equality test against unboxed object
             </summary>
         </member>
-        <member name="M:H3Lib.FaceOrientIjk.GetHashCode">
+        <member name="M:H3Lib.FaceOrientIJK.GetHashCode">
             <summary>
             Hashcode for identity
             </summary>
             <returns></returns>
         </member>
-        <member name="M:H3Lib.FaceOrientIjk.op_Equality(H3Lib.FaceOrientIjk,H3Lib.FaceOrientIjk)">
+        <member name="M:H3Lib.FaceOrientIJK.op_Equality(H3Lib.FaceOrientIJK,H3Lib.FaceOrientIJK)">
             <summary>
             Equality operator
             </summary>
         </member>
-        <member name="M:H3Lib.FaceOrientIjk.op_Inequality(H3Lib.FaceOrientIjk,H3Lib.FaceOrientIjk)">
+        <member name="M:H3Lib.FaceOrientIJK.op_Inequality(H3Lib.FaceOrientIJK,H3Lib.FaceOrientIJK)">
             <summary>
             Inequality operator
             </summary>
@@ -4299,27 +4299,27 @@
             Constructor
             </summary>
         </member>
-        <member name="T:H3Lib.Vec2d">
+        <member name="T:H3Lib.Vec2D">
             <summary>
             2D floating point vector functions.
             </summary>
         </member>
-        <member name="F:H3Lib.Vec2d.X">
+        <member name="F:H3Lib.Vec2D.X">
             <summary>
             X coordinate
             </summary>
         </member>
-        <member name="F:H3Lib.Vec2d.Y">
+        <member name="F:H3Lib.Vec2D.Y">
             <summary>
             Y Coordinate
             </summary>
         </member>
-        <member name="M:H3Lib.Vec2d.#ctor(System.double,System.double)">
+        <member name="M:H3Lib.Vec2D.#ctor(System.double,System.double)">
             <summary>
             Constructor
             </summary>
         </member>
-        <member name="P:H3Lib.Vec2d.Magnitude">
+        <member name="P:H3Lib.Vec2D.Magnitude">
             <summary>
             Calculates the magnitude of a 2D cartesian vector.
             </summary>
@@ -4328,7 +4328,7 @@
             double _v2dMag
             -->
         </member>
-        <member name="M:H3Lib.Vec2d.FindIntersection(H3Lib.Vec2d,H3Lib.Vec2d,H3Lib.Vec2d,H3Lib.Vec2d)">
+        <member name="M:H3Lib.Vec2D.FindIntersection(H3Lib.Vec2D,H3Lib.Vec2D,H3Lib.Vec2D,H3Lib.Vec2D)">
             Finds the intersection between two lines. Assumes that the lines intersect
             and that the intersection is not at an endpoint of either line.
             @param p0 The first endpoint of the first line.
@@ -4350,84 +4350,84 @@
             _v2dIntersect
             -->
         </member>
-        <member name="M:H3Lib.Vec2d.Equals(H3Lib.Vec2d)">
+        <member name="M:H3Lib.Vec2D.Equals(H3Lib.Vec2D)">
             <summary>
             Equality test
             </summary>
         </member>
-        <member name="M:H3Lib.Vec2d.Equals(System.Object)">
+        <member name="M:H3Lib.Vec2D.Equals(System.Object)">
             <summary>
             Equality test against unboxed object
             </summary>
         </member>
-        <member name="M:H3Lib.Vec2d.GetHashCode">
+        <member name="M:H3Lib.Vec2D.GetHashCode">
             <summary>
             Hashcode for identity
             </summary>
             <returns></returns>
         </member>
-        <member name="M:H3Lib.Vec2d.op_Equality(H3Lib.Vec2d,H3Lib.Vec2d)">
+        <member name="M:H3Lib.Vec2D.op_Equality(H3Lib.Vec2D,H3Lib.Vec2D)">
             <summary>
             Equality operator
             </summary>
         </member>
-        <member name="M:H3Lib.Vec2d.op_Inequality(H3Lib.Vec2d,H3Lib.Vec2d)">
+        <member name="M:H3Lib.Vec2D.op_Inequality(H3Lib.Vec2D,H3Lib.Vec2D)">
             <summary>
             Inequality operator
             </summary>
         </member>
-        <member name="M:H3Lib.Vec2d.ToString">
+        <member name="M:H3Lib.Vec2D.ToString">
             <summary>
             Debug info as string
             </summary>
         </member>
-        <member name="T:H3Lib.Vec3d">
+        <member name="T:H3Lib.Vec3D">
             <summary>
             3D floating point structure
             </summary>
         </member>
-        <member name="F:H3Lib.Vec3d.X">
+        <member name="F:H3Lib.Vec3D.X">
             <summary>
             X Coordinate
             </summary>
         </member>
-        <member name="F:H3Lib.Vec3d.Y">
+        <member name="F:H3Lib.Vec3D.Y">
             <summary>
             Y Coordinate
             </summary>
         </member>
-        <member name="F:H3Lib.Vec3d.Z">
+        <member name="F:H3Lib.Vec3D.Z">
             <summary>
             Z Coordinate
             </summary>
         </member>
-        <member name="M:H3Lib.Vec3d.#ctor(System.double,System.double,System.double)">
+        <member name="M:H3Lib.Vec3D.#ctor(System.double,System.double,System.double)">
             <summary>
             Constructor
             </summary>
         </member>
-        <member name="M:H3Lib.Vec3d.ToString">
+        <member name="M:H3Lib.Vec3D.ToString">
             <summary>
             Debug info in string format
             </summary>
         </member>
-        <member name="M:H3Lib.Vec3d.Equals(H3Lib.Vec3d)">
+        <member name="M:H3Lib.Vec3D.Equals(H3Lib.Vec3D)">
             <summary>
             Equality test
             </summary>
         </member>
-        <member name="M:H3Lib.Vec3d.Equals(System.Object)">
+        <member name="M:H3Lib.Vec3D.Equals(System.Object)">
             <summary>
             Equality test
             </summary>
         </member>
-        <member name="M:H3Lib.Vec3d.GetHashCode">
+        <member name="M:H3Lib.Vec3D.GetHashCode">
             <summary>
             Hashcode for identity
             </summary>
             <returns></returns>
         </member>
-        <member name="M:H3Lib.Vec3d.op_Equality(H3Lib.Vec3d,H3Lib.Vec3d)">
+        <member name="M:H3Lib.Vec3D.op_Equality(H3Lib.Vec3D,H3Lib.Vec3D)">
             <summary>
             Equality operator
             </summary>
@@ -4435,7 +4435,7 @@
             <param name="right"></param>
             <returns></returns>
         </member>
-        <member name="M:H3Lib.Vec3d.op_Inequality(H3Lib.Vec3d,H3Lib.Vec3d)">
+        <member name="M:H3Lib.Vec3D.op_Inequality(H3Lib.Vec3D,H3Lib.Vec3D)">
             <summary>
             inequality operator
             </summary>

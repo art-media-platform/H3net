@@ -1,15 +1,24 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using H3Lib.Extensions;
 
 namespace H3Lib
 {
+    public struct EnumOpts {
+        public bool OmitPentagons;
+        public bool OmitCenter;
+        public bool OmitRing;
+    };
+
     /// <summary>
     /// H3Index utility functions
     /// </summary>
     [DebuggerDisplay("Value: {Value} => 0x{ToString()}")]
-    public readonly struct H3Index:IEquatable<H3Index>,IEquatable<ulong>,IComparable<H3Index>
+    public readonly struct H3Index:IEquatable<H3Index>,
+        IEquatable<ulong>,
+        IComparable<H3Index>
     {
+    
         /// <summary>
         /// Where the actual index is stored.
         /// </summary>
@@ -32,7 +41,7 @@ namespace H3Lib
         /// </summary>
         public H3Index(int res, int baseCell, Direction initDigit)
         {
-            H3Index h = Constants.H3Index.H3_INIT;
+            H3Index h = Constants.H3_INIT;
             h = h.SetIndex(res, baseCell, initDigit);
             Value = h.Value;
         }
@@ -48,7 +57,7 @@ namespace H3Lib
         /// <param name="initDigit"></param>
         public H3Index(int res, int baseCell, int initDigit)
         {
-            H3Index h = Constants.H3Index.H3_INIT;
+            H3Index h = Constants.H3_INIT;
             h = h.SetIndex(res, baseCell, (Direction) initDigit);
             Value = h.Value;
         }
@@ -61,8 +70,8 @@ namespace H3Lib
         /// int H3_EXPORT(h3GetResolution)(H3Index h)
         /// -->
         public int Resolution =>
-            (int) ((Value & Constants.H3Index.H3_RES_MASK) >>
-                   Constants.H3Index.H3_RES_OFFSET);
+            (int) ((Value & Constants.H3_RES_MASK) >>
+                   Constants.H3_RES_OFFSET);
 
         /// <summary>
         /// Integer base cell of H3
@@ -72,8 +81,8 @@ namespace H3Lib
         /// int H3_EXPORT(h3GetBaseCell)
         /// -->
         public int BaseCell =>
-            (int) ((Value & Constants.H3Index.H3_BC_MASK) >>
-                   Constants.H3Index.H3_BC_OFFSET);
+            (int) ((Value & Constants.H3_BC_MASK) >>
+                   Constants.H3_BC_OFFSET);
 
         /// <summary>
         /// Returns the highest resolution non-zero digit in an H3Index.
@@ -107,22 +116,22 @@ namespace H3Lib
         /// Integer mode of H3
         /// </summary>
         public H3Mode Mode =>
-            (H3Mode) ((Value & Constants.H3Index.H3_MODE_MASK) >>
-                      Constants.H3Index.H3_MODE_OFFSET);
+            (H3Mode) ((Value & Constants.H3_MODE_MASK) >>
+                      Constants.H3_MODE_OFFSET);
 
         /// <summary>
         /// High bit of H3
         /// </summary>
         public int HighBit =>
-            (int) ((Value & Constants.H3Index.H3_HIGH_BIT_MASK) >>
-                   Constants.H3Index.H3_MAX_OFFSET);
+            (int) ((Value & Constants.H3_HIGH_BIT_MASK) >>
+                   Constants.H3_MAX_OFFSET);
 
         /// <summary>
         /// Reserved bits of H3Index
         /// </summary>
         public int ReservedBits =>
-            (int) ((Value & Constants.H3Index.H3_RESERVED_MASK) >>
-                   Constants.H3Index.H3_RESERVED_OFFSET);
+            (int) ((Value & Constants.H3_RESERVED_MASK) >>
+                   Constants.H3_RESERVED_OFFSET);
 
         /// <summary>
         /// Gets the resolution res integer digit (0-7) of h3.
@@ -131,8 +140,8 @@ namespace H3Lib
         {
             return (Direction)
                 ((Value >>
-                  ((Constants.H3.MAX_H3_RES - res) * Constants.H3Index.H3_PER_DIGIT_OFFSET)) &
-                 Constants.H3Index.H3_DIGIT_MASK);
+                  ((Constants.H3.MAX_H3_RES - res) * Constants.H3_PER_DIGIT_OFFSET)) &
+                 Constants.H3_DIGIT_MASK);
         }
 
         /// <summary>

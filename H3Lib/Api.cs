@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using H3Lib.Extensions;
 
 namespace H3Lib
 {
@@ -350,7 +349,7 @@ namespace H3Lib
 
             return ulong.TryParse(s, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out ulong h3)
                        ? new H3Index(h3)
-                       : new H3Index(Constants.H3Index.H3_NULL);
+                       : new H3Index(Constants.H3_NULL);
         }
 
         /// <summary>
@@ -420,16 +419,6 @@ namespace H3Lib
         public static long MaxUncompactSize(List<H3Index> compacted, int r)
         {
             return compacted.MaxUncompactSize(r);
-        }
-
-        /// <summary>
-        /// uncompacts the compacted hexagon set
-        /// </summary>
-        public static int Uncompact(List<H3Index> compactedSet, out List<H3Index> outCells, int res)
-        {
-            int status;
-            (status, outCells) = compactedSet.Uncompact(res);
-            return status;
         }
 
         /// <summary>
@@ -570,20 +559,20 @@ namespace H3Lib
         /// <summary>
         /// Returns two dimensional coordinates for the given index
         /// </summary>
-        public static int ExperimentalH3ToLocalIj(
+        public static int ExperimentalH3ToLocalIJ(
                 H3Index origin, H3Index h3,
-                out CoordIj outCoord
+                out CoordIJ outCoord
             )
         {
             int status;
-            (status, outCoord) = origin.ToLocalIjExperimental(h3);
+            (status, outCoord) = origin.ToLocalIJExperimental(h3);
             return status;
         }
 
         /// <summary>
         /// Returns index for the given two dimensional coordinates
         /// </summary>
-        public static int ExperimentalLocalIjToH3(H3Index origin, CoordIj ij, out H3Index outCell)
+        public static int ExperimentalLocalIJToH3(H3Index origin, CoordIJ ij, out H3Index outCell)
         {
             int status;
             (status, outCell) = ij.ToH3Experimental(origin);

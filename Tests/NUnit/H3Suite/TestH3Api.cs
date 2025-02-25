@@ -1,6 +1,5 @@
 using System;
 using H3Lib;
-using H3Lib.Extensions;
 using NUnit.Framework;
 
 namespace TestSuite
@@ -12,8 +11,8 @@ namespace TestSuite
         public void GeoToH3Res()
         {
             GeoCoord anywhere = default;
-            Assert.AreEqual(Constants.H3Index.H3_NULL, Api.GeoToH3(anywhere, -1));
-            Assert.AreEqual(Constants.H3Index.H3_NULL, Api.GeoToH3(anywhere, 16));
+            Assert.AreEqual(Constants.H3_NULL, Api.GeoToH3(anywhere, -1));
+            Assert.AreEqual(Constants.H3_NULL, Api.GeoToH3(anywhere, 16));
         }
 
         [Test]
@@ -24,9 +23,9 @@ namespace TestSuite
             // GeoCoord invalidLon = new GeoCoord(0, double.NaN);
             // GeoCoord invalidLatLon = new GeoCoord(double.PositiveInfinity, double.NegativeInfinity);
             //
-            // Assert.AreEqual(Constants.H3Index.H3_NULL, Api.GeoToH3(invalidLat, 1));
-            // Assert.AreEqual(Constants.H3Index.H3_NULL, Api.GeoToH3(invalidLon, 1));
-            // Assert.AreEqual(Constants.H3Index.H3_NULL, Api.GeoToH3(invalidLatLon, 1));
+            // Assert.AreEqual(Constants.H3_NULL, Api.GeoToH3(invalidLat, 1));
+            // Assert.AreEqual(Constants.H3_NULL, Api.GeoToH3(invalidLon, 1));
+            // Assert.AreEqual(Constants.H3_NULL, Api.GeoToH3(invalidLatLon, 1));
         }
         
         // Bug test for https://github.com/uber/h3/issues/45

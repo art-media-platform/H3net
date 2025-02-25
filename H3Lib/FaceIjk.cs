@@ -8,7 +8,7 @@ namespace H3Lib
     /// coordinate systems.
     /// </summary>
     [DebuggerDisplay("Face: {Face} Coord: {Coord}")]
-    public readonly struct FaceIjk:IEquatable<FaceIjk>
+    public readonly struct FaceIJK:IEquatable<FaceIJK>
     {
         /// <summary>
         /// face number
@@ -18,12 +18,12 @@ namespace H3Lib
         /// <summary>
         /// ijk coordinates on that face
         /// </summary>
-        public readonly CoordIjk Coord;
+        public readonly CoordIJK Coord;
 
         /// <summary>
         /// constructor
         /// </summary>
-        public FaceIjk(int f, CoordIjk cijk)
+        public FaceIJK(int f, CoordIJK cijk)
         {
             Face = f;
             Coord = cijk;
@@ -32,7 +32,7 @@ namespace H3Lib
         /// <summary>
         /// constructor
         /// </summary>
-        public FaceIjk(FaceIjk fijk)
+        public FaceIJK(FaceIJK fijk)
         {
             Face = fijk.Face;
             Coord = fijk.Coord;
@@ -43,13 +43,13 @@ namespace H3Lib
         /// </summary>
         public override string ToString()
         {
-            return $"FaceIjk: Face: {Face} Coord: {Coord}";
+            return $"FaceIJK: Face: {Face} Coord: {Coord}";
         }
 
         /// <summary>
         /// Equality test
         /// </summary>
-        public bool Equals(FaceIjk other)
+        public bool Equals(FaceIJK other)
         {
             return Face == other.Face && Coord.Equals(other.Coord);
         }
@@ -59,7 +59,7 @@ namespace H3Lib
         /// </summary>
         public override bool Equals(object obj)
         {
-            return obj is FaceIjk other && Equals(other);
+            return obj is FaceIJK other && Equals(other);
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace H3Lib
         /// <summary>
         /// Equality operator
         /// </summary>
-        public static bool operator ==(FaceIjk left, FaceIjk right)
+        public static bool operator ==(FaceIJK left, FaceIJK right)
         {
             return left.Equals(right);
         }
@@ -81,7 +81,7 @@ namespace H3Lib
         /// <summary>
         /// Inequality operator
         /// </summary>
-        public static bool operator !=(FaceIjk left, FaceIjk right)
+        public static bool operator !=(FaceIJK left, FaceIJK right)
         {
             return !left.Equals(right);
         }

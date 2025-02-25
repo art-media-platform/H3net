@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace H3Lib.Extensions
+namespace H3Lib
 {
     /// <summary>
     /// Operations on GeoPolygon type
@@ -23,8 +23,7 @@ namespace H3Lib.Extensions
         public static bool PointInside(this GeoPolygon polygon, List<BBox> boxes, GeoCoord coord)
         {
             // Start with contains state of primary geofence
-            bool contains =
-                polygon.GeoFence.PointInside(boxes[0], coord);
+            bool contains = polygon.GeoFence.PointInside(boxes[0], coord);
             
             // If the point is contained in the primary geofence, but there are holes in
             // the geofence iterate through all holes and return false if the point is
@@ -201,7 +200,7 @@ namespace H3Lib.Extensions
                        .Select
                             (
                              index => index.KRing(1)
-                                           .Where(h => h != Constants.H3Index.H3_NULL)
+                                           .Where(h => h != Constants.H3_NULL)
                             ))
                     {
                         foreach (

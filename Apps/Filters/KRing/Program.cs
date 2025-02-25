@@ -3,7 +3,6 @@ using System.Linq;
 using System.Text;
 using CommandLineParser.Arguments;
 using H3Lib;
-using H3Lib.Extensions;
 
 namespace KRing
 {

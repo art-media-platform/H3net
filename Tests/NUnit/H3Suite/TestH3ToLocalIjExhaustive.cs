@@ -1,38 +1,37 @@
 using System.Threading.Tasks;
 using NUnit.Framework;
 using H3Lib;
-using H3Lib.Extensions;
 using TestSuite.Lib;
 
 namespace TestSuite
 {
     [TestFixture]
-    public class TestH3ToLocalIjExhaustive
+    public class TestH3ToLocalIJExhaustive
     {
         private readonly int[] _maxDistances = {1, 2, 5, 12, 19, 26};
 
         //  The same traversal constants from algos.c (for hexRange) here
         //  reused as local IJ vectors.
-        private readonly CoordIj[] _directions =
+        private readonly CoordIJ[] _directions =
         {
-            new CoordIj(0, 1),
-            new CoordIj(-1, 0),
-            new CoordIj(-1, -1),
-            new CoordIj(0, -1),
-            new CoordIj(1, 0),
-            new CoordIj(1, 1)
+            new CoordIJ(0, 1),
+            new CoordIJ(-1, 0),
+            new CoordIJ(-1, -1),
+            new CoordIJ(0, -1),
+            new CoordIJ(1, 0),
+            new CoordIJ(1, 1)
         };
 
-        private readonly CoordIj _nextRingDirection = new CoordIj(1, 0);
+        private readonly CoordIJ _nextRingDirection = new CoordIJ(1, 0);
 
         /// <summary>
         /// Test that the local coordinates for an index map to itself.
         /// </summary>
-        private void LocalIjToH3IdentityAssertions(H3Index h3)
+        private void LocalIJToH3IdentityAssertions(H3Index h3)
         {
             int status;
-            CoordIj ij;
-            (status, ij) = h3.ToLocalIjExperimental(h3);
+            CoordIJ ij;
+            (status, ij) = h3.ToLocalIJExperimental(h3);
             Assert.AreEqual(0, status);
 
             H3Index retrieved;
@@ -46,27 +45,27 @@ namespace TestSuite
         /// digits, when using the index as its own origin. That is, that the IJ
         /// coordinates are in the coordinate space of the origin's base cell.
         /// </summary>
-        private void H3ToLocalIjCoordinatesAssertions(H3Index h3)
+        private void H3ToLocalIJCoordinatesAssertions(H3Index h3)
         {
             int r = h3.Resolution;
 
-            CoordIj ij;
+            CoordIJ ij;
             int status;
-            (status, ij) = h3.ToLocalIjExperimental(h3);
+            (status, ij) = h3.ToLocalIJExperimental(h3);
             Assert.AreEqual(0, status);
             var ijk = ij.ToIjk();
 
             switch (r)
             {
                 case 0:
-                    Assert.AreEqual(ijk, H3Lib.Constants.CoordIjk.UnitVecs[0]);
+                    Assert.AreEqual(ijk, H3Lib.Constants.CoordIJK.UnitVecs[0]);
                     break;
                 case 1:
-                    Assert.AreEqual(ijk, H3Lib.Constants.CoordIjk.UnitVecs[(int) h3.GetIndexDigit(1)]);
+                    Assert.AreEqual(ijk, H3Lib.Constants.CoordIJK.UnitVecs[(int) h3.GetIndexDigit(1)]);
                     break;
                 case 2:
                 {
-                    var expected = H3Lib.Constants.CoordIjk.UnitVecs[(int) h3.GetIndexDigit(1)];
+                    var expected = H3Lib.Constants.CoordIJK.UnitVecs[(int) h3.GetIndexDigit(1)];
                     expected = expected.DownAp7R().Neighbor(h3.GetIndexDigit(2));
                     Assert.AreEqual(ijk, expected);
                     break;
@@ -81,9 +80,9 @@ namespace TestSuite
         /// Test the the immediate neighbors of an index are at the expected locations in
         /// the local IJ coordinate space.
         /// </summary>
-        private void H3ToLocalIjNeighborsAssertions(H3Index h3)
+        private void H3ToLocalIJNeighborsAssertions(H3Index h3)
         {
-            (int status, var origin) = h3.ToLocalIjExperimental(h3);
+            (int status, var origin) = h3.ToLocalIJExperimental(h3);
             Assert.AreEqual(0, status);
 
             var originIjk = origin.ToIjk();
@@ -99,11 +98,11 @@ namespace TestSuite
                 H3Index offset;
                 (offset, _) = h3.NeighborRotations(d, rotations);
 
-                (int result, var ij) = h3.ToLocalIjExperimental(offset);
+                (int result, var ij) = h3.ToLocalIJExperimental(offset);
                 Assert.AreEqual(0, result);
 
                 var ijk = ij.ToIjk();
-                var invertedIjk = new CoordIjk().Neighbor(d);
+                var invertedIjk = new CoordIJK().Neighbor(d);
 
                 for (int i = 0; i < 3; i++)
                 {
@@ -121,7 +120,7 @@ namespace TestSuite
         /// Test that the neighbors (k-ring), if they can be found in the local IJ
         /// coordinate space, can be converted back to indexes.
         /// </summary>
-        private void LocalIjToH3KRingAssertions(H3Index h3)
+        private void LocalIJToH3KRingAssertions(H3Index h3)
         {
             int r = h3.Resolution;
             Assert.LessOrEqual(r, 5);
@@ -141,7 +140,7 @@ namespace TestSuite
                     continue;
                 }
 
-                (int status, var ij) = h3.ToLocalIjExperimental(key);
+                (int status, var ij) = h3.ToLocalIJExperimental(key);
                 if (status != 0)
                 {
                     continue;
@@ -153,13 +152,13 @@ namespace TestSuite
             }
         }
 
-        private void LocalIjToH3TraverseAssertions(H3Index h3)
+        private void LocalIJToH3TraverseAssertions(H3Index h3)
         {
             var r = h3.Resolution;
             Assert.LessOrEqual(r, 5);
             int k = _maxDistances[r];
 
-            (int status, var ij) = h3.ToLocalIjExperimental(h3);
+            (int status, var ij) = h3.ToLocalIJExperimental(h3);
             Assert.AreEqual(0, status);
 
             // This logic is from hexRangeDistances.
@@ -184,7 +183,7 @@ namespace TestSuite
                 {
                     Assert.IsTrue(testH3.IsValid());
 
-                    (var reverseFailed, var expectedIj) = h3.ToLocalIjExperimental(testH3);
+                    (var reverseFailed, var expectedIj) = h3.ToLocalIJExperimental(testH3);
                     // If it doesn't give a coordinate for this origin,index pair that's
                     // OK.
                     if (reverseFailed == 0)
@@ -218,48 +217,48 @@ namespace TestSuite
         }
 
         [Test]
-        public void LocalIjToH3Identity()
+        public void LocalIJToH3Identity()
         {
-            Utility.IterateAllIndexesAtRes(0, LocalIjToH3IdentityAssertions);
-            Utility.IterateAllIndexesAtRes(1, LocalIjToH3IdentityAssertions);
-            Utility.IterateAllIndexesAtRes(2, LocalIjToH3IdentityAssertions);
+            Utility.IterateAllIndexesAtRes(0, LocalIJToH3IdentityAssertions);
+            Utility.IterateAllIndexesAtRes(1, LocalIJToH3IdentityAssertions);
+            Utility.IterateAllIndexesAtRes(2, LocalIJToH3IdentityAssertions);
         }
 
         [Test]
-        public void H3ToLocalIjCoordinates()
+        public void H3ToLocalIJCoordinates()
         {
-            Utility.IterateAllIndexesAtRes(0, H3ToLocalIjCoordinatesAssertions);
-            Utility.IterateAllIndexesAtRes(1, H3ToLocalIjCoordinatesAssertions);
-            Utility.IterateAllIndexesAtRes(2, H3ToLocalIjCoordinatesAssertions);
+            Utility.IterateAllIndexesAtRes(0, H3ToLocalIJCoordinatesAssertions);
+            Utility.IterateAllIndexesAtRes(1, H3ToLocalIJCoordinatesAssertions);
+            Utility.IterateAllIndexesAtRes(2, H3ToLocalIJCoordinatesAssertions);
         }
 
         [Test]
-        public void H3ToLocalIjNeighbors()
+        public void H3ToLocalIJNeighbors()
         {
-            Utility.IterateAllIndexesAtRes(0, H3ToLocalIjNeighborsAssertions);
-            Utility.IterateAllIndexesAtRes(1, H3ToLocalIjNeighborsAssertions);
-            Utility.IterateAllIndexesAtRes(2, H3ToLocalIjNeighborsAssertions);
+            Utility.IterateAllIndexesAtRes(0, H3ToLocalIJNeighborsAssertions);
+            Utility.IterateAllIndexesAtRes(1, H3ToLocalIJNeighborsAssertions);
+            Utility.IterateAllIndexesAtRes(2, H3ToLocalIJNeighborsAssertions);
         }
 
         [Test]
-        public void LocalIjToH3KRing()
+        public void LocalIJToH3KRing()
         {
-            Utility.IterateAllIndexesAtRes(0, LocalIjToH3KRingAssertions);
-            Utility.IterateAllIndexesAtRes(1, LocalIjToH3KRingAssertions);
-            Utility.IterateAllIndexesAtRes(2, LocalIjToH3KRingAssertions);
+            Utility.IterateAllIndexesAtRes(0, LocalIJToH3KRingAssertions);
+            Utility.IterateAllIndexesAtRes(1, LocalIJToH3KRingAssertions);
+            Utility.IterateAllIndexesAtRes(2, LocalIJToH3KRingAssertions);
             // Don't iterate all of res 3, to save time
-            Utility.IterateAllIndexesAtResPartial(3, LocalIjToH3KRingAssertions, 27);
+            Utility.IterateAllIndexesAtResPartial(3, LocalIJToH3KRingAssertions, 27);
             // Further resolutions aren't tested to save time.
         }
 
         [Test]
-        public void LocalIjToH3Traverse()
+        public void LocalIJToH3Traverse()
         {
-            Utility.IterateAllIndexesAtRes(0, LocalIjToH3TraverseAssertions);
-            Utility.IterateAllIndexesAtRes(1, LocalIjToH3TraverseAssertions);
-            Utility.IterateAllIndexesAtRes(2, LocalIjToH3TraverseAssertions);
+            Utility.IterateAllIndexesAtRes(0, LocalIJToH3TraverseAssertions);
+            Utility.IterateAllIndexesAtRes(1, LocalIJToH3TraverseAssertions);
+            Utility.IterateAllIndexesAtRes(2, LocalIJToH3TraverseAssertions);
             // Don't iterate all of res 3, to save time
-            Utility.IterateAllIndexesAtResPartial(3, LocalIjToH3TraverseAssertions, 27);
+            Utility.IterateAllIndexesAtResPartial(3, LocalIJToH3TraverseAssertions, 27);
             // Further resolutions aren't tested to save time.
         }
     }

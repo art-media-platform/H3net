@@ -1,13 +1,12 @@
 using System;
 using System.Diagnostics;
-using H3Lib.Extensions;
 
 namespace H3Lib
 {
     /// <summary>
     /// Functions for working with lat/lon coordinates.
     /// </summary>
-    [DebuggerDisplay("Lat: {Latitude} Lon: {Longitude}")]
+    [DebuggerDisplay("Lat: {Latitude * 57.29577951308232} Lon: {Longitude * 57.29577951308232}")]
     public readonly struct GeoCoord:IEquatable<GeoCoord>
     {
         /// <summary>
@@ -60,7 +59,7 @@ namespace H3Lib
         /// </summary>
         public static double HexAreaKm2(int res)
         {
-            return Constants.GeoCoord.AreasKm2[res];
+            return Constants.AreasKm2[res];
         }
 
         /// <summary>
@@ -68,7 +67,7 @@ namespace H3Lib
         /// </summary>
         public static double HexAreaM2(int res)
         {
-            return Constants.GeoCoord.AreasM2[res];
+            return Constants.AreasM2[res];
         }
 
         /// <summary>
@@ -76,7 +75,7 @@ namespace H3Lib
         /// </summary>
         public static double EdgeLengthKm(int res)
         {
-            return Constants.GeoCoord.EdgeLengthKm[res];
+            return Constants.EdgeLengthKm[res];
         }
 
         /// <summary>
@@ -84,7 +83,7 @@ namespace H3Lib
         /// </summary>
         public static double EdgeLengthM(int res)
         {
-            return Constants.GeoCoord.EdgeLengthM[res];
+            return Constants.EdgeLengthM[res];
         }
 
         /// <summary>

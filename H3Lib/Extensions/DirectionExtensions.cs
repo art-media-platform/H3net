@@ -1,4 +1,4 @@
-namespace H3Lib.Extensions
+namespace H3Lib
 {
     /// <summary>
     /// Operations for Direction enum type

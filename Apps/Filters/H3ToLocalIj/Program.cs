@@ -2,9 +2,8 @@
 using System.Linq;
 using CommandLineParser.Arguments;
 using H3Lib;
-using H3Lib.Extensions;
 
-namespace H3ToLocalIj
+namespace H3ToLocalIJ
 {
     class Program
     {
@@ -16,7 +15,7 @@ namespace H3ToLocalIj
 
             try
             {
-                var argParser = new H3ToLocalIjArguments();
+                var argParser = new H3ToLocalIJArguments();
                 parser.ExtractArgumentAttributes(argParser);
                 parser.ParseCommandLine(args);
                 ProcessArguments(argParser);
@@ -28,7 +27,7 @@ namespace H3ToLocalIj
             }
         }
 
-        private static void ProcessArguments(H3ToLocalIjArguments argParser)
+        private static void ProcessArguments(H3ToLocalIJArguments argParser)
         {
             var origin = new H3Index(argParser.OriginH3);
             var index = new H3Index(argParser.IndexH3);
@@ -39,7 +38,7 @@ namespace H3ToLocalIj
                 return;
             }
 
-            (int status, var result) = origin.ToLocalIjExperimental(index);
+            (int status, var result) = origin.ToLocalIJExperimental(index);
 
             Console.WriteLine
                 (
@@ -52,7 +51,7 @@ namespace H3ToLocalIj
     
     
     
-    public class H3ToLocalIjArguments
+    public class H3ToLocalIJArguments
     {
         [BoundedValueArgument(typeof(ulong), 'o', "origin", Optional = false, Description = "Origin H3Index")]
         public ulong OriginH3;

@@ -1,25 +1,25 @@
-namespace H3Lib.Extensions
+namespace H3Lib
 {
     /// <summary>
-    /// Extension methods for working with CoordIj type
+    /// Extension methods for working with CoordIJ type
     /// </summary>
-    public static class CoordIjExtensions
+    public static class CoordIJExtensions
     {
         /// <summary>
         /// Replace I value
         /// </summary>
-        public static CoordIj ReplaceI(this CoordIj ij, int i)
+        public static CoordIJ ReplaceI(this CoordIJ ij, int i)
         {
-            return new CoordIj(i, ij.J);
+            return new CoordIJ(i, ij.J);
         }
 
         /// <summary>
         /// replace J value
         /// </summary>
         /// <returns></returns>
-        public static CoordIj ReplaceJ(this CoordIj ij, int j)
+        public static CoordIJ ReplaceJ(this CoordIJ ij, int j)
         {
-            return new CoordIj(ij.I, j);
+            return new CoordIJ(ij.I, j);
         }
         
         /// <summary>
@@ -30,9 +30,9 @@ namespace H3Lib.Extensions
         /// coordijk.c
         /// void ijToIjk
         /// </remarks>
-        public static CoordIjk ToIjk(this CoordIj ij)
+        public static CoordIJK ToIjk(this CoordIJ ij)
         {
-            return new CoordIjk(ij.I, ij.J, 0).Normalized();
+            return new CoordIJK(ij.I, ij.J, 0).Normalized();
         }
 
         /// <summary>
@@ -56,16 +56,16 @@ namespace H3Lib.Extensions
         /// </returns>
         /// <!--
         /// localij,c
-        /// int H3_EXPORT(experimentalLocalIjToH3)
+        /// int H3_EXPORT(experimentalLocalIJToH3)
         /// -->
-        public static (int, H3Index) ToH3Experimental(this CoordIj ij, H3Index origin)
+        public static (int, H3Index) ToH3Experimental(this CoordIJ ij, H3Index origin)
         {
             // This function is currently experimental. Once ready to be part of the
             // non-experimental API, this function (with the experimental prefix) will
             // be marked as deprecated and to be removed in the next major version. It
             // will be replaced with a non-prefixed function name.
             var ijk = ij.ToIjk();
-            return ijk.LocalIjkToH3(origin);
+            return ijk.LocalIJKToH3(origin);
         }
     }
 }

@@ -1,6 +1,5 @@
 using System.Linq;
 using H3Lib;
-using H3Lib.Extensions;
 using NUnit.Framework;
 
 namespace TestSuite
@@ -58,7 +57,7 @@ namespace TestSuite
             var sf3 = largerRing[0];
 
             var notEdge = sf.UniDirectionalEdgeTo(sf3);
-            Assert.AreEqual(H3Lib.Constants.H3Index.H3_NULL, notEdge);
+            Assert.AreEqual(H3Lib.Constants.H3_NULL, notEdge);
         }
 
         [Test]
@@ -66,8 +65,8 @@ namespace TestSuite
         {
             H3Index hexagon = 0x891ea6d6533ffff;
 
-            Assert.AreEqual(hexagon.OriginFromUniDirectionalEdge(), H3Lib.Constants.H3Index.H3_NULL);
-            Assert.AreEqual(hexagon.DestinationFromUniDirectionalEdge(), H3Lib.Constants.H3Index.H3_NULL);
+            Assert.AreEqual(hexagon.OriginFromUniDirectionalEdge(), H3Lib.Constants.H3_NULL);
+            Assert.AreEqual(hexagon.DestinationFromUniDirectionalEdge(), H3Lib.Constants.H3_NULL);
         }
 
         [Test]
@@ -75,11 +74,11 @@ namespace TestSuite
         {
             H3Index hexagon = 0x891ea6d6533ffff;
 
-            Assert.AreEqual(hexagon.DestinationFromUniDirectionalEdge(), H3Lib.Constants.H3Index.H3_NULL);
+            Assert.AreEqual(hexagon.DestinationFromUniDirectionalEdge(), H3Lib.Constants.H3_NULL);
             var z = (H3Index) 0;
             Assert.AreEqual(((H3Index) 0)
                            .DestinationFromUniDirectionalEdge(),
-                            H3Lib.Constants.H3Index.H3_NULL
+                            H3Lib.Constants.H3_NULL
                            );
         }
 
@@ -103,7 +102,7 @@ namespace TestSuite
 
                     foreach (var neighbor in ring
                        .Where(neighbor => neighbor != pentagon &&
-                                          neighbor != H3Lib.Constants.H3Index.H3_NULL))
+                                          neighbor != H3Lib.Constants.H3_NULL))
                     {
                         edge = pentagon.UniDirectionalEdgeTo(neighbor);
                         Assert.IsTrue(edge.IsValidUniEdge());

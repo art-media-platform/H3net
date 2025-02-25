@@ -5,7 +5,7 @@ namespace H3Lib
     /// <summary>
     /// Information to transform into an adjacent face IJK system
     /// </summary>
-    public readonly struct FaceOrientIjk:IEquatable<FaceOrientIjk>
+    public readonly struct FaceOrientIJK:IEquatable<FaceOrientIJK>
     {
         /// <summary>
         /// face number
@@ -15,7 +15,7 @@ namespace H3Lib
         /// <summary>
         /// res 0 translation relative to primary face
         /// </summary>
-        public readonly CoordIjk Translate;
+        public readonly CoordIJK Translate;
         
         /// <summary>
         /// number of 60 degree ccw rotations relative to primary
@@ -25,17 +25,17 @@ namespace H3Lib
         /// <summary>
         /// Constructor
         /// </summary>
-        public FaceOrientIjk(int f, int i, int j, int k, int c)
+        public FaceOrientIJK(int f, int i, int j, int k, int c)
         {
             Face = f;
-            Translate = new CoordIjk(i, j, k);
+            Translate = new CoordIJK(i, j, k);
             Ccw60Rotations = c;
         }
 
         /// <summary>
         /// Constructor
         /// </summary>
-        public FaceOrientIjk(int f, CoordIjk translate, int c)
+        public FaceOrientIJK(int f, CoordIJK translate, int c)
         {
             Face = f;
             Translate = translate;
@@ -47,7 +47,7 @@ namespace H3Lib
         /// </summary>
         /// <param name="other"></param>
         /// <returns></returns>
-        public bool Equals(FaceOrientIjk other)
+        public bool Equals(FaceOrientIJK other)
         {
             return Face == other.Face &&
                    Translate.Equals(other.Translate) &&
@@ -59,7 +59,7 @@ namespace H3Lib
         /// </summary>
         public override bool Equals(object obj)
         {
-            return obj is FaceOrientIjk other && Equals(other);
+            return obj is FaceOrientIJK other && Equals(other);
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace H3Lib
         /// <summary>
         /// Equality operator
         /// </summary>
-        public static bool operator ==(FaceOrientIjk left, FaceOrientIjk right)
+        public static bool operator ==(FaceOrientIJK left, FaceOrientIJK right)
         {
             return left.Equals(right);
         }
@@ -82,7 +82,7 @@ namespace H3Lib
         /// <summary>
         /// Inequality operator
         /// </summary>
-        public static bool operator !=(FaceOrientIjk left, FaceOrientIjk right)
+        public static bool operator !=(FaceOrientIJK left, FaceOrientIJK right)
         {
             return !left.Equals(right);
         }

@@ -255,42 +255,42 @@ limitations as the local IJ coordinate space functions.
 |origin|H3Lib.H3Index|origin|
 |h3|H3Lib.H3Index|destination|
 
-## ExperimentalH3ToLocalIj
+## ExperimentalH3ToLocalIJ
 
 ```c#
-int Api.ExperimentalH3ToLocalIj(H3Index origin, H3Index h3, out CoordIj outCoord)
+int Api.ExperimentalH3ToLocalIJ(H3Index origin, H3Index h3, out CoordIJ outCoord)
 ```
 
-### ExperimentalH3ToLocalIj Summary
+### ExperimentalH3ToLocalIJ Summary
 
 Produces local IJ coordinates for an H3 index anchored by an origin.
 
 This function is experimental, and its output is not guaranteed to be compatible across different versions of H3.
 
-### ExperimentalH3ToLocalIj Parameters
+### ExperimentalH3ToLocalIJ Parameters
 
 | Name | Type | Description |
 |------|------|-------------|
 |origin|H3Lib.H3Index|Anchor H3Index|
 |h3|H3Lib.H3Index|H3Index to convert|
-|outCoord|**out** H3Lib.CoordIj|Converted CoordIJ|
+|outCoord|**out** H3Lib.CoordIJ|Converted CoordIJ|
 
-## ExperimentalLocalIjToH3
+## ExperimentalLocalIJToH3
 
 ```c#
-int Api.ExperimentalLocalIjToH3(H3Index origin, CoordIj ij, out H3Index outCell)
+int Api.ExperimentalLocalIJToH3(H3Index origin, CoordIJ ij, out H3Index outCell)
 ```
 
-### ExperimentalLocalIjToH3 Summary
+### ExperimentalLocalIJToH3 Summary
 
 Produces an H3 index from local IJ coordinates anchored by an origin.
 
 This function is experimental, and its output is not guaranteed to be compatible across different versions of H3.
 
-### ExperimentalLocalIjToH3 Parameters
+### ExperimentalLocalIJToH3 Parameters
 
 | Name | Type | Description |
 |------|------|-------------|
 |orgin|H3Lib.H3Index|Anchor H3Index cell|
-|ij|H3Lib.CoordIj|IJ Coordinate|
-|outCell|**out** H3Lib.H3Index|H3Index cell converted from CoordIj|
+|ij|H3Lib.CoordIJ|IJ Coordinate|
+|outCell|**out** H3Lib.H3Index|H3Index cell converted from CoordIJ|

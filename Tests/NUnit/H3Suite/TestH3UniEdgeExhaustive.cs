@@ -1,7 +1,6 @@
 using System;
 using System.Net;
 using H3Lib;
-using H3Lib.Extensions;
 using NUnit.Framework;
 using TestSuite.Lib;
 
@@ -19,7 +18,7 @@ namespace TestSuite
             {
                 if (isPentagon && i == 0)
                 {
-                    Assert.AreEqual(Constants.H3Index.H3_NULL, edges[i]);
+                    Assert.AreEqual(Constants.H3_NULL, edges[i]);
                     continue;
                 }
                 
@@ -36,7 +35,7 @@ namespace TestSuite
 
             for (var i = 0; i < 6; i++) {
         
-                if (edges[i] == Constants.H3Index.H3_NULL)
+                if (edges[i] == Constants.H3_NULL)
                 {
                     continue;
                 }

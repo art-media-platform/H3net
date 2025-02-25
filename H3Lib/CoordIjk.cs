@@ -7,7 +7,7 @@ namespace H3Lib
     /// Header file for CoordIJK functions including conversion from lat/lon
     /// </summary>
     /// <remarks>
-    /// References two Vec2d cartesian coordinate systems:
+    /// References two Vec2D cartesian coordinate systems:
     ///
     /// 1. gnomonic: face-centered polyhedral gnomonic projection space with
     ///    traditional scaling and x-axes aligned with the face Class II
@@ -17,7 +17,7 @@ namespace H3Lib
     ///    resolution unit length and with x-axes aligned with the local i-axes
     /// </remarks>
     [DebuggerDisplay("IJK: ({I}, {J}, {K})")]
-    public readonly struct CoordIjk:IEquatable<CoordIjk>
+    public readonly struct CoordIJK:IEquatable<CoordIJK>
     {
         /// <summary>
         /// I Coordinate
@@ -37,7 +37,7 @@ namespace H3Lib
         /// <summary>
         /// IJK hexagon coordinates
         /// </summary>
-        public CoordIjk(int i, int j, int k):this()
+        public CoordIJK(int i, int j, int k):this()
         {
             I = i;
             J = j;
@@ -47,7 +47,7 @@ namespace H3Lib
         /// <summary>
         /// Constructor
         /// </summary>
-        public CoordIjk(CoordIjk coord)
+        public CoordIJK(CoordIJK coord)
         {
             I = coord.I;
             J = coord.J;
@@ -59,7 +59,7 @@ namespace H3Lib
         /// </summary>
         public override string ToString()
         {
-            return $"CoordIjk (IJK) {I}, {J}, {K}";
+            return $"CoordIJK (IJK) {I}, {J}, {K}";
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace H3Lib
         /// localij.c
         /// static void cubeRound
         /// -->
-        public static CoordIjk CubeRound(double i, double j, double k)
+        public static CoordIJK CubeRound(double i, double j, double k)
         {
             var ri = (int) Math.Round(i, MidpointRounding.AwayFromZero);
             var rj = (int) Math.Round(j, MidpointRounding.AwayFromZero);
@@ -98,13 +98,13 @@ namespace H3Lib
                 rk = -ri - rj;
             }
 
-            return new CoordIjk(ri, rj, rk);
+            return new CoordIJK(ri, rj, rk);
         }
         
         /// <summary>
         /// Equality test
         /// </summary>
-        public bool Equals(CoordIjk other)
+        public bool Equals(CoordIJK other)
         {
             return I == other.I && J == other.J && K == other.K;
         }
@@ -119,7 +119,7 @@ namespace H3Lib
                 return false;
             }
 
-            return obj is CoordIjk ijk && Equals(ijk);
+            return obj is CoordIJK ijk && Equals(ijk);
         }
 
         /// <summary>
@@ -134,7 +134,7 @@ namespace H3Lib
         /// <summary>
         /// Equality operator
         /// </summary>
-        public static bool operator ==(CoordIjk left, CoordIjk right)
+        public static bool operator ==(CoordIJK left, CoordIJK right)
         {
             return Equals(left, right);
         }
@@ -142,7 +142,7 @@ namespace H3Lib
         /// <summary>
         /// Inequality operator
         /// </summary>
-        public static bool operator !=(CoordIjk left, CoordIjk right)
+        public static bool operator !=(CoordIJK left, CoordIJK right)
         {
             return !Equals(left, right);
         }
@@ -150,25 +150,25 @@ namespace H3Lib
         /// <summary>
         /// Addition operator
         /// </summary>
-        public static CoordIjk operator+(CoordIjk c1,CoordIjk c2)
+        public static CoordIJK operator+(CoordIJK c1,CoordIJK c2)
         {
-            return new CoordIjk(c1.I + c2.I, c1.J + c2.J, c1.K + c2.K);
+            return new CoordIJK(c1.I + c2.I, c1.J + c2.J, c1.K + c2.K);
         }
 
         /// <summary>
         /// Subtraction operator
         /// </summary>
-        public static CoordIjk operator-(CoordIjk c1,CoordIjk c2)
+        public static CoordIJK operator-(CoordIJK c1,CoordIJK c2)
         {
-            return new CoordIjk(c1.I - c2.I, c1.J - c2.J, c1.K - c2.K);
+            return new CoordIJK(c1.I - c2.I, c1.J - c2.J, c1.K - c2.K);
         }
 
         /// <summary>
         /// Multiply operator for scaling
         /// </summary>
-        public static CoordIjk operator *(CoordIjk c, int scalar)
+        public static CoordIJK operator *(CoordIJK c, int scalar)
         {
-            return new CoordIjk(c.I * scalar, c.J * scalar, c.K * scalar);
+            return new CoordIJK(c.I * scalar, c.J * scalar, c.K * scalar);
         }
     }
 }

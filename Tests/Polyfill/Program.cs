@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.Linq;
 using H3Lib;
-using H3Lib.Extensions;
 
 namespace Polyfill
 {

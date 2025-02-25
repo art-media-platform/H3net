@@ -37,13 +37,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H3ToGeo", "Apps\Filters\H3T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H3ToGeoBoundary", "Apps\Filters\H3ToGeoBoundary\H3ToGeoBoundary.csproj", "{B8CAE003-DCD2-4352-8A1C-61AC61F1FA50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H3ToLocalIj", "Apps\Filters\H3ToLocalIj\H3ToLocalIj.csproj", "{6F8DB421-CD13-47FD-8F60-97C10B4F760C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H3ToLocalIJ", "Apps\Filters\H3ToLocalIJ\H3ToLocalIJ.csproj", "{6F8DB421-CD13-47FD-8F60-97C10B4F760C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexRange", "Apps\Filters\HexRange\HexRange.csproj", "{37C5B15F-7224-4B3E-81C3-68F75BD821DE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KRing", "Apps\Filters\KRing\KRing.csproj", "{8F5429F6-7770-472E-857C-6B63F68DC9B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalIjToH3", "Apps\Filters\LocalIjToH3\LocalIjToH3.csproj", "{478F725B-999C-4BE6-A73D-BAA12D39B374}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalIJToH3", "Apps\Filters\LocalIJToH3\LocalIJToH3.csproj", "{478F725B-999C-4BE6-A73D-BAA12D39B374}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub Workflow", "GitHub Workflow", "{2F2A02C7-72E2-485B-AC71-EBC855FD39BF}"
 ProjectSection(SolutionItems) = preProject

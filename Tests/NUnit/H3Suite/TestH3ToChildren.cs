@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using H3Lib;
-using H3Lib.Extensions;
 using NUnit.Framework;
 
 namespace TestSuite

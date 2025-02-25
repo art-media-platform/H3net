@@ -1,12 +1,11 @@
 using H3Lib;
-using H3Lib.Extensions;
 using NUnit.Framework;
 using H3Index = H3Lib.H3Index;
 
 namespace TestSuite
 {
     [TestFixture]
-    public class TestH3ToLocalIj
+    public class TestH3ToLocalIJ
     {
         // Some indexes that represent base cells. Base cells
         // are hexagons except for `pent1`.
@@ -18,16 +17,16 @@ namespace TestSuite
         [Test]
         public void IjkBaseCells()
         {
-            var (status, ijk) = pent1.ToLocalIjk(bc1);
+            var (status, ijk) = pent1.ToLocalIJK(bc1);
             Assert.AreEqual(0,status);
-            Assert.AreEqual(H3Lib.Constants.CoordIjk.UnitVecs[2], ijk);
+            Assert.AreEqual(H3Lib.Constants.CoordIJK.UnitVecs[2], ijk);
         }
 
         [Test]
         public void IjBaseCells()
         {
             H3Index origin = 0x8029fffffffffff;
-            CoordIj ij = new CoordIj(0, 0);
+            CoordIJ ij = new CoordIJ(0, 0);
             
             (int status, var retrieved) = ij.ToH3Experimental(origin);
             Assert.AreEqual(0, status);
@@ -42,11 +41,11 @@ namespace TestSuite
             (status, retrieved) = ij.ToH3Experimental(origin);
             Assert.AreNotEqual(0, status);
 
-            ij = new CoordIj(0, 2);
+            ij = new CoordIJ(0, 2);
             (status, retrieved) = ij.ToH3Experimental(origin);
             Assert.AreNotEqual(0, status);
 
-            ij = new CoordIj(-2, -2);
+            ij = new CoordIJ(-2, -2);
             (status, retrieved) = ij.ToH3Experimental(origin);
             Assert.AreNotEqual(0, status);
         }
@@ -57,13 +56,13 @@ namespace TestSuite
             const int numCoords = 7;
             var coords = new[]
                          {
-                             new CoordIj(0, 0),
-                             new CoordIj(1, 0),
-                             new CoordIj(2, 0),
-                             new CoordIj(3, 0),
-                             new CoordIj(4, 0),
-                             new CoordIj(-4, 0),
-                             new CoordIj(0, 4)
+                             new CoordIJ(0, 0),
+                             new CoordIJ(1, 0),
+                             new CoordIJ(2, 0),
+                             new CoordIJ(3, 0),
+                             new CoordIJ(4, 0),
+                             new CoordIJ(-4, 0),
+                             new CoordIJ(0, 4)
                          };
 
             H3Index[] expected =
@@ -72,9 +71,9 @@ namespace TestSuite
                 0x81293ffffffffff,
                 0x8150bffffffffff,
                 0x8151bffffffffff,
-                H3Lib.Constants.H3Index.H3_NULL,
-                H3Lib.Constants.H3Index.H3_NULL,
-                H3Lib.Constants.H3Index.H3_NULL,
+                H3Lib.Constants.H3_NULL,
+                H3Lib.Constants.H3_NULL,
+                H3Lib.Constants.H3_NULL,
             };
 
             for (var i = 0; i < numCoords; i++)
@@ -82,7 +81,7 @@ namespace TestSuite
                 
                 (int err, var result) = coords[i].ToH3Experimental(expected[0]);
 
-                if (expected[i] == H3Lib.Constants.H3Index.H3_NULL)
+                if (expected[i] == H3Lib.Constants.H3_NULL)
                 {
                     Assert.AreNotEqual(0, err);
                 }
@@ -95,25 +94,25 @@ namespace TestSuite
         }
 
         [Test]
-        public void ExperimentalH3ToLocalIjFailed()
+        public void ExperimentalH3ToLocalIJFailed()
         {
-            var (status, ij) = bc1.ToLocalIjExperimental(bc1);
+            var (status, ij) = bc1.ToLocalIJExperimental(bc1);
             Assert.AreEqual(0, status);
             Assert.IsTrue(ij.I == 0 && ij.J == 0);
 
-            (status, ij) = bc1.ToLocalIjExperimental(pent1);
+            (status, ij) = bc1.ToLocalIJExperimental(pent1);
             Assert.AreEqual(0, status);
             Assert.IsTrue(ij.I == 1 && ij.J == 0);
             
-            (status, ij) = bc1.ToLocalIjExperimental(bc2);
+            (status, ij) = bc1.ToLocalIJExperimental(bc2);
             Assert.AreEqual(0, status);
             Assert.IsTrue(ij.I == 0 && ij.J == -1);
             
-            (status, ij) = bc1.ToLocalIjExperimental(bc3);
+            (status, ij) = bc1.ToLocalIJExperimental(bc3);
             Assert.AreEqual(0, status);
             Assert.IsTrue(ij.I == -1 && ij.J == 0);
             
-            (status, ij) = pent1.ToLocalIjExperimental(bc3);
+            (status, ij) = pent1.ToLocalIJExperimental(bc3);
             Assert.AreNotEqual(0, status);
         }
 
@@ -142,8 +141,8 @@ namespace TestSuite
                         for (var testDir = startDir; testDir < Direction.NUM_DIGITS; testDir++)
                         {
                             var testIndex = new H3Index(res, bc, testDir);
-                            (int internalIjFailed, var internalIj) = internalOrigin.ToLocalIjExperimental(testIndex);
-                            (int externalIjFailed, var externalIj) = externalOrigin.ToLocalIjExperimental(testIndex);
+                            (int internalIjFailed, var internalIj) = internalOrigin.ToLocalIJExperimental(testIndex);
+                            (int externalIjFailed, var externalIj) = externalOrigin.ToLocalIJExperimental(testIndex);
 
                             Assert.AreEqual(externalIjFailed != 0, internalIjFailed != 0);
 

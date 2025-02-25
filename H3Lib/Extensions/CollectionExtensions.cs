@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace H3Lib.Extensions
+namespace H3Lib
 {
     /// <summary>
     /// Static methods that work on collections.

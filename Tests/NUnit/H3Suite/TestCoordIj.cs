@@ -1,16 +1,15 @@
 using H3Lib;
-using H3Lib.Extensions;
 using NUnit.Framework;
 
 namespace TestSuite
 {
     [TestFixture]
-    public class TestCoordIj
+    public class TestCoordIJ
     {
         [Test]
         public void IjkToIj()
         {
-            var ijk = new CoordIjk();
+            var ijk = new CoordIJK();
             var ij = ijk.ToIj();
             Assert.AreEqual(0, ij.I);
             Assert.AreEqual(0, ij.J);
@@ -26,7 +25,7 @@ namespace TestSuite
         {
             for (Direction dir = Direction.CENTER_DIGIT; dir < Direction.NUM_DIGITS; dir++)
             {
-                var ijk = new CoordIjk();
+                var ijk = new CoordIJK();
                 ijk = ijk.Neighbor(dir);
 
                 var ij = ijk.ToIj();
@@ -42,7 +41,7 @@ namespace TestSuite
         {
             for (Direction dir = Direction.CENTER_DIGIT; dir < Direction.NUM_DIGITS; dir++)
             {
-                var ijk = new CoordIjk().Neighbor(dir);
+                var ijk = new CoordIJK().Neighbor(dir);
                 var original = ijk;
 
                 ijk = ijk.ToCube();

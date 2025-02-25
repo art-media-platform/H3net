@@ -1,19 +1,18 @@
 using H3Lib;
-using H3Lib.Extensions;
 using NUnit.Framework;
 
 namespace TestSuite
 {
     [TestFixture]
-    public class TestCoordIjk
+    public class TestCoordIJK
     {
         [Test]
         public void UnitIjkToDigit()
         {
-            var zero = new CoordIjk();
-            var i = new CoordIjk(1, 0, 0);
-            var outOfRange = new CoordIjk(2, 0, 0);
-            var unNormalizedZero = new CoordIjk(2, 2, 2);
+            var zero = new CoordIJK();
+            var i = new CoordIJK(1, 0, 0);
+            var outOfRange = new CoordIJK(2, 0, 0);
+            var unNormalizedZero = new CoordIJK(2, 2, 2);
 
             Assert.AreEqual(zero.ToDirection(), Direction.CENTER_DIGIT);
             Assert.AreEqual(i.ToDirection(), Direction.I_AXES_DIGIT);
@@ -24,9 +23,9 @@ namespace TestSuite
         [Test]
         public void Neighbor()
         {
-            var ijk = new CoordIjk();
-            var zero = new CoordIjk();
-            var i = new CoordIjk(1, 0, 0);
+            var ijk = new CoordIJK();
+            var zero = new CoordIJK();
+            var i = new CoordIJK(1, 0, 0);
 
             ijk = ijk.Neighbor(Direction.CENTER_DIGIT);
             Assert.AreEqual(ijk, zero);

@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using H3Lib;
-using H3Lib.Extensions;
 using NUnit.Framework;
 using TestSuite.Lib;
 
@@ -232,8 +231,8 @@ namespace TestSuite
 
                 for (int neighbor = 0; neighbor < Constants.H3.NUM_BASE_CELLS; neighbor++)
                 {
-                    var homeFaceIjk = neighbor.ToFaceIjk();
-                    int neighborFace = homeFaceIjk.Face;
+                    var homeFaceIJK = neighbor.ToFace();
+                    int neighborFace = homeFaceIJK.Face;
 
                     // Only direction 2 needs to be checked, because that is the
                     // only direction where we can move from digit 2 to digit 1, and

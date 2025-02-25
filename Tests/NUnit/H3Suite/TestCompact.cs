@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using H3Lib;
-using H3Lib.Extensions;
 using NUnit.Framework;
 
 //
@@ -63,7 +62,7 @@ namespace TestSuite
 
             (int status, var compressed) = res0Hexes.Compact();
 
-            Assert.AreEqual(H3Lib.Constants.H3Index.COMPACT_SUCCESS, status);
+            Assert.AreEqual(H3Lib.Constants.COMPACT_SUCCESS, status);
             for (var i = 0; i < compressed.Count; i++)
             {
                 Assert.AreEqual(compressed[i], res0Hexes[i]);
@@ -121,7 +120,7 @@ namespace TestSuite
             children[^1] = children.First();
             (int result, _) = children.Compact();
 
-            Assert.AreEqual(H3Lib.Constants.H3Index.COMPACT_DUPLICATE, result);
+            Assert.AreEqual(H3Lib.Constants.COMPACT_DUPLICATE, result);
         }
 
         [Test]
@@ -138,7 +137,7 @@ namespace TestSuite
             children[^1] = h3.ToCenterChild(res + 1);
             (var result, var compact) = children.Compact();
 
-            Assert.AreEqual(H3Lib.Constants.H3Index.COMPACT_DUPLICATE, result);
+            Assert.AreEqual(H3Lib.Constants.COMPACT_DUPLICATE, result);
         }
 
         [Test]
@@ -158,7 +157,7 @@ namespace TestSuite
 
             //  FlexiCompact takes duplicates. Compact() is more rigid
             var (status, _) = children.FlexiCompact();
-            Assert.AreEqual(Constants.H3Index.COMPACT_SUCCESS, status);
+            Assert.AreEqual(Constants.COMPACT_SUCCESS, status);
         }
 
         [Test]

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace H3Lib.Extensions
+namespace H3Lib
 {
     /// <summary>
     /// Operations that act upon a data type of <see cref="H3Index"/> located
@@ -136,15 +136,15 @@ namespace H3Lib.Extensions
         /// </returns>
         /// <!--
         /// localij.c
-        /// int h3ToLocalIjk
+        /// int h3ToLocalIJK
         /// -->
-        public static (int, CoordIjk) ToLocalIjk(this H3Index origin, H3Index h3)
+        public static (int, CoordIJK) ToLocalIJK(this H3Index origin, H3Index h3)
         {
             int res = origin.Resolution;
 
             if (res != h3.Resolution)
             {
-                return (1, new CoordIjk());
+                return (1, new CoordIJK());
             }
 
             int originBaseCell = origin.BaseCell;
@@ -159,7 +159,7 @@ namespace H3Lib.Extensions
                 if (dir == Direction.INVALID_DIGIT)
                 {
                     // Base cells are not neighbors, can't unfold.
-                    return (2, new CoordIjk());
+                    return (2, new CoordIJK());
                 }
                 revDir = baseCell.GetBaseCellDirection(originBaseCell);
                 if (revDir == Direction.INVALID_DIGIT)
@@ -175,7 +175,7 @@ namespace H3Lib.Extensions
                                   ? 1
                                   : 0;
 
-            var indexFijk = new FaceIjk();
+            var indexFijk = new FaceIJK();
 
             if (dir != Direction.CENTER_DIGIT)
             {
@@ -206,7 +206,7 @@ namespace H3Lib.Extensions
             }
 
             // Face is unused. This produces coordinates in base cell coordinate space.
-            (_, indexFijk) = h3.ToFaceIjkWithInitializedFijk(indexFijk);
+            (_, indexFijk) = h3.ToFaceFromFace(indexFijk);
 
             if (dir != Direction.CENTER_DIGIT)
             {
@@ -231,7 +231,7 @@ namespace H3Lib.Extensions
                         // TODO: We may be unfolding the pentagon incorrectly in this
                         // case; return an error code until this is guaranteed to be
                         // correct.
-                        return (3, new CoordIjk());
+                        return (3, new CoordIJK());
                     }
 
                     directionRotations = Constants.LocalIJ.PENTAGON_ROTATIONS[originLeadingDigit,(int)dir];
@@ -246,7 +246,7 @@ namespace H3Lib.Extensions
                         // TODO: We may be unfolding the pentagon incorrectly in this
                         // case; return an error code until this is guaranteed to be
                         // correct.
-                        return (4, new CoordIjk());
+                        return (4, new CoordIJK());
                     }
 
                     pentagonRotations = Constants.LocalIJ.PENTAGON_ROTATIONS[(int)revDir, indexLeadingDigit];
@@ -267,7 +267,7 @@ namespace H3Lib.Extensions
                     indexFijk = indexFijk.ReplaceCoord(indexFijk.Coord.RotateCW());
                 }
 
-                var offset = new CoordIjk().Neighbor(dir);
+                var offset = new CoordIJK().Neighbor(dir);
                 // Scale offset based on resolution
                 for (int r = res - 1; r >= 0; r--)
                 {
@@ -301,7 +301,7 @@ namespace H3Lib.Extensions
                 {
                     // TODO: We may be unfolding the pentagon incorrectly in this case;
                     // return an error code until this is guaranteed to be correct.
-                    return (5, new CoordIjk());
+                    return (5, new CoordIJK());
                 }
 
                 int withinPentagonRotations =
@@ -424,25 +424,25 @@ namespace H3Lib.Extensions
         }
 
         /// <summary>
-        /// Convert an H3Index to the FaceIjk address on a specified icosahedral face.
+        /// Convert an H3Index to the FaceIJK address on a specified icosahedral face.
         /// </summary>
         /// <param name="h"> The H3Index.</param>
         /// <param name="fijk">
-        /// The FaceIjk address, initialized with the desired face
+        /// The FaceIJK address, initialized with the desired face
         /// and normalized base cell coordinates.
         /// </param>
         /// <returns>
         /// Tuple
         /// Item1: Returns 1 if the possibility of overage exists, otherwise 0.
-        /// Item2: Modified FaceIjk
+        /// Item2: Modified FaceIJK
         /// </returns>
         /// <!--
         /// h3Index.c
-        /// int _h3ToFaceIjkWithInitializedFijk
+        /// int _h3ToFaceFromFace
         /// -->
-        internal static (int, FaceIjk) ToFaceIjkWithInitializedFijk(this H3Index h, FaceIjk fijk)
+        internal static (int, FaceIJK) ToFaceFromFace(this H3Index h, FaceIJK face)
         {
-            var ijk = fijk.Coord;
+            CoordIJK ijk = face.Coord;
             int res = h.Resolution;
 
             // center base cell hierarchy is entirely on this face
@@ -453,8 +453,7 @@ namespace H3Lib.Extensions
                 possibleOverage = 0;
             }
 
-            for (var r = 1; r <= res; r++)
-            {
+            for (var r = 1; r <= res; r++) {
                 ijk = r.IsResClassIii()
                           ? ijk.DownAp7()   //  Class III == rotate ccw
                           : ijk.DownAp7R(); //  Class II == rotate cw
@@ -462,8 +461,8 @@ namespace H3Lib.Extensions
                 ijk = ijk.Neighbor(h.GetIndexDigit(r));
             }
 
-            fijk = fijk.ReplaceCoord(ijk);
-            return (possibleOverage, fijk);
+            face = face.ReplaceCoord(ijk);
+            return (possibleOverage, face);
         }
 
         /// <summary>
@@ -489,18 +488,18 @@ namespace H3Lib.Extensions
         /// </returns>
         /// <!--
         /// localij.c
-        /// int H3_EXPORT(experimentalH3ToLocalIj)
+        /// int H3_EXPORT(experimentalH3ToLocalIJ)
         /// -->
-        public static (int, CoordIj) ToLocalIjExperimental(this H3Index origin, H3Index h3)
+        public static (int, CoordIJ) ToLocalIJExperimental(this H3Index origin, H3Index h3)
         {
             // This function is currently experimental. Once ready to be part of the
             // non-experimental API, this function (with the experimental prefix) will
             // be marked as deprecated and to be removed in the next major version. It
             // will be replaced with a non-prefixed function name.
-            (int result, var coordIjk) = origin.ToLocalIjk(h3);
+            (int result, var coordIjk) = origin.ToLocalIJK(h3);
             return result == 0
                        ? (0, coordIjk.ToIj())
-                       : (result, new CoordIj());
+                       : (result, new CoordIJ());
         }
 
         /// <summary>
@@ -522,7 +521,7 @@ namespace H3Lib.Extensions
         /// -->
         public static int DistanceTo(this H3Index origin, H3Index h3)
         {
-            (int status1, var originIjk) = origin.ToLocalIjk(origin);
+            (int status1, var originIjk) = origin.ToLocalIJK(origin);
 
             if (status1 != 0)
             {
@@ -531,7 +530,7 @@ namespace H3Lib.Extensions
                 return -1;  // LCOV_EXCL_LINE
             }
 
-            (int status2, var h3Ijk) = origin.ToLocalIjk(h3);
+            (int status2, var h3Ijk) = origin.ToLocalIJK(h3);
             
             if (status2 != 0)
             {
@@ -602,8 +601,8 @@ namespace H3Lib.Extensions
             // Get IJK coords for the start and end. We've already confirmed
             // that these can be calculated with the distance check above.
             // Convert H3 addresses to IJK coords
-            var (_, startIjk) = start.ToLocalIjk(start);
-            var (_, endIjk) = start.ToLocalIjk(end);
+            var (_, startIjk) = start.ToLocalIJK(start);
+            var (_, endIjk)   = start.ToLocalIJK(end);
 
             // Convert IJK to cube coordinates suitable for linear interpolation
             startIjk = startIjk.ToCube();
@@ -622,7 +621,7 @@ namespace H3Lib.Extensions
             List<H3Index> lineOut = new List<H3Index>();
             for (int n = 0; n <= distance; n++)
             {
-                var currentIjk = CoordIjk.CubeRound
+                var currentIjk = CoordIJK.CubeRound
                     (
                      startIjk.I + iStep * n,
                      startIjk.J + jStep * n,
@@ -630,7 +629,7 @@ namespace H3Lib.Extensions
                     );
                 // Convert cube -> ijk -> h3 index
                 currentIjk = currentIjk.FromCube();
-                var (_, cell) = currentIjk.LocalIjkToH3(start);
+                var (_, cell) = currentIjk.LocalIJKToH3(start);
                 lineOut.Add(cell);
             }
 
@@ -713,7 +712,7 @@ namespace H3Lib.Extensions
             int childRes = h.Resolution;
             if (parentRes > childRes)
             {
-                return Constants.H3Index.H3_NULL;
+                return Constants.H3_NULL;
             }
 
             if (parentRes == childRes)
@@ -723,13 +722,13 @@ namespace H3Lib.Extensions
 
             if (parentRes < 0 || parentRes > Constants.H3.MAX_H3_RES)
             {
-                return Constants.H3Index.H3_NULL;
+                return Constants.H3_NULL;
             }
 
             var parentH = new H3Index(h).SetResolution(parentRes);
             for (int i = parentRes + 1; i <= childRes; i++)
             {
-                parentH = parentH.SetIndexDigit(i, Constants.H3Index.H3_DIGIT_MASK);
+                parentH = parentH.SetIndexDigit(i, Constants.H3_DIGIT_MASK);
             }
             return parentH;
         }
@@ -752,6 +751,243 @@ namespace H3Lib.Extensions
                        ? 0
                        : 7L.Power(childRes - parentRes);
         }
+        
+        
+
+        
+        // for the given H3Index, enumerates the verticies in a clockwise and or right-handed rule. 
+        public static IEnumerable<Vec3D>   EnumTileVertices(this H3Index tile, double scale = 1.0) {
+            List<GeoCoord> perimeter = tile.ToGeoBoundary().Verts; // TODO use IEnumerable<>
+            foreach (GeoCoord vi in perimeter) {
+                Vec3D vtx = vi.ToVec3D(scale);
+                yield return vtx;
+            }
+        }
+        
+
+
+
+        // public static List<H3Index> ToChildren(this H3Index h, int childRes)
+        // {
+        //     int parentRes = h.Resolution;
+        //     if (!parentRes.IsValidChildRes(childRes))
+        //     {
+        //         return new List<H3Index>();
+        //     }
+
+        //     if (parentRes == childRes)
+        //     {
+        //         return new List<H3Index> {h};
+        //     }
+
+        //     var result = new List<H3Index>();
+        //     bool isAPentagon = h.IsPentagon();
+        //     for (Direction i = Direction.CENTER_DIGIT; i < Direction.NUM_DIGITS; i++)
+        //     {
+        //         if (!isAPentagon || i != Direction.K_AXES_DIGIT)
+        //         {
+        //             result.AddRange(h.MakeDirectChild((int) i).ToChildren(childRes));
+        //         }
+        //     }
+
+        //     return result;
+        // }
+        
+/*
+        // If opts.ResolutionDelta <= 0, this will wnum a single H3Index corresponding to the center tile of the requested parent.
+        // If opts.ResolutionDelta + h.Resolution < 0 or > 15, then no tiles are enumerated.
+        public static IEnumerable<H3Index> ToResolution(this H3Index h, int resolution) {
+            int atRes = h.Resolution;
+            int toRes = resolution;
+                    
+            if (toRes < 0 || toRes > Constants.H3.MAX_H3_RES || h == Constants.H3_NULL) {
+                yield break;
+            }
+            
+            // if (toRes == atRes) {
+            //     yield return h;
+            //     yield break;
+            // }
+            
+            bool onPentagon = h.IsPentagon();
+
+            
+            if (toRes <= atRes) {
+                // do {
+                //     yield return h;
+                    
+                //     toRes--;
+                //     var parent = h.SetResolution(toRes);
+                //     for (int i = toRes + 1; i <= childRes; i++)
+                //     {
+                //         parent = parent.SetIndexDigit(atRes, Constants.H3_DIGIT_MASK);
+                //     }
+                //     return parentH;
+            
+            
+                //     h = h.ToParent(toRes);
+                //     if (h == Constants.H3_NULL) {
+                //         break;
+                //     }
+                // } while (h.Resolution >= toRes);
+                    
+                while (atRes >= 0) {
+                    yield return h;
+                    
+                    if (atRes <= 0)
+                        break;
+                        
+                    var parent = h.SetResolution(toRes);
+                    parent = parent.SetIndexDigit(atRes, Constants.H3_DIGIT_MASK);
+                    atRes--;
+                }
+    
+   
+            } else {
+            
+
+
+                Direction dir = Direction.CENTER_DIGIT;
+                if (opts.OnlyOuters) {
+                    dir++;
+                }
+                
+                for (; dir < Direction.NUM_DIGITS; dir++) {
+                
+                    if (opts.OnlyHexagons && onPentagon)
+                        continue;
+                
+                    if (onPentagon && dir == Direction.K_AXES_DIGIT)
+                        continue;
+                        
+                    H3Index onIndex = h.MakeDirectChild((int) dir);
+                    yield return onIndex;
+                    
+                    if (opts.OnlyCenters && dir >= Direction.CENTER_DIGIT)
+                        break;
+                }
+                
+            }
+            
+            
+        
+            
+        }
+        */
+        
+
+        
+        public static IEnumerable<H3Index> EnumChildren(this H3Index h, EnumOpts opts) {
+            int res = h.Resolution;
+            
+            if (h == Constants.H3_NULL || res < 0 || res >= Constants.H3.MAX_H3_RES) {
+                yield break;
+            }
+
+            bool onPentagon = h.IsPentagon();
+
+            Direction dir = Direction.CENTER_DIGIT;
+            if (opts.OmitCenter || (opts.OmitPentagons && onPentagon)) {
+                dir++;
+            }
+            
+            for (; dir < Direction.NUM_DIGITS; dir++) {
+                if (opts.OmitRing && dir > Direction.CENTER_DIGIT)
+                    break;
+                    
+                if (onPentagon && dir == Direction.K_AXES_DIGIT)
+                    continue;
+                    
+                H3Index onIndex = h.MakeDirectChild((int) dir);
+                yield return onIndex;
+            }
+        
+            
+        }
+        
+        
+        /*
+        // If opts.ResolutionDelta <= 0, this will wnum a single H3Index corresponding to the center tile of the requested parent.
+        // If opts.ResolutionDelta + h.Resolution < 0 or > 15, then no tiles are enumerated.
+        public static IEnumerable<H3Index> EnumChildren(this H3Index h, H3Index.EnumOpts opts) {
+            int atRes = h.Resolution;
+            int toRes = opts.ToResolution < 0 ? 0 : opts.ToResolution;
+                    
+            if (toRes < 0 || toRes > Constants.H3.MAX_H3_RES || h == Constants.H3_NULL) {
+                yield break;
+            }
+            
+            // if (toRes == atRes) {
+            //     yield return h;
+            //     yield break;
+            // }
+            
+            bool onPentagon = h.IsPentagon();
+
+            
+            if (toRes <= atRes) {
+                // do {
+                //     yield return h;
+                    
+                //     toRes--;
+                //     var parent = h.SetResolution(toRes);
+                //     for (int i = toRes + 1; i <= childRes; i++)
+                //     {
+                //         parent = parent.SetIndexDigit(atRes, Constants.H3_DIGIT_MASK);
+                //     }
+                //     return parentH;
+            
+            
+                //     h = h.ToParent(toRes);
+                //     if (h == Constants.H3_NULL) {
+                //         break;
+                //     }
+                // } while (h.Resolution >= toRes);
+                    
+                while (atRes >= 0) {
+                    yield return h;
+                    
+                    if (atRes <= 0)
+                        break;
+                        
+                    var parent = h.SetResolution(toRes);
+                    parent = parent.SetIndexDigit(atRes, Constants.H3_DIGIT_MASK);
+                    atRes--;
+                }
+    
+   
+            } else {
+            
+
+
+                Direction dir = Direction.CENTER_DIGIT;
+                if (opts.OnlyOuters) {
+                    dir++;
+                }
+                
+                for (; dir < Direction.NUM_DIGITS; dir++) {
+                
+                    if (opts.OnlyHexagons && onPentagon)
+                        continue;
+                
+                    if (onPentagon && dir == Direction.K_AXES_DIGIT)
+                        continue;
+                        
+                    H3Index onIndex = h.MakeDirectChild((int) dir);
+                    yield return onIndex;
+                    
+                    if (opts.OnlyCenters && dir >= Direction.CENTER_DIGIT)
+                        break;
+                }
+                
+            }
+            
+            
+        
+            
+        }
+
+*/
 
         /// <summary>
         /// Initializes an H3 index.
@@ -766,7 +1002,7 @@ namespace H3Lib.Extensions
         /// -->
         public static H3Index SetIndex(this H3Index hp, int res, int baseCell, Direction initDigit)
         {
-            H3Index h = new H3Index(Constants.H3Index.H3_INIT);
+            H3Index h = new H3Index(Constants.H3_INIT);
                 //.H3Index.H3_INIT;
             h = h.SetMode(H3Mode.Hexagon).SetResolution(res).SetBaseCell(baseCell);
 
@@ -820,9 +1056,9 @@ namespace H3Lib.Extensions
         /// <returns>The corresponding FaceIJK address.</returns>
         /// <!--
         /// h3Index.cs
-        /// void _h3ToFaceIjk
+        /// void _h3ToFaceIJK
         /// -->
-        private static FaceIjk ToFaceIjk(this H3Index h)
+        private static FaceIJK ToFace(this H3Index h)
         {
             int baseCell = h.BaseCell;
             // adjust for the pentagonal missing sequence; all of sub-sequence 5 needs
@@ -833,24 +1069,23 @@ namespace H3Lib.Extensions
             }
 
             // start with the "home" face and ijk+ coordinates for the base cell of c
-            var fijk = Constants.BaseCells.BaseCellData[baseCell].HomeFijk;
+            var face = Constants.BaseCells.BaseCellData[baseCell].HomeFijk;
             int result;
-            (result, fijk) = h.ToFaceIjkWithInitializedFijk(fijk);
-            if (result == 0)
-            {
-                return fijk; // no overage is possible; h lies on this face
+            (result, face) = h.ToFaceFromFace(face);
+            if (result == 0) {
+                return face; // no overage is possible; h lies on this face
             }
 
             // if we're here we have the potential for an "overage"; i.e., it is
             // possible that c lies on an adjacent face
-            var origIJK = fijk.Coord;
+            CoordIJK origIJK = face.Coord;
 
             // if we're in Class III, drop into the next finer Class II grid
             int res = h.Resolution;
             if(res.IsResClassIii())
             {
                 // Class III
-                fijk = fijk.ReplaceCoord(fijk.Coord.DownAp7R());
+                face = face.ReplaceCoord(face.Coord.DownAp7R());
                 res++;
             }
 
@@ -863,29 +1098,26 @@ namespace H3Lib.Extensions
                     : 0;
 
             Overage overage;
-            (overage, fijk) = fijk.AdjustOverageClassIi(res, pentLeading4, 0);
+            (overage, face) = face.AdjustOverageClassIi(res, pentLeading4, 0);
             if (overage != Overage.NO_OVERAGE)
             {
                 // if the base cell is a pentagon we have the potential for secondary
                 // overages
                 if (baseCell.IsBaseCellPentagon())
                 {
-                    while (((_, fijk) = fijk.AdjustOverageClassIi(res, 0, 0)).Item1 !=
+                    while (((_, face) = face.AdjustOverageClassIi(res, 0, 0)).Item1 !=
                         Overage.NO_OVERAGE)
                     { }
                 }
 
-                if (res != h.Resolution)
-                {
-                    fijk = fijk.ReplaceCoord(fijk.Coord.UpAp7R());
+                if (res != h.Resolution) {
+                    face = face.ReplaceCoord(face.Coord.UpAp7R());
                 }
-            }
-            else if (res != h.Resolution)
-            {
-                fijk = fijk.ReplaceCoord(origIJK);
+            } else if (res != h.Resolution) {
+                face = face.ReplaceCoord(origIJK);
             }
 
-            return fijk;
+            return face;
         }
 
         /// <summary>
@@ -918,12 +1150,12 @@ namespace H3Lib.Extensions
             }
 
             // convert to FaceIJK
-            var fijk = h3.ToFaceIjk();
+            var face = h3.ToFace();
 
             // Get all vertices as FaceIJK addresses. For simplicity, always
             // initialize the array with 6 verts, ignoring the last one for pentagons
-            var fijkVerts = Enumerable.Range(1, Constants.H3.NUM_HEX_VERTS)
-                                      .Select(s => new FaceIjk()).ToList();
+            var faceVerts = Enumerable.Range(1, Constants.H3.NUM_HEX_VERTS)
+                                      .Select(s => new FaceIJK()).ToList();
 
             int vertexCount = isPentagon
                                   ? Constants.H3.NUM_PENT_VERTS
@@ -933,18 +1165,18 @@ namespace H3Lib.Extensions
             if (isPentagon)
             {
                 int newRes;
-                IList<FaceIjk> vertexArray;
-                (_, newRes, vertexArray) = fijk.PentToVerts(res, fijkVerts);
+                IList<FaceIJK> vertexArray;
+                (_, newRes, vertexArray) = face.PentToVerts(res, faceVerts);
                 res = newRes;
-                fijkVerts = vertexArray.ToList();
+                faceVerts = vertexArray.ToList();
             }
             else
             {
                 int newRes;
-                IList<FaceIjk> vertexArray;
-                (_, newRes, vertexArray) = fijk.ToVerts(res, fijkVerts);
+                IList<FaceIJK> vertexArray;
+                (_, newRes, vertexArray) = face.ToVerts(res, faceVerts);
                 res = newRes;
-                fijkVerts = vertexArray.ToList();
+                faceVerts = vertexArray.ToList();
             }
 
             // We may not use all of the slots in the output array,
@@ -952,13 +1184,12 @@ namespace H3Lib.Extensions
             int faceCount = h3.MaxFaceCount();
             for (var i = 0; i < faceCount; i++)
             {
-                results.Add(Constants.FaceIjk.InvalidFace);
+                results.Add(Constants.FaceIJK.InvalidFace);
             }
 
             // add each vertex face, using the output array as a hash set
-            for (var i = 0; i < vertexCount; i++)
-            {
-                var vert = fijkVerts[i];
+            for (var i = 0; i < vertexCount; i++) {
+                var vert = faceVerts[i];
 
                 // Adjust overage, determining whether this vertex is
                 // on another face
@@ -975,7 +1206,7 @@ namespace H3Lib.Extensions
                 // matching the current face
                 int pos = 0;
                 var tempFace = vert.Face;
-                while (results[pos] != Constants.FaceIjk.InvalidFace && results[pos] != tempFace)
+                while (results[pos] != Constants.FaceIJK.InvalidFace && results[pos] != tempFace)
                 {
                     pos++;
                 }
@@ -1007,6 +1238,11 @@ namespace H3Lib.Extensions
                        : 2;
         }
 
+
+
+
+
+    
         /// <summary>
         /// ToChildren takes the given hexagon id and generates all of the children
         /// at the specified resolution storing them into the provided memory pointer.
@@ -1059,7 +1295,7 @@ namespace H3Lib.Extensions
             int parentRes = h.Resolution;
             if (!parentRes.IsValidChildRes(childRes))
             {
-                return Constants.H3Index.H3_NULL;
+                return Constants.H3_NULL;
             }
 
             if (childRes == parentRes)
@@ -1088,7 +1324,7 @@ namespace H3Lib.Extensions
         /// -->
         public static GeoCoord ToGeoCoord(this H3Index h3)
         {
-            return h3.ToFaceIjk().ToGeoCoord(h3.Resolution);
+            return h3.ToFace().ToGeoCoord(h3.Resolution);
         }
 
         /// <summary>
@@ -1102,11 +1338,11 @@ namespace H3Lib.Extensions
         /// -->
         public static GeoBoundary ToGeoBoundary(this H3Index h3)
         {
-            var fijk = h3.ToFaceIjk();
+            var face = h3.ToFace();
             
             var gb = h3.IsPentagon()
-                     ? fijk.PentToGeoBoundary(h3.Resolution, 0, Constants.H3.NUM_PENT_VERTS)
-                     : fijk.ToGeoBoundary(h3.Resolution, 0, Constants.H3.NUM_HEX_VERTS);
+                     ? face.PentToGeoBoundary(h3.Resolution, 0, Constants.H3.NUM_PENT_VERTS)
+                     : face.ToGeoBoundary    (h3.Resolution, 0, Constants.H3.NUM_HEX_VERTS);
 
             return gb;
         }
@@ -1123,14 +1359,14 @@ namespace H3Lib.Extensions
         private static int VertexRotations(this H3Index cell)
         {
             // Get the face and other info for the origin
-            var fijk = cell.ToFaceIjk();
+            var fijk = cell.ToFace();
             int baseCell = cell.BaseCell;
             var cellLeadingDigit = (int) cell.LeadingNonZeroDigit;
 
             // get the base cell face
-            var baseFijk = baseCell.ToFaceIjk();
+            var baseFijk = baseCell.ToFace();
 
-            int ccwRot60 = baseCell.ToCounterClockwiseRotate60(fijk.Face);
+            int ccwRot60 = baseCell.ToCCWRotate(fijk.Face);
 
             if (!baseCell.IsBaseCellPentagon())
             {
@@ -1299,7 +1535,7 @@ namespace H3Lib.Extensions
             // Short-circuit and return an invalid index value if they are not neighbors
             if (!origin.IsNeighborTo(destination))
             {
-                return Constants.H3Index.H3_NULL;
+                return Constants.H3_NULL;
             }
 
             // Otherwise, determine the IJK direction from the origin to the destination
@@ -1330,7 +1566,7 @@ namespace H3Lib.Extensions
             }
 
             // This should be impossible, return H3_NULL in this case;
-            return Constants.H3Index.H3_NULL;   
+            return Constants.H3_NULL;   
         }
 
         /// <summary>
@@ -1345,7 +1581,7 @@ namespace H3Lib.Extensions
         public static H3Index OriginFromUniDirectionalEdge(this H3Index edge)
         {
             return edge.Mode != H3Mode.UniEdge
-                       ? (H3Index) Constants.H3Index.H3_NULL
+                       ? (H3Index) Constants.H3_NULL
                        : new H3Index(edge).SetMode(H3Mode.Hexagon).SetReservedBits(0);
         }
 
@@ -1364,7 +1600,7 @@ namespace H3Lib.Extensions
         {
             if (edge.Mode != H3Mode.UniEdge)
             {
-                return Constants.H3Index.H3_NULL;
+                return Constants.H3_NULL;
             }
 
             Direction direction = (Direction) edge.ReservedBits;
@@ -1458,7 +1694,7 @@ namespace H3Lib.Extensions
                 switch (isPentagon)
                 {
                     case true when i == 0:
-                        results.Add(Constants.H3Index.H3_NULL);
+                        results.Add(Constants.H3_NULL);
                         break;
                     default:
                         results.Add(new H3Index(origin).SetMode(H3Mode.UniEdge).SetReservedBits(i + 1));
@@ -1500,7 +1736,7 @@ namespace H3Lib.Extensions
             // that while there are always 2 topological vertexes per edge, the
             // resulting edge boundary may have an additional distortion vertex if it
             // crosses an edge of the icosahedron.
-            var fijk = origin.ToFaceIjk();
+            var fijk = origin.ToFace();
 
             int res = origin.Resolution;
             bool isPentagon = origin.IsPentagon();
@@ -1736,7 +1972,7 @@ namespace H3Lib.Extensions
                 if (oldDigit == Direction.INVALID_DIGIT)
                 {
                     // only possible on invalid input
-                    return (Constants.H3Index.H3_NULL, outRotations);
+                    return (Constants.H3_NULL, outRotations);
                 }
 
                 if((r+1).IsResClassIii())
@@ -1792,7 +2028,7 @@ namespace H3Lib.Extensions
                         if (oldLeadingDigit == Direction.CENTER_DIGIT)
                         {
                             // Undefined: the k direction is deleted from here
-                            return (Constants.H3Index.H3_NULL, outRotations);
+                            return (Constants.H3_NULL, outRotations);
                         }
                         else
                         if (oldLeadingDigit == Direction.JK_AXES_DIGIT)
@@ -1814,7 +2050,7 @@ namespace H3Lib.Extensions
                         else
                         {
                             // Should never occur
-                            return (Constants.H3Index.H3_NULL, outRotations);
+                            return (Constants.H3_NULL, outRotations);
                         }
                     }
                 }
@@ -2108,8 +2344,8 @@ namespace H3Lib.Extensions
         /// </summary>
         public static H3Index SetResolution(this H3Index h3Index, int resolution)
         {
-            return (h3Index & Constants.H3Index.H3_RES_MASK_NEGATIVE) |
-                   ((ulong) resolution << Constants.H3Index.H3_RES_OFFSET);
+            return (h3Index & Constants.H3_RES_MASK_NEGATIVE) |
+                   ((ulong) resolution << Constants.H3_RES_OFFSET);
         }
 
         /// <summary>
@@ -2117,8 +2353,8 @@ namespace H3Lib.Extensions
         /// </summary>
         public static H3Index SetBaseCell(this H3Index cell, int baseCell)
         {
-            return (cell & Constants.H3Index.H3_BC_MASK_NEGATIVE) |
-                   ((ulong)baseCell << Constants.H3Index.H3_BC_OFFSET);
+            return (cell & Constants.H3_BC_MASK_NEGATIVE) |
+                   ((ulong)baseCell << Constants.H3_BC_OFFSET);
             
         }
 
@@ -2127,8 +2363,8 @@ namespace H3Lib.Extensions
         /// </summary>
         public static H3Index SetMode(this H3Index cell, H3Mode mode)
         {
-            return cell  & Constants.H3Index.H3_MODE_MASK_NEGATIVE |
-                   ((ulong)mode << Constants.H3Index.H3_MODE_OFFSET);
+            return cell  & Constants.H3_MODE_MASK_NEGATIVE |
+                   ((ulong)mode << Constants.H3_MODE_OFFSET);
         }
 
         /// <summary>
@@ -2136,8 +2372,8 @@ namespace H3Lib.Extensions
         /// </summary>
         public static H3Index SetHighBit(this H3Index cell, int value)
         {
-            return  (cell & Constants.H3Index.H3_HIGH_BIT_MASK_NEGATIVE) |
-                    ((ulong) value << Constants.H3Index.H3_MAX_OFFSET);
+            return  (cell & Constants.H3_HIGH_BIT_MASK_NEGATIVE) |
+                    ((ulong) value << Constants.H3_MAX_OFFSET);
         }
 
         /// <summary>
@@ -2145,7 +2381,7 @@ namespace H3Lib.Extensions
         /// </summary>
         public static H3Index SetReservedBits(this H3Index cell, int value)
         {
-            return  (cell & Constants.H3Index.H3_RESERVED_MASK_NEGATIVE) | ((ulong) value << Constants.H3Index.H3_RESERVED_OFFSET);
+            return  (cell & Constants.H3_RESERVED_MASK_NEGATIVE) | ((ulong) value << Constants.H3_RESERVED_OFFSET);
         }
 
         /// <summary>
@@ -2153,8 +2389,8 @@ namespace H3Lib.Extensions
         /// </summary>
         public static H3Index SetIndexDigit(this H3Index cell, int res, ulong digit)
         {
-            return  (cell & ~(Constants.H3Index.H3_DIGIT_MASK << ((Constants.H3.MAX_H3_RES - res) * Constants.H3Index.H3_PER_DIGIT_OFFSET))) |
-                      (digit << (Constants.H3.MAX_H3_RES - res) * Constants.H3Index.H3_PER_DIGIT_OFFSET);
+            return  (cell & ~(Constants.H3_DIGIT_MASK << ((Constants.H3.MAX_H3_RES - res) * Constants.H3_PER_DIGIT_OFFSET))) |
+                      (digit << (Constants.H3.MAX_H3_RES - res) * Constants.H3_PER_DIGIT_OFFSET);
         }
     }
 }

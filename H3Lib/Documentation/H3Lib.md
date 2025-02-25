@@ -23,8 +23,8 @@
   - [ExactEdgeLengthKm()](#M-H3Lib-Api-ExactEdgeLengthKm-H3Lib-H3Index- 'H3Lib.Api.ExactEdgeLengthKm(H3Lib.H3Index)')
   - [ExactEdgeLengthM()](#M-H3Lib-Api-ExactEdgeLengthM-H3Lib-H3Index- 'H3Lib.Api.ExactEdgeLengthM(H3Lib.H3Index)')
   - [ExactEdgeLengthRads()](#M-H3Lib-Api-ExactEdgeLengthRads-H3Lib-H3Index- 'H3Lib.Api.ExactEdgeLengthRads(H3Lib.H3Index)')
-  - [ExperimentalH3ToLocalIj()](#M-H3Lib-Api-ExperimentalH3ToLocalIj-H3Lib-H3Index,H3Lib-H3Index,H3Lib-CoordIj@- 'H3Lib.Api.ExperimentalH3ToLocalIj(H3Lib.H3Index,H3Lib.H3Index,H3Lib.CoordIj@)')
-  - [ExperimentalLocalIjToH3()](#M-H3Lib-Api-ExperimentalLocalIjToH3-H3Lib-H3Index,H3Lib-CoordIj,H3Lib-H3Index@- 'H3Lib.Api.ExperimentalLocalIjToH3(H3Lib.H3Index,H3Lib.CoordIj,H3Lib.H3Index@)')
+  - [ExperimentalH3ToLocalIJ()](#M-H3Lib-Api-ExperimentalH3ToLocalIJ-H3Lib-H3Index,H3Lib-H3Index,H3Lib-CoordIJ@- 'H3Lib.Api.ExperimentalH3ToLocalIJ(H3Lib.H3Index,H3Lib.H3Index,H3Lib.CoordIJ@)')
+  - [ExperimentalLocalIJToH3()](#M-H3Lib-Api-ExperimentalLocalIJToH3-H3Lib-H3Index,H3Lib-CoordIJ,H3Lib-H3Index@- 'H3Lib.Api.ExperimentalLocalIJToH3(H3Lib.H3Index,H3Lib.CoordIJ,H3Lib.H3Index@)')
   - [GeoToH3()](#M-H3Lib-Api-GeoToH3-H3Lib-GeoCoord,System-Int32- 'H3Lib.Api.GeoToH3(H3Lib.GeoCoord,System.Int32)')
   - [GetDestinationH3IndexFromUnidirectionalEdge()](#M-H3Lib-Api-GetDestinationH3IndexFromUnidirectionalEdge-H3Lib-H3Index- 'H3Lib.Api.GetDestinationH3IndexFromUnidirectionalEdge(H3Lib.H3Index)')
   - [GetH3IndexesFromUnidirectionalEdge()](#M-H3Lib-Api-GetH3IndexesFromUnidirectionalEdge-H3Lib-H3Index,System-ValueTuple{H3Lib-H3Index,H3Lib-H3Index}@- 'H3Lib.Api.GetH3IndexesFromUnidirectionalEdge(H3Lib.H3Index,System.ValueTuple{H3Lib.H3Index,H3Lib.H3Index}@)')
@@ -111,7 +111,7 @@
 - [BaseCellRotation](#T-H3Lib-BaseCellRotation 'H3Lib.BaseCellRotation')
   - [#ctor()](#M-H3Lib-BaseCellRotation-#ctor-System-Int32,System-Int32- 'H3Lib.BaseCellRotation.#ctor(System.Int32,System.Int32)')
   - [BaseCell](#F-H3Lib-BaseCellRotation-BaseCell 'H3Lib.BaseCellRotation.BaseCell')
-  - [CounterClockwiseRotate60](#F-H3Lib-BaseCellRotation-CounterClockwiseRotate60 'H3Lib.BaseCellRotation.CounterClockwiseRotate60')
+  - [CCWRotate](#F-H3Lib-BaseCellRotation-CCWRotate 'H3Lib.BaseCellRotation.CCWRotate')
   - [Equals()](#M-H3Lib-BaseCellRotation-Equals-H3Lib-BaseCellRotation- 'H3Lib.BaseCellRotation.Equals(H3Lib.BaseCellRotation)')
   - [Equals()](#M-H3Lib-BaseCellRotation-Equals-System-Object- 'H3Lib.BaseCellRotation.Equals(System.Object)')
   - [GetHashCode()](#M-H3Lib-BaseCellRotation-GetHashCode 'H3Lib.BaseCellRotation.GetHashCode')
@@ -121,7 +121,7 @@
   - [BaseCellData](#F-H3Lib-Constants-BaseCells-BaseCellData 'H3Lib.Constants.BaseCells.BaseCellData')
   - [BaseCellNeighborCCW](#F-H3Lib-Constants-BaseCells-BaseCellNeighborCCW 'H3Lib.Constants.BaseCells.BaseCellNeighborCCW')
   - [BaseCellNeighbors](#F-H3Lib-Constants-BaseCells-BaseCellNeighbors 'H3Lib.Constants.BaseCells.BaseCellNeighbors')
-  - [FaceIjkBaseCells](#F-H3Lib-Constants-BaseCells-FaceIjkBaseCells 'H3Lib.Constants.BaseCells.FaceIjkBaseCells')
+  - [FaceIJKBaseCells](#F-H3Lib-Constants-BaseCells-FaceIJKBaseCells 'H3Lib.Constants.BaseCells.FaceIJKBaseCells')
   - [InvalidRotations](#F-H3Lib-Constants-BaseCells-InvalidRotations 'H3Lib.Constants.BaseCells.InvalidRotations')
   - [MaxFaceCoord](#F-H3Lib-Constants-BaseCells-MaxFaceCoord 'H3Lib.Constants.BaseCells.MaxFaceCoord')
 - [BaseCellsExtensions](#T-H3Lib-Extensions-BaseCellsExtensions 'H3Lib.Extensions.BaseCellsExtensions')
@@ -131,8 +131,8 @@
   - [IsBaseCellPentagon()](#M-H3Lib-Extensions-BaseCellsExtensions-IsBaseCellPentagon-System-Int32- 'H3Lib.Extensions.BaseCellsExtensions.IsBaseCellPentagon(System.Int32)')
   - [IsBaseCellPolarPentagon()](#M-H3Lib-Extensions-BaseCellsExtensions-IsBaseCellPolarPentagon-System-Int32- 'H3Lib.Extensions.BaseCellsExtensions.IsBaseCellPolarPentagon(System.Int32)')
   - [IsClockwiseOffset()](#M-H3Lib-Extensions-BaseCellsExtensions-IsClockwiseOffset-System-Int32,System-Int32- 'H3Lib.Extensions.BaseCellsExtensions.IsClockwiseOffset(System.Int32,System.Int32)')
-  - [ToCounterClockwiseRotate60()](#M-H3Lib-Extensions-BaseCellsExtensions-ToCounterClockwiseRotate60-System-Int32,System-Int32- 'H3Lib.Extensions.BaseCellsExtensions.ToCounterClockwiseRotate60(System.Int32,System.Int32)')
-  - [ToFaceIjk()](#M-H3Lib-Extensions-BaseCellsExtensions-ToFaceIjk-System-Int32- 'H3Lib.Extensions.BaseCellsExtensions.ToFaceIjk(System.Int32)')
+  - [ToCCWRotate()](#M-H3Lib-Extensions-BaseCellsExtensions-ToCCWRotate-System-Int32,System-Int32- 'H3Lib.Extensions.BaseCellsExtensions.ToCCWRotate(System.Int32,System.Int32)')
+  - [ToFace()](#M-H3Lib-Extensions-BaseCellsExtensions-ToFaceIJK-System-Int32- 'H3Lib.Extensions.BaseCellsExtensions.ToFace(System.Int32)')
 - [CollectionExtensions](#T-H3Lib-Extensions-CollectionExtensions 'H3Lib.Extensions.CollectionExtensions')
   - [FindDeepestContainer(polygons,boxes)](#M-H3Lib-Extensions-CollectionExtensions-FindDeepestContainer-System-Collections-Generic-List{H3Lib-LinkedGeoPolygon},System-Collections-Generic-List{H3Lib-BBox}- 'H3Lib.Extensions.CollectionExtensions.FindDeepestContainer(System.Collections.Generic.List{H3Lib.LinkedGeoPolygon},System.Collections.Generic.List{H3Lib.BBox})')
   - [HexRanges(h3Set,k)](#M-H3Lib-Extensions-CollectionExtensions-HexRanges-System-Collections-Generic-List{H3Lib-H3Index},System-Int32- 'H3Lib.Extensions.CollectionExtensions.HexRanges(System.Collections.Generic.List{H3Lib.H3Index},System.Int32)')
@@ -144,68 +144,68 @@
   - [H3_VERSION_MAJOR](#F-H3Lib-Constants-H3_VERSION_MAJOR 'H3Lib.Constants.H3_VERSION_MAJOR')
   - [H3_VERSION_MINOR](#F-H3Lib-Constants-H3_VERSION_MINOR 'H3Lib.Constants.H3_VERSION_MINOR')
   - [H3_VERSION_PATCH](#F-H3Lib-Constants-H3_VERSION_PATCH 'H3Lib.Constants.H3_VERSION_PATCH')
-- [CoordIj](#T-H3Lib-CoordIj 'H3Lib.CoordIj')
-  - [#ctor()](#M-H3Lib-CoordIj-#ctor-System-Int32,System-Int32- 'H3Lib.CoordIj.#ctor(System.Int32,System.Int32)')
-  - [#ctor()](#M-H3Lib-CoordIj-#ctor-H3Lib-CoordIj- 'H3Lib.CoordIj.#ctor(H3Lib.CoordIj)')
-  - [I](#F-H3Lib-CoordIj-I 'H3Lib.CoordIj.I')
-  - [J](#F-H3Lib-CoordIj-J 'H3Lib.CoordIj.J')
-  - [Equals()](#M-H3Lib-CoordIj-Equals-H3Lib-CoordIj- 'H3Lib.CoordIj.Equals(H3Lib.CoordIj)')
-  - [Equals()](#M-H3Lib-CoordIj-Equals-System-Object- 'H3Lib.CoordIj.Equals(System.Object)')
-  - [GetHashCode()](#M-H3Lib-CoordIj-GetHashCode 'H3Lib.CoordIj.GetHashCode')
-  - [op_Addition()](#M-H3Lib-CoordIj-op_Addition-H3Lib-CoordIj,H3Lib-CoordIj- 'H3Lib.CoordIj.op_Addition(H3Lib.CoordIj,H3Lib.CoordIj)')
-  - [op_Equality()](#M-H3Lib-CoordIj-op_Equality-H3Lib-CoordIj,H3Lib-CoordIj- 'H3Lib.CoordIj.op_Equality(H3Lib.CoordIj,H3Lib.CoordIj)')
-  - [op_Inequality()](#M-H3Lib-CoordIj-op_Inequality-H3Lib-CoordIj,H3Lib-CoordIj- 'H3Lib.CoordIj.op_Inequality(H3Lib.CoordIj,H3Lib.CoordIj)')
-  - [op_Multiply()](#M-H3Lib-CoordIj-op_Multiply-H3Lib-CoordIj,System-Int32- 'H3Lib.CoordIj.op_Multiply(H3Lib.CoordIj,System.Int32)')
-  - [op_Subtraction()](#M-H3Lib-CoordIj-op_Subtraction-H3Lib-CoordIj,H3Lib-CoordIj- 'H3Lib.CoordIj.op_Subtraction(H3Lib.CoordIj,H3Lib.CoordIj)')
-- [CoordIjExtensions](#T-H3Lib-Extensions-CoordIjExtensions 'H3Lib.Extensions.CoordIjExtensions')
-  - [ReplaceI()](#M-H3Lib-Extensions-CoordIjExtensions-ReplaceI-H3Lib-CoordIj,System-Int32- 'H3Lib.Extensions.CoordIjExtensions.ReplaceI(H3Lib.CoordIj,System.Int32)')
-  - [ReplaceJ()](#M-H3Lib-Extensions-CoordIjExtensions-ReplaceJ-H3Lib-CoordIj,System-Int32- 'H3Lib.Extensions.CoordIjExtensions.ReplaceJ(H3Lib.CoordIj,System.Int32)')
-  - [ToH3Experimental(ij,origin)](#M-H3Lib-Extensions-CoordIjExtensions-ToH3Experimental-H3Lib-CoordIj,H3Lib-H3Index- 'H3Lib.Extensions.CoordIjExtensions.ToH3Experimental(H3Lib.CoordIj,H3Lib.H3Index)')
-  - [ToIjk(ij)](#M-H3Lib-Extensions-CoordIjExtensions-ToIjk-H3Lib-CoordIj- 'H3Lib.Extensions.CoordIjExtensions.ToIjk(H3Lib.CoordIj)')
-- [CoordIjk](#T-H3Lib-Constants-CoordIjk 'H3Lib.Constants.CoordIjk')
-- [CoordIjk](#T-H3Lib-CoordIjk 'H3Lib.CoordIjk')
-  - [#ctor()](#M-H3Lib-CoordIjk-#ctor-System-Int32,System-Int32,System-Int32- 'H3Lib.CoordIjk.#ctor(System.Int32,System.Int32,System.Int32)')
-  - [#ctor()](#M-H3Lib-CoordIjk-#ctor-H3Lib-CoordIjk- 'H3Lib.CoordIjk.#ctor(H3Lib.CoordIjk)')
-  - [UnitVecs](#F-H3Lib-Constants-CoordIjk-UnitVecs 'H3Lib.Constants.CoordIjk.UnitVecs')
-  - [I](#F-H3Lib-CoordIjk-I 'H3Lib.CoordIjk.I')
-  - [J](#F-H3Lib-CoordIjk-J 'H3Lib.CoordIjk.J')
-  - [K](#F-H3Lib-CoordIjk-K 'H3Lib.CoordIjk.K')
-  - [CubeRound(i,j,k)](#M-H3Lib-CoordIjk-CubeRound-System-Double,System-Double,System-Double- 'H3Lib.CoordIjk.CubeRound(System.Double,System.Double,System.Double)')
-  - [Equals()](#M-H3Lib-CoordIjk-Equals-H3Lib-CoordIjk- 'H3Lib.CoordIjk.Equals(H3Lib.CoordIjk)')
-  - [Equals()](#M-H3Lib-CoordIjk-Equals-System-Object- 'H3Lib.CoordIjk.Equals(System.Object)')
-  - [GetHashCode()](#M-H3Lib-CoordIjk-GetHashCode 'H3Lib.CoordIjk.GetHashCode')
-  - [ToString()](#M-H3Lib-CoordIjk-ToString 'H3Lib.CoordIjk.ToString')
-  - [op_Addition()](#M-H3Lib-CoordIjk-op_Addition-H3Lib-CoordIjk,H3Lib-CoordIjk- 'H3Lib.CoordIjk.op_Addition(H3Lib.CoordIjk,H3Lib.CoordIjk)')
-  - [op_Equality()](#M-H3Lib-CoordIjk-op_Equality-H3Lib-CoordIjk,H3Lib-CoordIjk- 'H3Lib.CoordIjk.op_Equality(H3Lib.CoordIjk,H3Lib.CoordIjk)')
-  - [op_Inequality()](#M-H3Lib-CoordIjk-op_Inequality-H3Lib-CoordIjk,H3Lib-CoordIjk- 'H3Lib.CoordIjk.op_Inequality(H3Lib.CoordIjk,H3Lib.CoordIjk)')
-  - [op_Multiply()](#M-H3Lib-CoordIjk-op_Multiply-H3Lib-CoordIjk,System-Int32- 'H3Lib.CoordIjk.op_Multiply(H3Lib.CoordIjk,System.Int32)')
-  - [op_Subtraction()](#M-H3Lib-CoordIjk-op_Subtraction-H3Lib-CoordIjk,H3Lib-CoordIjk- 'H3Lib.CoordIjk.op_Subtraction(H3Lib.CoordIjk,H3Lib.CoordIjk)')
-- [CoordIjkExtensions](#T-H3Lib-Extensions-CoordIjkExtensions 'H3Lib.Extensions.CoordIjkExtensions')
-  - [DistanceTo(start,end)](#M-H3Lib-Extensions-CoordIjkExtensions-DistanceTo-H3Lib-CoordIjk,H3Lib-CoordIjk- 'H3Lib.Extensions.CoordIjkExtensions.DistanceTo(H3Lib.CoordIjk,H3Lib.CoordIjk)')
-  - [DownAp3(ijk)](#M-H3Lib-Extensions-CoordIjkExtensions-DownAp3-H3Lib-CoordIjk- 'H3Lib.Extensions.CoordIjkExtensions.DownAp3(H3Lib.CoordIjk)')
-  - [DownAp3R(ijk)](#M-H3Lib-Extensions-CoordIjkExtensions-DownAp3R-H3Lib-CoordIjk- 'H3Lib.Extensions.CoordIjkExtensions.DownAp3R(H3Lib.CoordIjk)')
-  - [DownAp7(ijk)](#M-H3Lib-Extensions-CoordIjkExtensions-DownAp7-H3Lib-CoordIjk- 'H3Lib.Extensions.CoordIjkExtensions.DownAp7(H3Lib.CoordIjk)')
-  - [DownAp7R(ijk)](#M-H3Lib-Extensions-CoordIjkExtensions-DownAp7R-H3Lib-CoordIjk- 'H3Lib.Extensions.CoordIjkExtensions.DownAp7R(H3Lib.CoordIjk)')
-  - [FromCube(ijk)](#M-H3Lib-Extensions-CoordIjkExtensions-FromCube-H3Lib-CoordIjk- 'H3Lib.Extensions.CoordIjkExtensions.FromCube(H3Lib.CoordIjk)')
-  - [IsZero()](#M-H3Lib-Extensions-CoordIjkExtensions-IsZero-H3Lib-CoordIjk- 'H3Lib.Extensions.CoordIjkExtensions.IsZero(H3Lib.CoordIjk)')
-  - [LocalIjkToH3(origin,ijk)](#M-H3Lib-Extensions-CoordIjkExtensions-LocalIjkToH3-H3Lib-CoordIjk,H3Lib-H3Index- 'H3Lib.Extensions.CoordIjkExtensions.LocalIjkToH3(H3Lib.CoordIjk,H3Lib.H3Index)')
-  - [Neighbor(ijk,digit)](#M-H3Lib-Extensions-CoordIjkExtensions-Neighbor-H3Lib-CoordIjk,H3Lib-Direction- 'H3Lib.Extensions.CoordIjkExtensions.Neighbor(H3Lib.CoordIjk,H3Lib.Direction)')
-  - [Normalized(coord)](#M-H3Lib-Extensions-CoordIjkExtensions-Normalized-H3Lib-CoordIjk- 'H3Lib.Extensions.CoordIjkExtensions.Normalized(H3Lib.CoordIjk)')
-  - [RotateCW(ijk)](#M-H3Lib-Extensions-CoordIjkExtensions-RotateCW-H3Lib-CoordIjk- 'H3Lib.Extensions.CoordIjkExtensions.RotateCW(H3Lib.CoordIjk)')
-  - [RotateCCW(ijk)](#M-H3Lib-Extensions-CoordIjkExtensions-RotateCCW-H3Lib-CoordIjk- 'H3Lib.Extensions.CoordIjkExtensions.RotateCCW(H3Lib.CoordIjk)')
-  - [SetI()](#M-H3Lib-Extensions-CoordIjkExtensions-SetI-H3Lib-CoordIjk,System-Int32- 'H3Lib.Extensions.CoordIjkExtensions.SetI(H3Lib.CoordIjk,System.Int32)')
-  - [SetIJ()](#M-H3Lib-Extensions-CoordIjkExtensions-SetIJ-H3Lib-CoordIjk,System-Int32,System-Int32- 'H3Lib.Extensions.CoordIjkExtensions.SetIJ(H3Lib.CoordIjk,System.Int32,System.Int32)')
-  - [SetIK()](#M-H3Lib-Extensions-CoordIjkExtensions-SetIK-H3Lib-CoordIjk,System-Int32,System-Int32- 'H3Lib.Extensions.CoordIjkExtensions.SetIK(H3Lib.CoordIjk,System.Int32,System.Int32)')
-  - [SetJ()](#M-H3Lib-Extensions-CoordIjkExtensions-SetJ-H3Lib-CoordIjk,System-Int32- 'H3Lib.Extensions.CoordIjkExtensions.SetJ(H3Lib.CoordIjk,System.Int32)')
-  - [SetJK()](#M-H3Lib-Extensions-CoordIjkExtensions-SetJK-H3Lib-CoordIjk,System-Int32,System-Int32- 'H3Lib.Extensions.CoordIjkExtensions.SetJK(H3Lib.CoordIjk,System.Int32,System.Int32)')
-  - [SetK()](#M-H3Lib-Extensions-CoordIjkExtensions-SetK-H3Lib-CoordIjk,System-Int32- 'H3Lib.Extensions.CoordIjkExtensions.SetK(H3Lib.CoordIjk,System.Int32)')
-  - [Sum()](#M-H3Lib-Extensions-CoordIjkExtensions-Sum-H3Lib-CoordIjk- 'H3Lib.Extensions.CoordIjkExtensions.Sum(H3Lib.CoordIjk)')
-  - [ToCube(ijk)](#M-H3Lib-Extensions-CoordIjkExtensions-ToCube-H3Lib-CoordIjk- 'H3Lib.Extensions.CoordIjkExtensions.ToCube(H3Lib.CoordIjk)')
-  - [ToDirection(ijk)](#M-H3Lib-Extensions-CoordIjkExtensions-ToDirection-H3Lib-CoordIjk- 'H3Lib.Extensions.CoordIjkExtensions.ToDirection(H3Lib.CoordIjk)')
-  - [ToHex2d(h)](#M-H3Lib-Extensions-CoordIjkExtensions-ToHex2d-H3Lib-CoordIjk- 'H3Lib.Extensions.CoordIjkExtensions.ToHex2d(H3Lib.CoordIjk)')
-  - [ToIj(ijk)](#M-H3Lib-Extensions-CoordIjkExtensions-ToIj-H3Lib-CoordIjk- 'H3Lib.Extensions.CoordIjkExtensions.ToIj(H3Lib.CoordIjk)')
-  - [UpAp7(ijk)](#M-H3Lib-Extensions-CoordIjkExtensions-UpAp7-H3Lib-CoordIjk- 'H3Lib.Extensions.CoordIjkExtensions.UpAp7(H3Lib.CoordIjk)')
-  - [UpAp7R(ijk)](#M-H3Lib-Extensions-CoordIjkExtensions-UpAp7R-H3Lib-CoordIjk- 'H3Lib.Extensions.CoordIjkExtensions.UpAp7R(H3Lib.CoordIjk)')
+- [CoordIJ](#T-H3Lib-CoordIJ 'H3Lib.CoordIJ')
+  - [#ctor()](#M-H3Lib-CoordIJ-#ctor-System-Int32,System-Int32- 'H3Lib.CoordIJ.#ctor(System.Int32,System.Int32)')
+  - [#ctor()](#M-H3Lib-CoordIJ-#ctor-H3Lib-CoordIJ- 'H3Lib.CoordIJ.#ctor(H3Lib.CoordIJ)')
+  - [I](#F-H3Lib-CoordIJ-I 'H3Lib.CoordIJ.I')
+  - [J](#F-H3Lib-CoordIJ-J 'H3Lib.CoordIJ.J')
+  - [Equals()](#M-H3Lib-CoordIJ-Equals-H3Lib-CoordIJ- 'H3Lib.CoordIJ.Equals(H3Lib.CoordIJ)')
+  - [Equals()](#M-H3Lib-CoordIJ-Equals-System-Object- 'H3Lib.CoordIJ.Equals(System.Object)')
+  - [GetHashCode()](#M-H3Lib-CoordIJ-GetHashCode 'H3Lib.CoordIJ.GetHashCode')
+  - [op_Addition()](#M-H3Lib-CoordIJ-op_Addition-H3Lib-CoordIJ,H3Lib-CoordIJ- 'H3Lib.CoordIJ.op_Addition(H3Lib.CoordIJ,H3Lib.CoordIJ)')
+  - [op_Equality()](#M-H3Lib-CoordIJ-op_Equality-H3Lib-CoordIJ,H3Lib-CoordIJ- 'H3Lib.CoordIJ.op_Equality(H3Lib.CoordIJ,H3Lib.CoordIJ)')
+  - [op_Inequality()](#M-H3Lib-CoordIJ-op_Inequality-H3Lib-CoordIJ,H3Lib-CoordIJ- 'H3Lib.CoordIJ.op_Inequality(H3Lib.CoordIJ,H3Lib.CoordIJ)')
+  - [op_Multiply()](#M-H3Lib-CoordIJ-op_Multiply-H3Lib-CoordIJ,System-Int32- 'H3Lib.CoordIJ.op_Multiply(H3Lib.CoordIJ,System.Int32)')
+  - [op_Subtraction()](#M-H3Lib-CoordIJ-op_Subtraction-H3Lib-CoordIJ,H3Lib-CoordIJ- 'H3Lib.CoordIJ.op_Subtraction(H3Lib.CoordIJ,H3Lib.CoordIJ)')
+- [CoordIJExtensions](#T-H3Lib-Extensions-CoordIJExtensions 'H3Lib.Extensions.CoordIJExtensions')
+  - [ReplaceI()](#M-H3Lib-Extensions-CoordIJExtensions-ReplaceI-H3Lib-CoordIJ,System-Int32- 'H3Lib.Extensions.CoordIJExtensions.ReplaceI(H3Lib.CoordIJ,System.Int32)')
+  - [ReplaceJ()](#M-H3Lib-Extensions-CoordIJExtensions-ReplaceJ-H3Lib-CoordIJ,System-Int32- 'H3Lib.Extensions.CoordIJExtensions.ReplaceJ(H3Lib.CoordIJ,System.Int32)')
+  - [ToH3Experimental(ij,origin)](#M-H3Lib-Extensions-CoordIJExtensions-ToH3Experimental-H3Lib-CoordIJ,H3Lib-H3Index- 'H3Lib.Extensions.CoordIJExtensions.ToH3Experimental(H3Lib.CoordIJ,H3Lib.H3Index)')
+  - [ToIjk(ij)](#M-H3Lib-Extensions-CoordIJExtensions-ToIjk-H3Lib-CoordIJ- 'H3Lib.Extensions.CoordIJExtensions.ToIjk(H3Lib.CoordIJ)')
+- [CoordIJK](#T-H3Lib-Constants-CoordIJK 'H3Lib.Constants.CoordIJK')
+- [CoordIJK](#T-H3Lib-CoordIJK 'H3Lib.CoordIJK')
+  - [#ctor()](#M-H3Lib-CoordIJK-#ctor-System-Int32,System-Int32,System-Int32- 'H3Lib.CoordIJK.#ctor(System.Int32,System.Int32,System.Int32)')
+  - [#ctor()](#M-H3Lib-CoordIJK-#ctor-H3Lib-CoordIJK- 'H3Lib.CoordIJK.#ctor(H3Lib.CoordIJK)')
+  - [UnitVecs](#F-H3Lib-Constants-CoordIJK-UnitVecs 'H3Lib.Constants.CoordIJK.UnitVecs')
+  - [I](#F-H3Lib-CoordIJK-I 'H3Lib.CoordIJK.I')
+  - [J](#F-H3Lib-CoordIJK-J 'H3Lib.CoordIJK.J')
+  - [K](#F-H3Lib-CoordIJK-K 'H3Lib.CoordIJK.K')
+  - [CubeRound(i,j,k)](#M-H3Lib-CoordIJK-CubeRound-System-Double,System-Double,System-Double- 'H3Lib.CoordIJK.CubeRound(System.Double,System.Double,System.Double)')
+  - [Equals()](#M-H3Lib-CoordIJK-Equals-H3Lib-CoordIJK- 'H3Lib.CoordIJK.Equals(H3Lib.CoordIJK)')
+  - [Equals()](#M-H3Lib-CoordIJK-Equals-System-Object- 'H3Lib.CoordIJK.Equals(System.Object)')
+  - [GetHashCode()](#M-H3Lib-CoordIJK-GetHashCode 'H3Lib.CoordIJK.GetHashCode')
+  - [ToString()](#M-H3Lib-CoordIJK-ToString 'H3Lib.CoordIJK.ToString')
+  - [op_Addition()](#M-H3Lib-CoordIJK-op_Addition-H3Lib-CoordIJK,H3Lib-CoordIJK- 'H3Lib.CoordIJK.op_Addition(H3Lib.CoordIJK,H3Lib.CoordIJK)')
+  - [op_Equality()](#M-H3Lib-CoordIJK-op_Equality-H3Lib-CoordIJK,H3Lib-CoordIJK- 'H3Lib.CoordIJK.op_Equality(H3Lib.CoordIJK,H3Lib.CoordIJK)')
+  - [op_Inequality()](#M-H3Lib-CoordIJK-op_Inequality-H3Lib-CoordIJK,H3Lib-CoordIJK- 'H3Lib.CoordIJK.op_Inequality(H3Lib.CoordIJK,H3Lib.CoordIJK)')
+  - [op_Multiply()](#M-H3Lib-CoordIJK-op_Multiply-H3Lib-CoordIJK,System-Int32- 'H3Lib.CoordIJK.op_Multiply(H3Lib.CoordIJK,System.Int32)')
+  - [op_Subtraction()](#M-H3Lib-CoordIJK-op_Subtraction-H3Lib-CoordIJK,H3Lib-CoordIJK- 'H3Lib.CoordIJK.op_Subtraction(H3Lib.CoordIJK,H3Lib.CoordIJK)')
+- [CoordIJKExtensions](#T-H3Lib-Extensions-CoordIJKExtensions 'H3Lib.Extensions.CoordIJKExtensions')
+  - [DistanceTo(start,end)](#M-H3Lib-Extensions-CoordIJKExtensions-DistanceTo-H3Lib-CoordIJK,H3Lib-CoordIJK- 'H3Lib.Extensions.CoordIJKExtensions.DistanceTo(H3Lib.CoordIJK,H3Lib.CoordIJK)')
+  - [DownAp3(ijk)](#M-H3Lib-Extensions-CoordIJKExtensions-DownAp3-H3Lib-CoordIJK- 'H3Lib.Extensions.CoordIJKExtensions.DownAp3(H3Lib.CoordIJK)')
+  - [DownAp3R(ijk)](#M-H3Lib-Extensions-CoordIJKExtensions-DownAp3R-H3Lib-CoordIJK- 'H3Lib.Extensions.CoordIJKExtensions.DownAp3R(H3Lib.CoordIJK)')
+  - [DownAp7(ijk)](#M-H3Lib-Extensions-CoordIJKExtensions-DownAp7-H3Lib-CoordIJK- 'H3Lib.Extensions.CoordIJKExtensions.DownAp7(H3Lib.CoordIJK)')
+  - [DownAp7R(ijk)](#M-H3Lib-Extensions-CoordIJKExtensions-DownAp7R-H3Lib-CoordIJK- 'H3Lib.Extensions.CoordIJKExtensions.DownAp7R(H3Lib.CoordIJK)')
+  - [FromCube(ijk)](#M-H3Lib-Extensions-CoordIJKExtensions-FromCube-H3Lib-CoordIJK- 'H3Lib.Extensions.CoordIJKExtensions.FromCube(H3Lib.CoordIJK)')
+  - [IsZero()](#M-H3Lib-Extensions-CoordIJKExtensions-IsZero-H3Lib-CoordIJK- 'H3Lib.Extensions.CoordIJKExtensions.IsZero(H3Lib.CoordIJK)')
+  - [LocalIJKToH3(origin,ijk)](#M-H3Lib-Extensions-CoordIJKExtensions-LocalIJKToH3-H3Lib-CoordIJK,H3Lib-H3Index- 'H3Lib.Extensions.CoordIJKExtensions.LocalIJKToH3(H3Lib.CoordIJK,H3Lib.H3Index)')
+  - [Neighbor(ijk,digit)](#M-H3Lib-Extensions-CoordIJKExtensions-Neighbor-H3Lib-CoordIJK,H3Lib-Direction- 'H3Lib.Extensions.CoordIJKExtensions.Neighbor(H3Lib.CoordIJK,H3Lib.Direction)')
+  - [Normalized(coord)](#M-H3Lib-Extensions-CoordIJKExtensions-Normalized-H3Lib-CoordIJK- 'H3Lib.Extensions.CoordIJKExtensions.Normalized(H3Lib.CoordIJK)')
+  - [RotateCW(ijk)](#M-H3Lib-Extensions-CoordIJKExtensions-RotateCW-H3Lib-CoordIJK- 'H3Lib.Extensions.CoordIJKExtensions.RotateCW(H3Lib.CoordIJK)')
+  - [RotateCCW(ijk)](#M-H3Lib-Extensions-CoordIJKExtensions-RotateCCW-H3Lib-CoordIJK- 'H3Lib.Extensions.CoordIJKExtensions.RotateCCW(H3Lib.CoordIJK)')
+  - [SetI()](#M-H3Lib-Extensions-CoordIJKExtensions-SetI-H3Lib-CoordIJK,System-Int32- 'H3Lib.Extensions.CoordIJKExtensions.SetI(H3Lib.CoordIJK,System.Int32)')
+  - [SetIJ()](#M-H3Lib-Extensions-CoordIJKExtensions-SetIJ-H3Lib-CoordIJK,System-Int32,System-Int32- 'H3Lib.Extensions.CoordIJKExtensions.SetIJ(H3Lib.CoordIJK,System.Int32,System.Int32)')
+  - [SetIK()](#M-H3Lib-Extensions-CoordIJKExtensions-SetIK-H3Lib-CoordIJK,System-Int32,System-Int32- 'H3Lib.Extensions.CoordIJKExtensions.SetIK(H3Lib.CoordIJK,System.Int32,System.Int32)')
+  - [SetJ()](#M-H3Lib-Extensions-CoordIJKExtensions-SetJ-H3Lib-CoordIJK,System-Int32- 'H3Lib.Extensions.CoordIJKExtensions.SetJ(H3Lib.CoordIJK,System.Int32)')
+  - [SetJK()](#M-H3Lib-Extensions-CoordIJKExtensions-SetJK-H3Lib-CoordIJK,System-Int32,System-Int32- 'H3Lib.Extensions.CoordIJKExtensions.SetJK(H3Lib.CoordIJK,System.Int32,System.Int32)')
+  - [SetK()](#M-H3Lib-Extensions-CoordIJKExtensions-SetK-H3Lib-CoordIJK,System-Int32- 'H3Lib.Extensions.CoordIJKExtensions.SetK(H3Lib.CoordIJK,System.Int32)')
+  - [Sum()](#M-H3Lib-Extensions-CoordIJKExtensions-Sum-H3Lib-CoordIJK- 'H3Lib.Extensions.CoordIJKExtensions.Sum(H3Lib.CoordIJK)')
+  - [ToCube(ijk)](#M-H3Lib-Extensions-CoordIJKExtensions-ToCube-H3Lib-CoordIJK- 'H3Lib.Extensions.CoordIJKExtensions.ToCube(H3Lib.CoordIJK)')
+  - [ToDirection(ijk)](#M-H3Lib-Extensions-CoordIJKExtensions-ToDirection-H3Lib-CoordIJK- 'H3Lib.Extensions.CoordIJKExtensions.ToDirection(H3Lib.CoordIJK)')
+  - [ToHex2D(h)](#M-H3Lib-Extensions-CoordIJKExtensions-ToHex2D-H3Lib-CoordIJK- 'H3Lib.Extensions.CoordIJKExtensions.ToHex2D(H3Lib.CoordIJK)')
+  - [ToIj(ijk)](#M-H3Lib-Extensions-CoordIJKExtensions-ToIj-H3Lib-CoordIJK- 'H3Lib.Extensions.CoordIJKExtensions.ToIj(H3Lib.CoordIJK)')
+  - [UpAp7(ijk)](#M-H3Lib-Extensions-CoordIJKExtensions-UpAp7-H3Lib-CoordIJK- 'H3Lib.Extensions.CoordIJKExtensions.UpAp7(H3Lib.CoordIJK)')
+  - [UpAp7R(ijk)](#M-H3Lib-Extensions-CoordIJKExtensions-UpAp7R-H3Lib-CoordIJK- 'H3Lib.Extensions.CoordIJKExtensions.UpAp7R(H3Lib.CoordIJK)')
 - [Direction](#T-H3Lib-Direction 'H3Lib.Direction')
   - [CENTER_DIGIT](#F-H3Lib-Direction-CENTER_DIGIT 'H3Lib.Direction.CENTER_DIGIT')
   - [IJ_AXES_DIGIT](#F-H3Lib-Direction-IJ_AXES_DIGIT 'H3Lib.Direction.IJ_AXES_DIGIT')
@@ -219,54 +219,54 @@
 - [DirectionExtensions](#T-H3Lib-Extensions-DirectionExtensions 'H3Lib.Extensions.DirectionExtensions')
   - [RotateCW(digit)](#M-H3Lib-Extensions-DirectionExtensions-RotateCW-H3Lib-Direction- 'H3Lib.Extensions.DirectionExtensions.RotateCW(H3Lib.Direction)')
   - [RotateCCW(digit)](#M-H3Lib-Extensions-DirectionExtensions-RotateCCW-H3Lib-Direction- 'H3Lib.Extensions.DirectionExtensions.RotateCCW(H3Lib.Direction)')
-- [FaceIjk](#T-H3Lib-Constants-FaceIjk 'H3Lib.Constants.FaceIjk')
-- [FaceIjk](#T-H3Lib-FaceIjk 'H3Lib.FaceIjk')
-  - [#ctor()](#M-H3Lib-FaceIjk-#ctor-System-Int32,H3Lib-CoordIjk- 'H3Lib.FaceIjk.#ctor(System.Int32,H3Lib.CoordIjk)')
-  - [#ctor()](#M-H3Lib-FaceIjk-#ctor-H3Lib-FaceIjk- 'H3Lib.FaceIjk.#ctor(H3Lib.FaceIjk)')
-  - [AdjacentFaceDir](#F-H3Lib-Constants-FaceIjk-AdjacentFaceDir 'H3Lib.Constants.FaceIjk.AdjacentFaceDir')
-  - [FaceAxesAzRadsCii](#F-H3Lib-Constants-FaceIjk-FaceAxesAzRadsCii 'H3Lib.Constants.FaceIjk.FaceAxesAzRadsCii')
-  - [FaceCenterGeo](#F-H3Lib-Constants-FaceIjk-FaceCenterGeo 'H3Lib.Constants.FaceIjk.FaceCenterGeo')
-  - [FaceCenterPoint](#F-H3Lib-Constants-FaceIjk-FaceCenterPoint 'H3Lib.Constants.FaceIjk.FaceCenterPoint')
-  - [FaceNeighbors](#F-H3Lib-Constants-FaceIjk-FaceNeighbors 'H3Lib.Constants.FaceIjk.FaceNeighbors')
-  - [IJ](#F-H3Lib-Constants-FaceIjk-IJ 'H3Lib.Constants.FaceIjk.IJ')
-  - [InvalidFace](#F-H3Lib-Constants-FaceIjk-InvalidFace 'H3Lib.Constants.FaceIjk.InvalidFace')
-  - [JK](#F-H3Lib-Constants-FaceIjk-JK 'H3Lib.Constants.FaceIjk.JK')
-  - [KI](#F-H3Lib-Constants-FaceIjk-KI 'H3Lib.Constants.FaceIjk.KI')
-  - [MSqrt7](#F-H3Lib-Constants-FaceIjk-MSqrt7 'H3Lib.Constants.FaceIjk.MSqrt7')
-  - [MaxDimByCiiRes](#F-H3Lib-Constants-FaceIjk-MaxDimByCiiRes 'H3Lib.Constants.FaceIjk.MaxDimByCiiRes')
-  - [UnitScaleByCiiRes](#F-H3Lib-Constants-FaceIjk-UnitScaleByCiiRes 'H3Lib.Constants.FaceIjk.UnitScaleByCiiRes')
-  - [Coord](#F-H3Lib-FaceIjk-Coord 'H3Lib.FaceIjk.Coord')
-  - [Face](#F-H3Lib-FaceIjk-Face 'H3Lib.FaceIjk.Face')
-  - [Equals()](#M-H3Lib-FaceIjk-Equals-H3Lib-FaceIjk- 'H3Lib.FaceIjk.Equals(H3Lib.FaceIjk)')
-  - [Equals()](#M-H3Lib-FaceIjk-Equals-System-Object- 'H3Lib.FaceIjk.Equals(System.Object)')
-  - [GetHashCode()](#M-H3Lib-FaceIjk-GetHashCode 'H3Lib.FaceIjk.GetHashCode')
-  - [ToString()](#M-H3Lib-FaceIjk-ToString 'H3Lib.FaceIjk.ToString')
-  - [op_Equality()](#M-H3Lib-FaceIjk-op_Equality-H3Lib-FaceIjk,H3Lib-FaceIjk- 'H3Lib.FaceIjk.op_Equality(H3Lib.FaceIjk,H3Lib.FaceIjk)')
-  - [op_Inequality()](#M-H3Lib-FaceIjk-op_Inequality-H3Lib-FaceIjk,H3Lib-FaceIjk- 'H3Lib.FaceIjk.op_Inequality(H3Lib.FaceIjk,H3Lib.FaceIjk)')
-- [FaceIjkExtensions](#T-H3Lib-Extensions-FaceIjkExtensions 'H3Lib.Extensions.FaceIjkExtensions')
-  - [AdjustOverageClassIi(fijk,res,pentLeading4,substrate)](#M-H3Lib-Extensions-FaceIjkExtensions-AdjustOverageClassIi-H3Lib-FaceIjk,System-Int32,System-Int32,System-Int32- 'H3Lib.Extensions.FaceIjkExtensions.AdjustOverageClassIi(H3Lib.FaceIjk,System.Int32,System.Int32,System.Int32)')
-  - [AdjustPentOverage(fijk,res)](#M-H3Lib-Extensions-FaceIjkExtensions-AdjustPentOverage-H3Lib-FaceIjk,System-Int32- 'H3Lib.Extensions.FaceIjkExtensions.AdjustPentOverage(H3Lib.FaceIjk,System.Int32)')
-  - [PentToGeoBoundary(h,res,start,length)](#M-H3Lib-Extensions-FaceIjkExtensions-PentToGeoBoundary-H3Lib-FaceIjk,System-Int32,System-Int32,System-Int32- 'H3Lib.Extensions.FaceIjkExtensions.PentToGeoBoundary(H3Lib.FaceIjk,System.Int32,System.Int32,System.Int32)')
-  - [PentToVerts(fijk,res,fijkVerts)](#M-H3Lib-Extensions-FaceIjkExtensions-PentToVerts-H3Lib-FaceIjk,System-Int32,System-Collections-Generic-IList{H3Lib-FaceIjk}- 'H3Lib.Extensions.FaceIjkExtensions.PentToVerts(H3Lib.FaceIjk,System.Int32,System.Collections.Generic.IList{H3Lib.FaceIjk})')
-  - [ReplaceCoord(fijk,coord)](#M-H3Lib-Extensions-FaceIjkExtensions-ReplaceCoord-H3Lib-FaceIjk,H3Lib-CoordIjk- 'H3Lib.Extensions.FaceIjkExtensions.ReplaceCoord(H3Lib.FaceIjk,H3Lib.CoordIjk)')
-  - [ReplaceFace(fijk,face)](#M-H3Lib-Extensions-FaceIjkExtensions-ReplaceFace-H3Lib-FaceIjk,System-Int32- 'H3Lib.Extensions.FaceIjkExtensions.ReplaceFace(H3Lib.FaceIjk,System.Int32)')
-  - [ToBaseCell()](#M-H3Lib-Extensions-FaceIjkExtensions-ToBaseCell-H3Lib-FaceIjk- 'H3Lib.Extensions.FaceIjkExtensions.ToBaseCell(H3Lib.FaceIjk)')
-  - [ToBaseCellCounterClockwiseRotate60()](#M-H3Lib-Extensions-FaceIjkExtensions-ToBaseCellCounterClockwiseRotate60-H3Lib-FaceIjk- 'H3Lib.Extensions.FaceIjkExtensions.ToBaseCellCounterClockwiseRotate60(H3Lib.FaceIjk)')
-  - [ToGeoBoundary(h,res,start,length)](#M-H3Lib-Extensions-FaceIjkExtensions-ToGeoBoundary-H3Lib-FaceIjk,System-Int32,System-Int32,System-Int32- 'H3Lib.Extensions.FaceIjkExtensions.ToGeoBoundary(H3Lib.FaceIjk,System.Int32,System.Int32,System.Int32)')
-  - [ToGeoCoord(h,res)](#M-H3Lib-Extensions-FaceIjkExtensions-ToGeoCoord-H3Lib-FaceIjk,System-Int32- 'H3Lib.Extensions.FaceIjkExtensions.ToGeoCoord(H3Lib.FaceIjk,System.Int32)')
-  - [ToH3(fijk,res)](#M-H3Lib-Extensions-FaceIjkExtensions-ToH3-H3Lib-FaceIjk,System-Int32- 'H3Lib.Extensions.FaceIjkExtensions.ToH3(H3Lib.FaceIjk,System.Int32)')
-  - [ToVerts(fijk,res,fijkVerts)](#M-H3Lib-Extensions-FaceIjkExtensions-ToVerts-H3Lib-FaceIjk,System-Int32,System-Collections-Generic-IList{H3Lib-FaceIjk}- 'H3Lib.Extensions.FaceIjkExtensions.ToVerts(H3Lib.FaceIjk,System.Int32,System.Collections.Generic.IList{H3Lib.FaceIjk})')
-- [FaceOrientIjk](#T-H3Lib-FaceOrientIjk 'H3Lib.FaceOrientIjk')
-  - [#ctor()](#M-H3Lib-FaceOrientIjk-#ctor-System-Int32,System-Int32,System-Int32,System-Int32,System-Int32- 'H3Lib.FaceOrientIjk.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)')
-  - [#ctor()](#M-H3Lib-FaceOrientIjk-#ctor-System-Int32,H3Lib-CoordIjk,System-Int32- 'H3Lib.FaceOrientIjk.#ctor(System.Int32,H3Lib.CoordIjk,System.Int32)')
-  - [Ccw60Rotations](#F-H3Lib-FaceOrientIjk-Ccw60Rotations 'H3Lib.FaceOrientIjk.Ccw60Rotations')
-  - [Face](#F-H3Lib-FaceOrientIjk-Face 'H3Lib.FaceOrientIjk.Face')
-  - [Translate](#F-H3Lib-FaceOrientIjk-Translate 'H3Lib.FaceOrientIjk.Translate')
-  - [Equals(other)](#M-H3Lib-FaceOrientIjk-Equals-H3Lib-FaceOrientIjk- 'H3Lib.FaceOrientIjk.Equals(H3Lib.FaceOrientIjk)')
-  - [Equals()](#M-H3Lib-FaceOrientIjk-Equals-System-Object- 'H3Lib.FaceOrientIjk.Equals(System.Object)')
-  - [GetHashCode()](#M-H3Lib-FaceOrientIjk-GetHashCode 'H3Lib.FaceOrientIjk.GetHashCode')
-  - [op_Equality()](#M-H3Lib-FaceOrientIjk-op_Equality-H3Lib-FaceOrientIjk,H3Lib-FaceOrientIjk- 'H3Lib.FaceOrientIjk.op_Equality(H3Lib.FaceOrientIjk,H3Lib.FaceOrientIjk)')
-  - [op_Inequality()](#M-H3Lib-FaceOrientIjk-op_Inequality-H3Lib-FaceOrientIjk,H3Lib-FaceOrientIjk- 'H3Lib.FaceOrientIjk.op_Inequality(H3Lib.FaceOrientIjk,H3Lib.FaceOrientIjk)')
+- [FaceIJK](#T-H3Lib-Constants-FaceIJK 'H3Lib.Constants.FaceIJK')
+- [FaceIJK](#T-H3Lib-FaceIJK 'H3Lib.FaceIJK')
+  - [#ctor()](#M-H3Lib-FaceIJK-#ctor-System-Int32,H3Lib-CoordIJK- 'H3Lib.FaceIJK.#ctor(System.Int32,H3Lib.CoordIJK)')
+  - [#ctor()](#M-H3Lib-FaceIJK-#ctor-H3Lib-FaceIJK- 'H3Lib.FaceIJK.#ctor(H3Lib.FaceIJK)')
+  - [AdjacentFaceDir](#F-H3Lib-Constants-FaceIJK-AdjacentFaceDir 'H3Lib.Constants.FaceIJK.AdjacentFaceDir')
+  - [FaceAxesAzRadsCii](#F-H3Lib-Constants-FaceIJK-FaceAxesAzRadsCii 'H3Lib.Constants.FaceIJK.FaceAxesAzRadsCii')
+  - [FaceCenterGeo](#F-H3Lib-Constants-FaceIJK-FaceCenterGeo 'H3Lib.Constants.FaceIJK.FaceCenterGeo')
+  - [FaceCenterPoint](#F-H3Lib-Constants-FaceIJK-FaceCenterPoint 'H3Lib.Constants.FaceIJK.FaceCenterPoint')
+  - [FaceNeighbors](#F-H3Lib-Constants-FaceIJK-FaceNeighbors 'H3Lib.Constants.FaceIJK.FaceNeighbors')
+  - [IJ](#F-H3Lib-Constants-FaceIJK-IJ 'H3Lib.Constants.FaceIJK.IJ')
+  - [InvalidFace](#F-H3Lib-Constants-FaceIJK-InvalidFace 'H3Lib.Constants.FaceIJK.InvalidFace')
+  - [JK](#F-H3Lib-Constants-FaceIJK-JK 'H3Lib.Constants.FaceIJK.JK')
+  - [KI](#F-H3Lib-Constants-FaceIJK-KI 'H3Lib.Constants.FaceIJK.KI')
+  - [MSqrt7](#F-H3Lib-Constants-FaceIJK-MSqrt7 'H3Lib.Constants.FaceIJK.MSqrt7')
+  - [MaxDimByCiiRes](#F-H3Lib-Constants-FaceIJK-MaxDimByCiiRes 'H3Lib.Constants.FaceIJK.MaxDimByCiiRes')
+  - [UnitScaleByCiiRes](#F-H3Lib-Constants-FaceIJK-UnitScaleByCiiRes 'H3Lib.Constants.FaceIJK.UnitScaleByCiiRes')
+  - [Coord](#F-H3Lib-FaceIJK-Coord 'H3Lib.FaceIJK.Coord')
+  - [Face](#F-H3Lib-FaceIJK-Face 'H3Lib.FaceIJK.Face')
+  - [Equals()](#M-H3Lib-FaceIJK-Equals-H3Lib-FaceIJK- 'H3Lib.FaceIJK.Equals(H3Lib.FaceIJK)')
+  - [Equals()](#M-H3Lib-FaceIJK-Equals-System-Object- 'H3Lib.FaceIJK.Equals(System.Object)')
+  - [GetHashCode()](#M-H3Lib-FaceIJK-GetHashCode 'H3Lib.FaceIJK.GetHashCode')
+  - [ToString()](#M-H3Lib-FaceIJK-ToString 'H3Lib.FaceIJK.ToString')
+  - [op_Equality()](#M-H3Lib-FaceIJK-op_Equality-H3Lib-FaceIJK,H3Lib-FaceIJK- 'H3Lib.FaceIJK.op_Equality(H3Lib.FaceIJK,H3Lib.FaceIJK)')
+  - [op_Inequality()](#M-H3Lib-FaceIJK-op_Inequality-H3Lib-FaceIJK,H3Lib-FaceIJK- 'H3Lib.FaceIJK.op_Inequality(H3Lib.FaceIJK,H3Lib.FaceIJK)')
+- [FaceIJKExtensions](#T-H3Lib-Extensions-FaceIJKExtensions 'H3Lib.Extensions.FaceIJKExtensions')
+  - [AdjustOverageClassIi(Fijk,res,pentLeading4,substrate)](#M-H3Lib-Extensions-FaceIJKExtensions-AdjustOverageClassIi-H3Lib-FaceIJK,System-Int32,System-Int32,System-Int32- 'H3Lib.Extensions.FaceIJKExtensions.AdjustOverageClassIi(H3Lib.FaceIJK,System.Int32,System.Int32,System.Int32)')
+  - [AdjustPentOverage(Fijk,res)](#M-H3Lib-Extensions-FaceIJKExtensions-AdjustPentOverage-H3Lib-FaceIJK,System-Int32- 'H3Lib.Extensions.FaceIJKExtensions.AdjustPentOverage(H3Lib.FaceIJK,System.Int32)')
+  - [PentToGeoBoundary(h,res,start,length)](#M-H3Lib-Extensions-FaceIJKExtensions-PentToGeoBoundary-H3Lib-FaceIJK,System-Int32,System-Int32,System-Int32- 'H3Lib.Extensions.FaceIJKExtensions.PentToGeoBoundary(H3Lib.FaceIJK,System.Int32,System.Int32,System.Int32)')
+  - [PentToVerts(Fijk,res,FijkVerts)](#M-H3Lib-Extensions-FaceIJKExtensions-PentToVerts-H3Lib-FaceIJK,System-Int32,System-Collections-Generic-IList{H3Lib-FaceIJK}- 'H3Lib.Extensions.FaceIJKExtensions.PentToVerts(H3Lib.FaceIJK,System.Int32,System.Collections.Generic.IList{H3Lib.FaceIJK})')
+  - [ReplaceCoord(Fijk,coord)](#M-H3Lib-Extensions-FaceIJKExtensions-ReplaceCoord-H3Lib-FaceIJK,H3Lib-CoordIJK- 'H3Lib.Extensions.FaceIJKExtensions.ReplaceCoord(H3Lib.FaceIJK,H3Lib.CoordIJK)')
+  - [ReplaceFace(Fijk,face)](#M-H3Lib-Extensions-FaceIJKExtensions-ReplaceFace-H3Lib-FaceIJK,System-Int32- 'H3Lib.Extensions.FaceIJKExtensions.ReplaceFace(H3Lib.FaceIJK,System.Int32)')
+  - [ToBaseCell()](#M-H3Lib-Extensions-FaceIJKExtensions-ToBaseCell-H3Lib-FaceIJK- 'H3Lib.Extensions.FaceIJKExtensions.ToBaseCell(H3Lib.FaceIJK)')
+  - [ToBaseCellCCWRotate()](#M-H3Lib-Extensions-FaceIJKExtensions-ToBaseCellCCWRotate-H3Lib-FaceIJK- 'H3Lib.Extensions.FaceIJKExtensions.ToBaseCellCCWRotate(H3Lib.FaceIJK)')
+  - [ToGeoBoundary(h,res,start,length)](#M-H3Lib-Extensions-FaceIJKExtensions-ToGeoBoundary-H3Lib-FaceIJK,System-Int32,System-Int32,System-Int32- 'H3Lib.Extensions.FaceIJKExtensions.ToGeoBoundary(H3Lib.FaceIJK,System.Int32,System.Int32,System.Int32)')
+  - [ToGeoCoord(h,res)](#M-H3Lib-Extensions-FaceIJKExtensions-ToGeoCoord-H3Lib-FaceIJK,System-Int32- 'H3Lib.Extensions.FaceIJKExtensions.ToGeoCoord(H3Lib.FaceIJK,System.Int32)')
+  - [ToH3(Fijk,res)](#M-H3Lib-Extensions-FaceIJKExtensions-ToH3-H3Lib-FaceIJK,System-Int32- 'H3Lib.Extensions.FaceIJKExtensions.ToH3(H3Lib.FaceIJK,System.Int32)')
+  - [ToVerts(Fijk,res,FijkVerts)](#M-H3Lib-Extensions-FaceIJKExtensions-ToVerts-H3Lib-FaceIJK,System-Int32,System-Collections-Generic-IList{H3Lib-FaceIJK}- 'H3Lib.Extensions.FaceIJKExtensions.ToVerts(H3Lib.FaceIJK,System.Int32,System.Collections.Generic.IList{H3Lib.FaceIJK})')
+- [FaceOrientIJK](#T-H3Lib-FaceOrientIJK 'H3Lib.FaceOrientIJK')
+  - [#ctor()](#M-H3Lib-FaceOrientIJK-#ctor-System-Int32,System-Int32,System-Int32,System-Int32,System-Int32- 'H3Lib.FaceOrientIJK.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)')
+  - [#ctor()](#M-H3Lib-FaceOrientIJK-#ctor-System-Int32,H3Lib-CoordIJK,System-Int32- 'H3Lib.FaceOrientIJK.#ctor(System.Int32,H3Lib.CoordIJK,System.Int32)')
+  - [Ccw60Rotations](#F-H3Lib-FaceOrientIJK-Ccw60Rotations 'H3Lib.FaceOrientIJK.Ccw60Rotations')
+  - [Face](#F-H3Lib-FaceOrientIJK-Face 'H3Lib.FaceOrientIJK.Face')
+  - [Translate](#F-H3Lib-FaceOrientIJK-Translate 'H3Lib.FaceOrientIJK.Translate')
+  - [Equals(other)](#M-H3Lib-FaceOrientIJK-Equals-H3Lib-FaceOrientIJK- 'H3Lib.FaceOrientIJK.Equals(H3Lib.FaceOrientIJK)')
+  - [Equals()](#M-H3Lib-FaceOrientIJK-Equals-System-Object- 'H3Lib.FaceOrientIJK.Equals(System.Object)')
+  - [GetHashCode()](#M-H3Lib-FaceOrientIJK-GetHashCode 'H3Lib.FaceOrientIJK.GetHashCode')
+  - [op_Equality()](#M-H3Lib-FaceOrientIJK-op_Equality-H3Lib-FaceOrientIJK,H3Lib-FaceOrientIJK- 'H3Lib.FaceOrientIJK.op_Equality(H3Lib.FaceOrientIJK,H3Lib.FaceOrientIJK)')
+  - [op_Inequality()](#M-H3Lib-FaceOrientIJK-op_Inequality-H3Lib-FaceOrientIJK,H3Lib-FaceOrientIJK- 'H3Lib.FaceOrientIJK.op_Inequality(H3Lib.FaceOrientIJK,H3Lib.FaceOrientIJK)')
 - [GeoBoundary](#T-H3Lib-GeoBoundary 'H3Lib.GeoBoundary')
   - [#ctor()](#M-H3Lib-GeoBoundary-#ctor 'H3Lib.GeoBoundary.#ctor')
   - [NumVerts](#F-H3Lib-GeoBoundary-NumVerts 'H3Lib.GeoBoundary.NumVerts')
@@ -301,10 +301,10 @@
   - [SetLatitude()](#M-H3Lib-Extensions-GeoCoordExtensions-SetLatitude-H3Lib-GeoCoord,System-double- 'H3Lib.Extensions.GeoCoordExtensions.SetLatitude(H3Lib.GeoCoord,System.double)')
   - [SetLongitude()](#M-H3Lib-Extensions-GeoCoordExtensions-SetLongitude-H3Lib-GeoCoord,System-double- 'H3Lib.Extensions.GeoCoordExtensions.SetLongitude(H3Lib.GeoCoord,System.double)')
   - [SetRadians(gc,latitude,longitude)](#M-H3Lib-Extensions-GeoCoordExtensions-SetRadians-H3Lib-GeoCoord,System-double,System-double- 'H3Lib.Extensions.GeoCoordExtensions.SetRadians(H3Lib.GeoCoord,System.double,System.double)')
-  - [ToFaceIjk(g,res)](#M-H3Lib-Extensions-GeoCoordExtensions-ToFaceIjk-H3Lib-GeoCoord,System-Int32- 'H3Lib.Extensions.GeoCoordExtensions.ToFaceIjk(H3Lib.GeoCoord,System.Int32)')
+  - [ToFace(g,res)](#M-H3Lib-Extensions-GeoCoordExtensions-ToFaceIJK-H3Lib-GeoCoord,System-Int32- 'H3Lib.Extensions.GeoCoordExtensions.ToFace(H3Lib.GeoCoord,System.Int32)')
   - [ToH3Index(g,res)](#M-H3Lib-Extensions-GeoCoordExtensions-ToH3Index-H3Lib-GeoCoord,System-Int32- 'H3Lib.Extensions.GeoCoordExtensions.ToH3Index(H3Lib.GeoCoord,System.Int32)')
-  - [ToHex2d(g,res)](#M-H3Lib-Extensions-GeoCoordExtensions-ToHex2d-H3Lib-GeoCoord,System-Int32- 'H3Lib.Extensions.GeoCoordExtensions.ToHex2d(H3Lib.GeoCoord,System.Int32)')
-  - [ToVec3d(geo)](#M-H3Lib-Extensions-GeoCoordExtensions-ToVec3d-H3Lib-GeoCoord- 'H3Lib.Extensions.GeoCoordExtensions.ToVec3d(H3Lib.GeoCoord)')
+  - [ToHex2D(g,res)](#M-H3Lib-Extensions-GeoCoordExtensions-ToHex2D-H3Lib-GeoCoord,System-Int32- 'H3Lib.Extensions.GeoCoordExtensions.ToHex2D(H3Lib.GeoCoord,System.Int32)')
+  - [ToVec3D(geo)](#M-H3Lib-Extensions-GeoCoordExtensions-ToVec3D-H3Lib-GeoCoord- 'H3Lib.Extensions.GeoCoordExtensions.ToVec3D(H3Lib.GeoCoord)')
 - [GeoFence](#T-H3Lib-GeoFence 'H3Lib.GeoFence')
   - [#ctor()](#M-H3Lib-GeoFence-#ctor 'H3Lib.GeoFence.#ctor')
   - [NumVerts](#F-H3Lib-GeoFence-NumVerts 'H3Lib.GeoFence.NumVerts')
@@ -353,33 +353,33 @@
   - [NUM_ICOSA_FACES](#F-H3Lib-Constants-H3-NUM_ICOSA_FACES 'H3Lib.Constants.H3.NUM_ICOSA_FACES')
   - [NUM_PENT_VERTS](#F-H3Lib-Constants-H3-NUM_PENT_VERTS 'H3Lib.Constants.H3.NUM_PENT_VERTS')
   - [RES0_U_GNOMONIC](#F-H3Lib-Constants-H3-RES0_U_GNOMONIC 'H3Lib.Constants.H3.RES0_U_GNOMONIC')
-- [H3Index](#T-H3Lib-Constants-H3Index 'H3Lib.Constants.H3Index')
+- [H3Index](#T-H3Lib-Constants-H3Index 'H3Lib.Constants')
 - [H3Index](#T-H3Lib-H3Index 'H3Lib.H3Index')
   - [#ctor(val)](#M-H3Lib-H3Index-#ctor-System-UInt64- 'H3Lib.H3Index.#ctor(System.UInt64)')
   - [#ctor()](#M-H3Lib-H3Index-#ctor-System-Int32,System-Int32,H3Lib-Direction- 'H3Lib.H3Index.#ctor(System.Int32,System.Int32,H3Lib.Direction)')
   - [#ctor(res,baseCell,initDigit)](#M-H3Lib-H3Index-#ctor-System-Int32,System-Int32,System-Int32- 'H3Lib.H3Index.#ctor(System.Int32,System.Int32,System.Int32)')
-  - [H3_BC_MASK](#F-H3Lib-Constants-H3Index-H3_BC_MASK 'H3Lib.Constants.H3Index.H3_BC_MASK')
-  - [H3_BC_MASK_NEGATIVE](#F-H3Lib-Constants-H3Index-H3_BC_MASK_NEGATIVE 'H3Lib.Constants.H3Index.H3_BC_MASK_NEGATIVE')
-  - [H3_BC_OFFSET](#F-H3Lib-Constants-H3Index-H3_BC_OFFSET 'H3Lib.Constants.H3Index.H3_BC_OFFSET')
-  - [H3_DIGIT_MASK](#F-H3Lib-Constants-H3Index-H3_DIGIT_MASK 'H3Lib.Constants.H3Index.H3_DIGIT_MASK')
-  - [H3_DIGIT_MASK_NEGATIVE](#F-H3Lib-Constants-H3Index-H3_DIGIT_MASK_NEGATIVE 'H3Lib.Constants.H3Index.H3_DIGIT_MASK_NEGATIVE')
-  - [H3_HIGH_BIT_MASK](#F-H3Lib-Constants-H3Index-H3_HIGH_BIT_MASK 'H3Lib.Constants.H3Index.H3_HIGH_BIT_MASK')
-  - [H3_HIGH_BIT_MASK_NEGATIVE](#F-H3Lib-Constants-H3Index-H3_HIGH_BIT_MASK_NEGATIVE 'H3Lib.Constants.H3Index.H3_HIGH_BIT_MASK_NEGATIVE')
-  - [H3_INIT](#F-H3Lib-Constants-H3Index-H3_INIT 'H3Lib.Constants.H3Index.H3_INIT')
-  - [H3_INVALID_INDEX](#F-H3Lib-Constants-H3Index-H3_INVALID_INDEX 'H3Lib.Constants.H3Index.H3_INVALID_INDEX')
-  - [H3_MAX_OFFSET](#F-H3Lib-Constants-H3Index-H3_MAX_OFFSET 'H3Lib.Constants.H3Index.H3_MAX_OFFSET')
-  - [H3_MODE_MASK](#F-H3Lib-Constants-H3Index-H3_MODE_MASK 'H3Lib.Constants.H3Index.H3_MODE_MASK')
-  - [H3_MODE_MASK_NEGATIVE](#F-H3Lib-Constants-H3Index-H3_MODE_MASK_NEGATIVE 'H3Lib.Constants.H3Index.H3_MODE_MASK_NEGATIVE')
-  - [H3_MODE_OFFSET](#F-H3Lib-Constants-H3Index-H3_MODE_OFFSET 'H3Lib.Constants.H3Index.H3_MODE_OFFSET')
-  - [H3_NULL](#F-H3Lib-Constants-H3Index-H3_NULL 'H3Lib.Constants.H3Index.H3_NULL')
-  - [H3_NUM_BITS](#F-H3Lib-Constants-H3Index-H3_NUM_BITS 'H3Lib.Constants.H3Index.H3_NUM_BITS')
-  - [H3_PER_DIGIT_OFFSET](#F-H3Lib-Constants-H3Index-H3_PER_DIGIT_OFFSET 'H3Lib.Constants.H3Index.H3_PER_DIGIT_OFFSET')
-  - [H3_RESERVED_MASK](#F-H3Lib-Constants-H3Index-H3_RESERVED_MASK 'H3Lib.Constants.H3Index.H3_RESERVED_MASK')
-  - [H3_RESERVED_MASK_NEGATIVE](#F-H3Lib-Constants-H3Index-H3_RESERVED_MASK_NEGATIVE 'H3Lib.Constants.H3Index.H3_RESERVED_MASK_NEGATIVE')
-  - [H3_RESERVED_OFFSET](#F-H3Lib-Constants-H3Index-H3_RESERVED_OFFSET 'H3Lib.Constants.H3Index.H3_RESERVED_OFFSET')
-  - [H3_RES_MASK](#F-H3Lib-Constants-H3Index-H3_RES_MASK 'H3Lib.Constants.H3Index.H3_RES_MASK')
-  - [H3_RES_MASK_NEGATIVE](#F-H3Lib-Constants-H3Index-H3_RES_MASK_NEGATIVE 'H3Lib.Constants.H3Index.H3_RES_MASK_NEGATIVE')
-  - [H3_RES_OFFSET](#F-H3Lib-Constants-H3Index-H3_RES_OFFSET 'H3Lib.Constants.H3Index.H3_RES_OFFSET')
+  - [H3_BC_MASK](#F-H3Lib-Constants-H3Index-H3_BC_MASK 'H3Lib.Constants.H3_BC_MASK')
+  - [H3_BC_MASK_NEGATIVE](#F-H3Lib-Constants-H3Index-H3_BC_MASK_NEGATIVE 'H3Lib.Constants.H3_BC_MASK_NEGATIVE')
+  - [H3_BC_OFFSET](#F-H3Lib-Constants-H3Index-H3_BC_OFFSET 'H3Lib.Constants.H3_BC_OFFSET')
+  - [H3_DIGIT_MASK](#F-H3Lib-Constants-H3Index-H3_DIGIT_MASK 'H3Lib.Constants.H3_DIGIT_MASK')
+  - [H3_DIGIT_MASK_NEGATIVE](#F-H3Lib-Constants-H3Index-H3_DIGIT_MASK_NEGATIVE 'H3Lib.Constants.H3_DIGIT_MASK_NEGATIVE')
+  - [H3_HIGH_BIT_MASK](#F-H3Lib-Constants-H3Index-H3_HIGH_BIT_MASK 'H3Lib.Constants.H3_HIGH_BIT_MASK')
+  - [H3_HIGH_BIT_MASK_NEGATIVE](#F-H3Lib-Constants-H3Index-H3_HIGH_BIT_MASK_NEGATIVE 'H3Lib.Constants.H3_HIGH_BIT_MASK_NEGATIVE')
+  - [H3_INIT](#F-H3Lib-Constants-H3Index-H3_INIT 'H3Lib.Constants.H3_INIT')
+  - [H3_INVALID_INDEX](#F-H3Lib-Constants-H3Index-H3_INVALID_INDEX 'H3Lib.Constants.H3_INVALID_INDEX')
+  - [H3_MAX_OFFSET](#F-H3Lib-Constants-H3Index-H3_MAX_OFFSET 'H3Lib.Constants.H3_MAX_OFFSET')
+  - [H3_MODE_MASK](#F-H3Lib-Constants-H3Index-H3_MODE_MASK 'H3Lib.Constants.H3_MODE_MASK')
+  - [H3_MODE_MASK_NEGATIVE](#F-H3Lib-Constants-H3Index-H3_MODE_MASK_NEGATIVE 'H3Lib.Constants.H3_MODE_MASK_NEGATIVE')
+  - [H3_MODE_OFFSET](#F-H3Lib-Constants-H3Index-H3_MODE_OFFSET 'H3Lib.Constants.H3_MODE_OFFSET')
+  - [H3_NULL](#F-H3Lib-Constants-H3Index-H3_NULL 'H3Lib.Constants.H3_NULL')
+  - [H3_NUM_BITS](#F-H3Lib-Constants-H3Index-H3_NUM_BITS 'H3Lib.Constants.H3_NUM_BITS')
+  - [H3_PER_DIGIT_OFFSET](#F-H3Lib-Constants-H3Index-H3_PER_DIGIT_OFFSET 'H3Lib.Constants.H3_PER_DIGIT_OFFSET')
+  - [H3_RESERVED_MASK](#F-H3Lib-Constants-H3Index-H3_RESERVED_MASK 'H3Lib.Constants.H3_RESERVED_MASK')
+  - [H3_RESERVED_MASK_NEGATIVE](#F-H3Lib-Constants-H3Index-H3_RESERVED_MASK_NEGATIVE 'H3Lib.Constants.H3_RESERVED_MASK_NEGATIVE')
+  - [H3_RESERVED_OFFSET](#F-H3Lib-Constants-H3Index-H3_RESERVED_OFFSET 'H3Lib.Constants.H3_RESERVED_OFFSET')
+  - [H3_RES_MASK](#F-H3Lib-Constants-H3Index-H3_RES_MASK 'H3Lib.Constants.H3_RES_MASK')
+  - [H3_RES_MASK_NEGATIVE](#F-H3Lib-Constants-H3Index-H3_RES_MASK_NEGATIVE 'H3Lib.Constants.H3_RES_MASK_NEGATIVE')
+  - [H3_RES_OFFSET](#F-H3Lib-Constants-H3Index-H3_RES_OFFSET 'H3Lib.Constants.H3_RES_OFFSET')
   - [Value](#F-H3Lib-H3Index-Value 'H3Lib.H3Index.Value')
   - [BaseCell](#P-H3Lib-H3Index-BaseCell 'H3Lib.H3Index.BaseCell')
   - [HighBit](#P-H3Lib-H3Index-HighBit 'H3Lib.H3Index.HighBit')
@@ -446,12 +446,12 @@
   - [SetResolution()](#M-H3Lib-Extensions-H3IndexExtensions-SetResolution-H3Lib-H3Index,System-Int32- 'H3Lib.Extensions.H3IndexExtensions.SetResolution(H3Lib.H3Index,System.Int32)')
   - [ToCenterChild(h,childRes)](#M-H3Lib-Extensions-H3IndexExtensions-ToCenterChild-H3Lib-H3Index,System-Int32- 'H3Lib.Extensions.H3IndexExtensions.ToCenterChild(H3Lib.H3Index,System.Int32)')
   - [ToChildren(h,childRes)](#M-H3Lib-Extensions-H3IndexExtensions-ToChildren-H3Lib-H3Index,System-Int32- 'H3Lib.Extensions.H3IndexExtensions.ToChildren(H3Lib.H3Index,System.Int32)')
-  - [ToFaceIjk(h)](#M-H3Lib-Extensions-H3IndexExtensions-ToFaceIjk-H3Lib-H3Index- 'H3Lib.Extensions.H3IndexExtensions.ToFaceIjk(H3Lib.H3Index)')
-  - [ToFaceIjkWithInitializedFijk(h,fijk)](#M-H3Lib-Extensions-H3IndexExtensions-ToFaceIjkWithInitializedFijk-H3Lib-H3Index,H3Lib-FaceIjk- 'H3Lib.Extensions.H3IndexExtensions.ToFaceIjkWithInitializedFijk(H3Lib.H3Index,H3Lib.FaceIjk)')
+  - [ToFace(h)](#M-H3Lib-Extensions-H3IndexExtensions-ToFaceIJK-H3Lib-H3Index- 'H3Lib.Extensions.H3IndexExtensions.ToFace(H3Lib.H3Index)')
+  - [ToFaceFromFace(h,Fijk)](#M-H3Lib-Extensions-H3IndexExtensions-ToFaceFromFace-H3Lib-H3Index,H3Lib-FaceIJK- 'H3Lib.Extensions.H3IndexExtensions.ToFaceFromFace(H3Lib.H3Index,H3Lib.FaceIJK)')
   - [ToGeoBoundary(h3)](#M-H3Lib-Extensions-H3IndexExtensions-ToGeoBoundary-H3Lib-H3Index- 'H3Lib.Extensions.H3IndexExtensions.ToGeoBoundary(H3Lib.H3Index)')
   - [ToGeoCoord(h3)](#M-H3Lib-Extensions-H3IndexExtensions-ToGeoCoord-H3Lib-H3Index- 'H3Lib.Extensions.H3IndexExtensions.ToGeoCoord(H3Lib.H3Index)')
-  - [ToLocalIjExperimental(origin,h3)](#M-H3Lib-Extensions-H3IndexExtensions-ToLocalIjExperimental-H3Lib-H3Index,H3Lib-H3Index- 'H3Lib.Extensions.H3IndexExtensions.ToLocalIjExperimental(H3Lib.H3Index,H3Lib.H3Index)')
-  - [ToLocalIjk(origin,h3)](#M-H3Lib-Extensions-H3IndexExtensions-ToLocalIjk-H3Lib-H3Index,H3Lib-H3Index- 'H3Lib.Extensions.H3IndexExtensions.ToLocalIjk(H3Lib.H3Index,H3Lib.H3Index)')
+  - [ToLocalIJExperimental(origin,h3)](#M-H3Lib-Extensions-H3IndexExtensions-ToLocalIJExperimental-H3Lib-H3Index,H3Lib-H3Index- 'H3Lib.Extensions.H3IndexExtensions.ToLocalIJExperimental(H3Lib.H3Index,H3Lib.H3Index)')
+  - [ToLocalIJK(origin,h3)](#M-H3Lib-Extensions-H3IndexExtensions-ToLocalIJK-H3Lib-H3Index,H3Lib-H3Index- 'H3Lib.Extensions.H3IndexExtensions.ToLocalIJK(H3Lib.H3Index,H3Lib.H3Index)')
   - [ToParent(h,parentRes)](#M-H3Lib-Extensions-H3IndexExtensions-ToParent-H3Lib-H3Index,System-Int32- 'H3Lib.Extensions.H3IndexExtensions.ToParent(H3Lib.H3Index,System.Int32)')
   - [Uncompact(singleCell,res)](#M-H3Lib-Extensions-H3IndexExtensions-Uncompact-H3Lib-H3Index,System-Int32- 'H3Lib.Extensions.H3IndexExtensions.Uncompact(H3Lib.H3Index,System.Int32)')
   - [UniDirectionalEdgeTo(origin,destination)](#M-H3Lib-Extensions-H3IndexExtensions-UniDirectionalEdgeTo-H3Lib-H3Index,H3Lib-H3Index- 'H3Lib.Extensions.H3IndexExtensions.UniDirectionalEdgeTo(H3Lib.H3Index,H3Lib.H3Index)')
@@ -546,37 +546,37 @@
   - [#ctor()](#M-H3Lib-PentagonDirectionFace-#ctor-System-Int32,System-Int32,System-Int32,System-Int32,System-Int32,System-Int32- 'H3Lib.PentagonDirectionFace.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)')
   - [BaseCell](#F-H3Lib-PentagonDirectionFace-BaseCell 'H3Lib.PentagonDirectionFace.BaseCell')
   - [Faces](#F-H3Lib-PentagonDirectionFace-Faces 'H3Lib.PentagonDirectionFace.Faces')
-- [Vec2d](#T-H3Lib-Vec2d 'H3Lib.Vec2d')
-  - [#ctor()](#M-H3Lib-Vec2d-#ctor-System-double,System-double- 'H3Lib.Vec2d.#ctor(System.double,System.double)')
-  - [X](#F-H3Lib-Vec2d-X 'H3Lib.Vec2d.X')
-  - [Y](#F-H3Lib-Vec2d-Y 'H3Lib.Vec2d.Y')
-  - [Magnitude](#P-H3Lib-Vec2d-Magnitude 'H3Lib.Vec2d.Magnitude')
-  - [Equals()](#M-H3Lib-Vec2d-Equals-H3Lib-Vec2d- 'H3Lib.Vec2d.Equals(H3Lib.Vec2d)')
-  - [Equals()](#M-H3Lib-Vec2d-Equals-System-Object- 'H3Lib.Vec2d.Equals(System.Object)')
-  - [FindIntersection(p0,p1,p2,p3)](#M-H3Lib-Vec2d-FindIntersection-H3Lib-Vec2d,H3Lib-Vec2d,H3Lib-Vec2d,H3Lib-Vec2d- 'H3Lib.Vec2d.FindIntersection(H3Lib.Vec2d,H3Lib.Vec2d,H3Lib.Vec2d,H3Lib.Vec2d)')
-  - [GetHashCode()](#M-H3Lib-Vec2d-GetHashCode 'H3Lib.Vec2d.GetHashCode')
-  - [ToString()](#M-H3Lib-Vec2d-ToString 'H3Lib.Vec2d.ToString')
-  - [op_Equality()](#M-H3Lib-Vec2d-op_Equality-H3Lib-Vec2d,H3Lib-Vec2d- 'H3Lib.Vec2d.op_Equality(H3Lib.Vec2d,H3Lib.Vec2d)')
-  - [op_Inequality()](#M-H3Lib-Vec2d-op_Inequality-H3Lib-Vec2d,H3Lib-Vec2d- 'H3Lib.Vec2d.op_Inequality(H3Lib.Vec2d,H3Lib.Vec2d)')
-- [Vec2dExtensions](#T-H3Lib-Extensions-Vec2dExtensions 'H3Lib.Extensions.Vec2dExtensions')
-  - [ToCoordIjk(v)](#M-H3Lib-Extensions-Vec2dExtensions-ToCoordIjk-H3Lib-Vec2d- 'H3Lib.Extensions.Vec2dExtensions.ToCoordIjk(H3Lib.Vec2d)')
-  - [ToGeoCoord(v,face,res,substrate)](#M-H3Lib-Extensions-Vec2dExtensions-ToGeoCoord-H3Lib-Vec2d,System-Int32,System-Int32,System-Int32- 'H3Lib.Extensions.Vec2dExtensions.ToGeoCoord(H3Lib.Vec2d,System.Int32,System.Int32,System.Int32)')
-- [Vec3d](#T-H3Lib-Vec3d 'H3Lib.Vec3d')
-  - [#ctor()](#M-H3Lib-Vec3d-#ctor-System-double,System-double,System-double- 'H3Lib.Vec3d.#ctor(System.double,System.double,System.double)')
-  - [X](#F-H3Lib-Vec3d-X 'H3Lib.Vec3d.X')
-  - [Y](#F-H3Lib-Vec3d-Y 'H3Lib.Vec3d.Y')
-  - [Z](#F-H3Lib-Vec3d-Z 'H3Lib.Vec3d.Z')
-  - [Equals()](#M-H3Lib-Vec3d-Equals-H3Lib-Vec3d- 'H3Lib.Vec3d.Equals(H3Lib.Vec3d)')
-  - [Equals()](#M-H3Lib-Vec3d-Equals-System-Object- 'H3Lib.Vec3d.Equals(System.Object)')
-  - [GetHashCode()](#M-H3Lib-Vec3d-GetHashCode 'H3Lib.Vec3d.GetHashCode')
-  - [ToString()](#M-H3Lib-Vec3d-ToString 'H3Lib.Vec3d.ToString')
-  - [op_Equality(left,right)](#M-H3Lib-Vec3d-op_Equality-H3Lib-Vec3d,H3Lib-Vec3d- 'H3Lib.Vec3d.op_Equality(H3Lib.Vec3d,H3Lib.Vec3d)')
-  - [op_Inequality()](#M-H3Lib-Vec3d-op_Inequality-H3Lib-Vec3d,H3Lib-Vec3d- 'H3Lib.Vec3d.op_Inequality(H3Lib.Vec3d,H3Lib.Vec3d)')
-- [Vec3dExtensions](#T-H3Lib-Extensions-Vec3dExtensions 'H3Lib.Extensions.Vec3dExtensions')
-  - [PointSquareDistance(v1,v2)](#M-H3Lib-Extensions-Vec3dExtensions-PointSquareDistance-H3Lib-Vec3d,H3Lib-Vec3d- 'H3Lib.Extensions.Vec3dExtensions.PointSquareDistance(H3Lib.Vec3d,H3Lib.Vec3d)')
-  - [SetX(v3,x)](#M-H3Lib-Extensions-Vec3dExtensions-SetX-H3Lib-Vec3d,System-double- 'H3Lib.Extensions.Vec3dExtensions.SetX(H3Lib.Vec3d,System.double)')
-  - [SetY(v3,y)](#M-H3Lib-Extensions-Vec3dExtensions-SetY-H3Lib-Vec3d,System-double- 'H3Lib.Extensions.Vec3dExtensions.SetY(H3Lib.Vec3d,System.double)')
-  - [SetZ(v3,z)](#M-H3Lib-Extensions-Vec3dExtensions-SetZ-H3Lib-Vec3d,System-double- 'H3Lib.Extensions.Vec3dExtensions.SetZ(H3Lib.Vec3d,System.double)')
+- [Vec2D](#T-H3Lib-Vec2D 'H3Lib.Vec2D')
+  - [#ctor()](#M-H3Lib-Vec2D-#ctor-System-double,System-double- 'H3Lib.Vec2D.#ctor(System.double,System.double)')
+  - [X](#F-H3Lib-Vec2D-X 'H3Lib.Vec2D.X')
+  - [Y](#F-H3Lib-Vec2D-Y 'H3Lib.Vec2D.Y')
+  - [Magnitude](#P-H3Lib-Vec2D-Magnitude 'H3Lib.Vec2D.Magnitude')
+  - [Equals()](#M-H3Lib-Vec2D-Equals-H3Lib-Vec2D- 'H3Lib.Vec2D.Equals(H3Lib.Vec2D)')
+  - [Equals()](#M-H3Lib-Vec2D-Equals-System-Object- 'H3Lib.Vec2D.Equals(System.Object)')
+  - [FindIntersection(p0,p1,p2,p3)](#M-H3Lib-Vec2D-FindIntersection-H3Lib-Vec2D,H3Lib-Vec2D,H3Lib-Vec2D,H3Lib-Vec2D- 'H3Lib.Vec2D.FindIntersection(H3Lib.Vec2D,H3Lib.Vec2D,H3Lib.Vec2D,H3Lib.Vec2D)')
+  - [GetHashCode()](#M-H3Lib-Vec2D-GetHashCode 'H3Lib.Vec2D.GetHashCode')
+  - [ToString()](#M-H3Lib-Vec2D-ToString 'H3Lib.Vec2D.ToString')
+  - [op_Equality()](#M-H3Lib-Vec2D-op_Equality-H3Lib-Vec2D,H3Lib-Vec2D- 'H3Lib.Vec2D.op_Equality(H3Lib.Vec2D,H3Lib.Vec2D)')
+  - [op_Inequality()](#M-H3Lib-Vec2D-op_Inequality-H3Lib-Vec2D,H3Lib-Vec2D- 'H3Lib.Vec2D.op_Inequality(H3Lib.Vec2D,H3Lib.Vec2D)')
+- [Vec2DExtensions](#T-H3Lib-Extensions-Vec2DExtensions 'H3Lib.Extensions.Vec2DExtensions')
+  - [ToCoordIJK(v)](#M-H3Lib-Extensions-Vec2DExtensions-ToCoordIJK-H3Lib-Vec2D- 'H3Lib.Extensions.Vec2DExtensions.ToCoordIJK(H3Lib.Vec2D)')
+  - [ToGeoCoord(v,face,res,substrate)](#M-H3Lib-Extensions-Vec2DExtensions-ToGeoCoord-H3Lib-Vec2D,System-Int32,System-Int32,System-Int32- 'H3Lib.Extensions.Vec2DExtensions.ToGeoCoord(H3Lib.Vec2D,System.Int32,System.Int32,System.Int32)')
+- [Vec3D](#T-H3Lib-Vec3D 'H3Lib.Vec3D')
+  - [#ctor()](#M-H3Lib-Vec3D-#ctor-System-double,System-double,System-double- 'H3Lib.Vec3D.#ctor(System.double,System.double,System.double)')
+  - [X](#F-H3Lib-Vec3D-X 'H3Lib.Vec3D.X')
+  - [Y](#F-H3Lib-Vec3D-Y 'H3Lib.Vec3D.Y')
+  - [Z](#F-H3Lib-Vec3D-Z 'H3Lib.Vec3D.Z')
+  - [Equals()](#M-H3Lib-Vec3D-Equals-H3Lib-Vec3D- 'H3Lib.Vec3D.Equals(H3Lib.Vec3D)')
+  - [Equals()](#M-H3Lib-Vec3D-Equals-System-Object- 'H3Lib.Vec3D.Equals(System.Object)')
+  - [GetHashCode()](#M-H3Lib-Vec3D-GetHashCode 'H3Lib.Vec3D.GetHashCode')
+  - [ToString()](#M-H3Lib-Vec3D-ToString 'H3Lib.Vec3D.ToString')
+  - [op_Equality(left,right)](#M-H3Lib-Vec3D-op_Equality-H3Lib-Vec3D,H3Lib-Vec3D- 'H3Lib.Vec3D.op_Equality(H3Lib.Vec3D,H3Lib.Vec3D)')
+  - [op_Inequality()](#M-H3Lib-Vec3D-op_Inequality-H3Lib-Vec3D,H3Lib-Vec3D- 'H3Lib.Vec3D.op_Inequality(H3Lib.Vec3D,H3Lib.Vec3D)')
+- [Vec3DExtensions](#T-H3Lib-Extensions-Vec3DExtensions 'H3Lib.Extensions.Vec3DExtensions')
+  - [PointSquareDistance(v1,v2)](#M-H3Lib-Extensions-Vec3DExtensions-PointSquareDistance-H3Lib-Vec3D,H3Lib-Vec3D- 'H3Lib.Extensions.Vec3DExtensions.PointSquareDistance(H3Lib.Vec3D,H3Lib.Vec3D)')
+  - [SetX(v3,x)](#M-H3Lib-Extensions-Vec3DExtensions-SetX-H3Lib-Vec3D,System-double- 'H3Lib.Extensions.Vec3DExtensions.SetX(H3Lib.Vec3D,System.double)')
+  - [SetY(v3,y)](#M-H3Lib-Extensions-Vec3DExtensions-SetY-H3Lib-Vec3D,System-double- 'H3Lib.Extensions.Vec3DExtensions.SetY(H3Lib.Vec3D,System.double)')
+  - [SetZ(v3,z)](#M-H3Lib-Extensions-Vec3DExtensions-SetZ-H3Lib-Vec3D,System-double- 'H3Lib.Extensions.Vec3DExtensions.SetZ(H3Lib.Vec3D,System.double)')
 - [Vertex](#T-H3Lib-Constants-Vertex 'H3Lib.Constants.Vertex')
   - [DirectionToVertexNumHex](#F-H3Lib-Constants-Vertex-DirectionToVertexNumHex 'H3Lib.Constants.Vertex.DirectionToVertexNumHex')
   - [DirectionToVertexNumPent](#F-H3Lib-Constants-Vertex-DirectionToVertexNumPent 'H3Lib.Constants.Vertex.DirectionToVertexNumPent')
@@ -825,8 +825,8 @@ exact length for a specific unidirectional edge in radians*/
 
 This method has no parameters.
 
-<a name='M-H3Lib-Api-ExperimentalH3ToLocalIj-H3Lib-H3Index,H3Lib-H3Index,H3Lib-CoordIj@-'></a>
-### ExperimentalH3ToLocalIj() `method`
+<a name='M-H3Lib-Api-ExperimentalH3ToLocalIJ-H3Lib-H3Index,H3Lib-H3Index,H3Lib-CoordIJ@-'></a>
+### ExperimentalH3ToLocalIJ() `method`
 
 ##### Summary
 
@@ -836,8 +836,8 @@ Returns two dimensional coordinates for the given index
 
 This method has no parameters.
 
-<a name='M-H3Lib-Api-ExperimentalLocalIjToH3-H3Lib-H3Index,H3Lib-CoordIj,H3Lib-H3Index@-'></a>
-### ExperimentalLocalIjToH3() `method`
+<a name='M-H3Lib-Api-ExperimentalLocalIJToH3-H3Lib-H3Index,H3Lib-CoordIJ,H3Lib-H3Index@-'></a>
+### ExperimentalLocalIJToH3() `method`
 
 ##### Summary
 
@@ -1876,8 +1876,8 @@ This constructor has no parameters.
 
 base cell number
 
-<a name='F-H3Lib-BaseCellRotation-CounterClockwiseRotate60'></a>
-### CounterClockwiseRotate60 `constants`
+<a name='F-H3Lib-BaseCellRotation-CCWRotate'></a>
+### CCWRotate `constants`
 
 ##### Summary
 
@@ -1978,8 +1978,8 @@ Neighboring base cell ID in each IJK direction.
  For each base cell, for each direction, the neighboring base
  cell ID is given. 127 indicates there is no neighbor in that direction.
 
-<a name='F-H3Lib-Constants-BaseCells-FaceIjkBaseCells'></a>
-### FaceIjkBaseCells `constants`
+<a name='F-H3Lib-Constants-BaseCells-FaceIJKBaseCells'></a>
+### FaceIJKBaseCells `constants`
 
 ##### Summary
 
@@ -1993,7 +1993,7 @@ Resolution 0 base cell lookup table for each face.
  Valid lookup coordinates are from (0, 0, 0) to (2, 2, 2).
 
  This table can be accessed using the functions BaseCells._faceIjkToBaseCell
- and BaseCells.ToBaseCellCounterClockwiseRotate60
+ and BaseCells.ToBaseCellCCWRotate
 
 <a name='F-H3Lib-Constants-BaseCells-InvalidRotations'></a>
 ### InvalidRotations `constants`
@@ -2091,8 +2091,8 @@ Return whether or not the tested face is a cw offset face.
 
 This method has no parameters.
 
-<a name='M-H3Lib-Extensions-BaseCellsExtensions-ToCounterClockwiseRotate60-System-Int32,System-Int32-'></a>
-### ToCounterClockwiseRotate60() `method`
+<a name='M-H3Lib-Extensions-BaseCellsExtensions-ToCCWRotate-System-Int32,System-Int32-'></a>
+### ToCCWRotate() `method`
 
 ##### Summary
 
@@ -2109,8 +2109,8 @@ cell is not found on the given face
 
 This method has no parameters.
 
-<a name='M-H3Lib-Extensions-BaseCellsExtensions-ToFaceIjk-System-Int32-'></a>
-### ToFaceIjk() `method`
+<a name='M-H3Lib-Extensions-BaseCellsExtensions-ToFaceIJK-System-Int32-'></a>
+### ToFace() `method`
 
 ##### Summary
 
@@ -2292,8 +2292,8 @@ Minor version
 
 Patch version
 
-<a name='T-H3Lib-CoordIj'></a>
-## CoordIj `type`
+<a name='T-H3Lib-CoordIJ'></a>
+## CoordIJ `type`
 
 ##### Namespace
 
@@ -2305,7 +2305,7 @@ IJ Hexagon coordinates.
 
  Each axis is spaced 120 degrees apart
 
-<a name='M-H3Lib-CoordIj-#ctor-System-Int32,System-Int32-'></a>
+<a name='M-H3Lib-CoordIJ-#ctor-System-Int32,System-Int32-'></a>
 ### #ctor() `constructor`
 
 ##### Summary
@@ -2316,7 +2316,7 @@ Constructor
 
 This constructor has no parameters.
 
-<a name='M-H3Lib-CoordIj-#ctor-H3Lib-CoordIj-'></a>
+<a name='M-H3Lib-CoordIJ-#ctor-H3Lib-CoordIJ-'></a>
 ### #ctor() `constructor`
 
 ##### Summary
@@ -2327,21 +2327,21 @@ Constructor
 
 This constructor has no parameters.
 
-<a name='F-H3Lib-CoordIj-I'></a>
+<a name='F-H3Lib-CoordIJ-I'></a>
 ### I `constants`
 
 ##### Summary
 
 I Component
 
-<a name='F-H3Lib-CoordIj-J'></a>
+<a name='F-H3Lib-CoordIJ-J'></a>
 ### J `constants`
 
 ##### Summary
 
 J component
 
-<a name='M-H3Lib-CoordIj-Equals-H3Lib-CoordIj-'></a>
+<a name='M-H3Lib-CoordIJ-Equals-H3Lib-CoordIJ-'></a>
 ### Equals() `method`
 
 ##### Summary
@@ -2352,7 +2352,7 @@ Test for equality
 
 This method has no parameters.
 
-<a name='M-H3Lib-CoordIj-Equals-System-Object-'></a>
+<a name='M-H3Lib-CoordIJ-Equals-System-Object-'></a>
 ### Equals() `method`
 
 ##### Summary
@@ -2363,7 +2363,7 @@ Test for equality on object that can be unboxed to CoordIJ
 
 This method has no parameters.
 
-<a name='M-H3Lib-CoordIj-GetHashCode'></a>
+<a name='M-H3Lib-CoordIJ-GetHashCode'></a>
 ### GetHashCode() `method`
 
 ##### Summary
@@ -2374,7 +2374,7 @@ Hashcode for identity
 
 This method has no parameters.
 
-<a name='M-H3Lib-CoordIj-op_Addition-H3Lib-CoordIj,H3Lib-CoordIj-'></a>
+<a name='M-H3Lib-CoordIJ-op_Addition-H3Lib-CoordIJ,H3Lib-CoordIJ-'></a>
 ### op_Addition() `method`
 
 ##### Summary
@@ -2385,7 +2385,7 @@ Addition operator
 
 This method has no parameters.
 
-<a name='M-H3Lib-CoordIj-op_Equality-H3Lib-CoordIj,H3Lib-CoordIj-'></a>
+<a name='M-H3Lib-CoordIJ-op_Equality-H3Lib-CoordIJ,H3Lib-CoordIJ-'></a>
 ### op_Equality() `method`
 
 ##### Summary
@@ -2396,7 +2396,7 @@ Test for equality
 
 This method has no parameters.
 
-<a name='M-H3Lib-CoordIj-op_Inequality-H3Lib-CoordIj,H3Lib-CoordIj-'></a>
+<a name='M-H3Lib-CoordIJ-op_Inequality-H3Lib-CoordIJ,H3Lib-CoordIJ-'></a>
 ### op_Inequality() `method`
 
 ##### Summary
@@ -2407,7 +2407,7 @@ Test for inequality
 
 This method has no parameters.
 
-<a name='M-H3Lib-CoordIj-op_Multiply-H3Lib-CoordIj,System-Int32-'></a>
+<a name='M-H3Lib-CoordIJ-op_Multiply-H3Lib-CoordIJ,System-Int32-'></a>
 ### op_Multiply() `method`
 
 ##### Summary
@@ -2418,7 +2418,7 @@ Multiply operator for scaling
 
 This method has no parameters.
 
-<a name='M-H3Lib-CoordIj-op_Subtraction-H3Lib-CoordIj,H3Lib-CoordIj-'></a>
+<a name='M-H3Lib-CoordIJ-op_Subtraction-H3Lib-CoordIJ,H3Lib-CoordIJ-'></a>
 ### op_Subtraction() `method`
 
 ##### Summary
@@ -2429,8 +2429,8 @@ Subtraction operator
 
 This method has no parameters.
 
-<a name='T-H3Lib-Extensions-CoordIjExtensions'></a>
-## CoordIjExtensions `type`
+<a name='T-H3Lib-Extensions-CoordIJExtensions'></a>
+## CoordIJExtensions `type`
 
 ##### Namespace
 
@@ -2438,9 +2438,9 @@ H3Lib.Extensions
 
 ##### Summary
 
-Extension methods for working with CoordIj type
+Extension methods for working with CoordIJ type
 
-<a name='M-H3Lib-Extensions-CoordIjExtensions-ReplaceI-H3Lib-CoordIj,System-Int32-'></a>
+<a name='M-H3Lib-Extensions-CoordIJExtensions-ReplaceI-H3Lib-CoordIJ,System-Int32-'></a>
 ### ReplaceI() `method`
 
 ##### Summary
@@ -2451,7 +2451,7 @@ Replace I value
 
 This method has no parameters.
 
-<a name='M-H3Lib-Extensions-CoordIjExtensions-ReplaceJ-H3Lib-CoordIj,System-Int32-'></a>
+<a name='M-H3Lib-Extensions-CoordIJExtensions-ReplaceJ-H3Lib-CoordIJ,System-Int32-'></a>
 ### ReplaceJ() `method`
 
 ##### Summary
@@ -2466,7 +2466,7 @@ replace J value
 
 This method has no parameters.
 
-<a name='M-H3Lib-Extensions-CoordIjExtensions-ToH3Experimental-H3Lib-CoordIj,H3Lib-H3Index-'></a>
+<a name='M-H3Lib-Extensions-CoordIJExtensions-ToH3Experimental-H3Lib-CoordIJ,H3Lib-H3Index-'></a>
 ### ToH3Experimental(ij,origin) `method`
 
 ##### Summary
@@ -2492,10 +2492,10 @@ Tuple:
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| ij | [H3Lib.CoordIj](#T-H3Lib-CoordIj 'H3Lib.CoordIj') | coordinates to index. |
+| ij | [H3Lib.CoordIJ](#T-H3Lib-CoordIJ 'H3Lib.CoordIJ') | coordinates to index. |
 | origin | [H3Lib.H3Index](#T-H3Lib-H3Index 'H3Lib.H3Index') | An anchoring index for the ij coordinate system. |
 
-<a name='M-H3Lib-Extensions-CoordIjExtensions-ToIjk-H3Lib-CoordIj-'></a>
+<a name='M-H3Lib-Extensions-CoordIJExtensions-ToIjk-H3Lib-CoordIJ-'></a>
 ### ToIjk(ij) `method`
 
 ##### Summary
@@ -2506,22 +2506,22 @@ Transforms coordinates from the IJ coordinate system to the IJK+ coordinate syst
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| ij | [H3Lib.CoordIj](#T-H3Lib-CoordIj 'H3Lib.CoordIj') | The input IJ coordinates |
+| ij | [H3Lib.CoordIJ](#T-H3Lib-CoordIJ 'H3Lib.CoordIJ') | The input IJ coordinates |
 
 ##### Remarks
 
 coordijk.c
 void ijToIjk
 
-<a name='T-H3Lib-Constants-CoordIjk'></a>
-## CoordIjk `type`
+<a name='T-H3Lib-Constants-CoordIJK'></a>
+## CoordIJK `type`
 
 ##### Namespace
 
 H3Lib.Constants
 
-<a name='T-H3Lib-CoordIjk'></a>
-## CoordIjk `type`
+<a name='T-H3Lib-CoordIJK'></a>
+## CoordIJK `type`
 
 ##### Namespace
 
@@ -2533,7 +2533,7 @@ Header file for CoordIJK functions including conversion from lat/lon
 
 ##### Remarks
 
-References two Vec2d cartesian coordinate systems:
+References two Vec2D cartesian coordinate systems:
 
  1. gnomonic: face-centered polyhedral gnomonic projection space with
     traditional scaling and x-axes aligned with the face Class II
@@ -2542,7 +2542,7 @@ References two Vec2d cartesian coordinate systems:
  2. hex2d: local face-centered coordinate system scaled a specific H3 grid
     resolution unit length and with x-axes aligned with the local i-axes
 
-<a name='M-H3Lib-CoordIjk-#ctor-System-Int32,System-Int32,System-Int32-'></a>
+<a name='M-H3Lib-CoordIJK-#ctor-System-Int32,System-Int32,System-Int32-'></a>
 ### #ctor() `constructor`
 
 ##### Summary
@@ -2553,7 +2553,7 @@ IJK hexagon coordinates
 
 This constructor has no parameters.
 
-<a name='M-H3Lib-CoordIjk-#ctor-H3Lib-CoordIjk-'></a>
+<a name='M-H3Lib-CoordIJK-#ctor-H3Lib-CoordIJK-'></a>
 ### #ctor() `constructor`
 
 ##### Summary
@@ -2564,35 +2564,35 @@ Constructor
 
 This constructor has no parameters.
 
-<a name='F-H3Lib-Constants-CoordIjk-UnitVecs'></a>
+<a name='F-H3Lib-Constants-CoordIJK-UnitVecs'></a>
 ### UnitVecs `constants`
 
 ##### Summary
 
 CoordIJK unit vectors corresponding to the 7 H3 digits.
 
-<a name='F-H3Lib-CoordIjk-I'></a>
+<a name='F-H3Lib-CoordIJK-I'></a>
 ### I `constants`
 
 ##### Summary
 
 I Coordinate
 
-<a name='F-H3Lib-CoordIjk-J'></a>
+<a name='F-H3Lib-CoordIJK-J'></a>
 ### J `constants`
 
 ##### Summary
 
 J Coordinate
 
-<a name='F-H3Lib-CoordIjk-K'></a>
+<a name='F-H3Lib-CoordIJK-K'></a>
 ### K `constants`
 
 ##### Summary
 
 K Coordinate
 
-<a name='M-H3Lib-CoordIjk-CubeRound-System-Double,System-Double,System-Double-'></a>
+<a name='M-H3Lib-CoordIJK-CubeRound-System-Double,System-Double,System-Double-'></a>
 ### CubeRound(i,j,k) `method`
 
 ##### Summary
@@ -2612,7 +2612,7 @@ IJK coord struct
 | j | [System.Double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Double 'System.Double') | Floating-point J coord |
 | k | [System.Double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Double 'System.Double') | Floating-point K coord |
 
-<a name='M-H3Lib-CoordIjk-Equals-H3Lib-CoordIjk-'></a>
+<a name='M-H3Lib-CoordIJK-Equals-H3Lib-CoordIJK-'></a>
 ### Equals() `method`
 
 ##### Summary
@@ -2623,7 +2623,7 @@ Equality test
 
 This method has no parameters.
 
-<a name='M-H3Lib-CoordIjk-Equals-System-Object-'></a>
+<a name='M-H3Lib-CoordIJK-Equals-System-Object-'></a>
 ### Equals() `method`
 
 ##### Summary
@@ -2634,7 +2634,7 @@ Equality for unboxed object
 
 This method has no parameters.
 
-<a name='M-H3Lib-CoordIjk-GetHashCode'></a>
+<a name='M-H3Lib-CoordIJK-GetHashCode'></a>
 ### GetHashCode() `method`
 
 ##### Summary
@@ -2649,7 +2649,7 @@ Hashcode for identity
 
 This method has no parameters.
 
-<a name='M-H3Lib-CoordIjk-ToString'></a>
+<a name='M-H3Lib-CoordIJK-ToString'></a>
 ### ToString() `method`
 
 ##### Summary
@@ -2660,7 +2660,7 @@ Debug information
 
 This method has no parameters.
 
-<a name='M-H3Lib-CoordIjk-op_Addition-H3Lib-CoordIjk,H3Lib-CoordIjk-'></a>
+<a name='M-H3Lib-CoordIJK-op_Addition-H3Lib-CoordIJK,H3Lib-CoordIJK-'></a>
 ### op_Addition() `method`
 
 ##### Summary
@@ -2671,7 +2671,7 @@ Addition operator
 
 This method has no parameters.
 
-<a name='M-H3Lib-CoordIjk-op_Equality-H3Lib-CoordIjk,H3Lib-CoordIjk-'></a>
+<a name='M-H3Lib-CoordIJK-op_Equality-H3Lib-CoordIJK,H3Lib-CoordIJK-'></a>
 ### op_Equality() `method`
 
 ##### Summary
@@ -2682,7 +2682,7 @@ Equality operator
 
 This method has no parameters.
 
-<a name='M-H3Lib-CoordIjk-op_Inequality-H3Lib-CoordIjk,H3Lib-CoordIjk-'></a>
+<a name='M-H3Lib-CoordIJK-op_Inequality-H3Lib-CoordIJK,H3Lib-CoordIJK-'></a>
 ### op_Inequality() `method`
 
 ##### Summary
@@ -2693,7 +2693,7 @@ Inequality operator
 
 This method has no parameters.
 
-<a name='M-H3Lib-CoordIjk-op_Multiply-H3Lib-CoordIjk,System-Int32-'></a>
+<a name='M-H3Lib-CoordIJK-op_Multiply-H3Lib-CoordIJK,System-Int32-'></a>
 ### op_Multiply() `method`
 
 ##### Summary
@@ -2704,7 +2704,7 @@ Multiply operator for scaling
 
 This method has no parameters.
 
-<a name='M-H3Lib-CoordIjk-op_Subtraction-H3Lib-CoordIjk,H3Lib-CoordIjk-'></a>
+<a name='M-H3Lib-CoordIJK-op_Subtraction-H3Lib-CoordIJK,H3Lib-CoordIJK-'></a>
 ### op_Subtraction() `method`
 
 ##### Summary
@@ -2715,8 +2715,8 @@ Subtraction operator
 
 This method has no parameters.
 
-<a name='T-H3Lib-Extensions-CoordIjkExtensions'></a>
-## CoordIjkExtensions `type`
+<a name='T-H3Lib-Extensions-CoordIJKExtensions'></a>
+## CoordIJKExtensions `type`
 
 ##### Namespace
 
@@ -2724,9 +2724,9 @@ H3Lib.Extensions
 
 ##### Summary
 
-Extension methods for CoordIjk type
+Extension methods for CoordIJK type
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-DistanceTo-H3Lib-CoordIjk,H3Lib-CoordIjk-'></a>
+<a name='M-H3Lib-Extensions-CoordIJKExtensions-DistanceTo-H3Lib-CoordIJK,H3Lib-CoordIJK-'></a>
 ### DistanceTo(start,end) `method`
 
 ##### Summary
@@ -2737,10 +2737,10 @@ Finds the distance between the two coordinates. Returns result.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| start | [H3Lib.CoordIjk](#T-H3Lib-CoordIjk 'H3Lib.CoordIjk') | The first set of ijk coordinates. |
-| end | [H3Lib.CoordIjk](#T-H3Lib-CoordIjk 'H3Lib.CoordIjk') | The second set of ijk coordinates. |
+| start | [H3Lib.CoordIJK](#T-H3Lib-CoordIJK 'H3Lib.CoordIJK') | The first set of ijk coordinates. |
+| end | [H3Lib.CoordIJK](#T-H3Lib-CoordIJK 'H3Lib.CoordIJK') | The second set of ijk coordinates. |
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-DownAp3-H3Lib-CoordIjk-'></a>
+<a name='M-H3Lib-Extensions-CoordIJKExtensions-DownAp3-H3Lib-CoordIJK-'></a>
 ### DownAp3(ijk) `method`
 
 ##### Summary
@@ -2753,9 +2753,9 @@ place.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| ijk | [H3Lib.CoordIjk](#T-H3Lib-CoordIjk 'H3Lib.CoordIjk') | The ijk coordinates. |
+| ijk | [H3Lib.CoordIJK](#T-H3Lib-CoordIJK 'H3Lib.CoordIJK') | The ijk coordinates. |
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-DownAp3R-H3Lib-CoordIjk-'></a>
+<a name='M-H3Lib-Extensions-CoordIJKExtensions-DownAp3R-H3Lib-CoordIJK-'></a>
 ### DownAp3R(ijk) `method`
 
 ##### Summary
@@ -2767,9 +2767,9 @@ hex at the next finer aperture 3 clockwise resolution. Works in place.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| ijk | [H3Lib.CoordIjk](#T-H3Lib-CoordIjk 'H3Lib.CoordIjk') | The ijk coordinates. |
+| ijk | [H3Lib.CoordIJK](#T-H3Lib-CoordIJK 'H3Lib.CoordIJK') | The ijk coordinates. |
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-DownAp7-H3Lib-CoordIjk-'></a>
+<a name='M-H3Lib-Extensions-CoordIJKExtensions-DownAp7-H3Lib-CoordIJK-'></a>
 ### DownAp7(ijk) `method`
 
 ##### Summary
@@ -2782,9 +2782,9 @@ place.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| ijk | [H3Lib.CoordIjk](#T-H3Lib-CoordIjk 'H3Lib.CoordIjk') | The ijk coordinates |
+| ijk | [H3Lib.CoordIJK](#T-H3Lib-CoordIJK 'H3Lib.CoordIJK') | The ijk coordinates |
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-DownAp7R-H3Lib-CoordIjk-'></a>
+<a name='M-H3Lib-Extensions-CoordIJKExtensions-DownAp7R-H3Lib-CoordIJK-'></a>
 ### DownAp7R(ijk) `method`
 
 ##### Summary
@@ -2796,9 +2796,9 @@ hex at the next finer aperture 7 clockwise resolution. Works in place.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| ijk | [H3Lib.CoordIjk](#T-H3Lib-CoordIjk 'H3Lib.CoordIjk') | The ijk coordinates. |
+| ijk | [H3Lib.CoordIJK](#T-H3Lib-CoordIJK 'H3Lib.CoordIJK') | The ijk coordinates. |
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-FromCube-H3Lib-CoordIjk-'></a>
+<a name='M-H3Lib-Extensions-CoordIJKExtensions-FromCube-H3Lib-CoordIJK-'></a>
 ### FromCube(ijk) `method`
 
 ##### Summary
@@ -2809,9 +2809,9 @@ Convert cube coordinates to IJK coordinates, in place
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| ijk | [H3Lib.CoordIjk](#T-H3Lib-CoordIjk 'H3Lib.CoordIjk') | Coordinate to convert |
+| ijk | [H3Lib.CoordIJK](#T-H3Lib-CoordIJK 'H3Lib.CoordIJK') | Coordinate to convert |
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-IsZero-H3Lib-CoordIjk-'></a>
+<a name='M-H3Lib-Extensions-CoordIJKExtensions-IsZero-H3Lib-CoordIJK-'></a>
 ### IsZero() `method`
 
 ##### Summary
@@ -2822,8 +2822,8 @@ Tests if all coordinates are zero
 
 This method has no parameters.
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-LocalIjkToH3-H3Lib-CoordIjk,H3Lib-H3Index-'></a>
-### LocalIjkToH3(origin,ijk) `method`
+<a name='M-H3Lib-Extensions-CoordIJKExtensions-LocalIJKToH3-H3Lib-CoordIJK,H3Lib-H3Index-'></a>
+### LocalIJKToH3(origin,ijk) `method`
 
 ##### Summary
 
@@ -2843,10 +2843,10 @@ Produces an index for ijk+ coordinates anchored by an origin.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| origin | [H3Lib.CoordIjk](#T-H3Lib-CoordIjk 'H3Lib.CoordIjk') | An anchoring index for the ijk+ coordinate system. |
+| origin | [H3Lib.CoordIJK](#T-H3Lib-CoordIJK 'H3Lib.CoordIJK') | An anchoring index for the ijk+ coordinate system. |
 | ijk | [H3Lib.H3Index](#T-H3Lib-H3Index 'H3Lib.H3Index') | IJK+ Coordinates to find the index of |
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-Neighbor-H3Lib-CoordIjk,H3Lib-Direction-'></a>
+<a name='M-H3Lib-Extensions-CoordIJKExtensions-Neighbor-H3Lib-CoordIJK,H3Lib-Direction-'></a>
 ### Neighbor(ijk,digit) `method`
 
 ##### Summary
@@ -2858,10 +2858,10 @@ direction from the specified ijk coordinates. Works in place.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| ijk | [H3Lib.CoordIjk](#T-H3Lib-CoordIjk 'H3Lib.CoordIjk') | The ijk coordinates. |
+| ijk | [H3Lib.CoordIJK](#T-H3Lib-CoordIJK 'H3Lib.CoordIJK') | The ijk coordinates. |
 | digit | [H3Lib.Direction](#T-H3Lib-Direction 'H3Lib.Direction') | The digit direction from the original ijk coordinates. |
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-Normalized-H3Lib-CoordIjk-'></a>
+<a name='M-H3Lib-Extensions-CoordIJKExtensions-Normalized-H3Lib-CoordIJK-'></a>
 ### Normalized(coord) `method`
 
 ##### Summary
@@ -2873,9 +2873,9 @@ values. Works in place.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| coord | [H3Lib.CoordIjk](#T-H3Lib-CoordIjk 'H3Lib.CoordIjk') | The ijk coordinates to normalize. |
+| coord | [H3Lib.CoordIJK](#T-H3Lib-CoordIJK 'H3Lib.CoordIJK') | The ijk coordinates to normalize. |
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-RotateCW-H3Lib-CoordIjk-'></a>
+<a name='M-H3Lib-Extensions-CoordIJKExtensions-RotateCW-H3Lib-CoordIJK-'></a>
 ### RotateCW(ijk) `method`
 
 ##### Summary
@@ -2886,9 +2886,9 @@ Rotates ijk coordinates 60 degrees clockwise. Works in place.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| ijk | [H3Lib.CoordIjk](#T-H3Lib-CoordIjk 'H3Lib.CoordIjk') | The ijk coordinates. |
+| ijk | [H3Lib.CoordIJK](#T-H3Lib-CoordIJK 'H3Lib.CoordIJK') | The ijk coordinates. |
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-RotateCCW-H3Lib-CoordIjk-'></a>
+<a name='M-H3Lib-Extensions-CoordIJKExtensions-RotateCCW-H3Lib-CoordIJK-'></a>
 ### RotateCCW(ijk) `method`
 
 ##### Summary
@@ -2899,9 +2899,9 @@ Rotates ijk coordinates 60 degrees counter-clockwise. Works in place.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| ijk | [H3Lib.CoordIjk](#T-H3Lib-CoordIjk 'H3Lib.CoordIjk') | The ijk coordinates. |
+| ijk | [H3Lib.CoordIJK](#T-H3Lib-CoordIJK 'H3Lib.CoordIJK') | The ijk coordinates. |
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-SetI-H3Lib-CoordIjk,System-Int32-'></a>
+<a name='M-H3Lib-Extensions-CoordIJKExtensions-SetI-H3Lib-CoordIJK,System-Int32-'></a>
 ### SetI() `method`
 
 ##### Summary
@@ -2912,7 +2912,7 @@ Change I coordinate value
 
 This method has no parameters.
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-SetIJ-H3Lib-CoordIjk,System-Int32,System-Int32-'></a>
+<a name='M-H3Lib-Extensions-CoordIJKExtensions-SetIJ-H3Lib-CoordIJK,System-Int32,System-Int32-'></a>
 ### SetIJ() `method`
 
 ##### Summary
@@ -2923,7 +2923,7 @@ Change IJ coordinates value
 
 This method has no parameters.
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-SetIK-H3Lib-CoordIjk,System-Int32,System-Int32-'></a>
+<a name='M-H3Lib-Extensions-CoordIJKExtensions-SetIK-H3Lib-CoordIJK,System-Int32,System-Int32-'></a>
 ### SetIK() `method`
 
 ##### Summary
@@ -2934,7 +2934,7 @@ Change JK coordinates value
 
 This method has no parameters.
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-SetJ-H3Lib-CoordIjk,System-Int32-'></a>
+<a name='M-H3Lib-Extensions-CoordIJKExtensions-SetJ-H3Lib-CoordIJK,System-Int32-'></a>
 ### SetJ() `method`
 
 ##### Summary
@@ -2945,7 +2945,7 @@ Change J coordinate value
 
 This method has no parameters.
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-SetJK-H3Lib-CoordIjk,System-Int32,System-Int32-'></a>
+<a name='M-H3Lib-Extensions-CoordIJKExtensions-SetJK-H3Lib-CoordIJK,System-Int32,System-Int32-'></a>
 ### SetJK() `method`
 
 ##### Summary
@@ -2956,7 +2956,7 @@ Change JK coordinates value
 
 This method has no parameters.
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-SetK-H3Lib-CoordIjk,System-Int32-'></a>
+<a name='M-H3Lib-Extensions-CoordIJKExtensions-SetK-H3Lib-CoordIJK,System-Int32-'></a>
 ### SetK() `method`
 
 ##### Summary
@@ -2967,7 +2967,7 @@ Change K coordinate value
 
 This method has no parameters.
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-Sum-H3Lib-CoordIjk-'></a>
+<a name='M-H3Lib-Extensions-CoordIJKExtensions-Sum-H3Lib-CoordIJK-'></a>
 ### Sum() `method`
 
 ##### Summary
@@ -2978,7 +2978,7 @@ Returns sum of all coordinates
 
 This method has no parameters.
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-ToCube-H3Lib-CoordIjk-'></a>
+<a name='M-H3Lib-Extensions-CoordIJKExtensions-ToCube-H3Lib-CoordIJK-'></a>
 ### ToCube(ijk) `method`
 
 ##### Summary
@@ -2989,9 +2989,9 @@ Convert IJK coordinates to cube coordinates, in place
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| ijk | [H3Lib.CoordIjk](#T-H3Lib-CoordIjk 'H3Lib.CoordIjk') | Coordinate to convert |
+| ijk | [H3Lib.CoordIJK](#T-H3Lib-CoordIJK 'H3Lib.CoordIJK') | Coordinate to convert |
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-ToDirection-H3Lib-CoordIjk-'></a>
+<a name='M-H3Lib-Extensions-CoordIJKExtensions-ToDirection-H3Lib-CoordIJK-'></a>
 ### ToDirection(ijk) `method`
 
 ##### Summary
@@ -3007,10 +3007,10 @@ The H3 digit (0-6) corresponding to the ijk unit vector, or
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| ijk | [H3Lib.CoordIjk](#T-H3Lib-CoordIjk 'H3Lib.CoordIjk') | The ijk coordinates; must be a unit vector. |
+| ijk | [H3Lib.CoordIJK](#T-H3Lib-CoordIJK 'H3Lib.CoordIJK') | The ijk coordinates; must be a unit vector. |
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-ToHex2d-H3Lib-CoordIjk-'></a>
-### ToHex2d(h) `method`
+<a name='M-H3Lib-Extensions-CoordIJKExtensions-ToHex2D-H3Lib-CoordIJK-'></a>
+### ToHex2D(h) `method`
 
 ##### Summary
 
@@ -3020,9 +3020,9 @@ Find the center point in 2D cartesian coordinates of a hex.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| h | [H3Lib.CoordIjk](#T-H3Lib-CoordIjk 'H3Lib.CoordIjk') | The ijk coordinates of the hex. |
+| h | [H3Lib.CoordIJK](#T-H3Lib-CoordIJK 'H3Lib.CoordIJK') | The ijk coordinates of the hex. |
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-ToIj-H3Lib-CoordIjk-'></a>
+<a name='M-H3Lib-Extensions-CoordIJKExtensions-ToIj-H3Lib-CoordIJK-'></a>
 ### ToIj(ijk) `method`
 
 ##### Summary
@@ -3033,9 +3033,9 @@ Transforms coordinates from the IJK+ coordinate system to the IJ coordinate syst
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| ijk | [H3Lib.CoordIjk](#T-H3Lib-CoordIjk 'H3Lib.CoordIjk') | The input IJK+ coordinates |
+| ijk | [H3Lib.CoordIJK](#T-H3Lib-CoordIJK 'H3Lib.CoordIJK') | The input IJK+ coordinates |
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-UpAp7-H3Lib-CoordIjk-'></a>
+<a name='M-H3Lib-Extensions-CoordIJKExtensions-UpAp7-H3Lib-CoordIJK-'></a>
 ### UpAp7(ijk) `method`
 
 ##### Summary
@@ -3047,9 +3047,9 @@ counter-clockwise aperture 7 grid. Works in place.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| ijk | [H3Lib.CoordIjk](#T-H3Lib-CoordIjk 'H3Lib.CoordIjk') | The ijk coordinates |
+| ijk | [H3Lib.CoordIJK](#T-H3Lib-CoordIJK 'H3Lib.CoordIJK') | The ijk coordinates |
 
-<a name='M-H3Lib-Extensions-CoordIjkExtensions-UpAp7R-H3Lib-CoordIjk-'></a>
+<a name='M-H3Lib-Extensions-CoordIJKExtensions-UpAp7R-H3Lib-CoordIJK-'></a>
 ### UpAp7R(ijk) `method`
 
 ##### Summary
@@ -3061,7 +3061,7 @@ clockwise aperture 7 grid. Works in place.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| ijk | [H3Lib.CoordIjk](#T-H3Lib-CoordIjk 'H3Lib.CoordIjk') | The ijk coordinates |
+| ijk | [H3Lib.CoordIJK](#T-H3Lib-CoordIJK 'H3Lib.CoordIJK') | The ijk coordinates |
 
 <a name='T-H3Lib-Direction'></a>
 ## Direction `type`
@@ -3175,15 +3175,15 @@ Rotates indexing digit 60 degrees counter-clockwise. Returns result.
 | ---- | ---- | ----------- |
 | digit | [H3Lib.Direction](#T-H3Lib-Direction 'H3Lib.Direction') | Indexing digit (between 1 and 6 inclusive) |
 
-<a name='T-H3Lib-Constants-FaceIjk'></a>
-## FaceIjk `type`
+<a name='T-H3Lib-Constants-FaceIJK'></a>
+## FaceIJK `type`
 
 ##### Namespace
 
 H3Lib.Constants
 
-<a name='T-H3Lib-FaceIjk'></a>
-## FaceIjk `type`
+<a name='T-H3Lib-FaceIJK'></a>
+## FaceIJK `type`
 
 ##### Namespace
 
@@ -3194,7 +3194,7 @@ H3Lib
 Functions for working with icosahedral face-centered hex IJK
 coordinate systems.
 
-<a name='M-H3Lib-FaceIjk-#ctor-System-Int32,H3Lib-CoordIjk-'></a>
+<a name='M-H3Lib-FaceIJK-#ctor-System-Int32,H3Lib-CoordIJK-'></a>
 ### #ctor() `constructor`
 
 ##### Summary
@@ -3205,7 +3205,7 @@ constructor
 
 This constructor has no parameters.
 
-<a name='M-H3Lib-FaceIjk-#ctor-H3Lib-FaceIjk-'></a>
+<a name='M-H3Lib-FaceIJK-#ctor-H3Lib-FaceIJK-'></a>
 ### #ctor() `constructor`
 
 ##### Summary
@@ -3216,7 +3216,7 @@ constructor
 
 This constructor has no parameters.
 
-<a name='F-H3Lib-Constants-FaceIjk-AdjacentFaceDir'></a>
+<a name='F-H3Lib-Constants-FaceIJK-AdjacentFaceDir'></a>
 ### AdjacentFaceDir `constants`
 
 ##### Summary
@@ -3224,7 +3224,7 @@ This constructor has no parameters.
 direction from the origin face to the destination face, relative to
 the origin face's coordinate syste, or -1 if not adjacent.
 
-<a name='F-H3Lib-Constants-FaceIjk-FaceAxesAzRadsCii'></a>
+<a name='F-H3Lib-Constants-FaceIJK-FaceAxesAzRadsCii'></a>
 ### FaceAxesAzRadsCii `constants`
 
 ##### Summary
@@ -3232,91 +3232,91 @@ the origin face's coordinate syste, or -1 if not adjacent.
 icosahedron face ijk axes as azimuth in radians from face center to
 vertex 0/1/2 respectively
 
-<a name='F-H3Lib-Constants-FaceIjk-FaceCenterGeo'></a>
+<a name='F-H3Lib-Constants-FaceIJK-FaceCenterGeo'></a>
 ### FaceCenterGeo `constants`
 
 ##### Summary
 
 icosahedron face centers in lat/lon radians
 
-<a name='F-H3Lib-Constants-FaceIjk-FaceCenterPoint'></a>
+<a name='F-H3Lib-Constants-FaceIJK-FaceCenterPoint'></a>
 ### FaceCenterPoint `constants`
 
 ##### Summary
 
 icosahedron face centers in x/y/z on the unit sphere
 
-<a name='F-H3Lib-Constants-FaceIjk-FaceNeighbors'></a>
+<a name='F-H3Lib-Constants-FaceIJK-FaceNeighbors'></a>
 ### FaceNeighbors `constants`
 
 ##### Summary
 
 Definition of which faces neighbor each other.
 
-<a name='F-H3Lib-Constants-FaceIjk-IJ'></a>
+<a name='F-H3Lib-Constants-FaceIJK-IJ'></a>
 ### IJ `constants`
 
 ##### Summary
 
 IJ quadrant faceNeighbors table direction
 
-<a name='F-H3Lib-Constants-FaceIjk-InvalidFace'></a>
+<a name='F-H3Lib-Constants-FaceIJK-InvalidFace'></a>
 ### InvalidFace `constants`
 
 ##### Summary
 
 Invalid face index
 
-<a name='F-H3Lib-Constants-FaceIjk-JK'></a>
+<a name='F-H3Lib-Constants-FaceIJK-JK'></a>
 ### JK `constants`
 
 ##### Summary
 
 JK quadrant faceNeighbors table direction
 
-<a name='F-H3Lib-Constants-FaceIjk-KI'></a>
+<a name='F-H3Lib-Constants-FaceIJK-KI'></a>
 ### KI `constants`
 
 ##### Summary
 
 KI quadrant faceNeighbors table direction
 
-<a name='F-H3Lib-Constants-FaceIjk-MSqrt7'></a>
+<a name='F-H3Lib-Constants-FaceIJK-MSqrt7'></a>
 ### MSqrt7 `constants`
 
 ##### Summary
 
 Square root of 7
 
-<a name='F-H3Lib-Constants-FaceIjk-MaxDimByCiiRes'></a>
+<a name='F-H3Lib-Constants-FaceIJK-MaxDimByCiiRes'></a>
 ### MaxDimByCiiRes `constants`
 
 ##### Summary
 
 overage distance table
 
-<a name='F-H3Lib-Constants-FaceIjk-UnitScaleByCiiRes'></a>
+<a name='F-H3Lib-Constants-FaceIJK-UnitScaleByCiiRes'></a>
 ### UnitScaleByCiiRes `constants`
 
 ##### Summary
 
 unit scale distance table
 
-<a name='F-H3Lib-FaceIjk-Coord'></a>
+<a name='F-H3Lib-FaceIJK-Coord'></a>
 ### Coord `constants`
 
 ##### Summary
 
 ijk coordinates on that face
 
-<a name='F-H3Lib-FaceIjk-Face'></a>
+<a name='F-H3Lib-FaceIJK-Face'></a>
 ### Face `constants`
 
 ##### Summary
 
 face number
 
-<a name='M-H3Lib-FaceIjk-Equals-H3Lib-FaceIjk-'></a>
+<a name='M-H3Lib-FaceIJK-Equals-H3Lib-FaceIJK-'></a>
 ### Equals() `method`
 
 ##### Summary
@@ -3327,7 +3327,7 @@ Equality test
 
 This method has no parameters.
 
-<a name='M-H3Lib-FaceIjk-Equals-System-Object-'></a>
+<a name='M-H3Lib-FaceIJK-Equals-System-Object-'></a>
 ### Equals() `method`
 
 ##### Summary
@@ -3338,7 +3338,7 @@ Equality test on unboxed object
 
 This method has no parameters.
 
-<a name='M-H3Lib-FaceIjk-GetHashCode'></a>
+<a name='M-H3Lib-FaceIJK-GetHashCode'></a>
 ### GetHashCode() `method`
 
 ##### Summary
@@ -3349,7 +3349,7 @@ Hashcode for identity
 
 This method has no parameters.
 
-<a name='M-H3Lib-FaceIjk-ToString'></a>
+<a name='M-H3Lib-FaceIJK-ToString'></a>
 ### ToString() `method`
 
 ##### Summary
@@ -3360,7 +3360,7 @@ Debug data in string
 
 This method has no parameters.
 
-<a name='M-H3Lib-FaceIjk-op_Equality-H3Lib-FaceIjk,H3Lib-FaceIjk-'></a>
+<a name='M-H3Lib-FaceIJK-op_Equality-H3Lib-FaceIJK,H3Lib-FaceIJK-'></a>
 ### op_Equality() `method`
 
 ##### Summary
@@ -3371,7 +3371,7 @@ Equality operator
 
 This method has no parameters.
 
-<a name='M-H3Lib-FaceIjk-op_Inequality-H3Lib-FaceIjk,H3Lib-FaceIjk-'></a>
+<a name='M-H3Lib-FaceIJK-op_Inequality-H3Lib-FaceIJK,H3Lib-FaceIJK-'></a>
 ### op_Inequality() `method`
 
 ##### Summary
@@ -3382,8 +3382,8 @@ Inequality operator
 
 This method has no parameters.
 
-<a name='T-H3Lib-Extensions-FaceIjkExtensions'></a>
-## FaceIjkExtensions `type`
+<a name='T-H3Lib-Extensions-FaceIJKExtensions'></a>
+## FaceIJKExtensions `type`
 
 ##### Namespace
 
@@ -3391,10 +3391,10 @@ H3Lib.Extensions
 
 ##### Summary
 
-Operations for FaceIjk type
+Operations for FaceIJK type
 
-<a name='M-H3Lib-Extensions-FaceIjkExtensions-AdjustOverageClassIi-H3Lib-FaceIjk,System-Int32,System-Int32,System-Int32-'></a>
-### AdjustOverageClassIi(fijk,res,pentLeading4,substrate) `method`
+<a name='M-H3Lib-Extensions-FaceIJKExtensions-AdjustOverageClassIi-H3Lib-FaceIJK,System-Int32,System-Int32,System-Int32-'></a>
+### AdjustOverageClassIi(Fijk,res,pentLeading4,substrate) `method`
 
 ##### Summary
 
@@ -3405,19 +3405,19 @@ relative to the correct icosahedral face.
 
 Tuple
 Item1: [Overage](#T-H3Lib-Overage 'H3Lib.Overage')
-Item2: Adjusted [FaceIjk](#T-H3Lib-FaceIjk 'H3Lib.FaceIjk')
+Item2: Adjusted [FaceIJK](#T-H3Lib-FaceIJK 'H3Lib.FaceIJK')
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| fijk | [H3Lib.FaceIjk](#T-H3Lib-FaceIjk 'H3Lib.FaceIjk') | The FaceIJK address of the cell. |
+| Fijk | [H3Lib.FaceIJK](#T-H3Lib-FaceIJK 'H3Lib.FaceIJK') | The FaceIJK address of the cell. |
 | res | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The H3 resolution of the cell. |
 | pentLeading4 | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Whether or not the cell is a pentagon with a leading figit 4 |
 | substrate | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Whether or not the cell is in a substrate grid. |
 
-<a name='M-H3Lib-Extensions-FaceIjkExtensions-AdjustPentOverage-H3Lib-FaceIjk,System-Int32-'></a>
-### AdjustPentOverage(fijk,res) `method`
+<a name='M-H3Lib-Extensions-FaceIJKExtensions-AdjustPentOverage-H3Lib-FaceIJK,System-Int32-'></a>
+### AdjustPentOverage(Fijk,res) `method`
 
 ##### Summary
 
@@ -3429,10 +3429,10 @@ icosahedral face.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| fijk | [H3Lib.FaceIjk](#T-H3Lib-FaceIjk 'H3Lib.FaceIjk') | The FaceIJK address of the cell. |
+| Fijk | [H3Lib.FaceIJK](#T-H3Lib-FaceIJK 'H3Lib.FaceIJK') | The FaceIJK address of the cell. |
 | res | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The H3 resolution of the cell. |
 
-<a name='M-H3Lib-Extensions-FaceIjkExtensions-PentToGeoBoundary-H3Lib-FaceIjk,System-Int32,System-Int32,System-Int32-'></a>
+<a name='M-H3Lib-Extensions-FaceIJKExtensions-PentToGeoBoundary-H3Lib-FaceIJK,System-Int32,System-Int32,System-Int32-'></a>
 ### PentToGeoBoundary(h,res,start,length) `method`
 
 ##### Summary
@@ -3448,13 +3448,13 @@ The spherical coordinates of the cell boundary.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| h | [H3Lib.FaceIjk](#T-H3Lib-FaceIjk 'H3Lib.FaceIjk') | The FaceIJK address of the pentagonal cell. |
+| h | [H3Lib.FaceIJK](#T-H3Lib-FaceIJK 'H3Lib.FaceIJK') | The FaceIJK address of the pentagonal cell. |
 | res | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The H3 resolution of the cell. |
 | start | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The first topological vertex to return. |
 | length | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The number of topological vertexes to return. |
 
-<a name='M-H3Lib-Extensions-FaceIjkExtensions-PentToVerts-H3Lib-FaceIjk,System-Int32,System-Collections-Generic-IList{H3Lib-FaceIjk}-'></a>
-### PentToVerts(fijk,res,fijkVerts) `method`
+<a name='M-H3Lib-Extensions-FaceIJKExtensions-PentToVerts-H3Lib-FaceIJK,System-Int32,System-Collections-Generic-IList{H3Lib-FaceIJK}-'></a>
+### PentToVerts(Fijk,res,FijkVerts) `method`
 
 ##### Summary
 
@@ -3463,7 +3463,7 @@ Get the vertices of a pentagon cell as substrate FaceIJK addresses
 ##### Returns
 
 Tuple
-Item1 Possibly modified fijk
+Item1 Possibly modified Fijk
 Item2 Possibly modified res
 Item3 Array for vertices
 
@@ -3471,13 +3471,13 @@ Item3 Array for vertices
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| fijk | [H3Lib.FaceIjk](#T-H3Lib-FaceIjk 'H3Lib.FaceIjk') | The FaceIJK address of the cell. |
+| Fijk | [H3Lib.FaceIJK](#T-H3Lib-FaceIJK 'H3Lib.FaceIJK') | The FaceIJK address of the cell. |
 | res | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The H3 resolution of the cell. This may be adjusted if
 necessary for the substrate grid resolution. |
-| fijkVerts | [System.Collections.Generic.IList{H3Lib.FaceIjk}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IList 'System.Collections.Generic.IList{H3Lib.FaceIjk}') | array for the vertices |
+| FijkVerts | [System.Collections.Generic.IList{H3Lib.FaceIJK}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IList 'System.Collections.Generic.IList{H3Lib.FaceIJK}') | array for the vertices |
 
-<a name='M-H3Lib-Extensions-FaceIjkExtensions-ReplaceCoord-H3Lib-FaceIjk,H3Lib-CoordIjk-'></a>
-### ReplaceCoord(fijk,coord) `method`
+<a name='M-H3Lib-Extensions-FaceIJKExtensions-ReplaceCoord-H3Lib-FaceIJK,H3Lib-CoordIJK-'></a>
+### ReplaceCoord(Fijk,coord) `method`
 
 ##### Summary
 
@@ -3491,11 +3491,11 @@ A new instance with the correct values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| fijk | [H3Lib.FaceIjk](#T-H3Lib-FaceIjk 'H3Lib.FaceIjk') | FaceIjk to replace Coord value of |
-| coord | [H3Lib.CoordIjk](#T-H3Lib-CoordIjk 'H3Lib.CoordIjk') | New CoordIjk to slot in |
+| Fijk | [H3Lib.FaceIJK](#T-H3Lib-FaceIJK 'H3Lib.FaceIJK') | FaceIJK to replace Coord value of |
+| coord | [H3Lib.CoordIJK](#T-H3Lib-CoordIJK 'H3Lib.CoordIJK') | New CoordIJK to slot in |
 
-<a name='M-H3Lib-Extensions-FaceIjkExtensions-ReplaceFace-H3Lib-FaceIjk,System-Int32-'></a>
-### ReplaceFace(fijk,face) `method`
+<a name='M-H3Lib-Extensions-FaceIJKExtensions-ReplaceFace-H3Lib-FaceIJK,System-Int32-'></a>
+### ReplaceFace(Fijk,face) `method`
 
 ##### Summary
 
@@ -3509,10 +3509,10 @@ A new instance with the correct values
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| fijk | [H3Lib.FaceIjk](#T-H3Lib-FaceIjk 'H3Lib.FaceIjk') | FaceIjk to replace Face value of |
+| Fijk | [H3Lib.FaceIJK](#T-H3Lib-FaceIJK 'H3Lib.FaceIJK') | FaceIJK to replace Face value of |
 | face | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | new Face value to slot in |
 
-<a name='M-H3Lib-Extensions-FaceIjkExtensions-ToBaseCell-H3Lib-FaceIjk-'></a>
+<a name='M-H3Lib-Extensions-FaceIJKExtensions-ToBaseCell-H3Lib-FaceIJK-'></a>
 ### ToBaseCell() `method`
 
 ##### Summary
@@ -3529,8 +3529,8 @@ Find base cell given FaceIJK.
 
 This method has no parameters.
 
-<a name='M-H3Lib-Extensions-FaceIjkExtensions-ToBaseCellCounterClockwiseRotate60-H3Lib-FaceIjk-'></a>
-### ToBaseCellCounterClockwiseRotate60() `method`
+<a name='M-H3Lib-Extensions-FaceIJKExtensions-ToBaseCellCCWRotate-H3Lib-FaceIJK-'></a>
+### ToBaseCellCCWRotate() `method`
 
 ##### Summary
 
@@ -3546,7 +3546,7 @@ Find base cell given FaceIJK.
 
 This method has no parameters.
 
-<a name='M-H3Lib-Extensions-FaceIjkExtensions-ToGeoBoundary-H3Lib-FaceIjk,System-Int32,System-Int32,System-Int32-'></a>
+<a name='M-H3Lib-Extensions-FaceIJKExtensions-ToGeoBoundary-H3Lib-FaceIJK,System-Int32,System-Int32,System-Int32-'></a>
 ### ToGeoBoundary(h,res,start,length) `method`
 
 ##### Summary
@@ -3562,12 +3562,12 @@ The spherical coordinates of the cell boundary
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| h | [H3Lib.FaceIjk](#T-H3Lib-FaceIjk 'H3Lib.FaceIjk') | The FaceIJK address of the cell |
+| h | [H3Lib.FaceIJK](#T-H3Lib-FaceIJK 'H3Lib.FaceIJK') | The FaceIJK address of the cell |
 | res | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The H3 resolution of the cell |
 | start | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The first topological vertex to return |
 | length | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The number of topological vertexes to return |
 
-<a name='M-H3Lib-Extensions-FaceIjkExtensions-ToGeoCoord-H3Lib-FaceIjk,System-Int32-'></a>
+<a name='M-H3Lib-Extensions-FaceIJKExtensions-ToGeoCoord-H3Lib-FaceIJK,System-Int32-'></a>
 ### ToGeoCoord(h,res) `method`
 
 ##### Summary
@@ -3579,11 +3579,11 @@ a FaceIJK address at a specified resolution.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| h | [H3Lib.FaceIjk](#T-H3Lib-FaceIjk 'H3Lib.FaceIjk') | The FaceIJK address of the cell. |
+| h | [H3Lib.FaceIJK](#T-H3Lib-FaceIJK 'H3Lib.FaceIJK') | The FaceIJK address of the cell. |
 | res | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The H3 resolution of the cell. |
 
-<a name='M-H3Lib-Extensions-FaceIjkExtensions-ToH3-H3Lib-FaceIjk,System-Int32-'></a>
-### ToH3(fijk,res) `method`
+<a name='M-H3Lib-Extensions-FaceIJKExtensions-ToH3-H3Lib-FaceIJK,System-Int32-'></a>
+### ToH3(Fijk,res) `method`
 
 ##### Summary
 
@@ -3597,11 +3597,11 @@ The encoded H3Index (or H3_NULL on failure).
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| fijk | [H3Lib.FaceIjk](#T-H3Lib-FaceIjk 'H3Lib.FaceIjk') | The FaceIJK address. |
+| Fijk | [H3Lib.FaceIJK](#T-H3Lib-FaceIJK 'H3Lib.FaceIJK') | The FaceIJK address. |
 | res | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The cell resolution. |
 
-<a name='M-H3Lib-Extensions-FaceIjkExtensions-ToVerts-H3Lib-FaceIjk,System-Int32,System-Collections-Generic-IList{H3Lib-FaceIjk}-'></a>
-### ToVerts(fijk,res,fijkVerts) `method`
+<a name='M-H3Lib-Extensions-FaceIJKExtensions-ToVerts-H3Lib-FaceIJK,System-Int32,System-Collections-Generic-IList{H3Lib-FaceIJK}-'></a>
+### ToVerts(Fijk,res,FijkVerts) `method`
 
 ##### Summary
 
@@ -3610,7 +3610,7 @@ Get the vertices of a cell as substrate FaceIJK addresses
 ##### Returns
 
 Tuple
-Item1 Possibly modified fijk
+Item1 Possibly modified Fijk
 Item2 Possibly modified res
 Item3 Array for vertices
 
@@ -3618,13 +3618,13 @@ Item3 Array for vertices
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| fijk | [H3Lib.FaceIjk](#T-H3Lib-FaceIjk 'H3Lib.FaceIjk') | The FaceIJK address of the cell. |
+| Fijk | [H3Lib.FaceIJK](#T-H3Lib-FaceIJK 'H3Lib.FaceIJK') | The FaceIJK address of the cell. |
 | res | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The H3 resolution of the cell. This may be adjusted if
 necessary for the substrate grid resolution. |
-| fijkVerts | [System.Collections.Generic.IList{H3Lib.FaceIjk}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IList 'System.Collections.Generic.IList{H3Lib.FaceIjk}') | array for the vertices |
+| FijkVerts | [System.Collections.Generic.IList{H3Lib.FaceIJK}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IList 'System.Collections.Generic.IList{H3Lib.FaceIJK}') | array for the vertices |
 
-<a name='T-H3Lib-FaceOrientIjk'></a>
-## FaceOrientIjk `type`
+<a name='T-H3Lib-FaceOrientIJK'></a>
+## FaceOrientIJK `type`
 
 ##### Namespace
 
@@ -3634,7 +3634,7 @@ H3Lib
 
 Information to transform into an adjacent face IJK system
 
-<a name='M-H3Lib-FaceOrientIjk-#ctor-System-Int32,System-Int32,System-Int32,System-Int32,System-Int32-'></a>
+<a name='M-H3Lib-FaceOrientIJK-#ctor-System-Int32,System-Int32,System-Int32,System-Int32,System-Int32-'></a>
 ### #ctor() `constructor`
 
 ##### Summary
@@ -3645,7 +3645,7 @@ Constructor
 
 This constructor has no parameters.
 
-<a name='M-H3Lib-FaceOrientIjk-#ctor-System-Int32,H3Lib-CoordIjk,System-Int32-'></a>
+<a name='M-H3Lib-FaceOrientIJK-#ctor-System-Int32,H3Lib-CoordIJK,System-Int32-'></a>
 ### #ctor() `constructor`
 
 ##### Summary
@@ -3656,28 +3656,28 @@ Constructor
 
 This constructor has no parameters.
 
-<a name='F-H3Lib-FaceOrientIjk-Ccw60Rotations'></a>
+<a name='F-H3Lib-FaceOrientIJK-Ccw60Rotations'></a>
 ### Ccw60Rotations `constants`
 
 ##### Summary
 
 number of 60 degree ccw rotations relative to primary
 
-<a name='F-H3Lib-FaceOrientIjk-Face'></a>
+<a name='F-H3Lib-FaceOrientIJK-Face'></a>
 ### Face `constants`
 
 ##### Summary
 
 face number
 
-<a name='F-H3Lib-FaceOrientIjk-Translate'></a>
+<a name='F-H3Lib-FaceOrientIJK-Translate'></a>
 ### Translate `constants`
 
 ##### Summary
 
 res 0 translation relative to primary face
 
-<a name='M-H3Lib-FaceOrientIjk-Equals-H3Lib-FaceOrientIjk-'></a>
+<a name='M-H3Lib-FaceOrientIJK-Equals-H3Lib-FaceOrientIJK-'></a>
 ### Equals(other) `method`
 
 ##### Summary
@@ -3692,9 +3692,9 @@ Equality test
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| other | [H3Lib.FaceOrientIjk](#T-H3Lib-FaceOrientIjk 'H3Lib.FaceOrientIjk') |  |
+| other | [H3Lib.FaceOrientIJK](#T-H3Lib-FaceOrientIJK 'H3Lib.FaceOrientIJK') |  |
 
-<a name='M-H3Lib-FaceOrientIjk-Equals-System-Object-'></a>
+<a name='M-H3Lib-FaceOrientIJK-Equals-System-Object-'></a>
 ### Equals() `method`
 
 ##### Summary
@@ -3705,7 +3705,7 @@ Equality test against unboxed object
 
 This method has no parameters.
 
-<a name='M-H3Lib-FaceOrientIjk-GetHashCode'></a>
+<a name='M-H3Lib-FaceOrientIJK-GetHashCode'></a>
 ### GetHashCode() `method`
 
 ##### Summary
@@ -3720,7 +3720,7 @@ Hashcode for identity
 
 This method has no parameters.
 
-<a name='M-H3Lib-FaceOrientIjk-op_Equality-H3Lib-FaceOrientIjk,H3Lib-FaceOrientIjk-'></a>
+<a name='M-H3Lib-FaceOrientIJK-op_Equality-H3Lib-FaceOrientIJK,H3Lib-FaceOrientIJK-'></a>
 ### op_Equality() `method`
 
 ##### Summary
@@ -3731,7 +3731,7 @@ Equality operator
 
 This method has no parameters.
 
-<a name='M-H3Lib-FaceOrientIjk-op_Inequality-H3Lib-FaceOrientIjk,H3Lib-FaceOrientIjk-'></a>
+<a name='M-H3Lib-FaceOrientIJK-op_Inequality-H3Lib-FaceOrientIJK,H3Lib-FaceOrientIJK-'></a>
 ### op_Inequality() `method`
 
 ##### Summary
@@ -4177,8 +4177,8 @@ Set the components of spherical coordinates in radians.
 | latitude | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') | The desired latitude in double radians |
 | longitude | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') | The desired longitude in double radians |
 
-<a name='M-H3Lib-Extensions-GeoCoordExtensions-ToFaceIjk-H3Lib-GeoCoord,System-Int32-'></a>
-### ToFaceIjk(g,res) `method`
+<a name='M-H3Lib-Extensions-GeoCoordExtensions-ToFaceIJK-H3Lib-GeoCoord,System-Int32-'></a>
+### ToFace(g,res) `method`
 
 ##### Summary
 
@@ -4217,8 +4217,8 @@ The encoded H3Index (or H3_NULL on failure).
 | g | [H3Lib.GeoCoord](#T-H3Lib-GeoCoord 'H3Lib.GeoCoord') | The spherical coordinates to encode. |
 | res | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The desired H3 resolution for the encoding. |
 
-<a name='M-H3Lib-Extensions-GeoCoordExtensions-ToHex2d-H3Lib-GeoCoord,System-Int32-'></a>
-### ToHex2d(g,res) `method`
+<a name='M-H3Lib-Extensions-GeoCoordExtensions-ToHex2D-H3Lib-GeoCoord,System-Int32-'></a>
+### ToHex2D(g,res) `method`
 
 ##### Summary
 
@@ -4238,8 +4238,8 @@ Item2: The 2D hex coordinates of the cell containing the point.
 | g | [H3Lib.GeoCoord](#T-H3Lib-GeoCoord 'H3Lib.GeoCoord') | The spherical coordinates to encode. |
 | res | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The desired H3 resolution for the encoding. |
 
-<a name='M-H3Lib-Extensions-GeoCoordExtensions-ToVec3d-H3Lib-GeoCoord-'></a>
-### ToVec3d(geo) `method`
+<a name='M-H3Lib-Extensions-GeoCoordExtensions-ToVec3D-H3Lib-GeoCoord-'></a>
+### ToVec3D(geo) `method`
 
 ##### Summary
 
@@ -5993,8 +5993,8 @@ The list of H3Index children
 | h | [H3Lib.H3Index](#T-H3Lib-H3Index 'H3Lib.H3Index') | H3Index to find the children of |
 | childRes | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | int the child level to produce |
 
-<a name='M-H3Lib-Extensions-H3IndexExtensions-ToFaceIjk-H3Lib-H3Index-'></a>
-### ToFaceIjk(h) `method`
+<a name='M-H3Lib-Extensions-H3IndexExtensions-ToFaceIJK-H3Lib-H3Index-'></a>
+### ToFace(h) `method`
 
 ##### Summary
 
@@ -6010,25 +6010,25 @@ The corresponding FaceIJK address.
 | ---- | ---- | ----------- |
 | h | [H3Lib.H3Index](#T-H3Lib-H3Index 'H3Lib.H3Index') | The H3 Index |
 
-<a name='M-H3Lib-Extensions-H3IndexExtensions-ToFaceIjkWithInitializedFijk-H3Lib-H3Index,H3Lib-FaceIjk-'></a>
-### ToFaceIjkWithInitializedFijk(h,fijk) `method`
+<a name='M-H3Lib-Extensions-H3IndexExtensions-ToFaceFromFace-H3Lib-H3Index,H3Lib-FaceIJK-'></a>
+### ToFaceFromFace(h,Fijk) `method`
 
 ##### Summary
 
-Convert an H3Index to the FaceIjk address on a specified icosahedral face.
+Convert an H3Index to the FaceIJK address on a specified icosahedral face.
 
 ##### Returns
 
 Tuple
 Item1: Returns 1 if the possibility of overage exists, otherwise 0.
-Item2: Modified FaceIjk
+Item2: Modified FaceIJK
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | h | [H3Lib.H3Index](#T-H3Lib-H3Index 'H3Lib.H3Index') | The H3Index. |
-| fijk | [H3Lib.FaceIjk](#T-H3Lib-FaceIjk 'H3Lib.FaceIjk') | The FaceIjk address, initialized with the desired face
+| Fijk | [H3Lib.FaceIJK](#T-H3Lib-FaceIJK 'H3Lib.FaceIJK') | The FaceIJK address, initialized with the desired face
 and normalized base cell coordinates. |
 
 <a name='M-H3Lib-Extensions-H3IndexExtensions-ToGeoBoundary-H3Lib-H3Index-'></a>
@@ -6065,8 +6065,8 @@ The spherical coordinates of the H3 cell center.
 | ---- | ---- | ----------- |
 | h3 | [H3Lib.H3Index](#T-H3Lib-H3Index 'H3Lib.H3Index') | The H3 index. |
 
-<a name='M-H3Lib-Extensions-H3IndexExtensions-ToLocalIjExperimental-H3Lib-H3Index,H3Lib-H3Index-'></a>
-### ToLocalIjExperimental(origin,h3) `method`
+<a name='M-H3Lib-Extensions-H3IndexExtensions-ToLocalIJExperimental-H3Lib-H3Index,H3Lib-H3Index-'></a>
+### ToLocalIJExperimental(origin,h3) `method`
 
 ##### Summary
 
@@ -6096,8 +6096,8 @@ Item2 contains ij coordinates.
 | origin | [H3Lib.H3Index](#T-H3Lib-H3Index 'H3Lib.H3Index') | An anchoring index for the ij coordinate system. |
 | h3 | [H3Lib.H3Index](#T-H3Lib-H3Index 'H3Lib.H3Index') | Index to find the coordinates of |
 
-<a name='M-H3Lib-Extensions-H3IndexExtensions-ToLocalIjk-H3Lib-H3Index,H3Lib-H3Index-'></a>
-### ToLocalIjk(origin,h3) `method`
+<a name='M-H3Lib-Extensions-H3IndexExtensions-ToLocalIJK-H3Lib-H3Index,H3Lib-H3Index-'></a>
+### ToLocalIJK(origin,h3) `method`
 
 ##### Summary
 
@@ -6481,7 +6481,7 @@ Originally part of geoCoord.c as  double _posAngleRads(double rads)
 However, it's only used once in
 void _geoAzDistanceRads(const GeoCoord *p1, double az, double distance, GeoCoord *p2)
 
-It's used multiple times in faceijk.c, _geoToHex2d and _hex2dToGeo
+It's used multiple times in faceijk.c, _geoToHex2D and _hex2dToGeo
 
 For now, let's isolate it and see if it needs to be folded in later.
 
@@ -7300,8 +7300,8 @@ base cell number
 
 face numbers for each axial direction, in order, starting with J
 
-<a name='T-H3Lib-Vec2d'></a>
-## Vec2d `type`
+<a name='T-H3Lib-Vec2D'></a>
+## Vec2D `type`
 
 ##### Namespace
 
@@ -7311,7 +7311,7 @@ H3Lib
 
 2D floating point vector functions.
 
-<a name='M-H3Lib-Vec2d-#ctor-System-double,System-double-'></a>
+<a name='M-H3Lib-Vec2D-#ctor-System-double,System-double-'></a>
 ### #ctor() `constructor`
 
 ##### Summary
@@ -7322,28 +7322,28 @@ Constructor
 
 This constructor has no parameters.
 
-<a name='F-H3Lib-Vec2d-X'></a>
+<a name='F-H3Lib-Vec2D-X'></a>
 ### X `constants`
 
 ##### Summary
 
 X coordinate
 
-<a name='F-H3Lib-Vec2d-Y'></a>
+<a name='F-H3Lib-Vec2D-Y'></a>
 ### Y `constants`
 
 ##### Summary
 
 Y Coordinate
 
-<a name='P-H3Lib-Vec2d-Magnitude'></a>
+<a name='P-H3Lib-Vec2D-Magnitude'></a>
 ### Magnitude `property`
 
 ##### Summary
 
 Calculates the magnitude of a 2D cartesian vector.
 
-<a name='M-H3Lib-Vec2d-Equals-H3Lib-Vec2d-'></a>
+<a name='M-H3Lib-Vec2D-Equals-H3Lib-Vec2D-'></a>
 ### Equals() `method`
 
 ##### Summary
@@ -7354,7 +7354,7 @@ Equality test
 
 This method has no parameters.
 
-<a name='M-H3Lib-Vec2d-Equals-System-Object-'></a>
+<a name='M-H3Lib-Vec2D-Equals-System-Object-'></a>
 ### Equals() `method`
 
 ##### Summary
@@ -7365,7 +7365,7 @@ Equality test against unboxed object
 
 This method has no parameters.
 
-<a name='M-H3Lib-Vec2d-FindIntersection-H3Lib-Vec2d,H3Lib-Vec2d,H3Lib-Vec2d,H3Lib-Vec2d-'></a>
+<a name='M-H3Lib-Vec2D-FindIntersection-H3Lib-Vec2D,H3Lib-Vec2D,H3Lib-Vec2D,H3Lib-Vec2D-'></a>
 ### FindIntersection(p0,p1,p2,p3) `method`
 
 ##### Summary
@@ -7381,12 +7381,12 @@ The intersection point.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| p0 | [H3Lib.Vec2d](#T-H3Lib-Vec2d 'H3Lib.Vec2d') | The first endpoint of the first line |
-| p1 | [H3Lib.Vec2d](#T-H3Lib-Vec2d 'H3Lib.Vec2d') | The second endpoint of the first line |
-| p2 | [H3Lib.Vec2d](#T-H3Lib-Vec2d 'H3Lib.Vec2d') | The first endpoint of the second line |
-| p3 | [H3Lib.Vec2d](#T-H3Lib-Vec2d 'H3Lib.Vec2d') | The first endpoint of the first line |
+| p0 | [H3Lib.Vec2D](#T-H3Lib-Vec2D 'H3Lib.Vec2D') | The first endpoint of the first line |
+| p1 | [H3Lib.Vec2D](#T-H3Lib-Vec2D 'H3Lib.Vec2D') | The second endpoint of the first line |
+| p2 | [H3Lib.Vec2D](#T-H3Lib-Vec2D 'H3Lib.Vec2D') | The first endpoint of the second line |
+| p3 | [H3Lib.Vec2D](#T-H3Lib-Vec2D 'H3Lib.Vec2D') | The first endpoint of the first line |
 
-<a name='M-H3Lib-Vec2d-GetHashCode'></a>
+<a name='M-H3Lib-Vec2D-GetHashCode'></a>
 ### GetHashCode() `method`
 
 ##### Summary
@@ -7401,7 +7401,7 @@ Hashcode for identity
 
 This method has no parameters.
 
-<a name='M-H3Lib-Vec2d-ToString'></a>
+<a name='M-H3Lib-Vec2D-ToString'></a>
 ### ToString() `method`
 
 ##### Summary
@@ -7412,7 +7412,7 @@ Debug info as string
 
 This method has no parameters.
 
-<a name='M-H3Lib-Vec2d-op_Equality-H3Lib-Vec2d,H3Lib-Vec2d-'></a>
+<a name='M-H3Lib-Vec2D-op_Equality-H3Lib-Vec2D,H3Lib-Vec2D-'></a>
 ### op_Equality() `method`
 
 ##### Summary
@@ -7423,7 +7423,7 @@ Equality operator
 
 This method has no parameters.
 
-<a name='M-H3Lib-Vec2d-op_Inequality-H3Lib-Vec2d,H3Lib-Vec2d-'></a>
+<a name='M-H3Lib-Vec2D-op_Inequality-H3Lib-Vec2D,H3Lib-Vec2D-'></a>
 ### op_Inequality() `method`
 
 ##### Summary
@@ -7434,8 +7434,8 @@ Inequality operator
 
 This method has no parameters.
 
-<a name='T-H3Lib-Extensions-Vec2dExtensions'></a>
-## Vec2dExtensions `type`
+<a name='T-H3Lib-Extensions-Vec2DExtensions'></a>
+## Vec2DExtensions `type`
 
 ##### Namespace
 
@@ -7443,10 +7443,10 @@ H3Lib.Extensions
 
 ##### Summary
 
-Operations on Vec2d
+Operations on Vec2D
 
-<a name='M-H3Lib-Extensions-Vec2dExtensions-ToCoordIjk-H3Lib-Vec2d-'></a>
-### ToCoordIjk(v) `method`
+<a name='M-H3Lib-Extensions-Vec2DExtensions-ToCoordIJK-H3Lib-Vec2D-'></a>
+### ToCoordIJK(v) `method`
 
 ##### Summary
 
@@ -7457,9 +7457,9 @@ coordinate vector (from ).
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| v | [H3Lib.Vec2d](#T-H3Lib-Vec2d 'H3Lib.Vec2d') | The 2D cartesian coordinate vector. |
+| v | [H3Lib.Vec2D](#T-H3Lib-Vec2D 'H3Lib.Vec2D') | The 2D cartesian coordinate vector. |
 
-<a name='M-H3Lib-Extensions-Vec2dExtensions-ToGeoCoord-H3Lib-Vec2d,System-Int32,System-Int32,System-Int32-'></a>
+<a name='M-H3Lib-Extensions-Vec2DExtensions-ToGeoCoord-H3Lib-Vec2D,System-Int32,System-Int32,System-Int32-'></a>
 ### ToGeoCoord(v,face,res,substrate) `method`
 
 ##### Summary
@@ -7475,14 +7475,14 @@ The spherical coordinates of the cell center point
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| v | [H3Lib.Vec2d](#T-H3Lib-Vec2d 'H3Lib.Vec2d') | The 2D hex coordinates of the cell |
+| v | [H3Lib.Vec2D](#T-H3Lib-Vec2D 'H3Lib.Vec2D') | The 2D hex coordinates of the cell |
 | face | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The icosahedral face upon which the 2D hex coordinate system is centered |
 | res | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The H3 resolution of the cell |
 | substrate | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Indicates whether or not this grid is actually a substrate
 grid relative to the specified resolution. |
 
-<a name='T-H3Lib-Vec3d'></a>
-## Vec3d `type`
+<a name='T-H3Lib-Vec3D'></a>
+## Vec3D `type`
 
 ##### Namespace
 
@@ -7492,7 +7492,7 @@ H3Lib
 
 3D floating point structure
 
-<a name='M-H3Lib-Vec3d-#ctor-System-double,System-double,System-double-'></a>
+<a name='M-H3Lib-Vec3D-#ctor-System-double,System-double,System-double-'></a>
 ### #ctor() `constructor`
 
 ##### Summary
@@ -7503,28 +7503,28 @@ Constructor
 
 This constructor has no parameters.
 
-<a name='F-H3Lib-Vec3d-X'></a>
+<a name='F-H3Lib-Vec3D-X'></a>
 ### X `constants`
 
 ##### Summary
 
 X Coordinate
 
-<a name='F-H3Lib-Vec3d-Y'></a>
+<a name='F-H3Lib-Vec3D-Y'></a>
 ### Y `constants`
 
 ##### Summary
 
 Y Coordinate
 
-<a name='F-H3Lib-Vec3d-Z'></a>
+<a name='F-H3Lib-Vec3D-Z'></a>
 ### Z `constants`
 
 ##### Summary
 
 Z Coordinate
 
-<a name='M-H3Lib-Vec3d-Equals-H3Lib-Vec3d-'></a>
+<a name='M-H3Lib-Vec3D-Equals-H3Lib-Vec3D-'></a>
 ### Equals() `method`
 
 ##### Summary
@@ -7535,7 +7535,7 @@ Equality test
 
 This method has no parameters.
 
-<a name='M-H3Lib-Vec3d-Equals-System-Object-'></a>
+<a name='M-H3Lib-Vec3D-Equals-System-Object-'></a>
 ### Equals() `method`
 
 ##### Summary
@@ -7546,7 +7546,7 @@ Equality test
 
 This method has no parameters.
 
-<a name='M-H3Lib-Vec3d-GetHashCode'></a>
+<a name='M-H3Lib-Vec3D-GetHashCode'></a>
 ### GetHashCode() `method`
 
 ##### Summary
@@ -7561,7 +7561,7 @@ Hashcode for identity
 
 This method has no parameters.
 
-<a name='M-H3Lib-Vec3d-ToString'></a>
+<a name='M-H3Lib-Vec3D-ToString'></a>
 ### ToString() `method`
 
 ##### Summary
@@ -7572,7 +7572,7 @@ Debug info in string format
 
 This method has no parameters.
 
-<a name='M-H3Lib-Vec3d-op_Equality-H3Lib-Vec3d,H3Lib-Vec3d-'></a>
+<a name='M-H3Lib-Vec3D-op_Equality-H3Lib-Vec3D,H3Lib-Vec3D-'></a>
 ### op_Equality(left,right) `method`
 
 ##### Summary
@@ -7587,10 +7587,10 @@ Equality operator
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| left | [H3Lib.Vec3d](#T-H3Lib-Vec3d 'H3Lib.Vec3d') |  |
-| right | [H3Lib.Vec3d](#T-H3Lib-Vec3d 'H3Lib.Vec3d') |  |
+| left | [H3Lib.Vec3D](#T-H3Lib-Vec3D 'H3Lib.Vec3D') |  |
+| right | [H3Lib.Vec3D](#T-H3Lib-Vec3D 'H3Lib.Vec3D') |  |
 
-<a name='M-H3Lib-Vec3d-op_Inequality-H3Lib-Vec3d,H3Lib-Vec3d-'></a>
+<a name='M-H3Lib-Vec3D-op_Inequality-H3Lib-Vec3D,H3Lib-Vec3D-'></a>
 ### op_Inequality() `method`
 
 ##### Summary
@@ -7601,8 +7601,8 @@ inequality operator
 
 This method has no parameters.
 
-<a name='T-H3Lib-Extensions-Vec3dExtensions'></a>
-## Vec3dExtensions `type`
+<a name='T-H3Lib-Extensions-Vec3DExtensions'></a>
+## Vec3DExtensions `type`
 
 ##### Namespace
 
@@ -7610,9 +7610,9 @@ H3Lib.Extensions
 
 ##### Summary
 
-Operations on Vec3d
+Operations on Vec3D
 
-<a name='M-H3Lib-Extensions-Vec3dExtensions-PointSquareDistance-H3Lib-Vec3d,H3Lib-Vec3d-'></a>
+<a name='M-H3Lib-Extensions-Vec3DExtensions-PointSquareDistance-H3Lib-Vec3D,H3Lib-Vec3D-'></a>
 ### PointSquareDistance(v1,v2) `method`
 
 ##### Summary
@@ -7627,10 +7627,10 @@ The square of the distance between the given points.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| v1 | [H3Lib.Vec3d](#T-H3Lib-Vec3d 'H3Lib.Vec3d') | The first 3D coordinate. |
-| v2 | [H3Lib.Vec3d](#T-H3Lib-Vec3d 'H3Lib.Vec3d') | The second 3D coordinate. |
+| v1 | [H3Lib.Vec3D](#T-H3Lib-Vec3D 'H3Lib.Vec3D') | The first 3D coordinate. |
+| v2 | [H3Lib.Vec3D](#T-H3Lib-Vec3D 'H3Lib.Vec3D') | The second 3D coordinate. |
 
-<a name='M-H3Lib-Extensions-Vec3dExtensions-SetX-H3Lib-Vec3d,System-double-'></a>
+<a name='M-H3Lib-Extensions-Vec3DExtensions-SetX-H3Lib-Vec3D,System-double-'></a>
 ### SetX(v3,x) `method`
 
 ##### Summary
@@ -7645,10 +7645,10 @@ Replace X value
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| v3 | [H3Lib.Vec3d](#T-H3Lib-Vec3d 'H3Lib.Vec3d') |  |
+| v3 | [H3Lib.Vec3D](#T-H3Lib-Vec3D 'H3Lib.Vec3D') |  |
 | x | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') |  |
 
-<a name='M-H3Lib-Extensions-Vec3dExtensions-SetY-H3Lib-Vec3d,System-double-'></a>
+<a name='M-H3Lib-Extensions-Vec3DExtensions-SetY-H3Lib-Vec3D,System-double-'></a>
 ### SetY(v3,y) `method`
 
 ##### Summary
@@ -7663,10 +7663,10 @@ Replace Y value
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| v3 | [H3Lib.Vec3d](#T-H3Lib-Vec3d 'H3Lib.Vec3d') |  |
+| v3 | [H3Lib.Vec3D](#T-H3Lib-Vec3D 'H3Lib.Vec3D') |  |
 | y | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') |  |
 
-<a name='M-H3Lib-Extensions-Vec3dExtensions-SetZ-H3Lib-Vec3d,System-double-'></a>
+<a name='M-H3Lib-Extensions-Vec3DExtensions-SetZ-H3Lib-Vec3D,System-double-'></a>
 ### SetZ(v3,z) `method`
 
 ##### Summary
@@ -7681,7 +7681,7 @@ Repalce Z value
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| v3 | [H3Lib.Vec3d](#T-H3Lib-Vec3d 'H3Lib.Vec3d') |  |
+| v3 | [H3Lib.Vec3D](#T-H3Lib-Vec3D 'H3Lib.Vec3D') |  |
 | z | [System.double](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.double 'System.double') |  |
 
 <a name='T-H3Lib-Constants-Vertex'></a>

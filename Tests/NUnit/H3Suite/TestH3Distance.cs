@@ -1,5 +1,4 @@
 using H3Lib;
-using H3Lib.Extensions;
 using NUnit.Framework;
 
 namespace TestSuite
@@ -59,11 +58,11 @@ namespace TestSuite
         [Test]
         public void IjkDistance()
         {
-            var z = new CoordIjk(0, 0, 0);
-            var i = new CoordIjk(1, 0, 0);
-            var ik = new CoordIjk(1, 0, 1);
-            var ij = new CoordIjk(1, 1, 0);
-            var j2 = new CoordIjk(0, 2, 0);
+            var z = new CoordIJK(0, 0, 0);
+            var i = new CoordIJK(1, 0, 0);
+            var ik = new CoordIJK(1, 0, 1);
+            var ij = new CoordIJK(1, 1, 0);
+            var j2 = new CoordIJK(0, 2, 0);
 
             Assert.AreEqual(0, z.DistanceTo(z));
             Assert.AreEqual(0, i.DistanceTo(i));

@@ -19,7 +19,7 @@ _ijkNormalize(ijk);
 ```
 **C# v3.1.1**
 ```c#
-CoordIJK transVec = fijkOrient.translate;
+CoordIJK transVec = FijkOrient.translate;
 CoordIJK._ijkScale(ref transVec, unitScaleByCIIres[adjRes] * 3);
 CoordIJK._ijkAdd(ijk, transVec, ref ijk);
 CoordIJK_ijkNormalize(ref ijk);
@@ -27,7 +27,7 @@ CoordIJK_ijkNormalize(ref ijk);
 **C# v.3.7.1**
 ```c#
 ijk =
-    (ijk + fijkOrient.Translate * Constants.FaceIjk.UnitScaleByCiiRes[adjRes] * 3)
+    (ijk + FijkOrient.Translate * Constants.FaceIJK.UnitScaleByCiiRes[adjRes] * 3)
    .Normalized();
 ```
 There's tradeoffs, such as you can no longer do something like:

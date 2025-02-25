@@ -1,5 +1,4 @@
 using H3Lib;
-using H3Lib.Extensions;
 using NUnit.Framework;
 
 namespace TestSuite
@@ -34,7 +33,7 @@ namespace TestSuite
 
                     Assert.AreEqual(childRes, centerChild.Resolution);
 
-                    Assert.AreEqual(h3, centerChild.ToParent(res));
+                    Assert.AreEqual(h3, centerChild.SetResolution(res));
                 }
             }
         }

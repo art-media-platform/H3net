@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 
-namespace H3Lib.Extensions
+namespace H3Lib
 {
     /// <summary>
     /// Extension methods that work on numbers that are then converted to some
@@ -22,7 +22,7 @@ namespace H3Lib.Extensions
         /// However, it's only used once in
         /// void _geoAzDistanceRads(const GeoCoord *p1, double az, double distance, GeoCoord *p2)
         /// 
-        /// It's used multiple times in faceijk.c, _geoToHex2d and _hex2dToGeo
+        /// It's used multiple times in faceijk.c, _geoToHex2D and _hex2dToGeo
         /// 
         /// For now, let's isolate it and see if it needs to be folded in later.
         /// </remarks>
@@ -293,25 +293,25 @@ namespace H3Lib.Extensions
         {
             if (h3Set == null || h3Set.Count == 0)
             {
-                return (Constants.H3Index.COMPACT_SUCCESS, new List<H3Index>());
+                return (Constants.COMPACT_SUCCESS, new List<H3Index>());
             }
 
             if (h3Set.All(h => h.Resolution == 0))
             {
                 // No compaction possible, just copy the set to output
-                return (Constants.H3Index.COMPACT_SUCCESS, h3Set);
+                return (Constants.COMPACT_SUCCESS, h3Set);
             }
 
             //  Compact assumes that all cells are the same resolution and uses first cell
             var testResolution = h3Set[0].Resolution;
             if (h3Set.Any(h => h.Resolution != testResolution))
             {
-                return (Constants.H3Index.COMPACT_BAD_DATA, h3Set);
+                return (Constants.COMPACT_BAD_DATA, h3Set);
             }
 
             if (h3Set.Distinct().Count() != h3Set.Count)
             {
-                return (Constants.H3Index.COMPACT_DUPLICATE, h3Set);
+                return (Constants.COMPACT_DUPLICATE, h3Set);
             }
 
             return h3Set.FlexiCompact();
@@ -325,13 +325,13 @@ namespace H3Lib.Extensions
         {
             if (h3Set == null || h3Set.Count == 0)
             {
-                return (Constants.H3Index.COMPACT_SUCCESS, new List<H3Index>());
+                return (Constants.COMPACT_SUCCESS, new List<H3Index>());
             }
 
             if (h3Set.All(h => h.Resolution == 0))
             {
                 // No compaction possible, just copy the set to output
-                return (Constants.H3Index.COMPACT_SUCCESS, h3Set);
+                return (Constants.COMPACT_SUCCESS, h3Set);
             }
 
             var finalPool = new HashSet<H3Index>();
@@ -361,7 +361,7 @@ namespace H3Lib.Extensions
                 //  Get the parent of each cell, and use that as a key pointing to siblings
                 foreach (var cell in currentCells)
                 {
-                    var parent = cell.ToParent(maxResolution - 1);
+                    var parent = cell.SetResolution(maxResolution - 1);
                     if (!tally.ContainsKey(parent))
                     {
                         tally[parent] = new List<H3Index>();
@@ -374,7 +374,7 @@ namespace H3Lib.Extensions
                 {
                     if (!key.IsValid())
                     {
-                        return (Constants.H3Index.COMPACT_BAD_DATA, new List<H3Index>());
+                        return (Constants.COMPACT_BAD_DATA, new List<H3Index>());
                     }
 
                     var neededChildren = key.IsPentagon()
@@ -406,7 +406,7 @@ namespace H3Lib.Extensions
                 maxResolution--;
             }
 
-            return (Constants.H3Index.COMPACT_SUCCESS, finalPool.ToList());
+            return (Constants.COMPACT_SUCCESS, finalPool.ToList());
         }
 
         /// <summary>

@@ -14,7 +14,7 @@ namespace H3Lib
         /// <summary>
         /// "Home" face and normalized ijk coordinates on that face
         /// </summary>
-        public readonly FaceIjk HomeFijk;
+        public readonly FaceIJK HomeFijk;
         /// <summary>
         /// Is this base cell a pentagon?
         /// </summary>
@@ -36,7 +36,7 @@ namespace H3Lib
         /// <param name="offset2">offset 2</param>
         public BaseCellData(int face, int faceI, int faceJ, int faceK, int isPentagon, int offset1, int offset2) : this()
         {
-            HomeFijk = new FaceIjk(face, new CoordIjk(faceI, faceJ, faceK));
+            HomeFijk = new FaceIJK(face, new CoordIJK(faceI, faceJ, faceK));
             IsPentagon = isPentagon;
             ClockwiseOffsetPentagon = new[] {offset1, offset2};
         }

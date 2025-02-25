@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using H3Lib;
-using H3Lib.Extensions;
 using NUnit.Framework;
 
 namespace TestSuite.Lib
@@ -60,7 +59,7 @@ namespace TestSuite.Lib
         public static int CountActualHexagons(List<H3Index> hexagons)
         {
             return hexagons
-               .Count(hexagon => hexagon != H3Lib.Constants.H3Index.H3_NULL);
+               .Count(hexagon => hexagon != H3Lib.Constants.H3_NULL);
         }
         
         /// <summary>

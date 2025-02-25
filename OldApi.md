@@ -57,5 +57,5 @@ at this point, but it will be correct.
 - H3Index[] GetH3UniDirectionalEdgesFromHexagon(Code.H3Index origin)
 - GeoBoundary GetH3UnidirectionalEdgeBoundary(Code.H3Index edge)
 - int H3Distance(Code.H3Index origin, Code.H3Index h3)
-- ExperimentalIJ ExperimentalH3ToLocalIj(Code.H3Index origin, Code.H3Index h3)
-- HexRangeResult experimentalLocalIjToH3(Code.H3Index origin, Code.LocalIJ.CoordIJ ij)
+- ExperimentalIJ ExperimentalH3ToLocalIJ(Code.H3Index origin, Code.H3Index h3)
+- HexRangeResult experimentalLocalIJToH3(Code.H3Index origin, Code.LocalIJ.CoordIJ ij)

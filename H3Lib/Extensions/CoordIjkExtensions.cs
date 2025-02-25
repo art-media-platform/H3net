@@ -1,17 +1,17 @@
 using System;
 using System.Linq;
 
-namespace H3Lib.Extensions
+namespace H3Lib
 {
     /// <summary>
-    /// Extension methods for CoordIjk type
+    /// Extension methods for CoordIJK type
     /// </summary>
-    public static class CoordIjkExtensions
+    public static class CoordIJKExtensions
     {
         /// <summary>
         /// Tests if all coordinates are zero
         /// </summary>
-        public static bool IsZero(this CoordIjk ijk)
+        public static bool IsZero(this CoordIJK ijk)
         {
             return ijk.I == 0 && ijk.J == 0 && ijk.K == 0;
         }
@@ -19,7 +19,7 @@ namespace H3Lib.Extensions
         /// <summary>
         /// Returns sum of all coordinates
         /// </summary>
-        public static int Sum(this CoordIjk ijk)
+        public static int Sum(this CoordIJK ijk)
         {
             return ijk.I + ijk.J + ijk.K;
         }
@@ -27,48 +27,48 @@ namespace H3Lib.Extensions
         /// <summary>
         /// Change I coordinate value
         /// </summary>
-        public static CoordIjk SetI(this CoordIjk ijk, int i)
+        public static CoordIJK SetI(this CoordIJK ijk, int i)
         {
-            return new CoordIjk(i, ijk.J, ijk.K);
+            return new CoordIJK(i, ijk.J, ijk.K);
         }
         /// <summary>
         /// Change J coordinate value
         /// </summary>
-        public static CoordIjk SetJ(this CoordIjk ijk, int j)
+        public static CoordIJK SetJ(this CoordIJK ijk, int j)
         {
-            return new CoordIjk(ijk.I, j, ijk.K);
+            return new CoordIJK(ijk.I, j, ijk.K);
         }
         
         /// <summary>
         /// Change K coordinate value
         /// </summary>
-        public static CoordIjk SetK(this CoordIjk ijk, int k)
+        public static CoordIJK SetK(this CoordIJK ijk, int k)
         {
-            return new CoordIjk(ijk.I, ijk.J, k);
+            return new CoordIJK(ijk.I, ijk.J, k);
         }
 
         /// <summary>
         /// Change IJ coordinates value
         /// </summary>
-        public static CoordIjk SetIJ(this CoordIjk ijk, int i, int j)
+        public static CoordIJK SetIJ(this CoordIJK ijk, int i, int j)
         {
-            return new CoordIjk(i, j, ijk.K);
+            return new CoordIJK(i, j, ijk.K);
         }
 
         /// <summary>
         /// Change JK coordinates value
         /// </summary>
-        public static CoordIjk SetIK(this CoordIjk ijk, int i, int k)
+        public static CoordIJK SetIK(this CoordIJK ijk, int i, int k)
         {
-            return new CoordIjk(i, ijk.J, k);
+            return new CoordIJK(i, ijk.J, k);
         }
 
         /// <summary>
         /// Change JK coordinates value
         /// </summary>
-        public static CoordIjk SetJK(this CoordIjk ijk, int j, int k)
+        public static CoordIJK SetJK(this CoordIJK ijk, int j, int k)
         {
-            return new CoordIjk(ijk.I, j, k);
+            return new CoordIJK(ijk.I, j, k);
         }
         
         /// <summary>
@@ -77,14 +77,14 @@ namespace H3Lib.Extensions
         /// <param name="h">The ijk coordinates of the hex.</param>
         /// <!--
         /// coordijk,c
-        /// void _ijkToHex2d
+        /// void _ijkToHex2D
         /// -->
-        internal static Vec2d ToHex2d(this CoordIjk h)
+        internal static Vec2D ToHex2D(this CoordIJK h)
         {
             int i = h.I - h.K;
             int j = h.J - h.K;
 
-            return new Vec2d(i - 0.5 * j, j * Constants.H3.M_SQRT3_2);
+            return new Vec2D(i - 0.5 * j, j * Constants.H3.M_SQRT3_2);
         }
 
         /// <summary>
@@ -96,7 +96,7 @@ namespace H3Lib.Extensions
         /// coordijk.c
         /// void _ijkNormalize
         /// -->
-        internal static CoordIjk Normalized(this CoordIjk coord)
+        internal static CoordIJK Normalized(this CoordIJK coord)
         {
             (int i, int j, int k) = (coord.I, coord.J, coord.K);
             
@@ -123,8 +123,8 @@ namespace H3Lib.Extensions
             int min = new[] {i, j, k}.Min();
             
             return min <= 0
-                       ? new CoordIjk(i, j, k)
-                       : new CoordIjk(i - min, j - min, k - min);
+                       ? new CoordIJK(i, j, k)
+                       : new CoordIJK(i - min, j - min, k - min);
         }
 
         /// <summary>
@@ -139,10 +139,10 @@ namespace H3Lib.Extensions
         /// coordijk.c
         /// Direction _unitIjkToDigit
         /// -->
-        internal static Direction ToDirection(this CoordIjk ijk)
+        internal static Direction ToDirection(this CoordIJK ijk)
         {
             var c = ijk.Normalized();
-            var test = Constants.CoordIjk.UnitVectors.Where(pair => pair.Value == c).ToList();
+            var test = Constants.CoordIJK.UnitVectors.Where(pair => pair.Value == c).ToList();
 
             return test.Any()
                        ? test.First().Key
@@ -158,7 +158,7 @@ namespace H3Lib.Extensions
         /// coordijk.c
         /// void _upAp7
         /// -->
-        internal static CoordIjk UpAp7(this CoordIjk ijk)
+        internal static CoordIJK UpAp7(this CoordIJK ijk)
         {
             // convert to CoordIJ
             int i = ijk.I - ijk.K;
@@ -170,7 +170,7 @@ namespace H3Lib.Extensions
             var dividendJ = (double)(i + 2 * j);
             var newJ = (int) Math.Round(dividendJ / 7.0, MidpointRounding.AwayFromZero);
 
-            return new CoordIjk(newI, newJ, 0).Normalized();
+            return new CoordIJK(newI, newJ, 0).Normalized();
         }
 
         /// <summary>
@@ -182,7 +182,7 @@ namespace H3Lib.Extensions
         /// coordijk.c
         /// void _upAp7r
         /// -->
-        internal static CoordIjk UpAp7R(this CoordIjk ijk)
+        internal static CoordIJK UpAp7R(this CoordIJK ijk)
         {
             // convert to CoordIJ
             int i = ijk.I - ijk.K;
@@ -191,7 +191,7 @@ namespace H3Lib.Extensions
             var newI = (int) Math.Round((2 * i + j) / 7.0, MidpointRounding.AwayFromZero);
             var newJ = (int) Math.Round((3 * j - i) / 7.0, MidpointRounding.AwayFromZero);
 
-            return new CoordIjk(newI, newJ, 0).Normalized();
+            return new CoordIJK(newI, newJ, 0).Normalized();
         }
 
         /// <summary>
@@ -204,11 +204,11 @@ namespace H3Lib.Extensions
         /// coordijk.c
         /// void _downAp7
         /// -->
-        internal static CoordIjk DownAp7(this CoordIjk ijk)
+        internal static CoordIJK DownAp7(this CoordIJK ijk)
         {
-            var iVec = new CoordIjk(3, 0, 1) * ijk.I;
-            var jVec = new CoordIjk(1, 3, 0) * ijk.J;
-            var kVec = new CoordIjk(0, 1, 3) * ijk.K;
+            var iVec = new CoordIJK(3, 0, 1) * ijk.I;
+            var jVec = new CoordIJK(1, 3, 0) * ijk.J;
+            var kVec = new CoordIJK(0, 1, 3) * ijk.K;
 
             return (iVec + jVec + kVec).Normalized();
         }
@@ -222,11 +222,11 @@ namespace H3Lib.Extensions
         /// coordijk.c
         /// void _downAp7r
         /// -->
-        internal static CoordIjk DownAp7R(this CoordIjk ijk)
+        internal static CoordIJK DownAp7R(this CoordIJK ijk)
         {
-            var iVec = new CoordIjk(3, 1, 0) * ijk.I;
-            var jVec = new CoordIjk(0, 3, 1) * ijk.J;
-            var kVec = new CoordIjk(1, 0, 3) * ijk.K;
+            var iVec = new CoordIJK(3, 1, 0) * ijk.I;
+            var jVec = new CoordIJK(0, 3, 1) * ijk.J;
+            var kVec = new CoordIJK(1, 0, 3) * ijk.K;
 
             return (iVec + jVec + kVec).Normalized();
         }
@@ -241,14 +241,14 @@ namespace H3Lib.Extensions
         /// coordijk.c
         /// void _neighbor
         /// -->
-        internal static CoordIjk Neighbor(this CoordIjk ijk, Direction digit)
+        internal static CoordIJK Neighbor(this CoordIJK ijk, Direction digit)
         {
             if (digit <= Direction.CENTER_DIGIT || digit >= Direction.NUM_DIGITS)
             {
                 return ijk;
             }
 
-            return (ijk + Constants.CoordIjk.UnitVectors[digit]).Normalized();
+            return (ijk + Constants.CoordIJK.UnitVectors[digit]).Normalized();
         }
 
         /// <summary>
@@ -259,12 +259,12 @@ namespace H3Lib.Extensions
         /// coordijk.c
         /// void _ijkRotate60ccw
         /// -->
-        internal static CoordIjk RotateCCW(this CoordIjk ijk)
+        internal static CoordIJK RotateCCW(this CoordIJK ijk)
         {
             // unit vector rotations
-            var iVec = new CoordIjk(1, 1, 0) * ijk.I;
-            var jVec = new CoordIjk(0, 1, 1) * ijk.J;
-            var kVec = new CoordIjk(1, 0, 1) * ijk.K;
+            var iVec = new CoordIJK(1, 1, 0) * ijk.I;
+            var jVec = new CoordIJK(0, 1, 1) * ijk.J;
+            var kVec = new CoordIJK(1, 0, 1) * ijk.K;
 
             return (iVec + jVec + kVec).Normalized();
         }
@@ -277,12 +277,12 @@ namespace H3Lib.Extensions
         /// coordijk.c
         /// void _ijkRotate60cw
         /// -->
-        internal static CoordIjk RotateCW(this CoordIjk ijk)
+        internal static CoordIJK RotateCW(this CoordIJK ijk)
         {
             // unit vector rotations
-            var iVec = new CoordIjk(1, 0, 1) * ijk.I;
-            var jVec = new CoordIjk(1, 1, 0) * ijk.J;
-            var kVec = new CoordIjk(0, 1, 1) * ijk.K;
+            var iVec = new CoordIJK(1, 0, 1) * ijk.I;
+            var jVec = new CoordIJK(1, 1, 0) * ijk.J;
+            var kVec = new CoordIJK(0, 1, 1) * ijk.K;
 
             return (iVec + jVec + kVec).Normalized();
         }
@@ -297,12 +297,12 @@ namespace H3Lib.Extensions
         /// coordijk.c
         /// void _downAp3
         /// -->
-        internal static CoordIjk DownAp3(this CoordIjk ijk)
+        internal static CoordIJK DownAp3(this CoordIJK ijk)
         {
             // res r unit vectors in res r+1
-            var iVec = new CoordIjk(2, 0, 1) * ijk.I;
-            var jVec = new CoordIjk(1, 2, 0) * ijk.J;
-            var kVec = new CoordIjk(0, 1, 2) * ijk.K;
+            var iVec = new CoordIJK(2, 0, 1) * ijk.I;
+            var jVec = new CoordIJK(1, 2, 0) * ijk.J;
+            var kVec = new CoordIJK(0, 1, 2) * ijk.K;
 
             return (iVec + jVec + kVec).Normalized();
         }
@@ -316,12 +316,12 @@ namespace H3Lib.Extensions
         /// coordijk.c
         /// void _downAp3r
         /// -->
-        internal static CoordIjk DownAp3R(this CoordIjk ijk)
+        internal static CoordIJK DownAp3R(this CoordIJK ijk)
         {
             // res r unit vectors in res r+1
-            var iVec = new CoordIjk(2, 1, 0) * ijk.I;
-            var jVec = new CoordIjk(0, 2, 1) * ijk.J;
-            var kVec = new CoordIjk(1, 0, 2) * ijk.K;
+            var iVec = new CoordIJK(2, 1, 0) * ijk.I;
+            var jVec = new CoordIJK(0, 2, 1) * ijk.J;
+            var kVec = new CoordIJK(1, 0, 2) * ijk.K;
 
             return (iVec + jVec + kVec).Normalized();
         }
@@ -335,10 +335,10 @@ namespace H3Lib.Extensions
         /// coordijk.c
         /// int ijkDistance
         /// -->
-        public static int DistanceTo(this CoordIjk start, CoordIjk end)
+        public static int DistanceTo(this CoordIJK start, CoordIJK end)
         {
             var diff = (start - end).Normalized();
-            var absDiff = new CoordIjk(Math.Abs(diff.I), Math.Abs(diff.J), Math.Abs(diff.K));
+            var absDiff = new CoordIJK(Math.Abs(diff.I), Math.Abs(diff.J), Math.Abs(diff.K));
             return new[] {absDiff.I, absDiff.J, absDiff.K}.Max();
         }
 
@@ -350,9 +350,9 @@ namespace H3Lib.Extensions
         /// coordijk.c
         /// void ijkToIj
         /// -->
-        public static CoordIj ToIj(this CoordIjk ijk)
+        public static CoordIJ ToIj(this CoordIJK ijk)
         {
-            return new CoordIj(ijk.I - ijk.K, ijk.J - ijk.K);
+            return new CoordIJ(ijk.I - ijk.K, ijk.J - ijk.K);
         }
 
         /// <summary>
@@ -363,14 +363,14 @@ namespace H3Lib.Extensions
         /// coordijk.c
         /// void ijkToCube
         /// -->
-        public static CoordIjk ToCube(this CoordIjk ijk)
+        public static CoordIJK ToCube(this CoordIJK ijk)
         {
             (int i, int j, int k) = (ijk.I, ijk.J, ijk.K);
             i = -i + k;
             j -= k;
             k = -i - j;
 
-            return new CoordIjk(i, j, k);
+            return new CoordIJK(i, j, k);
         }
 
         /// <summary>
@@ -381,9 +381,9 @@ namespace H3Lib.Extensions
         /// coordijk.c
         /// void cubeToIjk
         /// -->
-        public static CoordIjk FromCube(this CoordIjk ijk)
+        public static CoordIJK FromCube(this CoordIJK ijk)
         {
-            return new CoordIjk(-ijk.I, ijk.J, 0).Normalized();
+            return new CoordIJK(-ijk.I, ijk.J, 0).Normalized();
         }
         
         /// <summary>
@@ -402,7 +402,7 @@ namespace H3Lib.Extensions
         /// localij.c
         /// int localIjkToH3
         /// -->
-        public static (int, H3Index) LocalIjkToH3(this CoordIjk ijk, H3Index origin)
+        public static (int, H3Index) LocalIJKToH3(this CoordIJK ijk, H3Index origin)
         {
             int res = origin.Resolution;
             int originBaseCell = origin.BaseCell;
@@ -411,7 +411,7 @@ namespace H3Lib.Extensions
             // This logic is very similar to faceIjkToH3
             // initialize the index
 
-            var outH3 = new H3Index(Constants.H3Index.H3_INIT);
+            var outH3 = new H3Index(Constants.H3_INIT);
             outH3 = outH3.SetMode(H3Mode.Hexagon).SetResolution(res);
 
             // check for res 0/base cell
@@ -437,27 +437,27 @@ namespace H3Lib.Extensions
             // we need to find the correct base cell offset (if any) for this H3 index;
             // start with the passed in base cell and resolution res ijk coordinates
             // in that base cell's coordinate system
-            var ijkCopy = new CoordIjk(ijk);
+            var ijkCopy = new CoordIJK(ijk);
 
             // build the H3Index from finest res up
             // adjust r for the fact that the res 0 base cell offsets the indexing
             // digits
             for (int r = res - 1; r >= 0; r--)
             {
-                var lastIJK = new CoordIjk(ijkCopy);
-                CoordIjk lastCenter;
+                var lastIJK = new CoordIJK(ijkCopy);
+                CoordIJK lastCenter;
                 if ((r+1).IsResClassIii())
                 {
                     // rotate ccw
                     ijkCopy = ijkCopy.UpAp7();
-                    lastCenter = new CoordIjk(ijkCopy);
+                    lastCenter = new CoordIJK(ijkCopy);
                     lastCenter = lastCenter.DownAp7();
                 }
                 else
                 {
                     // rotate cw
                     ijkCopy = ijkCopy.UpAp7R();
-                    lastCenter = new CoordIjk(ijkCopy);
+                    lastCenter = new CoordIJK(ijkCopy);
                     lastCenter = lastCenter.DownAp7R();
                 }
 
@@ -612,7 +612,7 @@ namespace H3Lib.Extensions
                 return (0, outH3.SetBaseCell(baseCell));
             }
 
-            // TODO: There are cases in h3ToLocalIjk which are failed but not
+            // TODO: There are cases in h3ToLocalIJK which are failed but not
             // accounted for here - instead just fail if the recovered index is
             // invalid.
             return outH3.LeadingNonZeroDigit == Direction.K_AXES_DIGIT

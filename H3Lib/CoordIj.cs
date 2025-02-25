@@ -7,7 +7,7 @@ namespace H3Lib
     ///
     /// Each axis is spaced 120 degrees apart
     /// </summary>
-    public readonly struct CoordIj : IEquatable<CoordIj>
+    public readonly struct CoordIJ : IEquatable<CoordIJ>
     {
         /// <summary>
         /// I Component
@@ -21,7 +21,7 @@ namespace H3Lib
         /// <summary>
         /// Constructor
         /// </summary>
-        public CoordIj(int i, int j) : this()
+        public CoordIJ(int i, int j) : this()
         {
             I = i;
             J = j;
@@ -30,7 +30,7 @@ namespace H3Lib
         /// <summary>
         /// Constructor
         /// </summary>
-        public CoordIj(CoordIj ij)
+        public CoordIJ(CoordIJ ij)
         {
             I = ij.I;
             J = ij.J;
@@ -39,7 +39,7 @@ namespace H3Lib
         /// <summary>
         /// Test for equality
         /// </summary>
-        public bool Equals(CoordIj other)
+        public bool Equals(CoordIJ other)
         {
             return I == other.I && J == other.J;
         }
@@ -49,7 +49,7 @@ namespace H3Lib
         /// </summary>
         public override bool Equals(object obj)
         {
-            return obj is CoordIj other && Equals(other);
+            return obj is CoordIJ other && Equals(other);
         }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace H3Lib
         /// <summary>
         /// Test for equality
         /// </summary>
-        public static bool operator ==(CoordIj left, CoordIj right)
+        public static bool operator ==(CoordIJ left, CoordIJ right)
         {
             return left.Equals(right);
         }
@@ -71,7 +71,7 @@ namespace H3Lib
         /// <summary>
         /// Test for inequality
         /// </summary>
-        public static bool operator !=(CoordIj left, CoordIj right)
+        public static bool operator !=(CoordIJ left, CoordIJ right)
         {
             return !left.Equals(right);
         }
@@ -79,25 +79,25 @@ namespace H3Lib
         /// <summary>
         /// Addition operator
         /// </summary>
-        public static CoordIj operator+(CoordIj c1,CoordIj c2)
+        public static CoordIJ operator+(CoordIJ c1,CoordIJ c2)
         {
-            return new CoordIj(c1.I + c2.I, c1.J + c2.J);
+            return new CoordIJ(c1.I + c2.I, c1.J + c2.J);
         }
 
         /// <summary>
         /// Subtraction operator
         /// </summary>
-        public static CoordIj operator-(CoordIj c1,CoordIj c2)
+        public static CoordIJ operator-(CoordIJ c1,CoordIJ c2)
         {
-            return new CoordIj(c1.I - c2.I, c1.J - c2.J);
+            return new CoordIJ(c1.I - c2.I, c1.J - c2.J);
         }
 
         /// <summary>
         /// Multiply operator for scaling
         /// </summary>
-        public static CoordIj operator *(CoordIj c, int scalar)
+        public static CoordIJ operator *(CoordIJ c, int scalar)
         {
-            return new CoordIj(c.I * scalar, c.J * scalar);
+            return new CoordIJ(c.I * scalar, c.J * scalar);
         }
 
     }

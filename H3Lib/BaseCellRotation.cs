@@ -18,15 +18,15 @@ namespace H3Lib
         /// <summary>
         /// number of ccw 60 degree rotations relative to current face
         /// </summary>
-        public readonly int CounterClockwiseRotate60;
+        public readonly int CCWRotate;
         
         /// <summary>
         /// constructor
         /// </summary>
-        public BaseCellRotation(int baseCell, int counterClockwiseRotate60)
+        public BaseCellRotation(int baseCell, int ccwRotate)
         {
             BaseCell = baseCell;
-            CounterClockwiseRotate60 = counterClockwiseRotate60;
+            CCWRotate = ccwRotate;
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace H3Lib
         public bool Equals(BaseCellRotation other)
         {
             return BaseCell == other.BaseCell &&
-                   CounterClockwiseRotate60 == other.CounterClockwiseRotate60;
+                   CCWRotate == other.CCWRotate;
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace H3Lib
         /// </summary>
         public override int GetHashCode()
         {
-            return HashCode.Combine(BaseCell, CounterClockwiseRotate60);
+            return HashCode.Combine(BaseCell, CCWRotate);
         }
 
         /// <summary>
